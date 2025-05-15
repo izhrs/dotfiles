@@ -3,37 +3,9 @@
 {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
-  home.stateVersion = "24.11";
+  home.stateVersion = "24.11"; 
   
-  home.packages = with pkgs; [
-    bat
-    bottom
-    cargo
-    curl
-    dust
-    delta
-    fzf
-    fd
-    gcc
-    k3s
-    kubectl
-    miniserve
-    nodejs_24
-    nodePackages.prettier
-    procs
-    python314
-    rsync
-    rust-analyzer
-    ripgrep
-    sd
-    tokei
-    tree
-    wget
-    yarn
-    yt-dlp
-    zip
-    unzip
-  ];
+  home.packages = [];
 
   home.file = {};
 
@@ -42,6 +14,10 @@
   };
 
   programs.home-manager.enable = true;
+
+  xdg.mimeApps.defaultApplications = {
+    "text/plain" = [ "neovide.desktop" ];
+  };
 
   programs.git = {
     enable = true;
@@ -54,12 +30,27 @@
     };
   };
 
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      font-size = 13;
+      font-family = "JetBrainsMono Nerd Font";
+      theme = "carbonfox";
+      window-padding-x = 10;
+      background-opacity = "0.7";
+      background-blur = 40;
+      window-decoration = "none";
+    };
+  };
+
   programs.nushell = {
     enable = true;
     settings = {
       show_banner = false;
     };
-
+    environmentVariables = {
+      EDITOR = "nvim";
+    };
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
@@ -71,14 +62,9 @@
       serve = "miniserve";
       fm = "yazi";
     };
-
-    environmentVariables = {
-      EDITOR = "nvim";
-    };
-
-    envFile.text = "$env.PATH = ($env.PATH | append '/home/izhrs/.nix-profile/bin/' | append '/nix/var/nix/profiles/default/bin/')";
   };
-
+  
+  # shell completion
   programs.carapace = {
     enable = true;
     enableBashIntegration = true;
@@ -100,7 +86,7 @@
 
       hostname = {
         ssh_only = false;
-        format = "on [nixos\\]\\]](bold blue)";
+        format = "on [\$hostname\\]\\]](bold blue) ";
         trim_at = ".";
         disabled = false;
       };
@@ -214,7 +200,7 @@
     };
 
   };
-
+  
   programs.fastfetch = {
     enable = true;
   };
@@ -234,13 +220,4 @@
 #       use = "moonfly";
 #     };
   };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
 }
-
-
