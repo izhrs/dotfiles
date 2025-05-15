@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -84,9 +83,10 @@
     isNormalUser = true;
     description = "Mohamed Izhar";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
     shell = pkgs.nushell;
   };
 
@@ -99,7 +99,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    
+
     # CLI
     bat
     bottom
@@ -107,22 +107,24 @@
     curl
     delta
     dust
-    fd
-    fzf
+    fd # for nvim
+    fzf # for nvim
     gcc
     home-manager
     k3s
     kubectl
+    lazygit # for nvim
     miniserve
     neovim
     nerd-fonts.jetbrains-mono
+    nixfmt-classic # nix formatter for neovim
     nodejs_22
     nodejs_24
-    nodePackages.prettier
+    nodePackages.prettier # for nvim
     nushell
     procs
     python314
-    ripgrep
+    ripgrep # for nvim
     rsync
     rust-analyzer
     sd

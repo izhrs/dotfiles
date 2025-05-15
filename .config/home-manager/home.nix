@@ -3,21 +3,17 @@
 {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
-  home.stateVersion = "24.11"; 
-  
-  home.packages = [];
+  home.stateVersion = "24.11";
 
-  home.file = {};
+  home.packages = [ ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.file = { };
+
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   programs.home-manager.enable = true;
 
-  xdg.mimeApps.defaultApplications = {
-    "text/plain" = [ "neovide.desktop" ];
-  };
+  xdg.mimeApps.defaultApplications = { "text/plain" = [ "neovide.desktop" ]; };
 
   programs.git = {
     enable = true;
@@ -30,6 +26,8 @@
     };
     delta.enable = true;
   };
+
+  programs.lazygit.enable = true;
 
   programs.ghostty = {
     enable = true;
@@ -46,12 +44,8 @@
 
   programs.nushell = {
     enable = true;
-    settings = {
-      show_banner = false;
-    };
-    environmentVariables = {
-      EDITOR = "nvim";
-    };
+    settings = { show_banner = false; };
+    environmentVariables = { EDITOR = "nvim"; };
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
@@ -62,9 +56,10 @@
       diff = "delta";
       serve = "miniserve";
       fm = "yazi";
+      gg = "lazygit";
     };
   };
-  
+
   # shell completion
   programs.carapace = {
     enable = true;
@@ -87,7 +82,7 @@
 
       hostname = {
         ssh_only = false;
-        format = "on [\$hostname\\]\\]](bold blue) ";
+        format = "on [$hostname\\]\\]](bold blue) ";
         trim_at = ".";
         disabled = false;
       };
@@ -109,7 +104,8 @@
         show_milliseconds = false;
         disabled = false;
         style = "bold italic cyan";
-        format = "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
+        format =
+          "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
       };
 
       aws.symbol = "  ";
@@ -121,11 +117,8 @@
         format = "via [$symbol$context]($style) ";
         style = "blue bold";
         only_with_files = true;
-        detect_files = [
-          "docker-compose.yml"
-          "docker-compose.yaml"
-          "Dockerfile"
-        ];
+        detect_files =
+          [ "docker-compose.yml" "docker-compose.yaml" "Dockerfile" ];
         detect_folders = [ ];
         disabled = false;
       };
@@ -171,15 +164,11 @@
 
       python = {
         symbol = "🐍 ";
-        format = "via [\${symbol}python (\${version} )(\\(\${virtualenv}\\) )]($style)";
+        format =
+          "via [\${symbol}python (\${version} )(\\(\${virtualenv}\\) )]($style)";
         style = "bold yellow";
         pyenv_prefix = "venv ";
-        python_binary = [
-          "./venv/bin/python"
-          "python"
-          "python3"
-          "python2"
-        ];
+        python_binary = [ "./venv/bin/python" "python" "python3" "python2" ];
         detect_extensions = [ "py" ];
         version_format = "v\${raw}";
       };
@@ -192,33 +181,26 @@
 
       nodejs = {
         format = "via [󰎙 Node.js $version](bold green) ";
-        detect_files = [
-          "package.json"
-          ".node-version"
-        ];
+        detect_files = [ "package.json" ".node-version" ];
         detect_folders = [ "node_modules" ];
       };
     };
 
   };
-  
-  programs.fastfetch = {
-    enable = true;
-  };
+
+  programs.fastfetch = { enable = true; };
 
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
     enableNushellIntegration = true;
-    options = [
-      "--cmd cd"
-    ];
+    options = [ "--cmd cd" ];
   };
 
   programs.yazi = {
     enable = true;
-#     flavors = {
-#       use = "moonfly";
-#     };
+    #     flavors = {
+    #       use = "moonfly";
+    #     };
   };
 }
