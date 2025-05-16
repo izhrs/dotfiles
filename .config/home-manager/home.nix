@@ -34,8 +34,9 @@
     enable = true;
     settings = {
       git.paging = {
+        pager = "delta --dark --line-numbers --paging=never";
         colorArg = "always";
-        useConfig = true; # use git config for colors
+        useConfig = false;
       };
     };
   };
