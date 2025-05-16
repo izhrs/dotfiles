@@ -24,10 +24,21 @@
       co = "checkout";
       cm = "commit";
     };
-    delta.enable = true;
+    delta = {
+      enable = true;
+      options = { line-numbers = true; };
+    };
   };
 
-  programs.lazygit.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      git.paging = {
+        colorArg = "always";
+        useConfig = true; # use git config for colors
+      };
+    };
+  };
 
   programs.ghostty = {
     enable = true;
