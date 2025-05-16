@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -109,6 +107,7 @@
     home-manager
     k3s
     lazygit # for nvim
+    lemonade # ssh clipboard tool for remote nvim
     miniserve
     neovim
     nerd-fonts.jetbrains-mono
@@ -126,6 +125,7 @@
     tree
     unzip
     wget
+    xclip # clipboard tool for nvim
     yarn
     yt-dlp
     zip
@@ -160,5 +160,6 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  programs.nix-ld.enable = true; # Enable Nix-ld for dynamic linking (running elf binaries)
+  # Enable Nix-ld for dynamic linking (running elf binaries)
+  programs.nix-ld.enable = true;
 }
