@@ -112,13 +112,11 @@
     gcc
     home-manager
     k3s
-    kubectl
     lazygit # for nvim
     miniserve
     neovim
     nerd-fonts.jetbrains-mono
     nixfmt-classic # nix formatter for neovim
-    nodejs_22
     nodejs_24
     nodePackages.prettier # for nvim
     nushell
@@ -166,5 +164,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  programs.nix-ld.enable = true;
+  programs.nix-ld.enable = true; # Enable Nix-ld for dynamic linking (running elf binaries)
 }
