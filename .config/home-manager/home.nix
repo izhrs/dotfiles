@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
-
-{
+let
+  moonflyTheme = pkgs.fetchFromGitHub {
+    owner = "tkapias";
+    repo = "moonfly.yazi";
+    rev = "main";
+    sha256 = "sha256-9K2e+wodG3XOdcKgPJA4fYZCXZylWRTRM1IHrc+I7bw";
+  };
+in {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "24.11";
@@ -51,6 +57,21 @@
       background-opacity = "0.7";
       background-blur = 40;
       window-decoration = "none";
+    };
+  };
+
+  programs.kitty = {
+    enable = true;
+    font.size = 13;
+    font.name = "JetBrainsMono Nerd Font Mono";
+    settings = {
+      background_opacity = 0.3;
+      placement_strategy = "center";
+      window_padding_width = "0 10";
+      background_blur = 40;
+      hide_window_decorations = true;
+      enable_audio_bell = false;
+      window_alert_on_bell = false;
     };
   };
 
@@ -197,7 +218,6 @@
         detect_folders = [ "node_modules" ];
       };
     };
-
   };
 
   programs.fastfetch = { enable = true; };
@@ -211,8 +231,27 @@
 
   programs.yazi = {
     enable = true;
-    #     flavors = {
-    #       use = "moonfly";
-    #     };
+    plugins = {
+      full-border = pkgs.yaziPlugins.full-border;
+      starship = pkgs.yaziPlugins.starship;
+    };
+    initLua = ''
+      require("full-border"):setup()
+      require("starship"):setup()
+    '';
+    theme = {
+      flavor = {
+        light = "moonfly";
+        dark = "moonfly";
+      };
+    };
+    flavors = { moonfly = moonflyTheme; };
+    settings = {
+      manager = {
+        show_hidden = true;
+        sort_by = "mtime";
+        sort_reverse = true;
+      };
+    };
   };
 }
