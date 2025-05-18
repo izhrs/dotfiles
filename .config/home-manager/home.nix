@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  moonflyTheme = pkgs.fetchFromGitHub {
+  moonflyYaziTheme = pkgs.fetchFromGitHub {
     owner = "tkapias";
     repo = "moonfly.yazi";
     rev = "main";
@@ -65,7 +65,7 @@ in {
     font.size = 13;
     font.name = "JetBrainsMono Nerd Font Mono";
     settings = {
-      background_opacity = 0.9;
+      background_opacity = 0.85;
       placement_strategy = "center";
       window_padding_width = "10 10";
       background_blur = 40;
@@ -245,9 +245,11 @@ in {
         dark = "moonfly";
       };
     };
-    flavors = { moonfly = moonflyTheme; };
+    flavors = { moonfly = moonflyYaziTheme; };
     settings = {
       manager = {
+        # 2/9 width for parent, 4/9 for main, 3/9 for preview
+        ratio = [ 2 4 3 ];
         show_hidden = true;
         sort_by = "mtime";
         sort_reverse = true;
