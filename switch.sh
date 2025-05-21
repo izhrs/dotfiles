@@ -25,16 +25,15 @@ function main() {
   sys)
 
     for file in ./*.nix; do
-      if [[ -f /etc/nixos/$file ]]; then
-        delta $file /etc/nixos/$file
+      local filename=$(basename "$file")
+      if [[ -f /etc/nixos/$filename ]]; then
+        delta /etc/nixos/$filename $file
       else
-        sudo touch /etc/nixos/$file
-        delta $file /etc/nixos/$file
+        sudo touch /etc/nixos/$filename
+        delta /etc/nixos/$filename $file
       fi
     done
 
-    delta /etc/nixos/configuration.nix configuration.nix
-    delta /etc/nixos/flake.nix flake.nix
     if prompt "system"; then
       sudo cp ./*.nix /etc/nixos/
       sudo nixos-rebuild switch
@@ -44,11 +43,12 @@ function main() {
   home)
 
     for file in .config/home-manager/*.nix; do
-      if [[ -f ~/.config/home-manager/$file ]]; then
-        delta $file ~/.config/home-manager/$file
+      local filename=$(basename "$file")
+      if [[ -f ~/.config/home-manager/$filename ]]; then
+        delta ~/.config/home-manager/$filename $file
       else
-        touch ~/.config/home-manager/$file
-        delta $file ~/.config/home-manager/$file
+        touch ~/.config/home-manager/$filename
+        delta ~/.config/home-manager/$filename $file
       fi
     done
 
