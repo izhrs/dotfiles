@@ -23,6 +23,16 @@ function main() {
 
   case "$arg" in
   sys)
+
+    for file in ./*.nix; do
+      if [[ -f /etc/nixos/$file ]]; then
+        delta $file /etc/nixos/$file
+      else
+        sudo touch /etc/nixos/$file
+        delta $file /etc/nixos/$file
+      fi
+    done
+
     delta /etc/nixos/configuration.nix configuration.nix
     delta /etc/nixos/flake.nix flake.nix
     if prompt "system"; then
@@ -32,8 +42,16 @@ function main() {
     ;;
 
   home)
-    delta ~/.config/home-manager/home.nix .config/home-manager/home.nix
-    delta ~/.config/home-manager/flake.nix .config/home-manager/flake.nix
+
+    for file in .config/home-manager/*.nix; do
+      if [[ -f ~/.config/home-manager/$file ]]; then
+        delta $file ~/.config/home-manager/$file
+      else
+        touch ~/.config/home-manager/$file
+        delta $file ~/.config/home-manager/$file
+      fi
+    done
+
     if prompt "home"; then
       cp .config/home-manager/*.nix ~/.config/home-manager/
       home-manager switch
