@@ -28,15 +28,19 @@
   };
 
   services = {
-    xserver.enable = true;
-    xserver.displayManager.gdm.enable = true;
-    xserver.desktopManager.gnome.enable = true;
-    xserver.xkb = {
-      layout = "us";
-      variant = "";
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      # Enable touchpad support (enabled default in most desktopManager).
+      # libinput.enable = true;
+
+      videoDrivers = [ "nvidia" ];
     };
-    # Enable touchpad support (enabled default in most desktopManager).
-    # xserver.libinput.enable = true;
 
     printing.enable = true;
 
@@ -47,6 +51,28 @@
       pulse.enable = true;
     };
     # openssh.enable = true;
+  };
+
+  hardware = {
+    pulseaudio.enable = false;
+
+    # enable opengl
+    graphics.enable = true;
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      open = true;
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      powerManagement.finegrained = true;
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        intelBusId = "PCI:0:0:2";
+        nvidiaBusId = "PCI:1:0:0";
+      };
+    };
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -68,7 +94,6 @@
     LC_TIME = "en_IN";
   };
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   users.users.izhrs = {
@@ -124,6 +149,10 @@
     # GUI
     libreoffice
     protonvpn-gui
+
+    # Games Launchers
+    lutris
+    heroic
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -132,5 +161,8 @@
     # Enable Nix-ld for dynamic linking (running elf binaries)
     nix-ld.enable = true;
     steam.enable = true;
+    # to use gamemode with steam edit launch options inside
+    # game -> general -> launch options -> `gamemoderun %command%`
+    gamemode.enable = true;
   };
 }
