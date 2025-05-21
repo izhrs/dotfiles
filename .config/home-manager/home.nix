@@ -17,6 +17,9 @@ in {
 
   home.sessionVariables = { EDITOR = "nvim"; };
 
+  # for non nixos
+  # home.shell.enableNushellIntegration = true;
+
   programs.home-manager.enable = true;
 
   xdg.mimeApps.defaultApplications = { "text/plain" = [ "neovide.desktop" ]; };
@@ -32,7 +35,11 @@ in {
     };
     delta = {
       enable = true;
-      options = { line-numbers = true; };
+      options = {
+        line-numbers = true;
+        side-by-side = true;
+      };
+
     };
   };
 
@@ -40,23 +47,10 @@ in {
     enable = true;
     settings = {
       git.paging = {
-        pager = "delta --dark --line-numbers --paging=never";
+        pager = "delta --dark --line-numbers --side-by-side --paging=never";
         colorArg = "always";
         useConfig = false;
       };
-    };
-  };
-
-  programs.ghostty = {
-    enable = true;
-    settings = {
-      font-size = 13;
-      font-family = "JetBrainsMono Nerd Font";
-      theme = "carbonfox";
-      window-padding-x = 10;
-      background-opacity = "0.7";
-      background-blur = 40;
-      window-decoration = "none";
     };
   };
 
