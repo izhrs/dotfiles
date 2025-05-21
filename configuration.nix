@@ -107,8 +107,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    home-manager
 
-    # CLI
+    # CLI tools
     android-tools
     bat
     bottom
@@ -119,18 +120,15 @@
     fd # for nvim
     fzf # for nvim
     gcc
-    home-manager
     k3s
     lazygit # for nvim
     lemonade # ssh clipboard tool for remote nvim
     miniserve
     neovim
-    nerd-fonts.jetbrains-mono
     nixfmt-classic # nix formatter for neovim
     nodejs_24
     nodePackages.prettier # for nvim
     nushell
-    pciutils # for lspci and other commands
     procs
     python314
     ripgrep # for nvim
@@ -144,13 +142,30 @@
     xclip # clipboard tool for nvim
     yarn
     yt-dlp
+
+    # archives
+    p7zip
+    unzip
+    xz
     zip
+
+    # system
+    lsof
+    ltrace
+    pciutils # lspci
+    strace
+    sysstat
+    usbutils # lsusb
+
+    # UI
+    gnomeExtensions.blur-my-shell
+    nerd-fonts.jetbrains-mono
 
     # GUI
     libreoffice
     protonvpn-gui
 
-    # Games Launchers
+    # Gaming
     lutris
     heroic
   ];
