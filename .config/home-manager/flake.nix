@@ -18,8 +18,14 @@
       homeConfigurations."izhrs" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules =
-          [ ./home.nix ./gnome.nix ./kitty.nix ./starship.nix ./yazi.nix ];
+        modules = [
+          ./home.nix
+          ./gnome.nix
+          ./kitty.nix
+          ./starship.nix
+          ./yazi.nix
+          ./virt-manager.nix
+        ];
       };
     };
 }

@@ -75,6 +75,28 @@
     };
   };
 
+  # virtualisation 
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            (pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd
+          ];
+        };
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Asia/Kolkata";
@@ -99,10 +121,12 @@
   users.users.izhrs = {
     isNormalUser = true;
     description = "Mohamed Izhar";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "adbusers" ];
     packages = [ ];
     shell = pkgs.nushell;
   };
+
+  users.groups.libvirtd.members = [ "izhrs" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -164,6 +188,7 @@
     # GUI
     libreoffice
     protonvpn-gui
+    android-studio
 
     # Gaming
     lutris
@@ -179,5 +204,9 @@
     # to use gamemode with steam edit launch options inside
     # game -> general -> launch options -> `gamemoderun %command%`
     gamemode.enable = true;
+
+    # virtualisation
+    virt-manager.enable = true;
+    adb.enable = true;
   };
 }
