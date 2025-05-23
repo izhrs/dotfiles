@@ -151,7 +151,6 @@
     neovim
     nixfmt-classic # nix formatter for neovim
     nodejs_24
-    nodePackages.prettier # for nvim
     nushell
     procs
     python314
