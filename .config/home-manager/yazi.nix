@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
-  moonflyYaziTheme = pkgs.fetchFromGitHub {
-    owner = "tkapias";
-    repo = "moonfly.yazi";
+  yaziFlavors = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "flavors";
     rev = "main";
-    sha256 = "sha256-9K2e+wodG3XOdcKgPJA4fYZCXZylWRTRM1IHrc+I7bw";
+    sha256 = "sha256-7facwGT4DoaMwdkBrMzPlqDbrbSjwW57qRD34iP48+0=";
   };
 in {
   programs.yazi = {
@@ -16,21 +16,44 @@ in {
     initLua = ''
       require("full-border"):setup()
       require("starship"):setup()
+
+      function Linemode:size_and_mtime()
+          local time = math.floor(self._file.cha.mtime or 0)
+          if time == 0 then
+              time = ""
+          elseif os.date("%Y", time) == os.date("%Y") then
+              time = os.date("%b %d %H:%M", time)
+          else
+              time = os.date("%b %d  %Y", time)
+          end
+
+          local size = self._file:size()
+          return string.format("%s %s", size and ya.readable_size(size) or "dir", time)
+      end
     '';
     theme = {
       flavor = {
-        light = "moonfly";
-        dark = "moonfly";
+        light = "catppuccin-latte";
+        dark = "catppuccin-mocha";
       };
     };
-    flavors = { moonfly = moonflyYaziTheme; };
+    flavors = {
+      dracula = "${yaziFlavors}/dracula";
+      catppuccin-macchiato = "${yaziFlavors}/catppuccin-macchiato.yazi";
+      catppuccin-frappe = "${yaziFlavors}/catppuccin-frappe.yazi";
+      catppuccin-latte = "${yaziFlavors}/catppuccin-latte.yazi";
+      catppuccin-mocha = "${yaziFlavors}/catppuccin-mocha.yazi";
+    };
     settings = {
       manager = {
         # 2/9 width for parent, 4/9 for main, 3/9 for preview
         ratio = [ 2 4 3 ];
-        show_hidden = true;
+        show_hidden = false;
+        show_symlink = true;
         sort_by = "mtime";
         sort_reverse = true;
+        sort_dirs_first = true;
+        linemode = "size_and_mtime";
       };
     };
   };
