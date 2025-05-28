@@ -187,7 +187,10 @@
     # GUI
     libreoffice
     protonvpn-gui
-    android-studio
+
+    # Media
+    mpv
+    spotify
 
     # Gaming
     lutris
