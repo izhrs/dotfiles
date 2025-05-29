@@ -1,5 +1,11 @@
 ## Previews
 
+![disco.png](disco.png)
+
+![railroad-cat.png](railroad-cat.png)
+
+![pixel-napping.png](pixel-napping.png)
+
 ![aki_akane_nagori.png](aki_akane_nagori.png)
 
 ![astral_grave.png](astral_grave.png)
