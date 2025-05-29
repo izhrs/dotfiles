@@ -1,22 +1,15 @@
 
 # NixOS Configuration
 
-A personal NixOS configuration featuring a modern development environment with GNOME desktop, NVIDIA graphics support, and virtualization capabilities.
+A NixOS configuration centered around Home Manager for declarative user environment management, with NVIDIA graphics support and essential development tools.
+
 ## Screenshots
 
 coming soon
 
 ## Installation
 
-### TLDR: I do not provide magical script to transform you nix to mimic my config. Copy the individual program config from `home-manger` directory and configure/modify it according to your own liking. I do not recommend `switch.sh`, it's for my own convenience.
-
-1. Clone this repository
-2. Copy `hardware-configuration.nix` from your system
-3. Update user configuration in `configuration.nix`
-4. Apply configuration:
-   ```bash
-   sudo nixos-rebuild switch --flake .#nixos
-   ```
+### TLDR: I do not provide magical script to transform you nix to mimic my config. Copy the individual program config from `.config/home-manger` directory and configure/modify it according to your own liking. I do not recommend `switch.sh`, it's for my own convenience.
 
 ## Project Structure
 
@@ -34,9 +27,9 @@ coming soon
 This configuration includes home-manager for declarative user environment management. Home-manager allows you to manage user-specific packages, dotfiles, and services in a reproducible way.
 
 To set up home-manager:
-1. Create a `home.nix` configuration file or run `home-manager init`
+1. Install and setup `home-manager` with flake
 2. Configure user-specific settings and packages
-3. Copy the `*.nix` from `.config/home-manager/` directory. If you include or exclude any modules, make sure you edit `modules = [...]` in `flake.nix`
+3. Copy the individual `<program>.nix` from `.config/home-manager/` directory. If you include or exclude any modules, make sure you edit `modules = [...]` in `flake.nix`
 4. Apply with: `home-manager switch`
 
 ## Credits & Acknowledgments
