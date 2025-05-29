@@ -11,7 +11,8 @@ return {
             html = { "prettier" },
             css = { "prettier" },
             scss = { "prettier" },
-            -- svelte = { "prettier" },
+            markdown = { "prettier" },
+            svelte = { "prettier" },
         },
 
         formatters = {
