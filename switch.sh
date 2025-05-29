@@ -27,10 +27,11 @@ function main() {
     for file in ./*.nix; do
       local filename=$(basename "$file")
       if [[ -f /etc/nixos/$filename ]]; then
-        delta /etc/nixos/$filename $file
+        # Fallback to diff if delta is not available
+        delta /etc/nixos/$filename $file || diff /etc/nixos/$filename $file
       else
         sudo touch /etc/nixos/$filename
-        delta /etc/nixos/$filename $file
+        delta /etc/nixos/$filename $file || diff /etc/nixos/$filename $file
       fi
     done
 
@@ -45,10 +46,10 @@ function main() {
     for file in .config/home-manager/*.nix; do
       local filename=$(basename "$file")
       if [[ -f ~/.config/home-manager/$filename ]]; then
-        delta ~/.config/home-manager/$filename $file
+        delta ~/.config/home-manager/$filename $file || diff ~/.config/home-manager/$filename $file
       else
         touch ~/.config/home-manager/$filename
-        delta ~/.config/home-manager/$filename $file
+        delta ~/.config/home-manager/$filename $file || diff ~/.config/home-manager/$filename $file
       fi
     done
 
