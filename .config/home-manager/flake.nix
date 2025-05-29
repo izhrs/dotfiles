@@ -28,6 +28,9 @@
           ./kitty.nix
           ./starship.nix
           ./yazi.nix
+          ./git.nix
+          ./lazygit.nix
+          ./nushell.nix
           ./virt-manager.nix
           ./spicetify.nix
         ];
