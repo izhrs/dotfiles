@@ -36,7 +36,7 @@
       };
 
       username = {
-        style_user = "green bold";
+        style_user = "mauve bold";
         style_root = "red bold";
         format = "[╭─\\[\\[$user]($style) ";
         disabled = false;
@@ -51,22 +51,22 @@
       };
 
       character = {
-        success_symbol = "[╰──❯](bold green)[❯](bold cyan)[❯](bold blue)";
-        error_symbol = "[╰──](bold green)[❯❯❯](bold red)";
+        success_symbol = "[╰──❯](bold mauve)[❯](bold blue)[❯](bold green)";
+        error_symbol = "[╰──](bold mauve)[❯❯❯](bold red)";
       };
 
       directory = {
         read_only = " ";
         truncation_length = 10;
         truncate_to_repo = true;
-        style = "bold italic cyan";
+        style = "bold italic sky";
       };
 
       cmd_duration = {
         min_time = 4;
         show_milliseconds = false;
         disabled = false;
-        style = "bold italic cyan";
+        style = "bold italic sky";
         format =
           "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
       };
