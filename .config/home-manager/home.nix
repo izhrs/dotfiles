@@ -7,7 +7,10 @@
 
   home.file = { };
 
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    NIXOS_OZONE_WL = "1";
+  };
 
   # for non nixos
   # home.shell.enableNushellIntegration = true;
