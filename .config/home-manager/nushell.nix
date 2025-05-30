@@ -14,6 +14,7 @@
       serve = "miniserve";
       fm = "yazi";
       gg = "lazygit";
+      ff = "fastfetch";
       # TODO: remove this
       mnt = "~/.local/bin/mnt"; # you don't need this!!
     };
