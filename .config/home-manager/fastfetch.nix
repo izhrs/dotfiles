@@ -4,15 +4,20 @@
 
     settings = {
       logo = {
-        # type = "kitty";
-        # source = "~/.config/fastfetch/archpuccinn.png";
+        type = "kitty";
+        # logo source: https://camo.githubusercontent.com/955fca7bc4a99f4142047a976fff46c50616dd7d2a20aa1bf36ea04104bb025c/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67
+        source = "~/.nix.png";
         height = 16;
         width = 34;
         padding = {
-          top = 4;
-          left = 4;
+          top = 5;
+          bottom = 5;
+          right = 5;
+          left = 5;
         };
       };
+
+      display = { separator = " -> "; };
 
       modules = [
         "break"
@@ -27,19 +32,27 @@
           type = "title";
           key = " PC";
           keyColor = "green";
+          format = "{user-name-colored} on {host-name-colored}";
         }
 
         {
           type = "cpu";
           key = "│ ├󰍛 CPU";
           showPeCoreCount = true;
-          format = "{1}";
+          format = "{name} {freq-max}";
           keyColor = "green";
         }
 
         {
           type = "gpu";
           key = "│ ├󰍛 GPU";
+          keyColor = "green";
+          format = "{vendor} {name}";
+        }
+
+        {
+          type = "disk";
+          key = "│ ├󱛟 Disk";
           keyColor = "green";
         }
 
@@ -65,25 +78,29 @@
 
         {
           type = "os";
-          key = " OS";
+          key = " OS";
           keyColor = "yellow";
+          # TODO: use the pretty name
+          # format = "{pretty-name} {version-id} {codename}";
+          format = "NixOS {version-id} {codename}";
         }
 
         {
           type = "kernel";
-          key = "│ ├ Kernel";
-          keyColor = "yellow";
-        }
-
-        {
-          type = "packages";
-          key = "│ ├󰏖 Packages";
+          key = "│ ├ Kernel";
           keyColor = "yellow";
         }
 
         {
           type = "shell";
           key = "│ ├ Shell";
+          keyColor = "yellow";
+          format = "{1}";
+        }
+
+        {
+          type = "packages";
+          key = "│ ├󰏖 Packages";
           keyColor = "yellow";
         }
 
@@ -109,33 +126,36 @@
         "break"
 
         {
-          type = "de";
-          key = " DE";
+          type = "wm";
+          key = " WM";
           keyColor = "blue";
+          format = "{1}";
         }
 
         {
           type = "lm";
-          key = "│ ├ LM";
+          key = "│ ├ Login";
           keyColor = "blue";
+          format = "{1}";
         }
 
         {
-          type = "wm";
-          key = "│ ├ LM";
+          type = "terminal";
+          key = "│ ├ Terminal";
           keyColor = "blue";
+          format = "{1}";
         }
 
         {
-          type = "gpu";
-          key = "│ ├󰍛 GPU Driver";
-          format = "{3}";
+          type = "terminalfont";
+          key = "│ ├ Font";
           keyColor = "blue";
+          format = "{name}";
         }
 
         {
           type = "wmtheme";
-          key = "└ └󰉼 Theme";
+          key = "└ └ Theme";
           keyColor = "blue";
         }
 
