@@ -1,12 +1,4 @@
-{ pkgs, ... }:
-let
-  yaziFlavors = pkgs.fetchFromGitHub {
-    owner = "yazi-rs";
-    repo = "flavors";
-    rev = "main";
-    sha256 = "sha256-7facwGT4DoaMwdkBrMzPlqDbrbSjwW57qRD34iP48+0=";
-  };
-in {
+{ pkgs, inputs, ... }: {
   programs.yazi = {
     enable = true;
     plugins = {
@@ -37,12 +29,13 @@ in {
         dark = "catppuccin-mocha";
       };
     };
-    flavors = {
-      dracula = "${yaziFlavors}/dracula";
-      catppuccin-macchiato = "${yaziFlavors}/catppuccin-macchiato.yazi";
-      catppuccin-frappe = "${yaziFlavors}/catppuccin-frappe.yazi";
-      catppuccin-latte = "${yaziFlavors}/catppuccin-latte.yazi";
-      catppuccin-mocha = "${yaziFlavors}/catppuccin-mocha.yazi";
+    flavors = let flav = inputs.yazi-flavors;
+    in {
+      dracula = "${flav}/dracula";
+      catppuccin-macchiato = "${flav}/catppuccin-macchiato.yazi";
+      catppuccin-frappe = "${flav}/catppuccin-frappe.yazi";
+      catppuccin-latte = "${flav}/catppuccin-latte.yazi";
+      catppuccin-mocha = "${flav}/catppuccin-mocha.yazi";
     };
     settings = {
       manager = {

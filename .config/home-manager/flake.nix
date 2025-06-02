@@ -2,7 +2,6 @@
   description = "Home Manager configuration of izhrs";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,6 +10,10 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yazi-flavors = {
+      url = "github:yazi-rs/flavors";
+      flake = false;
     };
   };
 
