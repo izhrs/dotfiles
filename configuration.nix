@@ -187,6 +187,7 @@
     # GUI
     libreoffice
     protonvpn-gui
+    qbittorrent
 
     # Media
     mpv
