@@ -4,10 +4,9 @@
     settings = {
       "org/gnome/desktop/interface" = {
         # cursor-size = 24;
-        # font-name = "Fira Code 12";
         # gtk-theme = "Yaru-dark";
         # icon-theme = "Papirus-Dark";
-        cursor-theme = "prefer-dark";
+        # cursor-theme = "prefer-dark";
         show-battery-percentage = true;
       };
 

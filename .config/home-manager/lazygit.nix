@@ -7,6 +7,7 @@
         colorArg = "always";
         useConfig = false;
       };
+
       gui = {
         sidePanelWidth = 0.2;
         expandFocusedSidePanel = true;

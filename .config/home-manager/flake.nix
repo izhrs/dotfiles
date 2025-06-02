@@ -7,10 +7,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     yazi-flavors = {
       url = "github:yazi-rs/flavors";
       flake = false;
@@ -25,6 +27,7 @@
       homeConfigurations."izhrs" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
+
         modules = [
           ./home.nix
           ./gnome.nix
@@ -38,6 +41,7 @@
           ./virt-manager.nix
           ./spicetify.nix
         ];
+
       };
     };
 }

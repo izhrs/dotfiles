@@ -8,6 +8,7 @@
       co = "checkout";
       cm = "commit";
     };
+
     delta = {
       enable = true;
       options = {

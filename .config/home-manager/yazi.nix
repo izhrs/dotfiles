@@ -1,10 +1,12 @@
 { pkgs, inputs, ... }: {
   programs.yazi = {
     enable = true;
+
     plugins = {
       full-border = pkgs.yaziPlugins.full-border;
       starship = pkgs.yaziPlugins.starship;
     };
+
     initLua = ''
       require("full-border"):setup()
       require("starship"):setup()
@@ -23,12 +25,14 @@
           return string.format("%s %s", size and ya.readable_size(size) or "dir", time)
       end
     '';
+
     theme = {
       flavor = {
         light = "catppuccin-latte";
         dark = "catppuccin-mocha";
       };
     };
+
     flavors = let flav = inputs.yazi-flavors;
     in {
       dracula = "${flav}/dracula";
@@ -37,6 +41,7 @@
       catppuccin-latte = "${flav}/catppuccin-latte.yazi";
       catppuccin-mocha = "${flav}/catppuccin-mocha.yazi";
     };
+
     settings = {
       manager = {
         # 2/9 width for parent, 4/9 for main, 3/9 for preview
