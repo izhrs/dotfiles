@@ -31,6 +31,7 @@
           ./kitty.nix
           ./starship.nix
           ./yazi.nix
+          ./fastfetch.nix
           ./git.nix
           ./lazygit.nix
           ./nushell.nix

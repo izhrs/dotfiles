@@ -18,6 +18,4 @@
   programs.home-manager.enable = true;
 
   xdg.mimeApps.defaultApplications = { "text/plain" = [ "neovide.desktop" ]; };
-
-  programs.fastfetch = { enable = true; };
 }
