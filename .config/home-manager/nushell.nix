@@ -1,8 +1,14 @@
 {
   programs.nushell = {
     enable = true;
-    settings = { show_banner = false; };
+
+    settings = {
+      show_banner = false;
+      edit_mode = "vi";
+    };
+
     environmentVariables = { EDITOR = "nvim"; };
+
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
