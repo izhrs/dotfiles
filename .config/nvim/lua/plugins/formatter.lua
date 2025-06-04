@@ -13,6 +13,7 @@ return {
             scss = { "prettier" },
             markdown = { "prettier" },
             svelte = { "prettier" },
+            rust = { "rustfmt" },
         },
 
         formatters = {

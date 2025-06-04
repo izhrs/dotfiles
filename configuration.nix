@@ -157,6 +157,7 @@
     ripgrep # for nvim
     rsync
     rust-analyzer
+    rustfmt
     sd
     tokei
     tree
