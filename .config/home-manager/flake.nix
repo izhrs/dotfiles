@@ -40,6 +40,7 @@
           ./nushell.nix
           ./virt-manager.nix
           ./spicetify.nix
+          ./zellij.nix
         ];
 
       };
