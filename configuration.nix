@@ -123,7 +123,7 @@
     description = "Mohamed Izhar";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "adbusers" ];
     packages = [ ];
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
   };
 
   users.groups.libvirtd.members = [ "izhrs" ];
@@ -151,7 +151,6 @@
     neovim
     nixfmt-classic # nix formatter for neovim
     nodejs_24
-    nushell
     procs
     python314
     ripgrep # for nvim
@@ -166,6 +165,7 @@
     xclip # clipboard tool for nvim
     yarn
     yt-dlp
+    zsh
 
     # archives
     p7zip

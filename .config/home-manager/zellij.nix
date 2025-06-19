@@ -2,6 +2,7 @@
   programs.zellij = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
     settings = {
       theme = "catppuccin-mocha";
       show_startup_tips = false;
