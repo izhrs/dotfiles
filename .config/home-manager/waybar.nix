@@ -7,14 +7,11 @@
         position = "top";
         mod = "dock";
         modules-left = [ "custom/arch" "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" ];
-        modules-right = [
-          "tray"
-          "network"
-          # "battery"
-          "pulseaudio"
+        modules-center = [
+          # "hyprland/window" 
           "clock"
         ];
+        modules-right = [ "tray" "network" "battery" "pulseaudio" "clock" ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -69,12 +66,12 @@
 
         "memory" = {
           format = " {}%";
-          on-click = "foot -e btop";
+          on-click = "kitty -e btm";
         };
 
         "backlight" = {
           format = "{icon}{percent}%";
-          format-icons = [ "󰃞 " "󰃟 " "󰃠 " ];
+          format-icons = [ " 󰃞 " " 󰃟 " " 󰃠 " ];
           on-scroll-up = "light -A 1";
           on-scroll-down = "light -U 1";
         };
@@ -93,11 +90,11 @@
         };
 
         "network" = {
-          format-wifi = "󰖩 {essid}";
-          format-ethernet = "󰈀 ";
-          format-linked = "{ifname} (No IP) 󰈀 ";
-          format-disconnected = "󰖪  Disconnected";
-          on-click = "foot -e nmtui";
+          format-wifi = " 󰖩   {essid} ";
+          format-ethernet = " 󰈀 ";
+          format-linked = " {ifname} (No IP) 󰈀 ";
+          format-disconnected = " 󰖪  Disconnected";
+          on-click = "kitty -e nmtui";
           tooltip-format = "{essid} {signalStrength}%";
         };
 
