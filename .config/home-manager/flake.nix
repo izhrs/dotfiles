@@ -8,6 +8,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +32,7 @@
 
         modules = [
           ./home.nix
+          ./hyprland.nix
           ./gnome.nix
           ./kitty.nix
           ./starship.nix
@@ -39,7 +42,6 @@
           ./lazygit.nix
           ./virt-manager.nix
           ./spicetify.nix
-          # ./zellij.nix
           ./zsh.nix
         ];
 

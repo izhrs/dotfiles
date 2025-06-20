@@ -213,4 +213,9 @@
     virt-manager.enable = true;
     adb.enable = true;
   };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 }
