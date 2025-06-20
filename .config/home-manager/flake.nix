@@ -37,10 +37,10 @@
           ./fastfetch.nix
           ./git.nix
           ./lazygit.nix
-          ./nushell.nix
           ./virt-manager.nix
           ./spicetify.nix
-          ./zellij.nix
+          # ./zellij.nix
+          ./zsh.nix
         ];
 
       };

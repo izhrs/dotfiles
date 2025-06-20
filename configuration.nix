@@ -165,7 +165,6 @@
     xclip # clipboard tool for nvim
     yarn
     yt-dlp
-    zsh
 
     # archives
     p7zip
@@ -202,6 +201,7 @@
   nixpkgs.config.allowUnfree = true;
   programs = {
     firefox.enable = true;
+    zsh.enable = true;
     # Enable Nix-ld for dynamic linking (running elf binaries)
     nix-ld.enable = true;
     steam.enable = true;
