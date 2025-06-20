@@ -42,6 +42,7 @@
           ./lazygit.nix
           ./virt-manager.nix
           ./spicetify.nix
+          ./waybar.nix
           ./zsh.nix
         ];
 

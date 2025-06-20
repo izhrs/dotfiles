@@ -1,4 +1,35 @@
 { pkgs, inputs, ... }: {
+
+  home.packages = with pkgs; [
+    grim
+    slurp
+    swappy
+    wl-clipboard
+
+    (writeShellScriptBin "autostart" ''
+      # Waybar (if enabled)
+      pkill waybar
+      waybar -c $HOME/.config/waybar/config -s $HOME/.config/waybar/style.css &
+
+      # Wallpaper
+      swww kill
+      swww init
+      swww restore
+    '')
+
+    (writeShellScriptBin "code-dir" ''
+      export EDITOR='nvim'
+      if [[ -d ~/Documents/code ]]; 
+        then kitty yazi ~/Documents/code; 
+      else 
+        kitty ~/.local/bin/mnt -o docs;
+        kitty yazi ~/Documents/code; 
+      fi
+    '')
+  ];
+
+  services.swww.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     package =
@@ -10,6 +41,8 @@
     settings = {
       "$mod" = "SUPER";
 
+      exec-once = [ "autostart" ];
+
       monitor = [ "eDP-1, 1920x1080@144, 0x0, 1" ];
 
       xwayland.force_zero_scaling = true;
@@ -17,7 +50,7 @@
       general = {
         layout = "hy3";
         gaps_in = 5;
-        gaps_out = 5;
+        gaps_out = 10;
         border_size = 2;
         "col.active_border" = "$lavender";
         "col.inactive_border" = "$overlay2";
@@ -72,7 +105,7 @@
         "$mod, Q, killactive,"
         "$mod SHIFT, E, exec, pkill Hyprland"
 
-        "$mod, F, fullscreen,"
+        "$mod CTRL, Return, fullscreen,"
         "$mod, G, togglegroup,"
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
@@ -110,10 +143,11 @@
         # "$mod, D, exec, rofi -show combi"
 
         #screenshot
-        ", Print, exec, grimblast copy area"
+        '', Print, exec,  grim -g "$(slurp)" - | wl-copy''
 
-        ''
-          $mod, Space, exec, bash -c "export EDITOR='nvim' && if [[ -d ~/Documents/code ]]; then kitty yazi ~/Documents/code; else kitty ~/.local/bin/mnt -o docs && kitty yazi ~/Documents/code; fi"''
+        "$mod, Print, exec, wl-paste | swappy -f -"
+        "$mod, Space, exec, code-dir"
+        "$mod, f, exec, kitty yazi"
       ]
 
         ++ (
@@ -153,6 +187,8 @@
         # accel_profile = "flat";
         touchpad = { natural_scroll = 1; };
       };
+
+      gestures = { workspace_swipe = true; };
 
       # Catppuccin mocha color scheme
       "$rosewater" = "rgb(f5e0dc)";
