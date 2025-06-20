@@ -10,13 +10,17 @@
     settings = {
       "$mod" = "SUPER";
 
+      monitor = [ "eDP-1, 1920x1080@144, 0x0, 1" ];
+
+      xwayland.force_zero_scaling = true;
+
       general = {
         layout = "hy3";
         gaps_in = 5;
         gaps_out = 5;
-        border_size = 1;
-        "col.active_border" = "rgba(88888888)";
-        "col.inactive_border" = "rgba(00000088)";
+        border_size = 2;
+        "col.active_border" = "$lavender";
+        "col.inactive_border" = "$overlay2";
 
         allow_tearing = true;
         resize_on_border = true;
@@ -24,7 +28,7 @@
 
       misc = {
         # hyprchan
-        force_default_wallpaper = 2;
+        # force_default_wallpaper = 2;
         # focus new windows that want to be focused
         focus_on_activate = true;
       };
@@ -34,28 +38,22 @@
         blur = {
           enabled = true;
           brightness = 1.0;
-          contrast = 1.0;
+          new_optimizations = true;
+          ignore_opacity = true;
+          contrast = 1.3;
           noise = 1.0e-2;
 
           vibrancy = 0.2;
           vibrancy_darkness = 0.5;
 
-          passes = 4;
-          size = 7;
+          passes = 2;
+          size = 5;
 
           popups = true;
           popups_ignorealpha = 0.2;
         };
 
-        shadow = {
-          enabled = true;
-          range = 100;
-          render_power = 2;
-          ignore_window = true;
-          color = "rgba(00000055)";
-          offset = "0 15";
-          scale = 0.97;
-        };
+        shadow.enabled = false;
       };
 
       animations = {
@@ -86,32 +84,36 @@
         "$mod CTRL, right, movecurrentworkspacetomonitor, r"
 
         # move focus
-        "$mod, h, hy3:movefocus, l"
-        "$mod, j, hy3:movefocus, d"
-        "$mod, k, hy3:movefocus, u"
-        "$mod, l, hy3:movefocus, r"
-        "$mod, left, hy3:movefocus, l"
-        "$mod, down, hy3:movefocus, d"
-        "$mod, up, hy3:movefocus, u"
-        "$mod, right, hy3:movefocus, r"
+        "$mod, h, movefocus, l"
+        "$mod, j, movefocus, d"
+        "$mod, k, movefocus, u"
+        "$mod, l, movefocus, r"
+        "$mod, left, movefocus, l"
+        "$mod, down, movefocus, d"
+        "$mod, up, movefocus, u"
+        "$mod, right, movefocus, r"
 
         # move focus
-        "$mod SHIFT, h, hy3:movewindow, l, once"
-        "$mod SHIFT, j, hy3:movewindow, d, once"
-        "$mod SHIFT, k, hy3:movewindow, u, once"
-        "$mod SHIFT, l, hy3:movewindow, r, once"
-        "$mod SHIFT, left, hy3:movewindow, l, once"
-        "$mod SHIFT, down, hy3:movewindow, d, once"
-        "$mod SHIFT, up, hy3:movewindow, u, once"
-        "$mod SHIFT, right, hy3:movewindow, r, once"
+        "$mod SHIFT, h, movewindow, l"
+        "$mod SHIFT, j, movewindow, d"
+        "$mod SHIFT, k, movewindow, u"
+        "$mod SHIFT, l, movewindow, r"
+        "$mod SHIFT, left, movewindow, l"
+        "$mod SHIFT, down, movewindow, d"
+        "$mod SHIFT, up, movewindow, u"
+        "$mod SHIFT, right, movewindow, r"
 
         #run important programs
         "$mod, Return, exec, kitty"
+        "$mod, b, exec, firefox"
         "$mod, D, exec, rofi -show drun"
         # "$mod, D, exec, rofi -show combi"
 
         #screenshot
         ", Print, exec, grimblast copy area"
+
+        ''
+          $mod, Space, exec, bash -c "export EDITOR='nvim' && if [[ -d ~/Documents/code ]]; then kitty yazi ~/Documents/code; else kitty ~/.local/bin/mnt -o docs && kitty yazi ~/Documents/code; fi"''
       ]
 
         ++ (
@@ -121,9 +123,7 @@
             let ws = i + 1;
             in [
               "$mod, code:1${toString i}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString i}, hy3:movetoworkspace, ${
-                toString ws
-              }"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
             ]) 9));
 
       bindm = [
@@ -151,18 +151,87 @@
         follow_mouse = 2;
         # force_no_accel = 1;
         # accel_profile = "flat";
+        touchpad = { natural_scroll = 1; };
       };
 
-      environment.sessionVariables = {
-        NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      # Catppuccin mocha color scheme
+      "$rosewater" = "rgb(f5e0dc)";
+      "$rosewaterAlpha" = "f5e0dc";
 
-        XDG_SESSION_TYPE = "wayland";
+      "$flamingo" = "rgb(f2cdcd)";
+      "$flamingoAlpha" = "f2cdcd";
 
-        QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        QT_QPA_PLATFORM = "wayland;xcb";
-      };
+      "$pink" = "rgb(f5c2e7)";
+      "$pinkAlpha" = "f5c2e7";
+
+      "$mauve" = "rgb(cba6f7)";
+      "$mauveAlpha" = "cba6f7";
+
+      "$red" = "rgb(f38ba8)";
+      "$redAlpha" = "f38ba8";
+
+      "$maroon" = "rgb(eba0ac)";
+      "$maroonAlpha" = "eba0ac";
+
+      "$peach" = "rgb(fab387)";
+      "$peachAlpha" = "fab387";
+
+      "$yellow" = "rgb(f9e2af)";
+      "$yellowAlpha" = "f9e2af";
+
+      "$green" = "rgb(a6e3a1)";
+      "$greenAlpha" = "a6e3a1";
+
+      "$teal" = "rgb(94e2d5)";
+      "$tealAlpha" = "94e2d5";
+
+      "$sky" = "rgb(89dceb)";
+      "$skyAlpha" = "89dceb";
+
+      "$sapphire" = "rgb(74c7ec)";
+      "$sapphireAlpha" = "74c7ec";
+
+      "$blue" = "rgb(89b4fa)";
+      "$blueAlpha" = "89b4fa";
+
+      "$lavender" = "rgb(b4befe)";
+      "$lavenderAlpha" = "b4befe";
+
+      "$text" = "rgb(cdd6f4)";
+      "$textAlpha" = "cdd6f4";
+
+      "$subtext1" = "rgb(bac2de)";
+      "$subtext1Alpha" = "bac2de";
+
+      "$subtext0" = "rgb(a6adc8)";
+      "$subtext0Alpha" = "a6adc8";
+
+      "$overlay2" = "rgb(9399b2)";
+      "$overlay2Alpha" = "9399b2";
+
+      "$overlay1" = "rgb(7f849c)";
+      "$overlay1Alpha" = "7f849c";
+
+      "$overlay0" = "rgb(6c7086)";
+      "$overlay0Alpha" = "6c7086";
+
+      "$surface2" = "rgb(585b70)";
+      "$surface2Alpha" = "585b70";
+
+      "$surface1" = "rgb(45475a)";
+      "$surface1Alpha" = "45475a";
+
+      "$surface0" = "rgb(313244)";
+      "$surface0Alpha" = "313244";
+
+      "$base" = "rgb(1e1e2e)";
+      "$baseAlpha" = "1e1e2e";
+
+      "$mantle" = "rgb(181825)";
+      "$mantleAlpha" = "181825";
+
+      "$crust" = "rgb(11111b)";
+      "$crustAlpha" = "11111b";
     };
   };
 }
