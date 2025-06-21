@@ -24,37 +24,52 @@ function main() {
   case "$arg" in
   sys)
 
-    for file in ./*.nix; do
+    for file in ./system/*.nix; do
       local filename=$(basename "$file")
       if [[ -f /etc/nixos/$filename ]]; then
-        # Fallback to diff if delta is not available
-        delta /etc/nixos/$filename $file || diff /etc/nixos/$filename $file
+        if command -v delta >/dev/null 2>&1; then
+          delta /etc/nixos/$filename $file
+        else
+          diff /etc/nixos/$filename $file
+        fi
       else
         sudo touch /etc/nixos/$filename
-        delta /etc/nixos/$filename $file || diff /etc/nixos/$filename $file
+        if command -v delta >/dev/null 2>&1; then
+          delta /etc/nixos/$filename $file
+        else
+          diff /etc/nixos/$filename $file
+        fi
       fi
     done
 
     if prompt "system"; then
-      sudo cp ./*.nix /etc/nixos/
+      sudo cp ./system/*.nix /etc/nixos/
       sudo nixos-rebuild switch
     fi
     ;;
 
   home)
 
-    for file in .config/home-manager/*.nix; do
+    for file in ./home/*.nix; do
       local filename=$(basename "$file")
       if [[ -f ~/.config/home-manager/$filename ]]; then
-        delta ~/.config/home-manager/$filename $file || diff ~/.config/home-manager/$filename $file
+        if command -v delta >/dev/null 2>&1; then
+          delta ~/.config/home-manager/$filename $file
+        else
+          diff ~/.config/home-manager/$filename $file
+        fi
       else
         touch ~/.config/home-manager/$filename
-        delta ~/.config/home-manager/$filename $file || diff ~/.config/home-manager/$filename $file
+        if command -v delta >/dev/null 2>&1; then
+          delta ~/.config/home-manager/$filename $file
+        else
+          diff ~/.config/home-manager/$filename $file
+        fi
       fi
     done
 
     if prompt "home"; then
-      cp .config/home-manager/*.nix ~/.config/home-manager/
+      cp ./home/*.nix ~/.config/home-manager/
       home-manager switch
     fi
     ;;
