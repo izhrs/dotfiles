@@ -11,8 +11,14 @@
           # "hyprland/window" 
           "clock"
         ];
-        modules-right =
-          [ "pulseaudio" "network" "battery" "tray" "custom/powermenu" ];
+        modules-right = [
+          "pulseaudio"
+          "backlight"
+          "network"
+          "battery"
+          "tray"
+          "custom/powermenu"
+        ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -83,7 +89,7 @@
         };
 
         "backlight" = {
-          format = "{icon}{percent}%";
+          format = "{icon}{percent}% ";
           format-icons = [ " 󰃞 " " 󰃟 " " 󰃠 " ];
           on-scroll-up = "light -A 1";
           on-scroll-down = "light -U 1";
@@ -96,10 +102,10 @@
           };
           format = "{icon}{capacity}% ";
           tooltip-format = "{timeTo} {capacity}%";
-          format-charging = "󰂄 {capacity}% ";
-          format-plugged = " ";
-          format-alt = "{time} {icon}";
-          format-icons = [ " " " " " " " " " " ];
+          format-charging = " 󰂄 {capacity}% ";
+          format-plugged = "  ";
+          format-alt = " {time} {icon}";
+          format-icons = [ "  " "  " "  " "  " "  " ];
         };
 
         "network" = {
@@ -112,7 +118,7 @@
         };
 
         "pulseaudio" = {
-          format = " {icon} ";
+          format = "{icon}{volume}% ";
           format-muted = " 󰖁 ";
           format-icons = { default = [ "  " "  " "  " ]; };
           on-click = "pavucontrol &";
@@ -151,6 +157,7 @@
       }
 
       #window,
+      #backlight,
       #clock,
       #tray,
       #pulseaudio,
@@ -169,9 +176,10 @@
 
       #tray {
           border: 2px solid #9999CC;
-          padding-left: 10px;
-          padding-right: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
           margin-left: 5px;
+          border-radius: 10px 10px 10px 10px;
       }
 
       #custom-arch,
@@ -204,20 +212,18 @@
           color: #f38ba8;
           border-radius: 10px;
           margin-right: 10px;
-          margin-left: 3px;
+          margin-left: 5px;
       }
 
       #network {
-          border-left: 2px solid #9999CC;
-          border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC;
+          border: 2px solid #9999CC;
+          border-radius: 10px;
+          margin-right: 5px;
       }
 
       #battery {
-          border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC;
-          border-right: 2px solid #9999CC;
-          border-radius: 0px 10px 10px 0px;
+          border: 2px solid #9999CC;
+          border-radius: 10px;
       }
 
       #pulseaudio {
@@ -226,13 +232,10 @@
           margin-right: 5px;
       }
 
-      #tray {
-          border-radius: 10px 10px 10px 10px;
-          margin-right: 3px;
-      }
-
-      #network {
-          border-radius: 10px 0px 0px 10px;
+      #backlight {
+          border: 2px solid #9999CC;
+          border-radius: 10px;
+          margin-right: 5px;
       }
 
       #custom-arch {
