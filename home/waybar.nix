@@ -9,9 +9,10 @@
         modules-left = [ "custom/arch" "hyprland/workspaces" ];
         modules-center = [
           # "hyprland/window" 
-          # "clock"
+          "clock"
         ];
-        modules-right = [ "tray" "network" "battery" "pulseaudio" "clock" ];
+        modules-right =
+          [ "pulseaudio" "network" "battery" "tray" "custom/powermenu" ];
 
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -53,10 +54,22 @@
         };
 
         "clock" = {
-          format = "{:󰥔 %H %M} ";
+          format = " 󰥔 {:%H %M} ";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
+
+          "calendar" = {
+            "mode" = "month";
+            "format" = {
+              "months" = "<span color='#f5e0dc'><b>{}</b></span>"; # rosewater
+              "days" = "<span color='#cdd6f4'><b>{}</b></span>"; # flamingo
+              "weeks" = "<span color='#cdd6f4'><b>W{}</b></span>"; # teal
+              "weekdays" = "<span color='#9999CC'><b>{}</b></span>"; # yellow
+              "today" =
+                "<span background='#f38ba8' color='#0f0f16'><b>{}</b></span>"; # red on base
+            };
+          };
         };
 
         "cpu" = {
@@ -81,12 +94,12 @@
             warning = "30";
             critical = "15";
           };
-          format = "{icon}{capacity}%";
+          format = "{icon}{capacity}% ";
           tooltip-format = "{timeTo} {capacity}%";
-          format-charging = "󰂄 {capacity}%";
+          format-charging = "󰂄 {capacity}% ";
           format-plugged = " ";
           format-alt = "{time} {icon}";
-          format-icons = [ "  " "  " "  " "  " "  " ];
+          format-icons = [ " " " " " " " " " " ];
         };
 
         "network" = {
@@ -99,7 +112,7 @@
         };
 
         "pulseaudio" = {
-          format = "{icon}";
+          format = " {icon} ";
           format-muted = " 󰖁 ";
           format-icons = { default = [ "  " "  " "  " ]; };
           on-click = "pavucontrol &";
@@ -114,7 +127,7 @@
         };
 
         "custom/powermenu" = {
-          format = " ";
+          format = "    ";
           on-click = "$HOME/.config/rofi/powermenu/powermenu.sh";
         };
       };
@@ -128,6 +141,15 @@
           color: #cdd6f4;
       }
 
+
+      tooltip {
+          font-size: 14px;
+          color: #cdd6f4;
+          background-color: #0f0f16;
+          border: 2px solid #9999CC;
+          border-radius: 10px;
+      }
+
       #window,
       #clock,
       #tray,
@@ -135,8 +157,9 @@
       #battery,
       #network,
       #workspaces,
+      #custom-powermenu,
       #custom-arch {
-          background-color: #1e1e2e;
+          background-color: #0f0f16;
           margin-top: 10px;
           margin-left: 0px;
           margin-right: 0px;
@@ -146,8 +169,9 @@
 
       #tray {
           border: 2px solid #9999CC;
-          padding-left: 5px;
-          padding-right: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-left: 5px;
       }
 
       #custom-arch,
@@ -157,7 +181,7 @@
       }
 
       #custom-spotify {
-          margin-left: 3px;
+          margin-left: 5px;
           border: 2px solid #9999CC;
           border-radius: 10px 10px 10px 10px;
       }
@@ -165,15 +189,22 @@
       #workspaces {
           border: 2px solid #9999CC;
           color: #eeeeef;
+          padding-left: 5px;
+          padding-right: 5px;
       }
 
       #clock {
-          border-right: 2px solid #9999CC;
-          border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC;
-          border-radius: 0px 10px 10px 0px;
+          border: 2px solid #9999CC;
+          border-radius: 10px;
           font-weight: bold;
+      }
+
+      #custom-powermenu {
+          border: 2px solid #f38ba8;
+          color: #f38ba8;
+          border-radius: 10px;
           margin-right: 10px;
+          margin-left: 3px;
       }
 
       #network {
@@ -185,11 +216,14 @@
       #battery {
           border-top: 2px solid #9999CC;
           border-bottom: 2px solid #9999CC;
+          border-right: 2px solid #9999CC;
+          border-radius: 0px 10px 10px 0px;
       }
 
       #pulseaudio {
-          border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC;
+          border: 2px solid #9999CC;
+          border-radius: 10px;
+          margin-right: 5px;
       }
 
       #tray {
@@ -203,7 +237,7 @@
 
       #custom-arch {
           font-size: 16px;
-          margin-right: 3px;
+          margin-right: 5px;
           margin-left: 10px;
       }
 
