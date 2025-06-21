@@ -53,7 +53,7 @@
         };
 
         "clock" = {
-          format = "{:󰥔 %R} ";
+          format = "{:󰥔 %H %M} ";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -147,7 +147,7 @@
       #tray {
           border: 2px solid #9999CC;
           padding-left: 5px;
-          padding-right: 5px
+          padding-right: 5px;
       }
 
       #custom-arch,
@@ -170,23 +170,26 @@
       #clock {
           border-right: 2px solid #9999CC;
           border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC
+          border-bottom: 2px solid #9999CC;
+          border-radius: 0px 10px 10px 0px;
+          font-weight: bold;
+          margin-right: 10px;
       }
 
       #network {
           border-left: 2px solid #9999CC;
           border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC
+          border-bottom: 2px solid #9999CC;
       }
 
       #battery {
           border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC
+          border-bottom: 2px solid #9999CC;
       }
 
       #pulseaudio {
           border-top: 2px solid #9999CC;
-          border-bottom: 2px solid #9999CC
+          border-bottom: 2px solid #9999CC;
       }
 
       #tray {
@@ -198,19 +201,10 @@
           border-radius: 10px 0px 0px 10px;
       }
 
-      #clock {
-          border-radius: 0px 10px 10px 0px
-      }
-
       #custom-arch {
           font-size: 16px;
-          margin-left: 3px;
-          margin-right: 3px
-      }
-
-      #clock {
-          font-weight: bold;
           margin-right: 3px;
+          margin-left: 10px;
       }
 
       #window {
