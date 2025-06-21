@@ -141,19 +141,18 @@
     curl
     delta
     dust
-    fd # for nvim
-    fzf # for nvim
+    fd
+    fzf
     gcc
     k3s
-    lazygit # for nvim
-    lemonade # ssh clipboard tool for remote nvim
+    lazygit
     miniserve
     neovim
     nixfmt-classic # nix formatter for neovim
     nodejs_24
     procs
     python314
-    ripgrep # for nvim
+    ripgrep
     rsync
     rust-analyzer
     rustfmt
@@ -162,7 +161,6 @@
     tree
     unzip
     wget
-    xclip # clipboard tool for nvim
     yarn
     yt-dlp
 
@@ -191,7 +189,6 @@
 
     # Media
     mpv
-    spotify
 
     # Gaming
     lutris

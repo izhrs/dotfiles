@@ -10,11 +10,6 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     yazi-flavors = {
       url = "github:yazi-rs/flavors";
       flake = false;
@@ -32,20 +27,18 @@
 
         modules = [
           ./home.nix
-          ./hyprland.nix
-          ./gnome.nix
-          ./kitty.nix
-          ./starship.nix
-          ./yazi.nix
           ./fastfetch.nix
           ./git.nix
+          ./gtk.nix
+          ./hyprland.nix
+          ./kitty.nix
           ./lazygit.nix
+          ./starship.nix
           ./virt-manager.nix
-          ./spicetify.nix
           ./waybar.nix
+          ./yazi.nix
           ./zsh.nix
         ];
-
       };
     };
 }
