@@ -1,5 +1,12 @@
 { pkgs, inputs, ... }: {
-  home.packages = with pkgs; [ trash-cli ouch ];
+  home.packages = with pkgs; [
+    trash-cli
+    ouch
+
+    (writeShellScriptBin "sudofm" ''
+      sudo HOME=$HOME XDG_CONFIG_HOME=$HOME/.config EDITOR="nvim" yazi "$@"
+    '')
+  ];
 
   programs.yazi = {
     enable = true;
