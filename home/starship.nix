@@ -35,31 +35,36 @@
         crust = "#11111b";
       };
 
-      username = {
-        style_user = "mauve bold";
-        style_root = "red bold";
-        format = "[╭─\\[\\[$user]($style) ";
-        disabled = false;
-        show_always = true;
-      };
+      format = ''
+        [](lavender)[](bg:lavender fg:base)[](bg:blue fg:lavender)$directory$git_branch$git_status$git_state$rust$golang$nodejs$lua$nix_shell$dart$haskell$julia$python$elm$elixir$scala$aws$docker_context$package$cmd_duration
+        $character
+      '';
+      # username = {
+      #   style_user = "mauve bold";
+      #   style_root = "red bold";
+      #   format = "[\\[\\[$user]($style) ";
+      #   disabled = false;
+      #   show_always = true;
+      # };
 
-      hostname = {
-        ssh_only = false;
-        format = "on [$hostname\\]\\]](bold blue) ";
-        trim_at = ".";
-        disabled = false;
-      };
+      # hostname = {
+      #   ssh_only = false;
+      #   format = "[](bold mauve) [](bold blue) [](bold green) ";
+      #   trim_at = ".";
+      #   disabled = false;
+      # };
 
       character = {
-        success_symbol = "[╰──❯](bold mauve)[❯](bold blue)[❯](bold green)";
-        error_symbol = "[╰──](bold mauve)[❯❯❯](bold red)";
+        success_symbol = "[──❯](bold lavender)[❯](bold blue)[❯](bold green)";
+        error_symbol = "[──❯❯❯](bold red)";
       };
 
       directory = {
         read_only = " ";
+        format =
+          "[ $path](bg:blue fg:base)[$read_only](bg:blue fg:red)[](blue) ";
         truncation_length = 10;
         truncate_to_repo = true;
-        style = "bold italic sky";
       };
 
       cmd_duration = {
@@ -88,9 +93,14 @@
 
       elixir.symbol = " ";
       elm.symbol = " ";
-      git_branch.symbol = " ";
+
+      git_branch = {
+        symbol = " ";
+        style = "bold mauve";
+      };
 
       git_status = {
+        style = "bold mauve";
         format = "([\\[$all_status$ahead_behind\\]]($style) )";
         stashed = "[\${count}*](green)";
         modified = "[\${count}+](yellow)";
@@ -103,7 +113,7 @@
       };
 
       git_state = {
-        style = "bold red";
+        style = "bold mauve";
         format = "[$state( $progress_current/$progress_total) ]($style)";
         rebase = "rebase";
         merge = "merge";
