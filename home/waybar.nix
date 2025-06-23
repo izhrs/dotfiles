@@ -6,6 +6,11 @@
         layer = "top";
         position = "top";
         mod = "dock";
+        margin-top = 8;
+        margin-left = 8;
+        margin-right = 8;
+        spacing = 4;
+
         modules-left = [ "custom/arch" "hyprland/workspaces" ];
         modules-center = [
           # "hyprland/window" 
@@ -71,9 +76,9 @@
               "months" = "<span color='#f5e0dc'><b>{}</b></span>"; # rosewater
               "days" = "<span color='#cdd6f4'><b>{}</b></span>"; # flamingo
               "weeks" = "<span color='#cdd6f4'><b>W{}</b></span>"; # teal
-              "weekdays" = "<span color='#9999CC'><b>{}</b></span>"; # yellow
+              "weekdays" = "<span color='#b4befe'><b>{}</b></span>"; # yellow
               "today" =
-                "<span background='#f38ba8' color='#0f0f16'><b>{}</b></span>"; # red on base
+                "<span background-color='#f38ba8' color='#0f0f16'><b>{}</b></span>"; # red on base
             };
           };
         };
@@ -151,9 +156,9 @@
       tooltip {
           font-size: 14px;
           color: #cdd6f4;
-          background-color: #0f0f16;
-          border: 2px solid #9999CC;
-          border-radius: 10px;
+          background-color: alpha(#0f0f16, 0.85);
+          border: 2px solid #b4befe;
+          border-radius: 11px;
       }
 
       #window,
@@ -166,89 +171,39 @@
       #workspaces,
       #custom-powermenu,
       #custom-arch {
-          background-color: #0f0f16;
-          margin-top: 10px;
-          margin-left: 0px;
-          margin-right: 0px;
-          margin-bottom: 0px;
-          padding: 3px;
+          background-color: alpha(#0f0f16, 0);
+          padding: 2px 5px;
+          border-radius: 8px;
+          border: 2px solid alpha(#b4befe, 1);
       }
 
       #tray {
-          border: 2px solid #9999CC;
           padding-left: 15px;
           padding-right: 15px;
-          margin-left: 5px;
-          border-radius: 10px 10px 10px 10px;
-      }
-
-      #custom-arch,
-      #window {
-          border: 2px solid #9999CC;
-          border-radius: 10px 10px 10px 10px;
-      }
-
-      #custom-spotify {
-          margin-left: 5px;
-          border: 2px solid #9999CC;
-          border-radius: 10px 10px 10px 10px;
       }
 
       #workspaces {
-          border: 2px solid #9999CC;
           color: #eeeeef;
-          padding-left: 5px;
-          padding-right: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
       }
 
       #clock {
-          border: 2px solid #9999CC;
-          border-radius: 10px;
           font-weight: bold;
       }
 
       #custom-powermenu {
-          border: 2px solid #f38ba8;
+          border: 2px solid alpha(#f38ba8, 1);
           color: #f38ba8;
-          border-radius: 10px;
-          margin-right: 10px;
-          margin-left: 5px;
-      }
-
-      #network {
-          border: 2px solid #9999CC;
-          border-radius: 10px;
-          margin-right: 5px;
-      }
-
-      #battery {
-          border: 2px solid #9999CC;
-          border-radius: 10px;
-      }
-
-      #pulseaudio {
-          border: 2px solid #9999CC;
-          border-radius: 10px;
-          margin-right: 5px;
-      }
-
-      #backlight {
-          border: 2px solid #9999CC;
-          border-radius: 10px;
           margin-right: 5px;
       }
 
       #custom-arch {
-          font-size: 16px;
-          margin-right: 5px;
-          margin-left: 10px;
+          margin-left: 5px;
       }
 
       #window {
           font-weight: bold;
-          border-radius: 10px 10px 10px 10px;
-          padding-left: 7px;
-          padding-right: 7px;
       }
 
       #workspaces button {
@@ -264,18 +219,15 @@
           color: white;
       }
 
-      #workspaces {
-          border-radius: 10px 10px 10px 10px;
-      }
-
       button {
           min-width: 16px;
       }
 
       window#waybar {
-          /* you can also GTK3 CSS functions! */
-          background-color: transparent;
-          border-radius: 10px 10px 10px 10px;
+          background-color: alpha(#0f0f16, 0.85);
+          color: #cdd6f4;
+          border-radius: 11px;
+          border: 0px solid alpha(#b4befe, 0.5);
       }
     '';
   };
