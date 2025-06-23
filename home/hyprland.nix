@@ -49,8 +49,8 @@
 
       general = {
         layout = "hy3";
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 4;
+        gaps_out = 8;
         border_size = 2;
         "col.active_border" = "$lavender";
         "col.inactive_border" = "$overlay2";
@@ -80,7 +80,7 @@
           vibrancy_darkness = 0.5;
 
           passes = 2;
-          size = 5;
+          size = 10;
 
           popups = true;
           popups_ignorealpha = 0.2;
@@ -99,6 +99,9 @@
         ];
       };
 
+      # get blurred bitch
+      windowrule = "opacity 0.9, class:^(firefox)$";
+
       bind = [
         # compositor commands
         "$mod SHIFT, R, exec, hyprctl reload"
@@ -111,7 +114,12 @@
         "$mod SHIFT, P, changegroupactive, b"
         "$mod, R, togglesplit,"
         "$mod, T, togglefloating,"
-        "$mod ALT, ,resizeactive,"
+
+        # resize active window
+        "$mod ALT, H,resizeactive, -10 0"
+        "$mod ALT, L,resizeactive, 10 0"
+        "$mod ALT, J,resizeactive, 0 10"
+        "$mod ALT, K,resizeactive, 0 -10"
 
         "$mod CTRL, left, movecurrentworkspacetomonitor, l"
         "$mod CTRL, right, movecurrentworkspacetomonitor, r"
