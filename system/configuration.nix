@@ -137,7 +137,6 @@
     android-tools
     bat
     bottom
-    cargo
     curl
     delta
     dust
@@ -148,14 +147,14 @@
     lazygit
     miniserve
     neovim
-    nixfmt-classic # nix formatter for neovim
+    nixfmt-classic
     nodejs_24
     procs
     python314
     ripgrep
     rsync
     rust-analyzer
-    rustfmt
+    rustup
     sd
     tokei
     tree
@@ -179,7 +178,6 @@
     usbutils # lsusb
 
     # UI
-    gnomeExtensions.blur-my-shell
     nerd-fonts.jetbrains-mono
 
     # GUI
