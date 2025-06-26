@@ -33,11 +33,11 @@
           ./hyprland.nix
           ./kitty.nix
           ./lazygit.nix
+          ./shell.nix
           ./starship.nix
           ./virt-manager.nix
           ./waybar.nix
           ./yazi.nix
-          ./zsh.nix
         ];
       };
     };
