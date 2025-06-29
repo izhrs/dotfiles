@@ -21,6 +21,7 @@
           "memory"
           "pulseaudio"
           "backlight"
+          "bluetooth"
           "network"
           "battery"
           "tray"
@@ -116,6 +117,13 @@
           format-icons = [ "   " "   " "   " "   " "   " ];
         };
 
+        "bluetooth" = {
+          format = "󰂯 Disconnected";
+          format-connected = "󰂯 {device_alias}";
+          format-off = "󰂲";
+          format-disabled = "󰂲";
+        };
+
         "network" = {
           format-wifi = " 󰖩  {essid} ";
           format-ethernet = " 󰈀 ";
@@ -148,7 +156,7 @@
     };
     style = ''
       * {
-          font-family: Ubuntu Nerd Font;
+          font-family: 'Ubuntu Nerd Font', 'Symbols Nerd Font';
           font-weight: normal;
           font-size: 16px;
           min-height: 0;
@@ -172,6 +180,7 @@
       #tray,
       #pulseaudio,
       #battery,
+      #bluetooth,
       #network,
       #workspaces,
       #custom-powermenu,
@@ -193,6 +202,26 @@
           color: #eeeeef;
           padding-left: 10px;
           padding-right: 10px;
+      }
+
+      #bluetooth.connected {
+          color: #89b4fa;
+      }
+
+      #network.wifi {
+          color: #89b4fa;
+      }
+
+      #battery {
+          color: #94e2d5;
+      }
+
+      #battery.warning {
+          color: #f9e2af;
+      }
+
+      #battery.critical {
+          color: #f38ba8;
       }
 
       #custom-powermenu {
@@ -218,7 +247,9 @@
       #workspaces button {
           color: #eeeeef;
           padding: 1px;
-          padding-right: 3px;
+          padding-left: 2px;
+          padding-right: 2px;
+          background-color: transparent;
       }
 
       #workspaces button.active {
