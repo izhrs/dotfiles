@@ -6,17 +6,19 @@
         layer = "top";
         position = "top";
         mod = "dock";
-        margin-top = 8;
-        margin-left = 8;
-        margin-right = 8;
-        spacing = 4;
+        margin-top = 4;
+        margin-left = 4;
+        margin-right = 4;
+        spacing = 5;
 
-        modules-left = [ "custom/arch" "hyprland/workspaces" ];
+        modules-left = [ "custom/nix" "hyprland/workspaces" ];
         modules-center = [
           # "hyprland/window" 
           "clock"
         ];
         modules-right = [
+          "cpu"
+          "memory"
           "pulseaudio"
           "backlight"
           "network"
@@ -26,6 +28,7 @@
         ];
 
         "hyprland/workspaces" = {
+          all-outputs = true;
           format = "{icon}";
           format-icons = {
             active = "";
@@ -33,8 +36,8 @@
           };
         };
 
-        "custom/arch" = {
-          format = " 󱄅 ";
+        "custom/nix" = {
+          format = "󱄅";
           tooltip = false;
           on-click-release = "bemenu-run";
         };
@@ -65,7 +68,7 @@
         };
 
         "clock" = {
-          format = " 󰥔 {:%H %M} ";
+          format = " 󰥔  {:%H %M} ";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -77,27 +80,27 @@
               "days" = "<span color='#cdd6f4'><b>{}</b></span>"; # flamingo
               "weeks" = "<span color='#cdd6f4'><b>W{}</b></span>"; # teal
               "weekdays" = "<span color='#b4befe'><b>{}</b></span>"; # yellow
-              "today" =
-                "<span background-color='#f38ba8' color='#0f0f16'><b>{}</b></span>"; # red on base
+              "today" = "<span color='#0f0f16'><b>{}</b></span>"; # red on base
             };
           };
         };
 
         "cpu" = {
-          format = " {usage}%";
+          format = "   {usage}%";
           tooltip = "false";
+          on-click = "kitty -e btm";
         };
 
         "memory" = {
-          format = " {}%";
+          format = "   {}%";
           on-click = "kitty -e btm";
         };
 
         "backlight" = {
           format = "{icon}{percent}% ";
-          format-icons = [ " 󰃞 " " 󰃟 " " 󰃠 " ];
-          on-scroll-up = "light -A 1";
-          on-scroll-down = "light -U 1";
+          format-icons = [ " 󰃞  " " 󰃟  " " 󰃠  " ];
+          on-scroll-up = "brightnessctl s +1%";
+          on-scroll-down = "brightnessctl s 1%-";
         };
 
         "battery" = {
@@ -110,11 +113,11 @@
           format-charging = " 󰂄 {capacity}% ";
           format-plugged = "  ";
           format-alt = " {time} {icon}";
-          format-icons = [ "  " "  " "  " "  " "  " ];
+          format-icons = [ "   " "   " "   " "   " "   " ];
         };
 
         "network" = {
-          format-wifi = " 󰖩 {essid} ";
+          format-wifi = " 󰖩  {essid} ";
           format-ethernet = " 󰈀 ";
           format-linked = " {ifname} (No IP) 󰈀 ";
           format-disconnected = " 󰖪  Disconnected";
@@ -124,8 +127,8 @@
 
         "pulseaudio" = {
           format = "{icon}{volume}% ";
-          format-muted = " 󰖁 ";
-          format-icons = { default = [ "  " "  " "  " ]; };
+          format-muted = " 󰖁  ";
+          format-icons = { default = [ "   " "   " "   " ]; };
           on-click = "pavucontrol &";
         };
 
@@ -138,30 +141,32 @@
         };
 
         "custom/powermenu" = {
-          format = "    ";
+          format = "";
           on-click = "$HOME/.config/rofi/powermenu/powermenu.sh";
         };
       };
     };
     style = ''
       * {
-          font-family: JetBrainsMono Nerd Font Mono;
+          font-family: Ubuntu Nerd Font;
           font-weight: normal;
-          font-size: 15px;
+          font-size: 16px;
           min-height: 0;
           color: #cdd6f4;
       }
 
 
       tooltip {
-          font-size: 14px;
+          font-size: 16px;
           color: #cdd6f4;
           background-color: alpha(#0f0f16, 0.85);
-          border: 2px solid #b4befe;
-          border-radius: 11px;
+          border-radius: 8px;
+          border: 0
       }
 
       #window,
+      #cpu,
+      #memory,
       #backlight,
       #clock,
       #tray,
@@ -170,16 +175,18 @@
       #network,
       #workspaces,
       #custom-powermenu,
-      #custom-arch {
-          background-color: alpha(#0f0f16, 0);
-          padding: 2px 5px;
+      #custom-nix {
+          background-color: alpha(#45475a, 0.8);
+          margin-top: 5px;
+          margin-bottom: 5px;
+          padding: 1px 5px;
           border-radius: 8px;
-          border: 2px solid alpha(#b4befe, 1);
+          border: none;
       }
 
       #tray {
-          padding-left: 15px;
-          padding-right: 15px;
+          padding-left: 10px;
+          padding-right: 10px;
       }
 
       #workspaces {
@@ -188,17 +195,19 @@
           padding-right: 10px;
       }
 
-      #clock {
-          font-weight: bold;
-      }
-
       #custom-powermenu {
-          border: 2px solid alpha(#f38ba8, 1);
           color: #f38ba8;
+          font-size: 16px;
+          padding-left: 10px;
+          padding-right: 10px;
           margin-right: 5px;
       }
 
-      #custom-arch {
+      #custom-nix {
+          color: #b4befe;
+          font-size: 16px;
+          padding-left: 10px;
+          padding-right: 10px;
           margin-left: 5px;
       }
 
@@ -209,14 +218,15 @@
       #workspaces button {
           color: #eeeeef;
           padding: 1px;
+          padding-right: 3px;
       }
 
       #workspaces button.active {
-          color: white;
+          color: #eeeeef;
       }
 
       #workspaces button.focused {
-          color: white;
+          color: #eeeeef;
       }
 
       button {
