@@ -176,9 +176,12 @@
     strace
     sysstat
     usbutils # lsusb
+    brightnessctl
 
     # UI
     nerd-fonts.jetbrains-mono
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-mono
 
     # GUI
     libreoffice
