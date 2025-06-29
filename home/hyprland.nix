@@ -49,8 +49,8 @@
 
       general = {
         layout = "hy3";
-        gaps_in = 4;
-        gaps_out = 8;
+        gaps_in = 2;
+        gaps_out = 4;
         border_size = 2;
         "col.active_border" = "$lavender";
         "col.inactive_border" = "$overlay2";
@@ -100,7 +100,13 @@
       };
 
       # get blurred bitch
-      windowrule = "opacity 0.9, class:^(firefox)$";
+      windowrule = [
+        "opacity 0.9, class:^(firefox)$"
+        # "opacity 0.85, class:^(code)$"
+      ];
+
+      blurls = "waybar";
+      layerrule = "blur, waybar";
 
       bind = [
         # compositor commands
@@ -114,12 +120,6 @@
         "$mod SHIFT, P, changegroupactive, b"
         "$mod, R, togglesplit,"
         "$mod, T, togglefloating,"
-
-        # resize active window
-        "$mod ALT, H,resizeactive, -10 0"
-        "$mod ALT, L,resizeactive, 10 0"
-        "$mod ALT, J,resizeactive, 0 10"
-        "$mod ALT, K,resizeactive, 0 -10"
 
         "$mod CTRL, left, movecurrentworkspacetomonitor, l"
         "$mod CTRL, right, movecurrentworkspacetomonitor, r"
@@ -184,6 +184,15 @@
         # volume
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+
+        ", xf86monbrightnessdown,exec, brightnessctl set 5%-"
+        ", xf86monbrightnessup,exec, brightnessctl set 5%+"
+
+        # resize active window
+        "$mod ALT, H,resizeactive, -20 0"
+        "$mod ALT, L,resizeactive, 20 0"
+        "$mod ALT, J,resizeactive, 0 20"
+        "$mod ALT, K,resizeactive, 0 -20"
       ];
 
       input = {
