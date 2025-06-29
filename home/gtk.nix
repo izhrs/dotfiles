@@ -22,8 +22,8 @@
     };
 
     font = {
-      name = "Sans";
-      size = 11;
+      name = "Ubuntu Nerd Font";
+      size = 12;
     };
   };
 }

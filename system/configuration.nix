@@ -180,6 +180,7 @@
 
     # UI
     nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only
     nerd-fonts.ubuntu
     nerd-fonts.ubuntu-mono
 
@@ -187,6 +188,8 @@
     libreoffice
     protonvpn-gui
     qbittorrent
+    gimp
+    godot
 
     # Media
     mpv
@@ -210,6 +213,8 @@
     # virtualisation
     virt-manager.enable = true;
     adb.enable = true;
+
+    obs-studio.enable = true;
   };
 
   programs.hyprland = {
