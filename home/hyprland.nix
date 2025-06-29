@@ -51,9 +51,9 @@
         layout = "hy3";
         gaps_in = 2;
         gaps_out = 4;
-        border_size = 2;
-        "col.active_border" = "$lavender";
-        "col.inactive_border" = "$overlay2";
+        border_size = 0;
+        # "col.active_border" = "$lavender";
+        # "col.inactive_border" = "$overlay2";
 
         allow_tearing = true;
         resize_on_border = true;
