@@ -20,6 +20,7 @@
           "cpu"
           "memory"
           "pulseaudio"
+          "pulseaudio#microphone"
           "backlight"
           "bluetooth"
           "network"
@@ -29,12 +30,13 @@
         ];
 
         "hyprland/workspaces" = {
-          all-outputs = true;
           format = "{icon}";
           format-icons = {
-            active = "";
-            default = "";
+            active = "";
+            default = "";
           };
+
+          # persistent-workspaces = { "*" = [ 1 2 3 4 5 6 7 8 9 ]; };
         };
 
         "custom/nix" = {
@@ -81,7 +83,7 @@
               "days" = "<span color='#cdd6f4'><b>{}</b></span>"; # flamingo
               "weeks" = "<span color='#cdd6f4'><b>W{}</b></span>"; # teal
               "weekdays" = "<span color='#b4befe'><b>{}</b></span>"; # yellow
-              "today" = "<span color='#0f0f16'><b>{}</b></span>"; # red on base
+              "today" = "<span color='#f38ba8'><b>{}</b></span>"; # red on base
             };
           };
         };
@@ -100,8 +102,9 @@
         "backlight" = {
           format = "{icon}{percent}% ";
           format-icons = [ " 󰃞  " " 󰃟  " " 󰃠  " ];
-          on-scroll-up = "brightnessctl s +1%";
-          on-scroll-down = "brightnessctl s 1%-";
+          on-scroll-down = "brightnessctl s +1%";
+          on-scroll-up = "brightnessctl s 1%-";
+          tooltip = false;
         };
 
         "battery" = {
@@ -135,9 +138,21 @@
 
         "pulseaudio" = {
           format = "{icon}{volume}% ";
-          format-muted = " 󰖁  ";
+          format-muted = " 󰖁 ";
           format-icons = { default = [ "   " "   " "   " ]; };
-          on-click = "pavucontrol &";
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          on-scroll-down = "wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 1%+";
+          on-scroll-up = "wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 1%-";
+        };
+
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = "󰍬 {volume}%";
+          format-source-muted = "  ";
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          on-scroll-down =
+            "wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 1%+";
+          on-scroll-up = "wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SOURCE@ 1%-";
         };
 
         "custom/wmname" = {
@@ -151,6 +166,7 @@
         "custom/powermenu" = {
           format = "";
           on-click = "$HOME/.config/rofi/powermenu/powermenu.sh";
+          tooltip = "false";
         };
       };
     };
@@ -161,6 +177,7 @@
           font-size: 16px;
           min-height: 0;
           color: #cdd6f4;
+          transition: all 0.3s ease-in-out;
       }
 
 
@@ -179,6 +196,7 @@
       #clock,
       #tray,
       #pulseaudio,
+      #pulseaudio.microphone,
       #battery,
       #bluetooth,
       #network,
@@ -206,6 +224,10 @@
 
       #bluetooth.connected {
           color: #89b4fa;
+      }
+
+      #backlight {
+          color: #f2cdcd;
       }
 
       #network.wifi {
@@ -258,10 +280,6 @@
 
       #workspaces button.focused {
           color: #eeeeef;
-      }
-
-      button {
-          min-width: 16px;
       }
 
       window#waybar {
