@@ -24,52 +24,58 @@ function main() {
   case "$arg" in
   sys)
 
-    for file in ./system/*.nix; do
-      local filename=$(basename "$file")
-      if [[ -f /etc/nixos/$filename ]]; then
+    # using find instead of fd to maintain compatibility with systems that may not have fd installed
+    # also, find ain't slow for few files, so no need to worry about performance here
+    find ./system -name '*.nix' -type f | while read -r file; do
+      local relpath=${file#./system/}
+      local target="/etc/nixos/$relpath"
+      if [[ -f "$target" ]]; then
         if command -v delta >/dev/null 2>&1; then
-          delta /etc/nixos/$filename $file
+          delta "$target" "$file"
         else
-          diff /etc/nixos/$filename $file
+          diff "$target" "$file"
         fi
       else
-        sudo touch /etc/nixos/$filename
+        sudo mkdir -p "$(dirname "$target")"
+        sudo touch "$target"
         if command -v delta >/dev/null 2>&1; then
-          delta /etc/nixos/$filename $file
+          delta "$target" "$file"
         else
-          diff /etc/nixos/$filename $file
+          diff "$target" "$file"
         fi
       fi
     done
 
     if prompt "system"; then
-      sudo cp ./system/*.nix /etc/nixos/
+      sudo rsync -a ./system/ /etc/nixos/
       sudo nixos-rebuild switch
     fi
     ;;
 
   home)
 
-    for file in ./home/*.nix; do
-      local filename=$(basename "$file")
-      if [[ -f ~/.config/home-manager/$filename ]]; then
+    find ./home -type f | while read -r file; do
+      local relpath=${file#./home/}
+      local target="$HOME/.config/home-manager/$relpath"
+      if [[ -f "$target" ]]; then
         if command -v delta >/dev/null 2>&1; then
-          delta ~/.config/home-manager/$filename $file
+          delta "$target" "$file"
         else
-          diff ~/.config/home-manager/$filename $file
+          diff "$target" "$file"
         fi
       else
-        touch ~/.config/home-manager/$filename
+        mkdir -p "$(dirname "$target")"
+        touch "$target"
         if command -v delta >/dev/null 2>&1; then
-          delta ~/.config/home-manager/$filename $file
+          delta "$target" "$file"
         else
-          diff ~/.config/home-manager/$filename $file
+          diff "$target" "$file"
         fi
       fi
     done
 
     if prompt "home"; then
-      cp ./home/*.nix ~/.config/home-manager/
+      rsync -a ./home/ ~/.config/home-manager/
       home-manager switch
     fi
     ;;
