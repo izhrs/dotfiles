@@ -27,6 +27,7 @@
 
         modules = [
           ./home.nix
+          ./btm.nix
           ./fastfetch.nix
           ./git.nix
           ./gtk.nix
