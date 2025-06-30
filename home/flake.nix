@@ -33,6 +33,7 @@
           ./hyprland.nix
           ./kitty.nix
           ./lazygit.nix
+          ./rofi
           ./shell.nix
           ./starship.nix
           ./virt-manager.nix

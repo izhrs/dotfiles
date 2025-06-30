@@ -147,8 +147,8 @@
         #run important programs
         "$mod, Return, exec, kitty"
         "$mod, b, exec, firefox"
-        "$mod, D, exec, rofi -show drun"
-        # "$mod, D, exec, rofi -show combi"
+        "$mod, slash, exec, rofi -show drun -show-icons"
+        "$mod SHIFT, slash, exec, rofi -show emoji"
 
         #screenshot
         '', Print, exec,  grim -g "$(slurp)" - | wl-copy''
