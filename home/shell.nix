@@ -49,9 +49,6 @@
   };
 
   # shell completion 
-  # and no, i ain't putting this 3 lines in a new file. 
-  # fcuk your seperation of concerns and 
-  # fcuk you all who puts one line in a new file
   programs.carapace = {
     enable = true;
     enableBashIntegration = true;
@@ -64,5 +61,13 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     options = [ "--cmd cd" ];
+  };
+
+  programs.eza = {
+    enable = true;
+    icons = "auto";
+
+    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 }
