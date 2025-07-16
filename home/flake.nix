@@ -27,6 +27,7 @@
 
         modules = [
           ./home.nix
+          ./wezterm
           ./btm.nix
           ./fastfetch.nix
           ./git.nix

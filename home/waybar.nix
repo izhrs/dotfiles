@@ -184,7 +184,7 @@
       tooltip {
           font-size: 16px;
           color: #cdd6f4;
-          background-color: alpha(#0f0f16, 0.85);
+          background-color: alpha(#0f0f16, 0.8);
           border-radius: 8px;
           border: 0
       }
@@ -283,7 +283,7 @@
       }
 
       window#waybar {
-          background-color: alpha(#0f0f16, 0.85);
+          background-color: alpha(#0f0f16, 0.8);
           color: #cdd6f4;
           border-radius: 11px;
           border: 0px solid alpha(#b4befe, 0.5);
