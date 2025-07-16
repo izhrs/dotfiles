@@ -91,12 +91,12 @@
         "cpu" = {
           format = "   {usage}%";
           tooltip = "false";
-          on-click = "kitty -e btm";
+          on-click = "wezterm -e btm";
         };
 
         "memory" = {
           format = "   {}%";
-          on-click = "kitty -e btm";
+          on-click = "wezterm -e btm";
         };
 
         "backlight" = {
@@ -132,7 +132,7 @@
           format-ethernet = " 󰈀 ";
           format-linked = " {ifname} (No IP) 󰈀 ";
           format-disconnected = " 󰖪  Disconnected";
-          on-click = "kitty -e nmtui";
+          on-click = "wezterm -e nmtui";
           tooltip-format = "{essid} {signalStrength}%";
         };
 

@@ -9,6 +9,10 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    VISUAL = "nvim";
+    TERM = "wezterm";
+    TERMINAL = "wezterm";
+    XDG_TERMINAL_EMULATOR = "wezterm";
 
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
@@ -20,10 +24,10 @@
     QT_QPA_PLATFORM = "wayland;xcb";
   };
 
-  # for non nixos
-  # home.shell.enableNushellIntegration = true;
-
   programs.home-manager.enable = true;
 
-  xdg.mimeApps.defaultApplications = { "text/plain" = [ "neovide.desktop" ]; };
+  xdg.mimeApps.defaultApplications = {
+    "text/plain" = [ "neovide.desktop" ];
+    "x-scheme-handler/terminal" = [ "wezterm.desktop" ];
+  };
 }

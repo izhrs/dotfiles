@@ -33,7 +33,6 @@
           ./git.nix
           ./gtk.nix
           ./hyprland.nix
-          ./kitty.nix
           ./lazygit.nix
           ./rofi
           ./shell.nix

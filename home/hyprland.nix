@@ -20,10 +20,10 @@
     (writeShellScriptBin "code-dir" ''
       export EDITOR='nvim'
       if [[ -d ~/Documents/code ]]; 
-        then kitty yazi ~/Documents/code; 
+        then wezterm -e yazi ~/Documents/code; 
       else 
-        kitty ~/.local/bin/mnt -o docs;
-        kitty yazi ~/Documents/code; 
+        wezterm -e ~/.local/bin/mnt -o docs;
+        wezterm -e yazi ~/Documents/code; 
       fi
     '')
   ];
@@ -114,7 +114,7 @@
         "$mod, Q, killactive,"
         "$mod SHIFT, E, exec, pkill Hyprland"
 
-        "$mod CTRL, Return, fullscreen,"
+        "$mod ALT, Return, fullscreen,"
         "$mod, G, togglegroup,"
         "$mod SHIFT, N, changegroupactive, f"
         "$mod SHIFT, P, changegroupactive, b"
@@ -145,7 +145,7 @@
         "$mod SHIFT, right, movewindow, r"
 
         #run important programs
-        "$mod, Return, exec, kitty"
+        "$mod, Return, exec, wezterm"
         "$mod, b, exec, firefox"
         "$mod, slash, exec, rofi -show drun -show-icons"
         "$mod SHIFT, slash, exec, rofi -show emoji"
@@ -155,7 +155,7 @@
 
         "$mod, Print, exec, wl-paste | swappy -f -"
         "$mod, Space, exec, code-dir"
-        "$mod, f, exec, kitty yazi"
+        "$mod, f, exec, wezterm -e yazi"
       ]
 
         ++ (
