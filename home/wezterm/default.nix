@@ -8,6 +8,67 @@
       local wezterm = require("wezterm");
       local act = wezterm.action;
 
+      local icon_map = {
+        bottom = ' ',
+        btm = ' ',
+        nvim = ' ',
+        vim = ' ',
+        bash = ' 󱄅',
+        fish = ' ',
+        zsh = ' 󱄅',
+        python = ' ',
+        node = ' ',
+        yarn = ' ',
+        deno = ' ',
+        ssh = ' ',
+        lazygit = ' ',
+        cargo = ' ',
+        docker = ' ',
+        yazi = ' ',
+      }
+
+      local function icon_for_title(title)
+        local lowered = string.lower(title or "")
+
+        -- First try exact match
+        if icon_map[lowered] then
+          return icon_map[lowered]
+        end
+
+        -- Try substring matching
+        for key, icon in pairs(icon_map) do
+          if string.find(lowered, key, 1, true) then
+            return icon
+          end
+        end
+
+        -- Fallback default icon
+        return ' '
+      end
+
+      local function tab_title(tab_info)
+        local title = tab_info.tab_title
+        if title and #title > 0 then
+          return title
+        end
+        return tab_info.active_pane.title
+      end
+
+      wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+        local raw_title = tab_title(tab)
+        local icon = icon_for_title(raw_title)
+
+        local bg_color = '#0f0f16'
+        local fg_color = tab.is_active and '#b4befe' or '#7f849c'
+
+        return {
+          { Background = { Color = bg_color } },
+          { Foreground = { Color = fg_color } },
+          { Text = ' ' .. icon .. ' ' },
+        }
+      end)
+
+
       return {
         font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular" }),
         font_size = 13.0,
@@ -29,6 +90,7 @@
         hide_tab_bar_if_only_one_tab = true,
         tab_bar_at_bottom = true,
         show_new_tab_button_in_tab_bar = false,
+        show_tab_index_in_tab_bar = false,
 
         scrollback_lines = 10000,
         adjust_window_size_when_changing_font_size = false,
@@ -39,18 +101,9 @@
 
         colors = {
           background = "#0f0f16",  -- darker shade of #1E1E2E
-
-          tab_bar = {
-            background = "#0f0f16",
-            foreground = "#cdd6f4",
-            
-            active_tab = {
-              bg_color = "#b4befe",
-              fg_color = "#11111b",
-            },
-          }
         },
 
+        -- replicating compositor/vim like keybindings but with ALT as $mod
         keys = {
           { key = '1', mods = 'ALT', action = act.ActivateTab(0) },
           { key = '2', mods = 'ALT', action = act.ActivateTab(1) },
@@ -64,6 +117,8 @@
 
           { key = 'Enter', mods = 'ALT', action = act.SpawnTab 'CurrentPaneDomain' },
           { key = 'w', mods = 'ALT', action = act.CloseCurrentTab { confirm = true } },
+          { key = 'h', mods = 'ALT', action = act.ActivateTabRelative(-1) },
+          { key = 'l', mods = 'ALT', action = act.ActivateTabRelative(1) },
 
           { key = '/', mods = 'ALT', action = act.Search 'CurrentSelectionOrEmptyString' },
           { key = 'v', mods = 'ALT', action = act.ActivateCopyMode }
