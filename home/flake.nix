@@ -28,18 +28,18 @@
         modules = [
           ./home.nix
           ./wezterm
-          ./btm.nix
-          ./fastfetch.nix
-          ./git.nix
-          ./gtk.nix
-          ./hyprland.nix
-          ./lazygit.nix
+          ./btm
+          ./fastfetch
+          ./git
+          ./gtk
+          ./hypr
+          ./lazygit
           ./rofi
-          ./shell.nix
-          ./starship.nix
-          ./virt-manager.nix
-          ./waybar.nix
-          ./yazi.nix
+          ./shell
+          ./starship
+          ./virtmanager
+          ./waybar
+          ./yazi
         ];
       };
     };
