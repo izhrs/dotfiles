@@ -22,16 +22,17 @@
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 80 3000 5173 8000 8080 ];
+      allowedTCPPorts = [ 22 80 3000 5173 8000 8080 ];
       allowedUDPPorts = [ ];
     };
   };
 
   services = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";
         variant = "";
@@ -50,12 +51,20 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    # openssh.enable = true;
+
+    pulseaudio.enable = false;
+
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+        AllowUsers = [ "izhrs" ];
+      };
+    };
   };
 
   hardware = {
-    pulseaudio.enable = false;
-
     # enable opengl
     graphics.enable = true;
     nvidia = {
@@ -95,6 +104,14 @@
       };
     };
     spiceUSBRedirection.enable = true;
+
+    docker = {
+      enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -121,17 +138,25 @@
   users.users.izhrs = {
     isNormalUser = true;
     description = "Mohamed Izhar";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "adbusers" ];
+    extraGroups =
+      [ "networkmanager" "wheel" "libvirtd" "kvm" "adbusers" "docker" ];
     packages = [ ];
     shell = pkgs.zsh;
   };
-
-  users.groups.libvirtd.members = [ "izhrs" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
+
+    # Development
+    rust-analyzer
+    rustup
+    gcc
+    musl
+    nixfmt-classic
+    nodejs_24
+    python314
 
     # CLI tools
     android-tools
@@ -141,20 +166,15 @@
     delta
     dust
     fd
+    file
     fzf
-    gcc
     k3s
     lazygit
     miniserve
     neovim
-    nixfmt-classic
-    nodejs_24
     procs
-    python314
     ripgrep
     rsync
-    rust-analyzer
-    rustup
     sd
     tokei
     tree
@@ -163,7 +183,13 @@
     yarn
     yt-dlp
 
+    # networking
+    dnsutils # dig
+    iputils # ping
+    nettools
+
     # archives
+    gnutar
     p7zip
     unzip
     xz
@@ -188,7 +214,7 @@
     libreoffice
     protonvpn-gui
     qbittorrent
-    gimp
+    # gimp
     godot
 
     # Media
