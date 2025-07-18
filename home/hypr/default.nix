@@ -106,7 +106,18 @@
       ];
 
       blurls = "waybar";
-      layerrule = "blur, waybar";
+
+      layerrule = [
+        "blur, waybar"
+
+        "blur, swaync-control-center"
+        "blur, swaync-notification-window"
+
+        "ignorezero, swaync-control-center"
+        "ignorezero, swaync-notification-window"
+        "ignorealpha 0.5, swaync-control-center"
+        "ignorealpha 0.5, swaync-notification-window"
+      ];
 
       bind = [
         # compositor commands
@@ -149,6 +160,9 @@
         "$mod, b, exec, firefox"
         "$mod, slash, exec, rofi -show drun -show-icons"
         "$mod SHIFT, slash, exec, rofi -show emoji"
+
+        # notification 
+        "$mod, n, exec, swaync-client -t -sw"
 
         #screenshot
         '', Print, exec,  grim -g "$(slurp)" - | wl-copy''

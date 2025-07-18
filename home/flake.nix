@@ -27,7 +27,6 @@
 
         modules = [
           ./home.nix
-          ./wezterm
           ./btm
           ./fastfetch
           ./git
@@ -37,8 +36,10 @@
           ./rofi
           ./shell
           ./starship
+          ./swaync
           ./virtmanager
           ./waybar
+          ./wezterm
           ./yazi
         ];
       };

@@ -157,6 +157,10 @@
     nixfmt-classic
     nodejs_24
     python314
+    uv # python package manager
+    docker-compose
+
+    helix
 
     # CLI tools
     android-tools
