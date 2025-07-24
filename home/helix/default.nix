@@ -12,6 +12,11 @@
           display-inlay-hints = true;
         };
 
+        inline-diagnostics.cursor-line = "warning";
+        end-of-line-diagnostics = "hint";
+
+        popup-border = "all";
+
         cursor-shape = {
           insert = "bar";
           normal = "block";
@@ -48,13 +53,21 @@
         };
       };
 
-      keys.normal = {
-        space.space = "file_picker";
-        space.w = ":w";
-        space.q = ":q";
-        esc = [ "collapse_selection" "keep_primary_selection" ];
+      keys = {
+        normal = {
+          space.space = "file_picker";
+          space.w = ":w";
+          space.q = ":q";
+          G = "goto_last_line";
+          esc = [ "collapse_selection" "keep_primary_selection" ];
+          "{" = "goto_prev_paragraph";
+          "}" = "goto_next_paragraph";
+        };
+
+        select = { G = "goto_last_line"; };
+
+        insert = { j.k = "normal_mode"; };
       };
-      keys.insert = { j.k = "normal_mode"; };
     };
 
     languages = {
@@ -68,6 +81,8 @@
       catppuccin_mocha_transparent = {
         inherits = "catppuccin_mocha";
         "ui.background" = { };
+        "ui.popup" = { };
+        "ui.virtual.inlay-hint" = { fg = "#6c7086"; };
       };
     };
   };
