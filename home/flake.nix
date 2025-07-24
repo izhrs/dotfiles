@@ -31,6 +31,7 @@
           ./fastfetch
           ./git
           ./gtk
+          ./helix
           ./hypr
           ./lazygit
           ./rofi
