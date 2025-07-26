@@ -17,6 +17,11 @@ let
 in {
 
   language-server = {
+    emmet-ls = {
+      command = "emmet-ls";
+      args = [ "--stdio" ];
+    };
+
     tailwind-ls = {
       command = "tailwindcss-language-server";
       args = [ "--stdio" ];
@@ -33,6 +38,24 @@ in {
         };
       };
     };
+
+    svelte-ls = {
+      command = "svelteserver";
+      args = [ "--stdio" ];
+      config = {
+        svelte = {
+          plugin = {
+            typescript = {
+              enable = true;
+              diagnostics = true;
+            };
+            css = { enable = true; };
+            html = { enable = true; };
+            svelte = { compilerWarnings = { a11y-no-onchange = "ignore"; }; };
+          };
+        };
+      };
+    };
   };
 
   language = [
@@ -42,6 +65,10 @@ in {
       scope = "source.rust";
       file-types = [ "rs" ];
       auto-format = true;
+      formatter = {
+        command = "rustfmt";
+        args = [ "--edition" "2024" ];
+      };
     }
 
     {
@@ -134,12 +161,8 @@ in {
       file-types = [ "jsx" ];
       auto-format = true;
       formatter = prettierFormatter "babel";
-      language-servers = [
-        "typescript-language-server"
-        "vscode-html-language-server"
-        "vscode-css-language-server"
-        "tailwind-ls"
-      ];
+      language-servers =
+        [ "typescript-language-server" "emmet-ls" "tailwind-ls" ];
     }
 
     {
@@ -148,12 +171,8 @@ in {
       file-types = [ "tsx" ];
       auto-format = true;
       formatter = prettierFormatter "typescript";
-      language-servers = [
-        "typescript-language-server"
-        "vscode-html-language-server"
-        "vscode-css-language-server"
-        "tailwind-ls"
-      ];
+      language-servers =
+        [ "typescript-language-server" "emmet-ls" "tailwind-ls" ];
     }
 
     {
@@ -187,7 +206,7 @@ in {
       file-types = [ "html" ];
       auto-format = true;
       formatter = prettierFormatter "html";
-      language-servers = [ "vscode-html-language-server" "tailwind-ls" ];
+      language-servers = [ "emmet-ls" "tailwind-ls" ];
     }
 
     {
@@ -196,7 +215,8 @@ in {
       file-types = [ "css" ];
       auto-format = true;
       formatter = prettierFormatter "css";
-      language-servers = [ "vscode-css-language-server" "tailwind-ls" ];
+      language-servers =
+        [ "vscode-css-language-server" "emmet-ls" "tailwind-ls" ];
     }
 
     {
@@ -205,7 +225,8 @@ in {
       file-types = [ "scss" ];
       auto-format = true;
       formatter = prettierFormatter "scss";
-      language-servers = [ "vscode-css-language-server" "tailwind-ls" ];
+      language-servers =
+        [ "vscode-css-language-server" "emmet-ls" "tailwind-ls" ];
     }
 
     {
@@ -214,12 +235,7 @@ in {
       file-types = [ "svelte" ];
       auto-format = true;
       formatter = prettierFormatter "svelte";
-      language-servers = [
-        "svelte-language-server"
-        "vscode-html-language-server"
-        "vscode-css-language-server"
-        "tailwind-ls"
-      ];
+      language-servers = [ "svelte-ls" "emmet-ls" "tailwind-ls" ];
     }
 
     {

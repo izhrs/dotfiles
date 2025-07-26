@@ -3,8 +3,7 @@
     enable = true;
 
     extraPackages = with pkgs; [
-      # Rust
-      rust-analyzer
+      lldb_20
 
       # Toml
       taplo
@@ -36,6 +35,7 @@
       # vscode-css-language-server vscode-eslint-language-server vscode-html-language-server
       # vscode-json-language-server vscode-markdown-language-server
       vscode-langservers-extracted
+      emmet-ls
 
       typescript-language-server
       tailwindcss-language-server
