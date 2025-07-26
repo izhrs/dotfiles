@@ -1,7 +1,54 @@
 { pkgs, ... }: {
-  # home.packages = with pkgs; [ rust-analyzer rustup ];
   programs.helix = {
     enable = true;
+
+    extraPackages = with pkgs; [
+      # Rust
+      rust-analyzer
+
+      # Toml
+      taplo
+
+      # Yaml
+      yaml-language-server
+
+      # Nix
+      nixd
+      nixfmt-classic
+
+      # Lua
+      stylua
+      lua-language-server
+
+      # Python
+      pyright
+      black
+
+      # Bash / Shell
+      bash-language-server
+      shfmt
+
+      # Docker
+      dockerfile-language-server-nodejs
+      dockfmt
+
+      # Frontend
+      # vscode-css-language-server vscode-eslint-language-server vscode-html-language-server
+      # vscode-json-language-server vscode-markdown-language-server
+      vscode-langservers-extracted
+
+      typescript-language-server
+      tailwindcss-language-server
+      svelte-language-server
+      prettier
+
+      # PostgreSQL
+      pgformatter
+
+      # Markdown
+      markdown-oxide
+    ];
+
     settings = {
       theme = "catppuccin_mocha_transparent";
       editor = {
@@ -23,29 +70,32 @@
           select = "block";
         };
 
-        # statusline = {
-        #   left = [
-        #     "mode"
-        #     "spinner"
-        #     "file-modification-indicator"
-        #     "read-only-indicator"
-        #   ];
-        #   center = [ "version-control" "file-name" ];
-        #   right = [
-        #     "diagnostics"
-        #     "selections"
-        #     "position"
-        #     "file-encoding"
-        #     "file-line-ending"
-        #     "file-type"
-        #   ];
-        #   separator = "│";
-        #   mode = {
-        #     normal = "NORMAL";
-        #     insert = "INSERT";
-        #     select = "SELECT";
-        #   };
-        # };
+        statusline = {
+          left = [
+            "mode"
+            "file-name"
+            "version-control"
+            "read-only-indicator"
+            "file-modification-indicator"
+          ];
+          center = [ ];
+          right = [
+            "spinner"
+            "file-type"
+            "diagnostics"
+            "selections"
+            "register"
+            "position-percentage"
+            "position"
+            "file-encoding"
+          ];
+          separator = "│";
+          mode = {
+            normal = "NORMAL";
+            insert = "INSERT";
+            select = "SELECT";
+          };
+        };
 
         indent-guides = {
           render = true;
@@ -66,16 +116,11 @@
 
         select = { G = "goto_last_line"; };
 
-        insert = { j.k = "normal_mode"; };
+        insert = { C-space = "completion"; };
       };
     };
 
-    languages = {
-      language = [{
-        name = "rust";
-        auto-format = true;
-      }];
-    };
+    languages = import ./language.nix;
 
     themes = {
       catppuccin_mocha_transparent = {
