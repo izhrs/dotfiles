@@ -6,6 +6,8 @@ local icon_map = {
     btm = " ",
     nvim = " ",
     vim = " ",
+    helix = " 󰚄",
+    hx = " 󰚄",
     bash = " 󱄅",
     fish = " ",
     zsh = " 󱄅",
@@ -65,6 +67,9 @@ return {
     font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular" }),
     font_size = 13.0,
     window_background_opacity = 0.8,
+    window_padding = {
+        bottom = 0,
+    },
 
     enable_wayland = true,
     enable_scroll_bar = false,

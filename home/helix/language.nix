@@ -108,7 +108,27 @@ in {
     {
       name = "bash";
       scope = "source.bash";
-      file-types = [ "sh" "bash" ];
+      file-types = [
+        "config"
+        "sh"
+        { glob = ".zshrc"; }
+        { glob = ".bash_login"; }
+        { glob = ".bash_logout"; }
+        { glob = ".bash_profile"; }
+        { glob = ".bashrc"; }
+        { glob = ".profile"; }
+        { glob = ".zshenv"; }
+        { glob = ".zlogin"; }
+        { glob = ".zlogout"; }
+        { glob = ".zprofile"; }
+        { glob = ".zshrc"; }
+        { glob = "APKBUILD"; }
+        { glob = "PKGBUILD"; }
+        { glob = "eclass"; }
+        { glob = "ebuild"; }
+        { glob = "bazelrc"; }
+        { glob = ".bash_aliases"; }
+      ];
       auto-format = true;
       formatter = {
         command = "shfmt";
@@ -120,11 +140,11 @@ in {
     {
       name = "dockerfile";
       scope = "source.dockerfile";
-      file-types = [ "Dockerfile" ];
+      file-types = [ "Dockerfile" { glob = "Dockerfile"; } ];
       auto-format = true;
       formatter = {
         command = "dockfmt";
-        args = [ "fmt" "-" ];
+        args = [ "fmt" ];
       };
       language-servers = [ "docker-langserver" ];
     }

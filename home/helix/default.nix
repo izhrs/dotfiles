@@ -64,6 +64,8 @@
 
         popup-border = "all";
 
+        file-picker = { hidden = false; };
+
         cursor-shape = {
           insert = "bar";
           normal = "block";

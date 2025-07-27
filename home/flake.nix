@@ -42,6 +42,7 @@
           ./waybar
           ./wezterm
           ./yazi
+          ./zellij
         ];
       };
     };
