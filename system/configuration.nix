@@ -150,17 +150,16 @@
     home-manager
 
     # Development
-    rust-analyzer
     rustup
     gcc
     musl
-    nixfmt-classic
     nodejs_24
     python314
     uv # python package manager
     docker-compose
 
     helix
+    zed-editor
 
     # CLI tools
     android-tools
