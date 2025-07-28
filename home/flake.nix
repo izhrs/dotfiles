@@ -14,6 +14,8 @@
       url = "github:yazi-rs/flavors";
       flake = false;
     };
+
+    zjstatus = { url = "github:dj95/zjstatus"; };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
