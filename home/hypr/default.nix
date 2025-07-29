@@ -18,7 +18,7 @@
     '')
 
     (writeShellScriptBin "code-dir" ''
-      export EDITOR='nvim'
+      export EDITOR='hx'
       if [[ -d ~/Documents/code ]]; 
         then wezterm -e yazi ~/Documents/code; 
       else 

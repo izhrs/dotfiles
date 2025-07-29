@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   programs.helix = {
     enable = true;
+    defaultEditor = true;
 
     settings = {
       theme = "catppuccin_mocha_transparent";
@@ -16,6 +17,7 @@
         end-of-line-diagnostics = "hint";
 
         popup-border = "all";
+        color-modes = true;
 
         file-picker = { hidden = false; };
         bufferline = "multiple";
@@ -30,20 +32,20 @@
           left = [
             "mode"
             "file-name"
+            "diagnostics"
             "version-control"
             "read-only-indicator"
             "file-modification-indicator"
           ];
           center = [ ];
           right = [
-            "spinner"
-            "file-type"
-            "diagnostics"
-            "selections"
             "register"
-            "position-percentage"
-            "position"
+            "file-type"
             "file-encoding"
+            "selections"
+            "position"
+            "position-percentage"
+            "spinner"
           ];
           separator = "│";
           mode = {
@@ -61,20 +63,29 @@
 
       keys = {
         normal = {
+          # yazi-picker script defined at bottom of this file
           space.space = [
-            # using %% to escape 
             ''
-              :sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit -- yazi''
+              :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}''
             ":redraw"
-            ":reload-all"
           ];
+
+          C-y = {
+            y = ''
+              :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}'';
+            # Open the file(s) in a vertical split
+            v = ''
+              :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker vsplit %{buffer_name}'';
+            # Open the file(s) in a horizontal split
+            h = ''
+              :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker hsplit %{buffer_name}'';
+          };
 
           space.l = [
             # using %% to escape 
             ''
               :sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit -- lazygit''
             ":redraw"
-            ":reload-all"
           ];
 
           space.w = ":w";
@@ -83,6 +94,8 @@
           esc = [ "collapse_selection" "keep_primary_selection" ];
           "{" = "goto_prev_paragraph";
           "}" = "goto_next_paragraph";
+          H = "goto_previous_buffer";
+          L = "goto_next_buffer";
         };
 
         select = { G = "goto_last_line"; };
@@ -149,4 +162,21 @@
       markdown-oxide
     ];
   };
+
+  home.packages = with pkgs;
+    [
+      # got this script from: https://yazi-rs.github.io/docs/tips/#helix-with-zellij
+      (writeShellScriptBin "yazi-picker" ''
+        paths=$(yazi "$2" --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
+
+        if [[ -n "$paths" ]]; then
+        	zellij action toggle-floating-panes
+        	zellij action write 27 # send <Escape> key
+        	zellij action write-chars ":$1 $paths"
+        	zellij action write 13 # send <Enter> key
+        else
+        	zellij action toggle-floating-panes
+        fi
+      '')
+    ];
 }

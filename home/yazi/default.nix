@@ -4,7 +4,7 @@
     ouch
 
     (writeShellScriptBin "sudofm" ''
-      sudo HOME=$HOME XDG_CONFIG_HOME=$HOME/.config EDITOR="nvim" yazi "$@"
+      sudo HOME=$HOME XDG_CONFIG_HOME=$HOME/.config EDITOR="hx" yazi "$@"
     '')
   ];
 

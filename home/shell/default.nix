@@ -4,8 +4,9 @@
     enable = true;
 
     shellAliases = {
-      vi = "nvim";
-      vim = "nvim";
+      e = "hx .";
+      vi = "hx";
+      vim = "hx";
       cat = "bat";
       ps = "procs";
       l = "ls -l";
@@ -32,8 +33,9 @@
     };
 
     shellAliases = {
-      vi = "nvim .";
-      vim = "nvim";
+      e = "hx .";
+      vi = "hx";
+      vim = "hx";
       cat = "bat";
       ps = "procs";
       l = "ls -l";
@@ -44,8 +46,6 @@
       gg = "lazygit";
       ff = "fastfetch";
     };
-
-    sessionVariables = { EDITOR = "nvim"; };
   };
 
   # shell completion 

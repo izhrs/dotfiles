@@ -8,10 +8,6 @@
   home.file = { };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    TERM = "wezterm";
-    TERMINAL = "wezterm";
     XDG_TERMINAL_EMULATOR = "wezterm";
 
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
