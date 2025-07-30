@@ -125,7 +125,7 @@
       };
     };
 
-    languages = import ./language.nix;
+    languages = import ./language.nix { inherit pkgs; };
 
     themes = {
       catppuccin_mocha_transparent = {
@@ -179,6 +179,9 @@
       # PostgreSQL
       pgformatter
 
+      # Powershell
+      powershell-editor-services # powershell pkg in system/configuration.nix
+
       # Markdown
       markdown-oxide
     ];
@@ -199,5 +202,12 @@
         	zellij action toggle-floating-panes
         fi
       '')
+
+      # additional dependencies which I defined in system config.
+      # 
+      # powershell
+      # rustup
+      # python314
+      # nodejs_24
     ];
 }

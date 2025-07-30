@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   prettierFormatter = parser: {
     command = "prettier";
@@ -56,6 +57,35 @@ in {
         };
       };
     };
+
+    powershell-ls = {
+      command = "pwsh";
+      args = [
+        "-NoLogo"
+        "-NoProfile"
+        "-Command"
+        "${pkgs.powershell-editor-services}/lib/powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1"
+        "-BundledModulesPath"
+        "${pkgs.powershell-editor-services}/bin/powershell-editor-services"
+        "-SessionDetailsPath"
+        "/tmp/powershell_es.session.json"
+        "-LogPath"
+        "/tmp/powershell_es.log" # nix is immutable
+        "-FeatureFlags"
+        "@()"
+        "-AdditionalModules"
+        "@()"
+        "-HostName"
+        "helix"
+        "-HostProfileId"
+        "0"
+        "-HostVersion"
+        "1.0.0"
+        "-Stdio"
+        "-LogLevel"
+        "Normal"
+      ];
+    };
   };
 
   language = [
@@ -85,6 +115,7 @@ in {
     {
       name = "lua";
       scope = "source.lua";
+      roots = [ ".git" "stylua.toml" ];
       file-types = [ "lua" ];
       auto-format = true;
       formatter = {
@@ -96,6 +127,7 @@ in {
     {
       name = "python";
       scope = "source.python";
+      roots = [ ".git" ];
       file-types = [ "py" ];
       auto-format = true;
       formatter = {
@@ -268,6 +300,18 @@ in {
         args = [ "fmt" "-" ];
       };
       language-servers = [ "taplo" ];
+    }
+
+    {
+      name = "powershell";
+      scope = "source.ps1";
+      roots = [ ".git" ];
+      comment-token = "#";
+      indent = {
+        tab-width = 4;
+        unit = " ";
+      };
+      language-servers = [ "powershell-ls" ];
     }
   ];
 }

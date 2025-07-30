@@ -157,6 +157,7 @@
     python314
     uv # python package manager
     docker-compose
+    powershell
 
     helix
     zed-editor
