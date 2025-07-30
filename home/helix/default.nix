@@ -113,11 +113,11 @@
           space = {
             u = "switch_to_lowercase";
             U = "switch_to_uppercase";
-          };
 
-          t = {
-            s = ":toggle-option soft-wrap.enable";
-            u = "switch_case";
+            t = {
+              s = ":toggle-option soft-wrap.enable";
+              u = "switch_case";
+            };
           };
         };
 
