@@ -12,6 +12,7 @@
           display-messages = true;
           display-inlay-hints = true;
         };
+        soft-wrap.enable = false;
 
         inline-diagnostics.cursor-line = "warning";
         end-of-line-diagnostics = "hint";
@@ -63,12 +64,37 @@
 
       keys = {
         normal = {
-          # yazi-picker script defined at bottom of this file
-          space.space = [
-            ''
-              :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}''
-            ":redraw"
-          ];
+          G = "goto_last_line";
+          esc = [ "collapse_selection" "keep_primary_selection" ];
+          "{" = "goto_prev_paragraph";
+          "}" = "goto_next_paragraph";
+          H = "goto_previous_buffer";
+          L = "goto_next_buffer";
+
+          space = {
+            w = ":w";
+            q = ":q";
+            u = "switch_to_lowercase";
+            U = "switch_to_uppercase";
+
+            # yazi-picker script defined at bottom of this file
+            space = [
+              # using %% to escape 
+              ''
+                :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}''
+              ":redraw"
+            ];
+            l = [
+              ''
+                :sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit -- lazygit''
+              ":redraw"
+            ];
+
+            t = {
+              s = ":toggle-option soft-wrap.enable";
+              u = "switch_case";
+            };
+          };
 
           C-y = {
             y = ''
@@ -80,25 +106,20 @@
             h = ''
               :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker hsplit %{buffer_name}'';
           };
-
-          space.l = [
-            # using %% to escape 
-            ''
-              :sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit -- lazygit''
-            ":redraw"
-          ];
-
-          space.w = ":w";
-          space.q = ":q";
-          G = "goto_last_line";
-          esc = [ "collapse_selection" "keep_primary_selection" ];
-          "{" = "goto_prev_paragraph";
-          "}" = "goto_next_paragraph";
-          H = "goto_previous_buffer";
-          L = "goto_next_buffer";
         };
 
-        select = { G = "goto_last_line"; };
+        select = {
+          G = "goto_last_line";
+          space = {
+            u = "switch_to_lowercase";
+            U = "switch_to_uppercase";
+          };
+
+          t = {
+            s = ":toggle-option soft-wrap.enable";
+            u = "switch_case";
+          };
+        };
 
         insert = { C-space = "completion"; };
       };
