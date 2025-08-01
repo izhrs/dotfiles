@@ -23,7 +23,7 @@
 @define-color color14 @noti-bg-focus;
 @define-color color15 @text-color;
 
-/* === Global Styles === */ 
+/* === Global Styles === */
 * {
     font-family: "Ubuntu Nerd Font", "Symbols Nerd Font";
     font-size: 16px;
@@ -61,6 +61,7 @@
     font-size: 1.5rem;
     background: transparent;
 }
+
 .widget-title > button {
     font-size: initial;
     color: @text-color;
@@ -70,6 +71,7 @@
     box-shadow: none;
     border-radius: 12px;
 }
+
 .widget-title > button:hover {
     background: @secondary-bg;
 }
@@ -80,6 +82,7 @@
     border-radius: 20px;
     margin: 8px;
 }
+
 .widget-label > label {
     font-size: 1.1rem;
 }
@@ -87,6 +90,7 @@
 .widget-dnd {
     background-color: @secondary-bg;
 }
+
 .widget-dnd > switch {
     font-size: initial;
     border-radius: 14px;
@@ -94,9 +98,11 @@
     border: 2px solid @noti-border-color;
     box-shadow: none;
 }
+
 .widget-dnd > switch:checked {
     background: @text-color;
 }
+
 .widget-dnd > switch slider {
     background: @noti-bg-hover;
     border-radius: 12px;
@@ -106,23 +112,28 @@
     font-family: "Ubuntu Nerd Font";
     border: 0px;
 }
+
 .widget-mpris-player {
     padding: 14px;
     margin: 14px;
     background-color: @mpris-album-art-overlay;
     border-radius: 20px;
 }
+
 .widget-mpris-album-art {
     border-radius: 12px;
 }
+
 .widget-mpris-player button:hover {
     background: @noti-bg-hover;
 }
+
 .widget-mpris-title {
     font-family: "Ubuntu Nerd Font";
     font-weight: bold;
     font-size: 1.25rem;
 }
+
 .widget-mpris-subtitle {
     font-family: "Ubuntu Nerd Font";
     font-size: 1.1rem;
@@ -136,6 +147,7 @@
     margin: 0 10px;
     border-radius: 20px;
 }
+
 .widget-buttons-grid > flowbox > flowboxchild > button {
     padding: 10px;
     background: @secondary-bg;
@@ -144,6 +156,7 @@
     margin: 2px;
     border: none;
 }
+
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
     background: @text-color;
     color: @primary-bg;
@@ -167,17 +180,20 @@ trough {
     background: @primary-bg;
     border: 1px solid @primary-bg;
 }
+
 trough highlight {
     padding-top: 1px;
     background: @text-color;
     border: 1px solid @text-color;
     border-radius: 20px;
 }
+
 trough slider {
     padding: 1px;
     background: @text-color;
     border: 1px solid @text-color;
 }
+
 trough slider:hover {
     background: @text-color;
 }
@@ -204,6 +220,7 @@ trough slider:hover {
     margin: 8px;
     font-size: 1.5rem;
 }
+
 .widget-inhibitors > button {
     font-size: initial;
     color: white;
@@ -213,6 +230,7 @@ trough slider:hover {
     box-shadow: none;
     border-radius: 12px;
 }
+
 .widget-inhibitors > button:hover {
     background: @noti-bg-hover;
 }
@@ -220,13 +238,16 @@ trough slider:hover {
 .notification-row {
     outline: none;
 }
+
 .notification-row:focus,
 .notification-row:hover {
     background: @noti-bg-focus;
 }
+
 .notification-row .notification-background {
     padding: 6px 12px;
 }
+
 .notification-row .notification-background .close-button {
     background: @noti-close-bg;
     color: @text-color;
@@ -240,10 +261,12 @@ trough slider:hover {
     min-width: 24px;
     min-height: 24px;
 }
+
 .notification-row .notification-background .close-button:hover {
     background: @noti-close-bg-hover;
     transition: background 0.15s ease-in-out;
 }
+
 .notification-row .notification-background .notification {
     border-radius: 12px;
     border: 2px solid @border-color;
@@ -251,8 +274,12 @@ trough slider:hover {
     transition: background 0.15s ease-in-out;
     background: @noti-bg;
 }
+
 .notification-row .notification-background .notification .notification-action,
-.notification-row .notification-background .notification .notification-default-action {
+.notification-row
+    .notification-background
+    .notification
+    .notification-default-action {
     padding: 4px;
     margin: 0;
     box-shadow: none;
@@ -261,13 +288,25 @@ trough slider:hover {
     color: @text-color;
     transition: background 0.15s ease-in-out;
 }
-.notification-row .notification-background .notification .notification-action:hover,
-.notification-row .notification-background .notification .notification-default-action:hover {
+
+.notification-row
+    .notification-background
+    .notification
+    .notification-action:hover,
+.notification-row
+    .notification-background
+    .notification
+    .notification-default-action:hover {
     background: @noti-bg-hover;
 }
-.notification-row .notification-background .notification .notification-default-action {
+
+.notification-row
+    .notification-background
+    .notification
+    .notification-default-action {
     border-radius: 12px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -275,6 +314,7 @@ trough slider:hover {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -284,6 +324,7 @@ trough slider:hover {
     border-radius: 12px;
     padding: 4px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -293,6 +334,7 @@ trough slider:hover {
     border-radius: 100px;
     margin: 4px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -302,6 +344,7 @@ trough slider:hover {
     -gtk-icon-shadow: 0 1px 4px black;
     margin: 6px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -322,6 +365,7 @@ trough slider:hover {
     color: @text-color;
     text-shadow: none;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -335,6 +379,7 @@ trough slider:hover {
     color: @text-color;
     text-shadow: none;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -343,6 +388,7 @@ trough slider:hover {
     progressbar {
     margin-top: 4px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -353,6 +399,7 @@ trough slider:hover {
     background-color: alpha(@text-color, 0.5);
     border-radius: 12px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -361,6 +408,7 @@ trough slider:hover {
     .inline-reply {
     margin-top: 4px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -374,6 +422,7 @@ trough slider:hover {
     border: 1px solid @border-color;
     border-radius: 12px;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -387,6 +436,7 @@ trough slider:hover {
     border-radius: 12px;
     color: @text-color;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -398,6 +448,7 @@ trough slider:hover {
     border: 1px solid @border-color;
     border-color: transparent;
 }
+
 .notification-row
     .notification-background
     .notification
@@ -406,39 +457,60 @@ trough slider:hover {
     .inline-reply-button:hover {
     background: @noti-bg-hover;
 }
+
 .notification-row .notification-background .notification .notification-action {
     border-top: 1px solid @border-color;
     border-radius: 0px;
     border-right: 1px solid @border-color;
 }
-.notification-row .notification-background .notification .notification-action:first-child {
+
+.notification-row
+    .notification-background
+    .notification
+    .notification-action:first-child {
     border-bottom-left-radius: 12px;
 }
-.notification-row .notification-background .notification .notification-action:last-child {
+
+.notification-row
+    .notification-background
+    .notification
+    .notification-action:last-child {
     border-bottom-right-radius: 12px;
     border-right: none;
 }
+
 .notification-group,
 .notification-group.low,
 .notification-group.normal,
 .notification-group.critical {
 }
+
 .notification-group .notification-group-buttons,
 .notification-group .notification-group-headers {
     margin: 0 16px;
     color: @text-color;
 }
+
 .notification-group .notification-group-headers .notification-group-icon,
 .notification-group .notification-group-headers .notification-group-header {
     color: @text-color;
 }
+
 .notification-group.collapsed .notification-row .notification {
     background-color: alpha(@primary-bg, 0.5);
 }
-.notification-group.collapsed .notification-row:not(:last-child) .notification-action,
-.notification-group.collapsed .notification-row:not(:last-child) .notification-default-action {
+
+.notification-group.collapsed
+    .notification-row:not(:last-child)
+    .notification-action,
+.notification-group.collapsed
+    .notification-row:not(:last-child)
+    .notification-default-action {
     opacity: 0;
 }
-.notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
+
+.notification-group.collapsed:hover
+    .notification-row:not(:only-child)
+    .notification {
     background-color: @noti-bg-hover;
 }

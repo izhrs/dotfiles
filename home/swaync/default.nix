@@ -121,6 +121,6 @@
       };
     };
 
-    style = builtins.readFile ./style.css;
+    style = builtins.readFile ./style.scss;
   };
 }
