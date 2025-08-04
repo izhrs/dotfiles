@@ -1,22 +1,17 @@
 { pkgs, inputs, ... }: {
-  home.packages = with pkgs; [
-    trash-cli
-    ouch
-
-    (writeShellScriptBin "sudofm" ''
-      sudo HOME=$HOME XDG_CONFIG_HOME=$HOME/.config EDITOR="hx" yazi "$@"
-    '')
-  ];
+  home.packages = with pkgs; [ trash-cli ouch glow ];
 
   programs.yazi = {
     enable = true;
 
-    plugins = {
-      full-border = pkgs.yaziPlugins.full-border;
-      starship = pkgs.yaziPlugins.starship;
-      mount = pkgs.yaziPlugins.mount;
-      restore = pkgs.yaziPlugins.restore;
-      ouch = pkgs.yaziPlugins.ouch;
+    plugins = with pkgs.yaziPlugins; {
+      full-border = full-border;
+      starship = starship;
+      mount = mount;
+      restore = restore;
+      ouch = ouch;
+      glow = glow;
+      compress = inputs.yazi-compress;
     };
 
     initLua = builtins.readFile ./init.lua;
@@ -80,6 +75,12 @@
             mime = "application/xz";
             run = "ouch";
           }
+
+          # markdown with glow
+          {
+            name = "*.md";
+            run = "glow";
+          }
         ];
       };
     };
@@ -90,11 +91,35 @@
           {
             on = "M";
             run = "plugin mount";
+            desc = "Mount drives";
           }
+
           {
             on = "u";
             run = "plugin restore";
             desc = "Restore last deleted files/folders";
+          }
+
+          # compress.yazi
+          {
+            on = [ "-" "c" ];
+            run = "plugin compress";
+            desc = "Archive selected files";
+          }
+          {
+            on = [ "-" "p" ];
+            run = "plugin compress -p";
+            desc = "Archive with password";
+          }
+          {
+            on = [ "-" "h" ];
+            run = "plugin compress -ph";
+            desc = "Archive with password and header";
+          }
+          {
+            on = [ "-" "l" ];
+            run = "plugin compress -l";
+            desc = "Archive with compression level";
           }
         ];
       };

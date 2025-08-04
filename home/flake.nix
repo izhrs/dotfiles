@@ -14,6 +14,10 @@
       url = "github:yazi-rs/flavors";
       flake = false;
     };
+    yazi-compress = {
+      url = "github:KKV9/compress.yazi";
+      flake = false;
+    };
 
     zjstatus = { url = "github:dj95/zjstatus"; };
   };
