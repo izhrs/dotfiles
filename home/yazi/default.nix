@@ -39,8 +39,8 @@
 
     settings = {
       mgr = {
-        # 2/9 width for parent, 4/9 for main, 3/9 for preview
-        ratio = [ 2 4 3 ];
+        # 2/9 width for parent, 3/9 for main, 4/9 for preview
+        ratio = [ 2 3 4 ];
         show_hidden = false;
         show_symlink = true;
         sort_by = "mtime";

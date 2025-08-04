@@ -154,8 +154,8 @@
       lua-language-server
 
       # Python
-      pyright
-      black
+      ruff
+      ty
 
       # Bash / Shell
       bash-language-server
@@ -208,6 +208,7 @@
       # powershell
       # rustup
       # python314
+      # uv
       # nodejs_24
     ];
 }

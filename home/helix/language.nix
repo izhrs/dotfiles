@@ -40,6 +40,16 @@ in {
       };
     };
 
+    ty-lsp = {
+      command = "ty";
+      args = [ "server" ];
+    };
+
+    ruff-lsp = {
+      command = "ruff";
+      agrs = [ "server" ];
+    };
+
     svelte-ls = {
       command = "svelteserver";
       args = [ "--stdio" ];
@@ -127,14 +137,36 @@ in {
     {
       name = "python";
       scope = "source.python";
-      roots = [ ".git" ];
-      file-types = [ "py" ];
+      roots = [
+        "pyproject.toml"
+        "setup.py"
+        "poetry.lock"
+        "pyrightconfig.json"
+        "requirements.txt"
+        ".venv/"
+      ];
+      file-types = [
+        "py"
+        "pyi"
+        "py3"
+        "pyw"
+        "ptl"
+        "rpy"
+        "cpy"
+        "ipy"
+        "pyt"
+        { glob = ".python_history"; }
+        { glob = ".pythonstartup"; }
+        { glob = ".pythonrc"; }
+        { glob = "SConstruct"; }
+        { glob = "SConscript"; }
+      ];
       auto-format = true;
       formatter = {
-        command = "black";
-        args = [ "--quiet" "-" ];
+        command = "ruff";
+        args = [ "format" "-" ];
       };
-      language-servers = [ "pyright" ];
+      language-servers = [ "ty-lsp" "ruff-lsp" ];
     }
 
     {
