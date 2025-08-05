@@ -6,6 +6,7 @@
 
     settings = {
       theme = "catppuccin-mocha-lavender";
+      copy_command = "wl-copy";
 
       show_startup_tips = false;
       show_release_notes = false;
