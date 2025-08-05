@@ -35,6 +35,7 @@
           ./home.nix
           ./btm
           ./fastfetch
+          ./gemini
           ./git
           ./gtk
           ./helix
