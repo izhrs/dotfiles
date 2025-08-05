@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 # my stupid script to copy the configuration files and switch.
-# suck it up niqqas, I don't care about your opinion.
-
 function prompt() {
     local arg="$1"
 

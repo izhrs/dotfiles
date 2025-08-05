@@ -23,8 +23,6 @@
 
     };
 
-    # kdl is worst fucking config language I ever saw.
-    # and zellij has absolute worst fucking config design I ever came across
     layouts = {
       default = {
         layout = {
