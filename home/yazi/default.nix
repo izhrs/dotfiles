@@ -10,7 +10,7 @@
       mount = mount;
       restore = restore;
       ouch = ouch;
-      glow = glow;
+      glow = inputs.yazi-glow;
       compress = inputs.yazi-compress;
     };
 
