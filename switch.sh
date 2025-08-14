@@ -1,6 +1,26 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # my stupid script to copy the configuration files and switch.
+
+function help() {
+    cat << 'EOF'
+Usage:
+  switch.sh [sys|home] [--update|-u]
+
+Arguments:
+  sys       Copy and optionally update system (/etc/nixos) configuration.
+  home      Copy and optionally update home-manager configuration.
+  --update  Update flake before switching.
+  -u        Short for --update.
+  --help    Show this help message.
+
+Examples:
+  switch.sh sys --update
+  switch.sh home -u
+EOF
+}
+
 function prompt() {
     local arg="$1"
 
@@ -16,72 +36,102 @@ function prompt() {
     done
 }
 
-function main() {
-    local arg="$1"
-
-    case "$arg" in
-        sys)
-
-            # using find instead of fd to maintain compatibility with systems that may not have fd installed
-            # also, find ain't slow for few files, so no need to worry about performance here
-            find ./system -name '*.nix' -type f | while read -r file; do
-                local relpath=${file#./system/}
-                local target="/etc/nixos/$relpath"
-                if [[ -f "$target" ]]; then
-                    if command -v delta > /dev/null 2>&1; then
-                        delta "$target" "$file"
-                    else
-                        diff "$target" "$file"
-                    fi
-                else
-                    sudo mkdir -p "$(dirname "$target")"
-                    sudo touch "$target"
-                    if command -v delta > /dev/null 2>&1; then
-                        delta "$target" "$file"
-                    else
-                        diff "$target" "$file"
-                    fi
-                fi
-            done
-
-            if prompt "system"; then
-                sudo rsync -a ./system/ /etc/nixos/
-                sudo nixos-rebuild switch
-            fi
-            ;;
-
-        home)
-
-            find ./home -type f | while read -r file; do
-                local relpath=${file#./home/}
-                local target="$HOME/.config/home-manager/$relpath"
-                if [[ -f "$target" ]]; then
-                    if command -v delta > /dev/null 2>&1; then
-                        delta "$target" "$file"
-                    else
-                        diff "$target" "$file"
-                    fi
-                else
-                    mkdir -p "$(dirname "$target")"
-                    touch "$target"
-                    if command -v delta > /dev/null 2>&1; then
-                        delta "$target" "$file"
-                    else
-                        diff "$target" "$file"
-                    fi
-                fi
-            done
-
-            if prompt "home"; then
-                rsync -a ./home/ ~/.config/home-manager/
-                home-manager switch
-            fi
-            ;;
-
-        *)
-            echo "Invalid argument. Use 'sys' for system or 'home' for home."
-            ;;
-    esac
+# choose diff tool (delta if available, else diff)
+function diff_tool() {
+    if command -v delta > /dev/null 2>&1; then
+        delta "$1" "$2"
+    else
+        diff "$1" "$2"
+    fi
 }
 
-main "$1"
+# mkdir + touch with sudo if needed
+function mkdir_or_sudo() {
+    local target="$1"
+    if [[ $target == /etc/* ]]; then
+        sudo mkdir -p "$(dirname "$target")"
+        sudo touch "$target"
+    else
+        mkdir -p "$(dirname "$target")"
+        touch "$target"
+    fi
+}
+
+# compare files from source to target
+function compare_and_diff() {
+    local source_dir="$1"
+    local target_dir="$2"
+
+    # using find instead of fd to maintain compatibility with systems that may not have fd installed
+    # also, find ain't slow for few files, so no need to worry about performance here
+    find "$source_dir" -type f | while read -r file; do
+        local relpath=${file#"$source_dir"/}
+        local target="$target_dir/$relpath"
+
+        if [[ -f "$target" ]]; then
+            diff_tool "$target" "$file"
+        else
+            mkdir_or_sudo "$target"
+            diff_tool "$target" "$file"
+        fi
+    done
+}
+
+function main() {
+    local mode="${1:-}" update_flag="${2:-}"
+
+    # Validate first argument
+    case "$mode" in
+        sys)
+            local source_dir="./system"
+            local target_dir="/etc/nixos"
+            local update_cmd="sudo nix flake update --flake $target_dir"
+            local commit_msg="system: update flakes"
+            local switch_cmd="sudo nixos-rebuild switch"
+            ;;
+        home)
+            local source_dir="./home"
+            local target_dir="$HOME/.config/home-manager"
+            local update_cmd="nix flake update --flake $target_dir"
+            local commit_msg="home: update flakes"
+            local switch_cmd="home-manager switch"
+            ;;
+        --help | -h | "")
+            help
+            return 0
+            ;;
+        *)
+            help
+            return 1
+            ;;
+    esac
+
+    # Validate second argument if provided
+    if [[ -n "$update_flag" && "$update_flag" != "--update" && "$update_flag" != "-u" ]]; then
+        echo "Error: Invalid second argument '$update_flag'"
+        echo
+        help
+        return 1
+    fi
+
+    compare_and_diff "$source_dir" "$target_dir"
+
+    if prompt "$mode"; then
+        if [[ $target_dir == /etc/* ]]; then
+            sudo rsync -a "$source_dir/" "$target_dir/"
+        else
+            rsync -a "$source_dir/" "$target_dir/"
+        fi
+
+        if [[ $update_flag == "--update" || $update_flag == "-u" ]]; then
+            eval "$update_cmd"
+            cp "$target_dir/flake.lock" "$source_dir/flake.lock"
+            git add "$source_dir/flake.lock"
+            git commit -m "$commit_msg" || true
+        fi
+
+        eval "$switch_cmd"
+    fi
+}
+
+main "$@"
