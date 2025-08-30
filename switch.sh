@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 # my stupid script to copy the configuration files and switch.
 
@@ -85,16 +84,10 @@ function main() {
         sys)
             local source_dir="./system"
             local target_dir="/etc/nixos"
-            local update_cmd="sudo nix flake update --flake $target_dir"
-            local commit_msg="system: update flakes"
-            local switch_cmd="sudo nixos-rebuild switch"
             ;;
         home)
             local source_dir="./home"
             local target_dir="$HOME/.config/home-manager"
-            local update_cmd="nix flake update --flake $target_dir"
-            local commit_msg="home: update flakes"
-            local switch_cmd="home-manager switch"
             ;;
         --help | -h | "")
             help
@@ -124,13 +117,28 @@ function main() {
         fi
 
         if [[ $update_flag == "--update" || $update_flag == "-u" ]]; then
-            eval "$update_cmd"
-            cp "$target_dir/flake.lock" "$source_dir/flake.lock"
-            git add "$source_dir/flake.lock"
-            git commit -m "$commit_msg" || true
+            echo
+            echo "Updating the $target_dir flake"
+            echo
+
+            if [[ $mode == "sys" ]]; then
+                sudo nix flake update --flake "$target_dir"
+                cp "$target_dir/flake.lock" "$source_dir/flake.lock"
+                git add "$source_dir/flake.lock"
+                git commit -m "system: update flakes" || true
+            else
+                nix flake update --flake "$target_dir"
+                cp "$target_dir/flake.lock" "$source_dir/flake.lock"
+                git add "$source_dir/flake.lock"
+                git commit -m "home: update flakes" || true
+            fi
         fi
 
-        eval "$switch_cmd"
+        if [[ $mode == "sys" ]]; then
+            sudo nixos-rebuild switch
+        else
+            home-manager switch
+        fi
     fi
 }
 
