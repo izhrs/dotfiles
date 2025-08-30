@@ -64,7 +64,6 @@
 
       keys = {
         normal = {
-          G = "goto_last_line";
           esc = [ "collapse_selection" "keep_primary_selection" ];
           "{" = "goto_prev_paragraph";
           "}" = "goto_next_paragraph";
@@ -109,7 +108,8 @@
         };
 
         select = {
-          G = "goto_last_line";
+          "{" = "goto_prev_paragraph";
+          "}" = "goto_next_paragraph";
           space = {
             u = "switch_to_lowercase";
             U = "switch_to_uppercase";
