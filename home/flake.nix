@@ -44,6 +44,7 @@
           ./gtk
           ./helix
           ./hypr
+          ./hypridle
           ./hyprlock
           ./lazygit
           ./rofi
