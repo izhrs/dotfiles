@@ -1,14 +1,14 @@
 * {
     font-family: "Ubuntu Nerd Font", "Symbols Nerd Font";
     font-weight: normal;
-    font-size: 16px;
+    font-size: 15px;
     min-height: 0;
     color: #cdd6f4;
     transition: all 0.3s ease-in-out;
 }
 
 tooltip {
-    font-size: 16px;
+    font-size: 15px;
     color: #cdd6f4;
     background-color: alpha(#0f0f16, 0.8);
     border-radius: 8px;
@@ -74,7 +74,7 @@ tooltip {
 
 #custom-powermenu {
     color: #f38ba8;
-    font-size: 16px;
+    font-size: 15px;
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 5px;
@@ -82,7 +82,7 @@ tooltip {
 
 #custom-nix {
     color: #b4befe;
-    font-size: 16px;
+    font-size: 15px;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 5px;

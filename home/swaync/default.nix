@@ -42,8 +42,15 @@
 
       widget-config = {
 
+        volume = {
+          label = "";
+          show-per-app = true;
+          show-per-app-icon = true;
+          show-per-app-label = true;
+        };
+
         backlight = {
-          label = "󰞏";
+          label = "󰃠";
           device = "intel_backlight";
           min = 10;
         };

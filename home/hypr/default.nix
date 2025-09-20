@@ -43,7 +43,10 @@
 
       exec-once = [ "autostart" ];
 
-      monitor = [ "eDP-1, 1920x1080@144, 0x0, 1" ];
+      monitor = [
+        "eDP-1, 1920x1080@144, 0x0, 1"
+        "HDMI-A-2, 1920x1080@120, 0x0, 1, mirror, eDP-1"
+      ];
 
       xwayland.force_zero_scaling = true;
 
@@ -102,6 +105,7 @@
       # get blurred bitch
       windowrule = [
         "opacity 0.9, class:^(firefox)$"
+        "opacity 0.75, class:^(zathura)$"
         # "opacity 0.85, class:^(code)$"
       ];
 
@@ -218,8 +222,6 @@
         # accel_profile = "flat";
         touchpad = { natural_scroll = 1; };
       };
-
-      gestures = { workspace_swipe = true; };
 
       # Catppuccin mocha color scheme
       "$rosewater" = "rgb(f5e0dc)";

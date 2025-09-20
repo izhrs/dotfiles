@@ -65,7 +65,7 @@ end)
 
 return {
 	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular" }),
-	font_size = 13.0,
+	font_size = 12.0,
 	window_background_opacity = 0.8,
 	window_padding = {
 		bottom = 0,
