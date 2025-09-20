@@ -51,8 +51,6 @@ A NixOS configuration centered around Home Manager for declarative user environm
 ├── system/                # System-level NixOS config
 │   ├── configuration.nix
 │   └── flake.nix
-├── nvim/                  # Standalone Neovim (LazyVim) config
-│   └── init.lua
 └── README.md
 ```
 
@@ -95,8 +93,6 @@ This configuration is built upon the excellent work of the following projects an
 **[Yazi](https://github.com/sxyazi/yazi)** - Blazing fast terminal file manager by sxyazi, written in Rust with async I/O.
 
 **[WezTerm](https://wezterm.org/)** – A fast, GPU-accelerated terminal emulator with vim-style key modes and a flexible Lua-based config system.
-
-**[LazyVim](https://www.lazyvim.org)** – A Neovim configuration framework by folke that offers a modern, extensible, and lazy-loading setup. Ships with 30+ plugins where either LazyVim or the plugins themselves break something almost daily.
 
 **[Catppuccin](https://github.com/catppuccin/catppuccin)** - Soothing pastel theme ecosystem maintained by the Catppuccin organization, providing consistent theming across multiple applications.
 
