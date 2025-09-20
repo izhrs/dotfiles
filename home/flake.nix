@@ -44,6 +44,7 @@
           ./gtk
           ./helix
           ./hypr
+          ./hyprlock
           ./lazygit
           ./rofi
           ./shell
