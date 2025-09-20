@@ -25,5 +25,6 @@
   xdg.mimeApps.defaultApplications = {
     "text/plain" = [ "neovide.desktop" ];
     "x-scheme-handler/terminal" = [ "wezterm.desktop" ];
+    "application/pdf" = [ "org.pwmt.zathura.desktop" ];
   };
 }

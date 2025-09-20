@@ -51,6 +51,7 @@
           ./waybar
           ./wezterm
           ./yazi
+          ./zathura
           ./zellij
         ];
       };
