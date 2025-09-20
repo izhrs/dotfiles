@@ -18,10 +18,6 @@
       url = "github:KKV9/compress.yazi";
       flake = false;
     };
-    yazi-glow = {
-      url = "github:izhrs/glow.yazi";
-      flake = false;
-    };
 
     zjstatus = { url = "github:dj95/zjstatus"; };
   };

@@ -10,7 +10,7 @@
       mount = mount;
       restore = restore;
       ouch = ouch;
-      glow = inputs.yazi-glow;
+      piper = piper;
       compress = inputs.yazi-compress;
     };
 
@@ -46,6 +46,13 @@
 
       plugin = {
         prepend_previewers = [
+          # directory previewer
+          {
+            name = "*/";
+            run = ''
+              piper -- eza -TL=2 --color=always --icons=always --group-directories-first --no-quotes -a "$1"'';
+          }
+
           # archive previewers
           {
             mime = "application/*zip";
@@ -79,7 +86,14 @@
           # markdown with glow
           {
             name = "*.md";
-            run = "glow";
+            run = ''
+              piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"
+            '';
+          }
+
+          {
+            name = "*.csv";
+            run = ''piper -- bat -p --color=always "$1"'';
           }
         ];
       };
