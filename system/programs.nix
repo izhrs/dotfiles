@@ -26,19 +26,6 @@
   environment.systemPackages = with pkgs; [
     home-manager
 
-    # Development
-    rustup
-    gcc
-    musl
-    nodejs_24
-    python314
-    uv # python package manager
-    docker-compose
-    powershell
-
-    helix
-    zed-editor
-
     # CLI tools
     android-tools
     bat
@@ -52,7 +39,6 @@
     k3s
     lazygit
     miniserve
-    neovim
     procs
     ripgrep
     rsync
