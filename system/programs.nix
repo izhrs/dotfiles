@@ -1,11 +1,6 @@
 { pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   programs = {
     firefox.enable = true;
     zsh.enable = true;
@@ -70,12 +65,6 @@
     sysstat
     usbutils # lsusb
     brightnessctl
-
-    # UI
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.symbols-only
-    nerd-fonts.ubuntu
-    nerd-fonts.ubuntu-mono
 
     # GUI
     libreoffice

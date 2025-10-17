@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./bluetooth.nix
+    ./desktop.nix
     ./fileSystems.nix
     ./kvm.nix
     ./locale.nix
