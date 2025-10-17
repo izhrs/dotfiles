@@ -39,16 +39,16 @@
           ./git
           ./gtk
           ./helix
-          ./hypr
-          ./hypridle
-          ./hyprlock
+          # ./hypr
+          # ./hypridle
+          # ./hyprlock
           ./lazygit
           ./rofi
           ./shell
           ./starship
-          ./swaync
+          # ./swaync
           ./virtmanager
-          ./waybar
+          # ./waybar
           ./wezterm
           ./yazi
           ./zathura

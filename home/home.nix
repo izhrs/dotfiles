@@ -1,9 +1,14 @@
-{
+{ pkgs, ... }: {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "24.11";
 
-  home.packages = [ ];
+  home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only
+    nerd-fonts.ubuntu
+    nerd-fonts.ubuntu-mono
+  ];
 
   home.file = { };
 
@@ -23,7 +28,6 @@
   programs.home-manager.enable = true;
 
   xdg.mimeApps.defaultApplications = {
-    "text/plain" = [ "neovide.desktop" ];
     "x-scheme-handler/terminal" = [ "wezterm.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
   };
