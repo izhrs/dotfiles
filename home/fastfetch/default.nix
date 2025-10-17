@@ -10,8 +10,8 @@
         height = 16;
         width = 34;
         padding = {
-          top = 5;
-          bottom = 5;
+          top = 8;
+          bottom = 8;
           right = 5;
           left = 5;
         };
@@ -126,8 +126,15 @@
         "break"
 
         {
+          type = "de";
+          key = " DE";
+          keyColor = "blue";
+          format = "{1}";
+        }
+
+        {
           type = "wm";
-          key = " WM";
+          key = "│ ├ Compositor";
           keyColor = "blue";
           format = "{1}";
         }
@@ -154,9 +161,16 @@
         }
 
         {
-          type = "wmtheme";
+          type = "icons";
+          key = "└ ├󰄛 Icons";
+          keyColor = "blue";
+        }
+
+        {
+          type = "custom";
           key = "└ └ Theme";
           keyColor = "blue";
+          format = "Catppuccin Mocha";
         }
 
         {
