@@ -1,5 +1,5 @@
 { pkgs, inputs, ... }: {
-  home.packages = with pkgs; [ trash-cli ouch glow ];
+  home.packages = with pkgs; [ trash-cli ouch glow exiftool ];
 
   programs.yazi = {
     enable = true;
