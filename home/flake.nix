@@ -40,6 +40,7 @@
           ./gtk
           ./helix
           ./lazygit
+          ./thunderbird
           ./shell
           ./starship
           ./virtmanager

@@ -3,6 +3,8 @@
 
   programs = {
     firefox.enable = true;
+    thunderbird.enable = true;
+
     zsh.enable = true;
     # Enable Nix-ld for dynamic linking (running elf binaries)
     nix-ld.enable = true;
@@ -66,12 +68,13 @@
     usbutils # lsusb
     brightnessctl
     wl-clipboard
+    pass
 
     # GUI
     libreoffice
     protonvpn-gui
     qbittorrent
-    # gimp
+    gimp
     godot
 
     # Media
