@@ -8,8 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     yazi-flavors = {
       url = "github:yazi-rs/flavors";
       flake = false;
@@ -39,16 +37,10 @@
           ./git
           ./gtk
           ./helix
-          # ./hypr
-          # ./hypridle
-          # ./hyprlock
           ./lazygit
-          ./rofi
           ./shell
           ./starship
-          # ./swaync
           ./virtmanager
-          # ./waybar
           ./wezterm
           ./yazi
           ./zathura
