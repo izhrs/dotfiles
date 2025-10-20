@@ -6,13 +6,13 @@
     ./bluetooth.nix
     ./desktop.nix
     ./fileSystems.nix
-    ./kvm.nix
     ./locale.nix
     ./network.nix
     ./nvidia.nix
     ./programs.nix
     ./services.nix
     ./users.nix
+    ./virtualisation.nix
   ];
 
   system.stateVersion = "24.11";

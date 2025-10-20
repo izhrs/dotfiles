@@ -65,7 +65,7 @@
     sysstat
     usbutils # lsusb
     brightnessctl
-    wl-clipboard-rs
+    wl-clipboard
 
     # GUI
     libreoffice
