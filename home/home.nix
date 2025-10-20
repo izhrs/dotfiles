@@ -8,6 +8,7 @@
     nerd-fonts.symbols-only
     nerd-fonts.ubuntu
     nerd-fonts.ubuntu-mono
+    tela-circle-icon-theme
   ];
 
   home.file = { };

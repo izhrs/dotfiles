@@ -1,4 +1,21 @@
 {
+  catppuccin = {
+    bat = {
+      enable = true;
+      flavor = "mocha";
+    };
+
+    bottom = {
+      enable = true;
+      flavor = "mocha";
+    };
+
+    fzf = {
+      enable = true;
+      flavor = "mocha";
+    };
+  };
+
   # enable bash too just so home-manager can manage it
   programs.bash = {
     enable = true;

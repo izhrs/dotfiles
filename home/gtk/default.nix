@@ -1,29 +1,27 @@
 # source: https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/
 
 { pkgs, ... }: {
-  # home.pointerCursor = {
-  #   gtk.enable = true;
-  #   package = pkgs.bibata-cursors;
-  #   name = "Bibata-Modern-Classic";
-  #   size = 5;
-  # };
+  catppuccin.gtk.icon = {
+    enable = true;
+    accent = "lavender";
+    flavor = "mocha";
+  };
 
   gtk = {
     enable = true;
 
-    # theme = {
-    #   package = pkgs.flat-remix-gtk;
-    #   name = "Flat-Remix-GTK-Grey-Darkest";
-    # };
-
-    iconTheme = {
-      package = pkgs.tela-circle-icon-theme;
-      name = "Tela-Circle";
+    theme = {
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "standard";
+        variant = "mocha";
+      };
+      name = "catppuccin-mocha-lavender-standard";
     };
 
-    # font = {
-    #   name = "Ubuntu Nerd Font";
-    #   size = 12;
-    # };
+    font = {
+      name = "Open Sans";
+      size = 10;
+    };
   };
 }
