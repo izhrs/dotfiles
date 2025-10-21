@@ -5,6 +5,7 @@
       enable = true;
       source = ./com.system76.CosmicAppList;
       recursive = true;
+      force = true;
     };
 
     #wallpaper
@@ -12,6 +13,7 @@
       enable = true;
       source = ./com.system76.CosmicBackground;
       recursive = true;
+      # force = true;
     };
 
     # active hint, workspace, natural scroll, tiling
@@ -19,6 +21,7 @@
       enable = true;
       source = ./com.system76.CosmicComp;
       recursive = true;
+      force = true;
     };
 
     # power saver, suspend timeout
@@ -26,6 +29,7 @@
       enable = true;
       source = ./com.system76.CosmicIdle;
       recursive = true;
+      force = true;
     };
 
     # list of enabled panel and dock
@@ -33,6 +37,7 @@
       enable = true;
       source = ./com.system76.CosmicPanel;
       recursive = true;
+      force = true;
     };
 
     # dock padding and style
@@ -40,6 +45,7 @@
       enable = true;
       source = ./com.system76.CosmicPanel.Dock;
       recursive = true;
+      force = true;
     };
 
     # panel applet positions, style,and animations 
@@ -47,6 +53,7 @@
       enable = true;
       source = ./com.system76.CosmicPanel.Panel;
       recursive = true;
+      force = true;
     };
 
     # what's this for??
@@ -54,6 +61,7 @@
       enable = true;
       source = ./com.system76.CosmicPanelButton;
       recursive = true;
+      force = true;
     };
 
     # keybinds
@@ -61,6 +69,7 @@
       enable = true;
       source = ./com.system76.CosmicSettings.Shortcuts;
       recursive = true;
+      force = true;
     };
 
     # list of imported images that can be set as wallpapaer
@@ -68,6 +77,7 @@
       enable = true;
       source = ./com.system76.CosmicSettings.Wallpaper;
       recursive = true;
+      # force = true;
     };
 
     # dark colors, theme and pallete
@@ -75,12 +85,14 @@
       enable = true;
       source = ./com.system76.CosmicTheme.Dark;
       recursive = true;
+      force = true;
     };
 
     ".config/cosmic/com.system76.CosmicTheme.Dark.Builder" = {
       enable = true;
       source = ./com.system76.CosmicTheme.Dark.Builder;
       recursive = true;
+      force = true;
     };
 
     # light colors, theme and pallete
@@ -88,19 +100,14 @@
       enable = true;
       source = ./com.system76.CosmicTheme.Light;
       recursive = true;
+      force = true;
     };
 
     ".config/cosmic/com.system76.CosmicTheme.Light.Builder" = {
       enable = true;
       source = ./com.system76.CosmicTheme.Light.Builder;
       recursive = true;
-    };
-
-    # current theme settings 
-    ".config/cosmic/com.system76.CosmicTheme.Mode" = {
-      enable = true;
-      source = ./com.system76.CosmicTheme.Mode;
-      recursive = true;
+      force = true;
     };
 
     # icons
@@ -108,6 +115,7 @@
       enable = true;
       source = ./com.system76.CosmicTk;
       recursive = true;
+      force = true;
     };
   };
 }
