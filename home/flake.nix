@@ -34,6 +34,7 @@
         modules = [
           ./home.nix
           ./btm
+          ./cosmic
           ./fastfetch
           ./gemini
           ./git
