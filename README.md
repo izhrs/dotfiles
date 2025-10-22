@@ -8,10 +8,6 @@ A NixOS configuration centered around Home Manager for declarative user environm
 
 ![helix_with_yazi](./screenshots/helix_with_yazi.png)
 
-### Rofi
-
-![rofi](./screenshots/rofi.png)
-
 <details>
   <summary>More Screenshots</summary>
 
@@ -44,7 +40,6 @@ A NixOS configuration centered around Home Manager for declarative user environm
 │   ├── flake.nix
 │   ├── home.nix
 │   ├── helix/             # Helix editor config
-│   ├── hypr/              # Hyprland WM config
 │   ├── zellij/            # Zellij TUI multiplexer config
 │   ├── yazi/              # Yazi terminal file manager config
 │   └── ...                # Other Home Manager modules
@@ -83,6 +78,8 @@ Yazi and Lazygit are launched in context aware floating panes via Zellij, making
 This configuration is built upon the excellent work of the following projects and their maintainers:
 
 **[NixOS](https://nixos.org/)** - The Nix Operating System that enables reproducible and declarative system configurations.
+
+**[Cosmic DE](https://system76.com/cosmic)** - Customizable, and performant desktop environment built from scratch using Rust and the Iced toolkit.
 
 **[Home Manager](https://github.com/nix-community/home-manager)** - Nix-based user environment configurator by the nix-community, enabling declarative management of user packages and dotfiles.
 
