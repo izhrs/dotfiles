@@ -162,7 +162,7 @@
 
         {
           type = "icons";
-          key = "└ ├󰄛 Icons";
+          key = "│ ├󰄛 Icons";
           keyColor = "blue";
         }
 

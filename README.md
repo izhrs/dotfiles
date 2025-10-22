@@ -8,20 +8,20 @@ A NixOS configuration centered around Home Manager for declarative user environm
 
 ![helix_with_yazi](./screenshots/helix_with_yazi.png)
 
-<details>
-  <summary>More Screenshots</summary>
-
 ### Fastfetch
 
 ![fastfetch](./screenshots/fastfetch.png)
+
+<details>
+  <summary>More Screenshots</summary>
 
 ### Zellij
 
 ![zellij](./screenshots/zellij.png)
 
-### Firefox
+### Cosmic Launcher
 
-![firefox](./screenshots/firefox.png)
+![firefox](./screenshots/cosmic_launcher.png)
 
 ### Helix
 
