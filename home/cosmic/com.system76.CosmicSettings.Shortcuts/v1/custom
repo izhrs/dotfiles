@@ -3,12 +3,18 @@
         modifiers: [
             Super,
         ],
-        key: "t",
-    ): Disable,
+        key: "f",
+    ): Spawn("wezterm -e yazi"),
     (
         modifiers: [
             Super,
         ],
         key: "Return",
     ): System(Terminal),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "t",
+    ): Disable,
 }

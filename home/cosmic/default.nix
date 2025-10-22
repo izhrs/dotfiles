@@ -173,5 +173,4 @@
     startupNotify = true;
     mimeType = [ "inode/directory" ];
   };
-
 }
