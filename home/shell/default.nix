@@ -5,11 +5,6 @@
       flavor = "mocha";
     };
 
-    bottom = {
-      enable = true;
-      flavor = "mocha";
-    };
-
     fzf = {
       enable = true;
       flavor = "mocha";

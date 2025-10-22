@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   home.file = {
     # favourite apps in dock
     ".config/cosmic/com.system76.CosmicAppList" = {
@@ -118,4 +118,60 @@
       force = true;
     };
   };
+
+  xdg.desktopEntries."com.system76.CosmicSettings" = {
+    name = "COSMIC Settings";
+    genericName = "System Settings";
+    comment = "Configure and customize the COSMIC desktop environment.";
+    exec = "cosmic-settings";
+    terminal = false;
+    type = "Application";
+    icon =
+      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/preferences-system.svg";
+    categories = [ "COSMIC" ];
+    startupNotify = true;
+  };
+
+  xdg.desktopEntries."com.system76.CosmicFiles" = {
+    name = "COSMIC Files";
+    genericName = "File Manager";
+    comment = "Browse and manage files in the COSMIC desktop environment.";
+    exec = "cosmic-files %U";
+    terminal = false;
+    type = "Application";
+    icon =
+      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/file-manager.svg";
+    categories = [ "COSMIC" "Utility" "FileManager" ];
+    startupNotify = true;
+    mimeType = [ "inode/directory" ];
+  };
+
+  xdg.desktopEntries."com.system76.CosmicWorkspaces" = {
+    name = "Workspaces";
+    genericName = "Workspace Manager";
+    comment = "Manage virtual workspaces in the COSMIC desktop environment.";
+    exec = "cosmic-workspaces";
+    terminal = false;
+    type = "Application";
+    icon =
+      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/pop-cosmic-workspaces.svg";
+    categories = [ "COSMIC" ];
+    startupNotify = true;
+    noDisplay = true;
+  };
+
+  xdg.desktopEntries."dev.edfloreshz.Calculator" = {
+    name = "Calculator";
+    genericName = "Calculator";
+    comment = "A simple calculator.";
+    exec = "cosmic-ext-calculator %F";
+    terminal = false;
+    type = "Application";
+    icon =
+      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/calc.svg";
+    categories = [ "COSMIC" "Utility" ];
+    startupNotify = true;
+    mimeType = [ "inode/directory" ];
+  };
+
 }

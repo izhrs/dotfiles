@@ -1,16 +1,22 @@
-{
+{ pkgs, ... }: {
   programs.bottom = { enable = true; };
 
-  home.file.".local/share/applications/bottom.desktop".text = ''
-    [Desktop Entry]
-    Name=bottom
-    GenericName=System Monitor
-    Comment=A customizable cross-platform graphical process/system monitor for the terminal.
-    Exec=wezterm -e btm
-    Terminal=false
-    Type=Application
-    Icon=/home/izhrs/.icons/lemon.svg
-    Categories=Utility;System;ConsoleOnly;Monitor;
-    StartupNotify=false
-  '';
+  catppuccin.bottom = {
+    enable = true;
+    flavor = "mocha";
+  };
+
+  xdg.desktopEntries.bottom = {
+    name = "bottom";
+    genericName = "System Monitor";
+    comment =
+      "A customizable cross-platform graphical process/system monitor for the terminal.";
+    exec = "wezterm -e btm";
+    terminal = false;
+    type = "Application";
+    icon =
+      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/bluefish.svg";
+    categories = [ "Utility" "System" "ConsoleOnly" "Monitor" ];
+    startupNotify = false;
+  };
 }
