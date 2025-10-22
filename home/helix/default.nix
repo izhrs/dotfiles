@@ -137,7 +137,8 @@
     };
 
     extraPackages = with pkgs; [
-      lldb_20
+      lldb
+      clang-tools
 
       # Toml
       taplo
@@ -165,7 +166,7 @@
       dockerfile-language-server
       dockfmt
 
-      # Frontend
+      # web
       # vscode-css-language-server vscode-eslint-language-server vscode-html-language-server
       # vscode-json-language-server vscode-markdown-language-server
       vscode-langservers-extracted

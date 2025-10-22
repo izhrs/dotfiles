@@ -112,6 +112,38 @@ in {
     }
 
     {
+      name = "c";
+      scope = "source.c";
+      file-types = [ "c" "h" ];
+      auto-format = true;
+      formatter = {
+        command = "clang-format";
+        args = [
+          "--assume-filename"
+          "main.c"
+          "--style"
+          "{BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 100}"
+        ];
+      };
+    }
+
+    {
+      name = "cpp";
+      scope = "source.cpp";
+      file-types = [ "cpp" "hpp" "cc" "cxx" "hh" "h" ];
+      auto-format = true;
+      formatter = {
+        command = "clang-format";
+        args = [
+          "--assume-filename"
+          "main.cpp"
+          "--style"
+          "{BasedOnStyle: LLVM, IndentWidth: 4, ColumnLimit: 100}"
+        ];
+      };
+    }
+
+    {
       name = "nix";
       scope = "source.nix";
       file-types = [ "nix" ];
