@@ -41,7 +41,6 @@
     rsync
     sd
     tokei
-    tree
     unzip
     wget
     yarn
@@ -76,9 +75,6 @@
     qbittorrent
     gimp
     godot
-
-    # Media
-    mpv
 
     # Gaming
     lutris
