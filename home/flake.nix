@@ -36,6 +36,7 @@
           ./btm
           ./cosmic
           ./fastfetch
+          ./firefox
           ./gemini
           ./git
           ./gtk
