@@ -8,6 +8,14 @@
       force = true;
     };
 
+    # keybinds
+    ".config/cosmic/com.system76.CosmicSettings.Shortcuts" = {
+      enable = true;
+      source = ./com.system76.CosmicSettings.Shortcuts;
+      recursive = true;
+      force = true;
+    };
+
     #wallpaper
     ".config/cosmic/com.system76.CosmicBackground" = {
       enable = true;
@@ -64,10 +72,10 @@
       force = true;
     };
 
-    # keybinds
-    ".config/cosmic/com.system76.CosmicSettings.Shortcuts" = {
+    # file manager
+    ".config/cosmic/com.system76.CosmicFiles" = {
       enable = true;
-      source = ./com.system76.CosmicSettings.Shortcuts;
+      source = ./com.system76.CosmicFiles;
       recursive = true;
       force = true;
     };
@@ -173,4 +181,98 @@
     startupNotify = true;
     mimeType = [ "inode/directory" ];
   };
+
+  xdg.desktopEntries."com.system76.CosmicPlayer" = {
+    name = "COSMIC Media Player";
+    exec = "cosmic-player %U";
+    type = "Application";
+    startupNotify = true;
+    icon =
+      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/totem.svg";
+    categories = [ "COSMIC" "AudioVideo" "Player" "Video" ];
+    mimeType = [
+      "application/mxf"
+      "application/ram"
+      "application/sdp"
+      "application/vnd.apple.mpegurl"
+      "application/vnd.ms-asf"
+      "application/vnd.ms-wpl"
+      "application/vnd.rn-realmedia"
+      "application/vnd.rn-realmedia-vbr"
+      "application/x-extension-m4a"
+      "application/x-extension-mp4"
+      "application/x-flash-video"
+      "application/x-matroska"
+      "application/x-netshow-channel"
+      "application/x-quicktimeplayer"
+      "application/x-shorten"
+      "image/vnd.rn-realpix"
+      "image/x-pict"
+      "misc/ultravox"
+      "text/x-google-video-pointer"
+      "video/3gp"
+      "video/3gpp"
+      "video/3gpp2"
+      "video/dv"
+      "video/divx"
+      "video/fli"
+      "video/flv"
+      "video/mp2t"
+      "video/mp4"
+      "video/mp4v-es"
+      "video/mpeg"
+      "video/mpeg-system"
+      "video/msvideo"
+      "video/ogg"
+      "video/quicktime"
+      "video/vivo"
+      "video/vnd.divx"
+      "video/vnd.mpegurl"
+      "video/vnd.rn-realvideo"
+      "video/vnd.vivo"
+      "video/webm"
+      "video/x-anim"
+      "video/x-avi"
+      "video/x-flc"
+      "video/x-fli"
+      "video/x-flic"
+      "video/x-flv"
+      "video/x-m4v"
+      "video/x-matroska"
+      "video/x-mjpeg"
+      "video/x-mpeg"
+      "video/x-mpeg2"
+      "video/x-ms-asf"
+      "video/x-ms-asf-plugin"
+      "video/x-ms-asx"
+      "video/x-msvideo"
+      "video/x-ms-wm"
+      "video/x-ms-wmv"
+      "video/x-ms-wmx"
+      "video/x-ms-wvx"
+      "video/x-nsv"
+      "video/x-ogm+ogg"
+      "video/x-theora"
+      "video/x-theora+ogg"
+      "video/x-totem-stream"
+      "audio/x-pn-realaudio"
+      "application/smil"
+      "application/smil+xml"
+      "application/x-quicktime-media-link"
+      "application/x-smil"
+      "text/google-video-pointer"
+      "x-content/video-dvd"
+      "x-scheme-handler/pnm"
+      "x-scheme-handler/mms"
+      "x-scheme-handler/net"
+      "x-scheme-handler/rtp"
+      "x-scheme-handler/rtmp"
+      "x-scheme-handler/rtsp"
+      "x-scheme-handler/mmsh"
+      "x-scheme-handler/uvox"
+      "x-scheme-handler/icy"
+      "x-scheme-handler/icyx"
+    ];
+  };
+
 }
