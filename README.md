@@ -1,12 +1,12 @@
 # NixOS Configuration
 
-A NixOS configuration centered around Home Manager for declarative user environment management, with NVIDIA graphics support and essential development tools.
+A declarative NixOS configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme, and essential development tools.
 
 ## Screenshots
 
-### Helix with Yazi
+### Cosmic DE
 
-![helix_with_yazi](./screenshots/helix_with_yazi.png)
+![cosmic_de](./screenshots/cosmic.png)
 
 ### Fastfetch
 
@@ -23,9 +23,17 @@ A NixOS configuration centered around Home Manager for declarative user environm
 
 ![firefox](./screenshots/cosmic_launcher.png)
 
+### Helix with Yazi
+
+![helix_with_yazi](./screenshots/helix_with_yazi.png)
+
 ### Helix
 
 ![helix](./screenshots/helix.png)
+
+### Cosmic Files and Nautilus
+
+![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
 
 </details>
 
