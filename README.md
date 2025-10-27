@@ -19,6 +19,10 @@ A declarative NixOS configuration using Home Manager, featuring the COSMIC deskt
 
 ![zellij](./screenshots/zellij.png)
 
+### Cosmic Files and Nautilus
+
+![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
+
 ### Cosmic Launcher
 
 ![firefox](./screenshots/cosmic_launcher.png)
@@ -31,9 +35,13 @@ A declarative NixOS configuration using Home Manager, featuring the COSMIC deskt
 
 ![helix](./screenshots/helix.png)
 
-### Cosmic Files and Nautilus
+### Bottom
 
-![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
+![bottom](./screenshots/bottom.png)
+
+### Tiles
+
+![titles](./screenshots/tiles.png)
 
 </details>
 
