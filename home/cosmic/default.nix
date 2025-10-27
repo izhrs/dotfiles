@@ -24,7 +24,7 @@
       # force = true;
     };
 
-    # active hint, workspace, natural scroll, tiling
+    # active hint, workspace, natural scroll, tiling, pinned workspace
     ".config/cosmic/com.system76.CosmicComp" = {
       enable = true;
       source = ./com.system76.CosmicComp;
