@@ -3,7 +3,11 @@
     ui = {
       hideTips = true;
       hideBanner = true;
+      hideWindowTitle = true;
+      useFullWidth = true;
+      showMemoryUsage = true;
       theme = "Default";
+      footer.hideSandboxStatus = true;
     };
 
     context = { includeDirectories = [ "~/.gemini" ]; };
@@ -11,6 +15,8 @@
     general = {
       preferredEditor = "hx";
       vimMode = true;
+      disableAutoUpdate = true;
+      enablePromptCompletion = true;
     };
 
     security = { auth = { selectedType = "oauth-personal"; }; };
