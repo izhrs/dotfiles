@@ -41,6 +41,7 @@
 
     extraConfig = ''
       unmap o
+      set selection-clipboard clipboard
     '';
 
     mappings = {
