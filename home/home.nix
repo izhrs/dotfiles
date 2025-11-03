@@ -14,6 +14,7 @@
   home.file = { };
 
   home.sessionVariables = {
+    TERMINAL = "wezterm";
     XDG_TERMINAL_EMULATOR = "wezterm";
 
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
