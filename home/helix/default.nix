@@ -94,14 +94,8 @@
       fi
     '')
 
-    # Development tools 
-    rustup
-    gcc
-    musl
     nodejs_24
     python314
-    uv # python package manager
-    docker-compose
     powershell
   ];
 }
