@@ -43,6 +43,7 @@
           ./helix
           ./lazygit
           ./nwg-drawer
+          ./rofi
           ./thunderbird
           ./shell
           ./starship
