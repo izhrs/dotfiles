@@ -42,6 +42,7 @@
           ./gtk
           ./helix
           ./lazygit
+          ./nwg-drawer
           ./thunderbird
           ./shell
           ./starship
