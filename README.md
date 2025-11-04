@@ -23,6 +23,14 @@ A declarative NixOS configuration using Home Manager, featuring the COSMIC deskt
 
 ![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
 
+### Nwg-drawer
+
+![nwg-drawer](./screenshots/nwg_drawer.png)
+
+### Rofi
+
+![rofi](./screenshots/rofi.png)
+
 ### Cosmic Launcher
 
 ![firefox](./screenshots/cosmic_launcher.png)

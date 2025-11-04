@@ -17,7 +17,7 @@ inputbar {
 }
 
 entry {
-    placeholder: "Search ...";
+    placeholder: "  ";
     placeholder-color: #a6adc8;
     /* border: 2px solid; */
     /* border-color: #b4befe; */
@@ -44,7 +44,7 @@ element.selected {
 element-text {
     highlight: bold;
     padding: 0.25em;
-    font: "Open Sans 16px";
+    font: "Open Sans 14px";
 }
 
 element-text.selected {
