@@ -2,11 +2,11 @@
   programs.lazygit = {
     enable = true;
     settings = {
-      git.paging = {
+      git.pagers = [{
         pager = "delta --dark --line-numbers --side-by-side --paging=never";
         colorArg = "always";
         useConfig = false;
-      };
+      }];
 
       gui = {
         sidePanelWidth = 0.2;
