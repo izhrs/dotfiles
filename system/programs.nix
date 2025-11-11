@@ -43,7 +43,6 @@
     tokei
     unzip
     wget
-    yarn
     yt-dlp
 
     # networking

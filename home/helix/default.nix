@@ -95,7 +95,10 @@
     '')
 
     nodejs_24
+    yarn
     python314
+    uv
+    docker-compose
     powershell
   ];
 }

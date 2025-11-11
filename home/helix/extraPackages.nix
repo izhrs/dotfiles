@@ -28,6 +28,7 @@ with pkgs; [
   # Docker
   dockerfile-language-server
   dockfmt
+  docker-compose-language-service
 
   # web
   # vscode-css-language-server vscode-eslint-language-server vscode-html-language-server

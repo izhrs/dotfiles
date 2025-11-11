@@ -23,6 +23,11 @@ in {
       args = [ "--stdio" ];
     };
 
+    docker-compose-ls = {
+      command = "docker-compose-langserver";
+      args = [ "--stdio" ];
+    };
+
     tailwind-ls = {
       command = "tailwindcss-language-server";
       args = [ "--stdio" ];
@@ -251,6 +256,7 @@ in {
       file-types = [ "docker-compose.yml" "docker-compose.yaml" ];
       auto-format = true;
       formatter = prettierFormatter "yaml";
+      language-servers = [ "docker-compose-ls" ];
     }
 
     {
