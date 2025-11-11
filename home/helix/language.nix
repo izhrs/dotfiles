@@ -338,7 +338,7 @@ in {
     {
       name = "scss";
       scope = "source.scss";
-      file-types = [ "scss" ];
+      file-types = [ "scss" "rasi" ];
       auto-format = true;
       formatter = prettierFormatter "scss";
       language-servers =
