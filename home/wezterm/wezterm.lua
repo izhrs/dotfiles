@@ -53,7 +53,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	local raw_title = tab_title(tab)
 	local icon = icon_for_title(raw_title)
 
-	local bg_color = "#0f0f16"
+	local bg_color = "#11111b" -- curst
 	local fg_color = tab.is_active and "#b4befe" or "#7f849c"
 
 	return {
@@ -98,7 +98,7 @@ return {
 	color_scheme = "Catppuccin Mocha",
 
 	colors = {
-		background = "#0f0f16", -- darker shade of #1E1E2E
+		background = "#11111b", -- crust
 	},
 
 	-- replicating compositor/vim like keybindings but with ALT as $mod

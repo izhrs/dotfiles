@@ -7,7 +7,12 @@
       useFullWidth = true;
       showMemoryUsage = true;
       theme = "Default";
-      footer.hideSandboxStatus = true;
+
+      footer = {
+        hideCWD = true;
+        hideSandboxStatus = true;
+        hideContextPercentage = true;
+      };
     };
 
     context = { includeDirectories = [ "~/.gemini" ]; };
@@ -16,6 +21,7 @@
       preferredEditor = "hx";
       vimMode = true;
       disableAutoUpdate = true;
+      disableUpdateNag = true;
       enablePromptCompletion = true;
     };
 

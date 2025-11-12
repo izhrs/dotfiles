@@ -19,11 +19,42 @@
           :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}''
         ":redraw"
       ];
-      l = [
+
+      # Override default change picker
+      g = [
         ''
           :sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit -- lazygit''
         ":redraw"
       ];
+
+      # LLM integration
+      # These keybindings launch custom llm-* scripts (defined in helix/default.nix)
+      # inside floating Zellij panes
+      l = {
+        # chat
+        c = [
+          ''
+            :sh zellij action new-pane --name ""  --floating --width 30%% --height 90%% --x 70%% --y 5%% --close-on-exit -- gemini''
+        ];
+
+        # generate commit message
+        m = [
+          ''
+            :sh zellij action new-pane --name ""  --floating --width 30%% --height 90%% --x 70%% --y 5%% --close-on-exit -- llm-gen-commit-msg''
+        ];
+
+        # explain the codebase
+        e = [
+          ''
+            :sh zellij action new-pane --name ""  --floating --width 30%% --height 90%% --x 70%% --y 5%% --close-on-exit -- llm-explain''
+        ];
+
+        # analyze and suggest improvments
+        a = [
+          ''
+            :sh zellij action new-pane --name ""  --floating --width 30%% --height 90%% --x 70%% --y 5%% --close-on-exit -- llm-do-anal''
+        ];
+      };
 
       t = {
         s = ":toggle-option soft-wrap.enable";
