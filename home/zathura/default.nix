@@ -3,7 +3,9 @@
     enable = true;
     options = {
       database = "sqlite";
-      font = "JetBrainsMono Nerd Font 11";
+      font = "JetBrainsMono Nerd Font 10";
+      window-title-basename = true;
+      window-title-page = false;
 
       default-bg = "#11111b"; # catppuccin crust
       default-fg = "#cdd6f4"; # catppuccin text
