@@ -67,13 +67,15 @@ A declarative NixOS configuration using Home Manager, featuring the COSMIC deskt
 ├── home/                  # Home Manager setup
 │   ├── flake.nix
 │   ├── home.nix
+│   ├── cosmic/            # Cosmic DE config (not nixified)
 │   ├── helix/             # Helix editor config
-│   ├── zellij/            # Zellij TUI multiplexer config
 │   ├── yazi/              # Yazi terminal file manager config
+│   ├── zellij/            # Zellij TUI multiplexer config
 │   └── ...                # Other Home Manager modules
 ├── system/                # System-level NixOS config
 │   ├── configuration.nix
-│   └── flake.nix
+│   ├── flake.nix
+│   └── virtualisation.nix
 └── README.md
 ```
 
@@ -93,11 +95,22 @@ To set up Home Manager:
 This setup features deep integration of Helix with Zellij, Yazi, and Lazygit:
 
 - **Helix**: The ~~post modern~~ _stable_ editor whose plugins don’t crash every other day because it doesn’t need 50 of them (or any) to be useful in the first place. All language configurations are managed in `home/helix/language.nix` for:
-    - Rust, Nix, Lua, Python, Bash, Dockerfile, Docker Compose, JavaScript, TypeScript, JSX, TSX, JSON, YAML, Markdown, HTML, CSS, SCSS, Svelte, TOML, PowerShell
-    - Most of the language is configured with formatters and language servers for a seamless development experience.
+    - Rust, C, C++, Nix, Lua, Python, Bash, Dockerfile, Docker Compose, JavaScript, TypeScript, JSX, TSX, JSON, YAML, Markdown, HTML, CSS, SCSS, Svelte, TOML, PowerShell
+    - Most of the language is configured with formatters and language servers.
 - **Yazi**: Integrated as a file picker within Helix.
 - **Lazygit**: Integrated as the Git UI inside Helix.
 - **Zellij**: tHe InTEgRRattion: Used to open Yazi and Lazygit in floating panes, making them appear as native Helix popups for a unified workflow.
+- **LLM Integration**: Gemini is integrated for AI-assisted tasks, available through floating Zellij panes. Note that this can be configured to work with any cli tool. Just edit the scripts in `./home/helix/default.nix`.
+
+> [!note]
+> There's no LLM based autocompletion setup. I dislike those tools, and this Gemini is mostly for generatin commit messages and README files. If you want copilot like completion, look for `helix-gpt`.
+
+Keybindings for LLM features:
+
+- `space + l + c`: Open a chat session with Gemini.
+- `space + l + m`: Generate a commit message based on the current changes.
+- `space + l + e`: Explain the selected codebase.
+- `space + l + a`: Analyze the code and suggest improvements.
 
 Yazi and Lazygit are launched in context aware floating panes via Zellij, making them feel like native extensions of Helix. This tight integration allows seamless file navigation and Git operations without ever leaving the editor environment.
 
@@ -117,7 +130,11 @@ This configuration is built upon the excellent work of the following projects an
 
 **[Yazi](https://github.com/sxyazi/yazi)** - Blazing fast terminal file manager by sxyazi, written in Rust with async I/O.
 
-**[WezTerm](https://wezterm.org/)** – A fast, GPU-accelerated terminal emulator with vim-style key modes and a flexible Lua-based config system.
+**[Kitty](https://github.com/kovidgoyal/kitty)** - A fast, feature-rich, GPU-based terminal emulator.
+
+**[Rofi](https://github.com/davatorium/rofi)** - An application launcher and dmenu replacement.
+
+**[Nwg-drawer](https://github.com/nwg-piotr/nwg-drawer)** - A GTK3-based application drawer for wlroots-based Wayland compositors. However this works in my smithay based COSMIC de rather well.
 
 **[Catppuccin](https://github.com/catppuccin/catppuccin)** - Soothing pastel theme ecosystem maintained by the Catppuccin organization, providing consistent theming across multiple applications.
 

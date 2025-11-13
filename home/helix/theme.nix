@@ -1,4 +1,5 @@
 {
+  # transparent catppuccin that use borders instead of bg-color
   catppuccin_mocha_transparent = {
     inherits = "catppuccin_mocha";
     "ui.background" = { };

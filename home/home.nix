@@ -3,8 +3,6 @@
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "24.11";
 
-  home.packages = with pkgs; [ tela-circle-icon-theme ];
-
   home.file = { };
 
   home.sessionVariables = {

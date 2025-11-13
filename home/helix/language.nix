@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  # this is just a funtion with parser as argument
   prettierFormatter = parser: {
     command = "prettier";
     args = [
@@ -16,7 +17,7 @@ let
   };
 
 in {
-
+  # all the LSP and formatter binaries/packages are defined in ./extraPackages.nix
   language-server = {
     emmet-ls = {
       command = "emmet-ls";

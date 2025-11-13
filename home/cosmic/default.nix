@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [ tela-circle-icon-theme ];
+
   home.file = {
     # favourite apps in dock
     ".config/cosmic/com.system76.CosmicAppList" = {
@@ -20,6 +22,14 @@
     ".config/cosmic/com.system76.CosmicBackground" = {
       enable = true;
       source = ./com.system76.CosmicBackground;
+      recursive = true;
+      # force = true;
+    };
+
+    # list of imported images that can be set as wallpapaer
+    ".config/cosmic/com.system76.CosmicSettings.Wallpaper" = {
+      enable = true;
+      source = ./com.system76.CosmicSettings.Wallpaper;
       recursive = true;
       # force = true;
     };
@@ -80,14 +90,6 @@
       force = true;
     };
 
-    # list of imported images that can be set as wallpapaer
-    ".config/cosmic/com.system76.CosmicSettings.Wallpaper" = {
-      enable = true;
-      source = ./com.system76.CosmicSettings.Wallpaper;
-      recursive = true;
-      # force = true;
-    };
-
     # dark colors, theme and pallete
     ".config/cosmic/com.system76.CosmicTheme.Dark" = {
       enable = true;
@@ -127,6 +129,8 @@
     };
   };
 
+  # Below entries are only for sake of customizing desktop icons because most of icon pack do not provide cosmic icons
+  # Multiple desktop entries won't cause any problem; Launchers will pick these over default desktop entries
   xdg.desktopEntries."com.system76.CosmicSettings" = {
     name = "COSMIC Settings";
     genericName = "System Settings";
