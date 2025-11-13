@@ -55,6 +55,14 @@ A declarative NixOS configuration using Home Manager, featuring the COSMIC deskt
 
 ![titles](./screenshots/tiles.png)
 
+### Swayimg
+
+![swayimg](./screenshots/swayimg.png)
+
+### Swayimg Gallery
+
+![swayimg_gallery](./screenshots/swayimg_gallery.png)
+
 </details>
 
 ## Installation
