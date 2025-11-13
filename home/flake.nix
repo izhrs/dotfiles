@@ -48,6 +48,7 @@
           ./thunderbird
           ./shell
           ./starship
+          ./swayimg
           ./virtmanager
           ./wezterm
           ./yazi

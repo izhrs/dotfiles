@@ -24,5 +24,6 @@
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/terminal" = [ "kitty.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+    "image/*" = [ "swayimg.desktop" ];
   };
 }
