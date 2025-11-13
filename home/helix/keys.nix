@@ -12,7 +12,7 @@
       u = "switch_to_lowercase";
       U = "switch_to_uppercase";
 
-      # yazi-picker script defined at bottom of this file
+      # yazi-picker script defined in ./default.nix
       space = [
         # using %% to escape 
         ''

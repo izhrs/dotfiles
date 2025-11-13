@@ -67,19 +67,19 @@
 
     languages = import ./language.nix { inherit pkgs; };
 
-    themes = {
-      catppuccin_mocha_transparent = {
-        inherits = "catppuccin_mocha";
-        "ui.background" = { };
-        "ui.popup" = { };
-        "ui.virtual.inlay-hint" = { fg = "#6c7086"; };
-      };
-    };
+    themes = import ./theme.nix;
 
     extraPackages = import ./extraPackages.nix { inherit pkgs; };
   };
 
   home.packages = with pkgs; [
+    nodejs_24
+    yarn
+    python314
+    uv
+    docker-compose
+    powershell
+
     # got this script from: https://yazi-rs.github.io/docs/tips/#helix-with-zellij
     (writeShellScriptBin "yazi-picker" ''
       paths=$(yazi "$2" --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
@@ -94,41 +94,34 @@
       fi
     '')
 
-    nodejs_24
-    yarn
-    python314
-    uv
-    docker-compose
-    powershell
-
     (writeShellScriptBin "llm-gen-commit-msg" ''
       gemini --yolo --prompt-interactive "
-        Write a Git commit message for staged changes.
+      Write a Git commit message for staged changes.
 
-        - Match the existing commit style if possible.
-        - If unclear, use Conventional Commit format: feat|fix|chore|refactor(scope): summary.
-        - Keep under 72 chars; add a short body if useful.
-        - Do not edit files — only output the commit message.
+      - Match the existing commit style if possible.
+      - If unclear, use Conventional Commit format: feat|fix|chore|refactor(scope): summary.
+      - Keep under 72 chars; add a short body if useful.
+      - Do not edit files — only output the commit message.
       "
     '')
 
     (writeShellScriptBin "llm-do-anal" ''
       gemini --yolo --prompt-interactive "
-        Review the current codebase and suggest improvements.
+      Review the current codebase and suggest improvements.
 
-        Identify design, performance, or readability issues.
-        Be specific: reference files or functions.
-        Output recommendations only; do not edit files.
+      Identify design, performance, or readability issues.
+      Be specific: reference files or functions.
+      Output recommendations only; do not edit files.
       "
     '')
 
     (writeShellScriptBin "llm-explain" ''
       gemini --yolo --prompt-interactive "
-        Explain the codebase for a new developer.
+      Explain the codebase for a new developer.
 
-        Summarize structure, key modules, and interactions.
-        Focus on clarity and accuracy.
-        Output only your explanation; do not edit files.
+      Summarize structure, key modules, and interactions.
+      Focus on clarity and accuracy.
+      Output only your explanation; do not edit files.
       "
     '')
   ];
