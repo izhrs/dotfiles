@@ -37,6 +37,7 @@
         # 2/9 width for parent, 3/9 for main, 4/9 for preview
         ratio = [ 2 3 4 ];
         show_hidden = false;
+        title_format = "";
         show_symlink = true;
         sort_by = "mtime";
         sort_reverse = true;
