@@ -1,5 +1,6 @@
 [
     "org.wezfurlong.wezterm",
+    "kitty",
     "yazi",
     "com.system76.CosmicFiles",
     "firefox",

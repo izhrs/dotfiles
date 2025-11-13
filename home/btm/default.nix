@@ -11,7 +11,7 @@
     genericName = "System Monitor";
     comment =
       "A customizable cross-platform graphical process/system monitor for the terminal.";
-    exec = "wezterm -e btm";
+    exec = "kitty -e btm";
     terminal = false;
     type = "Application";
     icon =

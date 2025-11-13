@@ -4,7 +4,7 @@
             Super,
         ],
         key: "f",
-    ): Spawn("wezterm -e yazi"),
+    ): Spawn("kitty -e yazi"),
     (
         modifiers: [
             Super,

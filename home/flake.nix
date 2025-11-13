@@ -41,6 +41,7 @@
           ./git
           ./gtk
           ./helix
+          ./kitty
           ./lazygit
           ./nwg-drawer
           ./rofi

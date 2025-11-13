@@ -3,19 +3,13 @@
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "24.11";
 
-  home.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.symbols-only
-    nerd-fonts.ubuntu
-    nerd-fonts.ubuntu-mono
-    tela-circle-icon-theme
-  ];
+  home.packages = with pkgs; [ tela-circle-icon-theme ];
 
   home.file = { };
 
   home.sessionVariables = {
-    TERMINAL = "wezterm";
-    XDG_TERMINAL_EMULATOR = "wezterm";
+    TERMINAL = "kitty";
+    XDG_TERMINAL_EMULATOR = "kitty";
 
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
@@ -30,7 +24,7 @@
   programs.home-manager.enable = true;
 
   xdg.mimeApps.defaultApplications = {
-    "x-scheme-handler/terminal" = [ "wezterm.desktop" ];
+    "x-scheme-handler/terminal" = [ "kitty.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
   };
 }

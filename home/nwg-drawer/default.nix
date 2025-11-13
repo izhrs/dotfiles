@@ -4,7 +4,7 @@
 
     (writeShellScriptBin "drawer" ''
       killall nwg-drawer
-      nwg-drawer -mb 128 -ml 128 -mr 128 -mt 128 -nocats -nofs -open -term wezterm
+      nwg-drawer -mb 128 -ml 128 -mr 128 -mt 128 -nocats -nofs -open -term kitty
     '')
   ];
 

@@ -43,15 +43,17 @@
       "#[fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[fg=$surface1]";
 
     # format_space = "#[bg=$surface0]";
-    format_hide_on_overlength = "true";
+    format_hide_on_overlength = true;
     format_precedence = "lrc";
 
-    border_enabled = "false";
+    border_enabled = false;
     border_char = "─";
     border_format = "#[bg=$surface0]{char}";
     border_position = "top";
 
-    hide_frame_for_single_pane = "false";
+    hide_frame_for_single_pane = false;
+    # hide_frame_except_for_search = true;
+    # hide_frmae_except_for_fullscreen = true;
 
     mode_normal =
       "#[fg=$lavender]#[bg=$lavender,fg=$crust,bold]NORMAL#[fg=$lavender]";
