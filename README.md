@@ -31,13 +31,17 @@ A declarative NixOS configuration using Home Manager, featuring the COSMIC deskt
 
 ![rofi](./screenshots/rofi.png)
 
-### Cosmic Launcher
-
-![firefox](./screenshots/cosmic_launcher.png)
-
 ### Helix with Yazi
 
 ![helix_with_yazi](./screenshots/helix_with_yazi.png)
+
+### Helix with Lazygit
+
+![helix_with_lazygit](./screenshots/helix_with_lazygit.png)
+
+### Helix with Gemini
+
+![helix_with_gemini](./screenshots/helix_with_gemini.png)
 
 ### Helix
 
