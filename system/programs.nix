@@ -70,10 +70,11 @@
 
     # GUI
     libreoffice
-    protonvpn-gui
+    # protonvpn-gui
     qbittorrent
     gimp
     godot
+    zrythm
 
     # Gaming
     lutris

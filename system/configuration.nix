@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./audio.nix
     ./bluetooth.nix
     ./desktop.nix
     ./fileSystems.nix
