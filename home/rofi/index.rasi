@@ -17,7 +17,7 @@ inputbar {
 }
 
 entry {
-    placeholder: "  ";
+    placeholder: " ";
     placeholder-color: #a6adc8;
     /* border: 2px solid; */
     /* border-color: #b4befe; */
