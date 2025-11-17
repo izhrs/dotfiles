@@ -97,6 +97,15 @@
           emphasis_3 = [ 0 0 0 ];
         };
 
+        frame_unselected = {
+          base = [ 127 132 156 ]; # changed to overlay1
+          background = [ 0 0 0 ];
+          emphasis_0 = [ 250 179 135 ];
+          emphasis_1 = [ 137 220 235 ];
+          emphasis_2 = [ 245 194 231 ];
+          emphasis_3 = [ 0 0 0 ];
+        };
+
         frame_highlight = {
           base = [ 250 179 135 ];
           background = [ 0 0 0 ];
