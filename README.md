@@ -1,6 +1,26 @@
-# NixOS Configuration
+<h1 align="center"> Dotfiles </h1>
 
-A declarative NixOS configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme, and essential development tools.
+<p align="center">
+<!-- NixOS (Blue) -->
+<img src="https://img.shields.io/badge/NixOS-94e2d5?logo=nixos&logoColor=1e1e2e" />
+
+<!-- Home Manager (Sky) -->
+<img src="https://img.shields.io/badge/Home%20Manager-f5c2e7?logo=nixos&logoColor=1e1e2e" />
+
+<!-- Cosmic DE (Lavender) -->
+<img src="https://img.shields.io/badge/COSMIC-b4befe?logo=system76&logoColor=1e1e2e" />
+
+<!-- Helix (Mauve) -->
+<img src="https://img.shields.io/badge/Helix-cba6f7?logo=helix&logoColor=1e1e2e" />
+
+<!-- Yazi (Blue) -->
+<img src="https://img.shields.io/badge/Yazi-74c7ec?logo=fireship&logoColor=1e1e2e" />
+
+<!-- Yazi (Pink) -->
+<img src="https://img.shields.io/badge/Starship-f5c2e7?logo=starship&logoColor=1e1e2e" />
+</p>
+
+<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme, and essential development tools. </p>
 
 ## Screenshots
 
