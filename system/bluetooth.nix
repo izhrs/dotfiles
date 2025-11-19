@@ -10,6 +10,4 @@
       };
     };
   };
-
-  environment.systemPackages = [ pkgs.bluetui ];
 }

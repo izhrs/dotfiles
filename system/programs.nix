@@ -70,7 +70,7 @@
 
     # GUI
     libreoffice
-    # protonvpn-gui
+    protonvpn-gui
     qbittorrent
     gimp
     godot
