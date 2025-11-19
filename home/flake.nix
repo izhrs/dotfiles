@@ -41,6 +41,7 @@
           ./git
           ./gtk
           ./helix
+          ./inlyne
           ./kitty
           ./lazygit
           ./nwg-drawer
