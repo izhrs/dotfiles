@@ -51,6 +51,24 @@ in {
       args = [ "server" ];
     };
 
+    tinymist-lsp = {
+      command = "tinymist";
+      config = {
+        typstExtraArgs = [ "main.typ" ];
+        exportPdf = "onType";
+        outputPath = "$root/target/$dir/$name";
+
+        lint = {
+          enabled = true;
+          when = "onSave";
+        };
+
+        preview.background.enabled = true;
+        preview.background.args =
+          [ "--data-plane-host=127.0.0.1:8080" "--invert-colors=auto" ];
+      };
+    };
+
     ruff-lsp = {
       command = "ruff";
       agrs = [ "server" ];
@@ -383,6 +401,15 @@ in {
         unit = " ";
       };
       language-servers = [ "powershell-ls" ];
+    }
+
+    {
+      name = "typst";
+      scope = "source.typst";
+      file-types = [ "typ" "typst" ];
+      language-servers = [ "tinymist-lsp" ];
+      formatter = { command = "typstyle"; };
+      auto-format = true;
     }
   ];
 }

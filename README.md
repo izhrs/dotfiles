@@ -123,7 +123,7 @@ To set up Home Manager:
 This setup features deep integration of Helix with Zellij, Yazi, and Lazygit:
 
 - **Helix**: The ~~post modern~~ _stable_ editor whose plugins don’t crash every other day because it doesn’t need 50 of them (or any) to be useful in the first place. All language configurations are managed in `home/helix/language.nix` for:
-    - Rust, C, C++, Nix, Lua, Python, Bash, Dockerfile, Docker Compose, JavaScript, TypeScript, JSX, TSX, JSON, YAML, Markdown, HTML, CSS, SCSS, Svelte, TOML, PowerShell
+    - Rust, C, C++, Nix, Lua, Typst, Python, Bash, Dockerfile, Docker Compose, JavaScript, TypeScript, JSX, TSX, JSON, YAML, Markdown, HTML, CSS, SCSS, Svelte, TOML, PowerShell
     - Most of the language is configured with formatters and language servers.
 - **Yazi**: Integrated as a file picker within Helix.
 - **Lazygit**: Integrated as the Git UI inside Helix.

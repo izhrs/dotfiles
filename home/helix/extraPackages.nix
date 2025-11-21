@@ -8,6 +8,10 @@ with pkgs; [
   # Toml
   taplo
 
+  # typst
+  tinymist
+  typstyle # formatter
+
   # Yaml
   yaml-language-server
 

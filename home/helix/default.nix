@@ -79,6 +79,7 @@
     uv
     docker-compose
     powershell
+    typst
 
     # got this script from: https://yazi-rs.github.io/docs/tips/#helix-with-zellij
     (writeShellScriptBin "yazi-picker" ''

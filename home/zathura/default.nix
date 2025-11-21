@@ -7,6 +7,8 @@
       window-title-basename = true;
       window-title-page = false;
 
+      selection-clipboard = "clipboard";
+
       default-bg = "#11111b"; # catppuccin crust
       default-fg = "#cdd6f4"; # catppuccin text
       highlight-color = "rgba(180, 190, 254, 0.5)"; # lavender
@@ -43,7 +45,6 @@
 
     extraConfig = ''
       unmap o
-      set selection-clipboard clipboard
     '';
 
     mappings = {

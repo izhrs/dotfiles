@@ -74,7 +74,6 @@
     qbittorrent
     gimp
     godot
-    zrythm
 
     # Gaming
     lutris
