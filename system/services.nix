@@ -8,8 +8,6 @@
       };
       # Enable touchpad support (enabled default in most desktopManager).
       # libinput.enable = true;
-
-      videoDrivers = [ "nvidia" ];
     };
 
     printing.enable = true;

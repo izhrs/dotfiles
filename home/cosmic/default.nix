@@ -1,6 +1,10 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ tela-circle-icon-theme ];
 
+  # xdg.mimeApps.defaultApplications = {
+  #   "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
+  # };
+
   home.file = {
     # favourite apps in dock
     ".config/cosmic/com.system76.CosmicAppList" = {

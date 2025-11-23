@@ -1,4 +1,6 @@
 { config, ... }: {
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   hardware = {
     # enable opengl
     graphics.enable = true;
