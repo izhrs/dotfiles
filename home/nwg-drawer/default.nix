@@ -3,8 +3,7 @@
     nwg-drawer
 
     (writeShellScriptBin "drawer" ''
-      killall nwg-drawer
-      nwg-drawer -mb 128 -ml 128 -mr 128 -mt 128 -nocats -nofs -open -term kitty
+      nwg-drawer -mb 128 -ml 128 -mr 128 -mt 128 -nocats -nofs -open -term wezterm
     '')
   ];
 
@@ -24,7 +23,6 @@
 
     /* search entry */
     entry {
-        background-color: #11111b;
         color: #cdd6f4;
         border-radius: 10px;
     }

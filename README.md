@@ -7,8 +7,8 @@
 <!-- Home Manager (Sky) -->
 <img src="https://img.shields.io/badge/Home%20Manager-f5c2e7?logo=nixos&logoColor=1e1e2e" />
 
-<!-- Cosmic DE (Lavender) -->
-<img src="https://img.shields.io/badge/COSMIC-b4befe?logo=system76&logoColor=1e1e2e" />
+<!-- Hyprland (Lavender) -->
+<img src="https://img.shields.io/badge/Hyprland-b4befe?logo=hyprland&logoColor=1e1e2e" />
 
 <!-- Helix (Mauve) -->
 <img src="https://img.shields.io/badge/Helix-cba6f7?logo=helix&logoColor=1e1e2e" />
@@ -20,7 +20,7 @@
 <img src="https://img.shields.io/badge/Starship-f5c2e7?logo=starship&logoColor=1e1e2e" />
 </p>
 
-<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme, and essential development tools. </p>
+<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager, featuring the Hyprland, Catppuccin theme, and essential development tools. </p>
 
 ## Screenshots
 
@@ -95,7 +95,7 @@
 ├── home/                  # Home Manager setup
 │   ├── flake.nix
 │   ├── home.nix
-│   ├── cosmic/            # Cosmic DE config (not nixified)
+│   ├── hypr/              # Hyprland config (you need to remove some scripts and keybinds here)
 │   ├── helix/             # Helix editor config
 │   ├── yazi/              # Yazi terminal file manager config
 │   ├── zellij/            # Zellij TUI multiplexer config
@@ -148,7 +148,7 @@ This configuration is built upon the excellent work of the following projects an
 
 **[NixOS](https://nixos.org/)** - The Nix Operating System that enables reproducible and declarative system configurations.
 
-**[Cosmic DE](https://system76.com/cosmic)** - Customizable, and performant desktop environment built from scratch using Rust and the Iced toolkit.
+**[Hyprland](https://github.com/hyprwm/Hyprland)** - Highly customizable, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 
 **[Home Manager](https://github.com/nix-community/home-manager)** - Nix-based user environment configurator by the nix-community, enabling declarative management of user packages and dotfiles.
 

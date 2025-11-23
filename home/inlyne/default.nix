@@ -48,7 +48,7 @@
 
     [font-options]
     monospace-font = "JetBrainsMono NFM"
-    regular-font   = "Open Sans"
+    regular-font   = "Ubuntu Nerd Font"
 
     [keybindings]
     base = [

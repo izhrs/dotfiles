@@ -66,14 +66,14 @@
         current_dir=$PWD
 
         case "$current_dir" in
-          "$HOME")            current_dir=" " ;;
-          "$HOME/Downloads")  current_dir=" " ;;
-          "$HOME/Music")      current_dir=" " ;;
-          "$HOME/Pictures")   current_dir=" " ;;
-          "$HOME/Videos")     current_dir=" " ;;
-          "$HOME/Documents")  current_dir=" " ;;
-          "$HOME/Documents/code")  current_dir=" " ;;
-          "$HOME/Documents/code/dotfiles")   current_dir="󱄅 " ;; # you would want to change this
+          "$HOME")            current_dir="" ;;
+          "$HOME/Downloads")  current_dir="" ;;
+          "$HOME/Music")      current_dir="" ;;
+          "$HOME/Pictures")   current_dir="" ;;
+          "$HOME/Videos")     current_dir="" ;;
+          "$HOME/Documents")  current_dir="" ;;
+          "$HOME/Documents/code")  current_dir="" ;;
+          "$HOME/Documents/code/dotfiles")   current_dir="󱄅" ;; # you would want to change this
           *)
             current_dir=''${current_dir##*/}
             ;;

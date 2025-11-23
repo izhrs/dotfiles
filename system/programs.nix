@@ -75,6 +75,9 @@
     gimp
     godot
 
+    # Media
+    mpv
+
     # Gaming
     lutris
     heroic

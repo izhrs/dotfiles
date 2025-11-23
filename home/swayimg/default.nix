@@ -1,5 +1,7 @@
 { pkgs, ... }: {
 
+  xdg.mimeApps.defaultApplications = { "image/*" = [ "swayimg.desktop" ]; };
+
   # Custom Desktop entry because swayimg does not have one (or maybe it does have but icon is trash)
   # this is required for setting this app as default image viewer
   xdg.desktopEntries.swayimg = {

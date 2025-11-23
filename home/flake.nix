@@ -34,13 +34,15 @@
         modules = [
           ./home.nix
           ./btm
-          ./cosmic
           ./fastfetch
           ./firefox
           ./gemini
           ./git
           ./gtk
           ./helix
+          ./hypr
+          ./hypridle
+          ./hyprlock
           ./inlyne
           ./kitty
           ./lazygit
@@ -50,7 +52,10 @@
           ./shell
           ./starship
           ./swayimg
+          ./swaync
           ./virtmanager
+          ./waybar
+          ./wezterm
           ./yazi
           ./zathura
           ./zellij

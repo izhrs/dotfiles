@@ -25,7 +25,6 @@
 
     flavors = let flav = inputs.yazi-flavors;
     in {
-      dracula = "${flav}/dracula";
       catppuccin-macchiato = "${flav}/catppuccin-macchiato.yazi";
       catppuccin-frappe = "${flav}/catppuccin-frappe.yazi";
       catppuccin-latte = "${flav}/catppuccin-latte.yazi";
@@ -43,6 +42,15 @@
         sort_reverse = true;
         sort_dirs_first = true;
         linemode = "size_and_mtime";
+      };
+
+      opener = {
+        play = [{
+          run = ''xdg-open "$@"'';
+          orphan = true;
+          desc = "open";
+          for = "linux";
+        }];
       };
 
       plugin = {
