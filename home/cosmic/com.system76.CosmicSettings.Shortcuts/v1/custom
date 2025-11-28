@@ -9,7 +9,7 @@
         modifiers: [
             Super,
         ],
-    ): Spawn("rofi -show drun -show-icons"),
+    ): Spawn("rofi-launcher"),
     (
         modifiers: [
             Super,

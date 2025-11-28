@@ -1,9 +1,19 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ tela-circle-icon-theme ];
+  home.packages = with pkgs; [
+    tela-circle-icon-theme
 
-  # xdg.mimeApps.defaultApplications = {
-  #   "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
-  # };
+    (writeShellScriptBin "rofi-launcher" ''
+      if pgrep -x rofi; then
+        pkill -x rofi
+        exit
+      fi
+      rofi -show drun -show-icons 
+    '')
+  ];
+
+  xdg.mimeApps.defaultApplications = {
+    "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
+  };
 
   home.file = {
     # favourite apps in dock
