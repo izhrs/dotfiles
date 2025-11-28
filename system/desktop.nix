@@ -21,5 +21,10 @@
     cosmic-ext-calculator
     cosmic-ext-applet-external-monitor-brightness
     forecast
+
+    ddcutil # this is required for that external-monitor-brightness
   ];
+
+  # enables brightness controll for external monitor using ddcutil
+  hardware.i2c.enable = true;
 }
