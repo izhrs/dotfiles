@@ -6,18 +6,6 @@
         package = pkgs.qemu_kvm;
         runAsRoot = true;
         swtpm.enable = true;
-
-        # ovmf removed????
-
-        # ovmf = {
-        #   enable = true;
-        #   packages = [
-        #     (pkgs.OVMF.override {
-        #       secureBoot = true;
-        #       tpmSupport = true;
-        #     }).fd
-        #   ];
-        # };
       };
     };
     spiceUSBRedirection.enable = true;
@@ -28,6 +16,13 @@
         enable = true;
         setSocketVariable = true;
       };
+    };
+
+    # following configuration is added only when building VM with build-vm
+    # https://nixos.wiki/wiki/NixOS:nixos-rebuild_build-vm
+    vmVariant.virtualisation = {
+      memorySize = 8192; # Use 8GB memory.
+      cores = 2;
     };
   };
 
