@@ -7,6 +7,7 @@
     ./bluetooth.nix
     ./desktop.nix
     ./fileSystems.nix
+    # ./kanata.nix
     ./locale.nix
     ./network.nix
     ./nvidia.nix
