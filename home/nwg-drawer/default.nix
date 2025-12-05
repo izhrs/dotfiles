@@ -24,7 +24,7 @@
 
     /* search entry */
     entry {
-        background-color: #11111b;
+        background-color: rgba(17, 17, 27, 0); /* transparent */
         color: #cdd6f4;
         border-radius: 10px;
     }

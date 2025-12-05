@@ -33,7 +33,7 @@
               pane = {
                 _props = {
                   name = "";
-                  borderless = false;
+                  borderless = true;
                 };
               };
             }
@@ -90,7 +90,7 @@
   home.packages = with pkgs;
     [
       (writeShellScriptBin "llm" ''
-        zellij action new-pane --name ""  --floating --width 30% --height 90% --x 70% --y 5% --close-on-exit -- gemini
+        zellij action new-pane --name ""  --floating --width 35% --height 96% --x 70% --y 2% --close-on-exit -- gemini
       '')
     ];
 }
