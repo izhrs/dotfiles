@@ -12,7 +12,7 @@
       u = "switch_to_lowercase";
       U = "switch_to_uppercase";
 
-      # yazi-picker script defined in ./default.nix
+      # yazi-picker script defined in ./scripts.nix
       space = [
         # using %% to escape 
         ''
@@ -35,7 +35,7 @@
       ];
 
       # LLM integration
-      # These keybindings launch custom llm-* scripts (defined in helix/default.nix)
+      # These keybindings launch custom llm-* scripts (defined in ./scripts.nix)
       # inside floating Zellij panes
       l = {
         # chat
