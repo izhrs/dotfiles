@@ -46,6 +46,7 @@
           ./lazygit
           ./nwg-drawer
           ./rofi
+          ./serpl
           ./thunderbird
           ./shell
           ./starship
