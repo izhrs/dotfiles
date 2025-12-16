@@ -28,6 +28,7 @@
       fm = "yazi";
       gg = "lazygit";
       ff = "fastfetch";
+      gc = "nix-collect-garbage -d";
     };
   };
 
@@ -57,6 +58,7 @@
       fm = "yazi";
       gg = "lazygit";
       ff = "fastfetch";
+      gc = "nix-collect-garbage -d";
     };
   };
 
