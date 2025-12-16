@@ -13,7 +13,7 @@
     docker = {
       enable = true;
       rootless = {
-        enable = true;
+        enable = false; # needed for winboat
         setSocketVariable = true;
       };
     };
@@ -25,6 +25,8 @@
       cores = 2;
     };
   };
+
+  environment.systemPackages = with pkgs; [ winboat ];
 
   # for OSX-KVM
   # https://wiki.nixos.org/wiki/OSX-KVM

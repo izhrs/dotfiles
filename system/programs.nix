@@ -36,6 +36,7 @@
     k3s
     lazygit
     miniserve
+    nmap
     procs
     ripgrep
     rsync
@@ -58,7 +59,9 @@
     zip
 
     # system
+    inetutils
     lsof
+    lshw
     ltrace
     pciutils # lspci
     strace
