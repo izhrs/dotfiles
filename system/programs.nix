@@ -13,10 +13,7 @@
     # game -> general -> launch options -> `gamemoderun %command%`
     gamemode.enable = true;
 
-    # virtualisation
-    virt-manager.enable = true;
     adb.enable = true;
-
     obs-studio.enable = true;
   };
 
@@ -27,29 +24,31 @@
     android-tools
     bat
     bottom
-    curl
     delta
     dust
     fd
     file
     fzf
-    k3s
     lazygit
-    miniserve
-    nmap
     procs
     ripgrep
-    rsync
     sd
     tokei
-    unzip
-    wget
     yt-dlp
 
     # networking
+    curl
     dnsutils # dig
+    inetutils
     iputils # ping
+    miniserve
     nettools
+    nmap
+    rsync
+    wget
+
+    # remote access
+    freerdp
 
     # archives
     gnutar
@@ -59,27 +58,27 @@
     zip
 
     # system
-    inetutils
-    lsof
+    brightnessctl
     lshw
+    lsof
     ltrace
+    pass
     pciutils # lspci
     strace
     sysstat
     usbutils # lsusb
-    brightnessctl
     wl-clipboard
-    pass
 
     # GUI
+    gimp
+    godot
     libreoffice
     protonvpn-gui
     qbittorrent
-    gimp
-    godot
+    winboat
 
     # Gaming
-    lutris
     heroic
+    lutris
   ];
 }

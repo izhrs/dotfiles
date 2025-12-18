@@ -26,7 +26,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ winboat ];
+  programs.virt-manager.enable = true;
 
   # for OSX-KVM
   # https://wiki.nixos.org/wiki/OSX-KVM
