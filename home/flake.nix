@@ -52,6 +52,7 @@
           ./starship
           ./swayimg
           ./virtmanager
+          ./wezterm
           ./yazi
           ./zathura
           ./zellij
