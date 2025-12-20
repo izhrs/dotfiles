@@ -28,6 +28,7 @@
     dust
     fd
     file
+    ffmpeg-full
     fzf
     lazygit
     procs
@@ -73,6 +74,7 @@
     gimp
     godot
     libreoffice
+    mpv
     protonvpn-gui
     qbittorrent
     winboat

@@ -21,13 +21,13 @@
 
   programs.home-manager.enable = true;
 
-  # default set in individiual configs
+  # default set in individiual configs as well (duplication for better readablity)
 
-  # xdg.mimeApps.defaultApplications = {
-  #   "x-scheme-handler/terminal" = [ "kitty.desktop" ];
-  #   "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-  #   "image/*" = [ "swayimg.desktop" ];
-  #   "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
-  #   "text/markdown" = [ "inlyne.desktop" ];
-  # };
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/terminal" = [ "kitty.desktop" ];
+    "application/pdf" = [ "org.pwmt.zathura.desktop" ];
+    "image/*" = [ "swayimg.desktop" ];
+    "video/*" = [ "mpv.desktop" ];
+    "text/markdown" = [ "inlyne.desktop" ];
+  };
 }
