@@ -1,12 +1,16 @@
 { inputs, pkgs }: {
   _props = {
     location = "file:${
-        inputs.zjstatus.packages.${pkgs.system}.default
+        inputs.zjstatus.packages.${pkgs.stdenv.hostPlatform.system}.default
       }/bin/zjstatus.wasm";
   };
   _children = [{
 
-    # source: https://github.com/merikan/.dotfiles/blob/main/config/zellij/themes/zjstatus/catppuccin.kdl
+    hide_frame_for_single_pane = true;
+    # hide_frame_except_for_search = true;
+    # hide_frame_except_for_fullscreen = true;
+
+    # THIS THEME IS BASED ON: https://github.com/merikan/.dotfiles/blob/main/config/zellij/themes/zjstatus/catppuccin.kdl
 
     color_rosewater = "#f5e0dc";
     color_flamingo = "#f2cdcd";
@@ -40,7 +44,7 @@
 
     # format_right = #[bg=$surface0,fg=$flamingo]#[fg=$crust,bg=$flamingo] #[bg=$surface1,fg=$flamingo,bold] {command_user}@{command_host}#[bg=$surface0,fg=$surface1] 
     format_right =
-      "#[fg=$maroon]#[bg=$maroon,fg=$crust]󰃭 #[bg=$surface1,fg=$maroon,bold] {datetime}#[fg=$surface1]";
+      "#[fg=$lavender]#[bg=$lavender,fg=$crust]󰃭 #[bg=$surface1,fg=$lavender,bold] {datetime}#[fg=$surface1]";
 
     # format_space = "#[bg=$surface0]";
     format_hide_on_overlength = true;
@@ -50,10 +54,6 @@
     border_char = "─";
     border_format = "#[bg=$surface0]{char}";
     border_position = "top";
-
-    hide_frame_for_single_pane = false;
-    # hide_frame_except_for_search = true;
-    # hide_frmae_except_for_fullscreen = true;
 
     mode_normal =
       "#[fg=$lavender]#[bg=$lavender,fg=$crust,bold]NORMAL#[fg=$lavender]";
@@ -78,17 +78,17 @@
     mode_prompt = "#[fg=$pink]#[bg=$pink,fg=$crust,bold]PROMPT#[fg=$pink]";
 
     tab_normal =
-      "#[fg=$blue]#[bg=$blue,fg=$crust,bold]{index} #[bg=$surface1,fg=$blue,bold] {name}{floating_indicator}#[fg=$surface1]";
+      "#[fg=$lavender]#[bg=$lavender,fg=$crust,bold]{index} #[bg=$surface1,fg=$lavender,bold] {name}{floating_indicator}#[fg=$surface1]";
     tab_normal_fullscreen =
-      "#[fg=$blue]#[bg=$blue,fg=$crust,bold]{index} #[bg=$surface1,fg=$blue,bold] {name}{fullscreen_indicator}#[fg=$surface1]";
+      "#[fg=$lavender]#[bg=$lavender,fg=$crust,bold]{index} #[bg=$surface1,fg=$lavender,bold] {name}{fullscreen_indicator}#[fg=$surface1]";
     tab_normal_sync =
-      "#[fg=$blue]#[bg=$blue,fg=$crust,bold]{index} #[bg=$surface1,fg=$blue,bold] {name}{sync_indicator}#[fg=$surface1]";
+      "#[fg=$lavender]#[bg=$lavender,fg=$crust,bold]{index} #[bg=$surface1,fg=$lavender,bold] {name}{sync_indicator}#[fg=$surface1]";
     tab_active =
-      "#[fg=$peach]#[bg=$peach,fg=$crust,bold]{index} #[bg=$surface1,fg=$peach,bold] {name}{floating_indicator}#[fg=$surface1]";
+      "#[fg=$flamingo]#[bg=$flamingo,fg=$crust,bold]{index} #[bg=$surface1,fg=$flamingo,bold] {name}{floating_indicator}#[fg=$surface1]";
     tab_active_fullscreen =
-      "#[fg=$peach]#[bg=$peach,fg=$crust,bold]{index} #[bg=$surface1,fg=$peach,bold] {name}{fullscreen_indicator}#[fg=$surface1]";
+      "#[fg=$flamingo]#[bg=$flamingo,fg=$crust,bold]{index} #[bg=$surface1,fg=$flamingo,bold] {name}{fullscreen_indicator}#[fg=$surface1]";
     tab_active_sync =
-      "#[fg=$peach]#[bg=$peach,fg=$crust,bold]{index} #[bg=$surface1,fg=$peach,bold] {name}{sync_indicator}#[fg=$surface1]";
+      "#[fg=$flamingo]#[bg=$flamingo,fg=$crust,bold]{index} #[bg=$surface1,fg=$flamingo,bold] {name}{sync_indicator}#[fg=$surface1]";
     tab_separator = " ";
 
     tab_sync_indicator = " ";
@@ -111,7 +111,7 @@
     command_user_rendermode = "static";
 
     datetime = "{format}";
-    datetime_format = "%Y-%m-%d 󰅐 %I:%M %p";
+    datetime_format = "%b %d | %I:%M %p";
     datetime_timezone = "Asia/Kolkata";
   }];
 }
