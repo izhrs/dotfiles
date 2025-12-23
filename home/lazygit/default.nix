@@ -9,12 +9,17 @@
       }];
 
       gui = {
-        sidePanelWidth = 0.2;
-        expandFocusedSidePanel = true;
-        showCommandLog = false;
-        showRandomTip = false;
-        nerdFontsVersion = 3;
+        # also removes the "Donate" and "Ask questions" button
+        mouseEvents = false;
+
         animateExplosion = true;
+        expandFocusedSidePanel = true;
+        nerdFontsVersion = 3;
+        showCommandLog = false;
+        showListFooter = false;
+        showRandomTip = false;
+        statusPanelView = "allBranchesLog";
+        sidePanelWidth = 0.2;
       };
     };
   };
