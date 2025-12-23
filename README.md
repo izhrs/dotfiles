@@ -39,6 +39,30 @@
 
 ![zellij](./screenshots/zellij.png)
 
+### Helix with Yazi
+
+![helix_with_yazi](./screenshots/helix_with_yazi.png)
+
+### Helix with Lazygit
+
+![helix_with_lazygit](./screenshots/helix_with_lazygit.png)
+
+### Helix
+
+![helix](./screenshots/helix.png)
+
+### Helix with Gemini
+
+![helix_with_gemini](./screenshots/helix_with_gemini.png)
+
+### Tiles
+
+![titles](./screenshots/tiles.png)
+
+### Bottom
+
+![bottom](./screenshots/bottom.png)
+
 ### Cosmic Files and Nautilus
 
 ![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
@@ -50,30 +74,6 @@
 ### Rofi
 
 ![rofi](./screenshots/rofi.png)
-
-### Helix with Yazi
-
-![helix_with_yazi](./screenshots/helix_with_yazi.png)
-
-### Helix with Lazygit
-
-![helix_with_lazygit](./screenshots/helix_with_lazygit.png)
-
-### Helix with Gemini
-
-![helix_with_gemini](./screenshots/helix_with_gemini.png)
-
-### Helix
-
-![helix](./screenshots/helix.png)
-
-### Bottom
-
-![bottom](./screenshots/bottom.png)
-
-### Tiles
-
-![titles](./screenshots/tiles.png)
 
 ### Swayimg
 
