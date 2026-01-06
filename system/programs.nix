@@ -27,8 +27,8 @@
     delta
     dust
     fd
-    file
     ffmpeg-full
+    file
     fzf
     lazygit
     procs

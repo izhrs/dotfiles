@@ -135,10 +135,10 @@ This setup features deep integration of Helix with Zellij, Yazi, and Lazygit:
 
 Keybindings for LLM features:
 
-- `space + l + c`: Open a chat session with Gemini.
-- `space + l + m`: Generate a commit message based on the current changes.
-- `space + l + e`: Explain the selected codebase.
 - `space + l + a`: Analyze the code and suggest improvements.
+- `space + l + c`: Open a chat session with Gemini.
+- `space + l + e`: Explain the selected codebase.
+- `space + l + m`: Generate a commit message based on the current changes.
 
 Yazi and Lazygit are launched in context aware floating panes via Zellij, making them feel like native extensions of Helix. This tight integration allows seamless file navigation and Git operations without ever leaving the editor environment.
 

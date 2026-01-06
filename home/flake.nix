@@ -47,10 +47,10 @@
           ./nwg-drawer
           ./rofi
           ./serpl
-          ./thunderbird
           ./shell
           ./starship
           ./swayimg
+          ./thunderbird
           ./virtmanager
           ./wezterm
           ./yazi
