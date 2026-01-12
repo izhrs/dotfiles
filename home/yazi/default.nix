@@ -38,8 +38,8 @@
         show_hidden = false;
         title_format = "";
         show_symlink = true;
-        sort_by = "mtime";
-        sort_reverse = true;
+        sort_by = "natural";
+        sort_reverse = false;
         sort_dirs_first = true;
         linemode = "size_and_mtime";
       };
