@@ -8,7 +8,14 @@
   fileSystems."/home/izhrs/Music" = {
     device = "/dev/disk/by-uuid/921C-B443";
     fsType = "vfat";
-    options =
-      [ "rw" "nosuid" "nodev" "nofail" "uid=1000" "gid=100" "umask=022" ];
+    options = [
+      "rw"
+      "nosuid"
+      "nodev"
+      "nofail"
+      "uid=1000"
+      "gid=100"
+      "umask=022"
+    ];
   };
 }

@@ -16,7 +16,8 @@ let
     ];
   };
 
-in {
+in
+{
   # all the LSP and formatter binaries/packages are defined in ./extraPackages.nix
   language-server = {
     emmet-ls = {
@@ -64,8 +65,10 @@ in {
         };
 
         preview.background.enabled = true;
-        preview.background.args =
-          [ "--data-plane-host=127.0.0.1:8080" "--invert-colors=auto" ];
+        preview.background.args = [
+          "--data-plane-host=127.0.0.1:8080"
+          "--invert-colors=auto"
+        ];
       };
     };
 
@@ -84,9 +87,17 @@ in {
               enable = true;
               diagnostics = true;
             };
-            css = { enable = true; };
-            html = { enable = true; };
-            svelte = { compilerWarnings = { a11y-no-onchange = "ignore"; }; };
+            css = {
+              enable = true;
+            };
+            html = {
+              enable = true;
+            };
+            svelte = {
+              compilerWarnings = {
+                a11y-no-onchange = "ignore";
+              };
+            };
           };
         };
       };
@@ -131,14 +142,20 @@ in {
       auto-format = true;
       formatter = {
         command = "rustfmt";
-        args = [ "--edition" "2024" ];
+        args = [
+          "--edition"
+          "2024"
+        ];
       };
     }
 
     {
       name = "c";
       scope = "source.c";
-      file-types = [ "c" "h" ];
+      file-types = [
+        "c"
+        "h"
+      ];
       auto-format = true;
       formatter = {
         command = "clang-format";
@@ -154,7 +171,14 @@ in {
     {
       name = "cpp";
       scope = "source.cpp";
-      file-types = [ "cpp" "hpp" "cc" "cxx" "hh" "h" ];
+      file-types = [
+        "cpp"
+        "hpp"
+        "cc"
+        "cxx"
+        "hh"
+        "h"
+      ];
       auto-format = true;
       formatter = {
         command = "clang-format";
@@ -174,14 +198,17 @@ in {
       auto-format = true;
       formatter = {
         command = "nixfmt";
-        args = [ ];
+        args = [ "--indent=2" ];
       };
     }
 
     {
       name = "lua";
       scope = "source.lua";
-      roots = [ ".git" "stylua.toml" ];
+      roots = [
+        ".git"
+        "stylua.toml"
+      ];
       file-types = [ "lua" ];
       auto-format = true;
       formatter = {
@@ -220,9 +247,15 @@ in {
       auto-format = true;
       formatter = {
         command = "ruff";
-        args = [ "format" "-" ];
+        args = [
+          "format"
+          "-"
+        ];
       };
-      language-servers = [ "ty-lsp" "ruff-lsp" ];
+      language-servers = [
+        "ty-lsp"
+        "ruff-lsp"
+      ];
     }
 
     {
@@ -252,7 +285,14 @@ in {
       auto-format = true;
       formatter = {
         command = "shfmt";
-        args = [ "-filename" "\${INPUT}" "-i" "4" "-ci" "-sr" ];
+        args = [
+          "-filename"
+          "\${INPUT}"
+          "-i"
+          "4"
+          "-ci"
+          "-sr"
+        ];
       };
       language-servers = [ "bash-language-server" ];
     }
@@ -260,7 +300,10 @@ in {
     {
       name = "dockerfile";
       scope = "source.dockerfile";
-      file-types = [ "Dockerfile" { glob = "Dockerfile"; } ];
+      file-types = [
+        "Dockerfile"
+        { glob = "Dockerfile"; }
+      ];
       auto-format = true;
       formatter = {
         command = "dockfmt";
@@ -272,7 +315,10 @@ in {
     {
       name = "docker-compose";
       scope = "source.yaml.docker-compose";
-      file-types = [ "docker-compose.yml" "docker-compose.yaml" ];
+      file-types = [
+        "docker-compose.yml"
+        "docker-compose.yaml"
+      ];
       auto-format = true;
       formatter = prettierFormatter "yaml";
       language-servers = [ "docker-compose-ls" ];
@@ -284,7 +330,10 @@ in {
       file-types = [ "js" ];
       auto-format = true;
       formatter = prettierFormatter "babel";
-      language-servers = [ "typescript-language-server" "tailwind-ls" ];
+      language-servers = [
+        "typescript-language-server"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -293,7 +342,10 @@ in {
       file-types = [ "ts" ];
       auto-format = true;
       formatter = prettierFormatter "typescript";
-      language-servers = [ "typescript-language-server" "tailwind-ls" ];
+      language-servers = [
+        "typescript-language-server"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -302,8 +354,11 @@ in {
       file-types = [ "jsx" ];
       auto-format = true;
       formatter = prettierFormatter "babel";
-      language-servers =
-        [ "typescript-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = [
+        "typescript-language-server"
+        "emmet-ls"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -312,8 +367,11 @@ in {
       file-types = [ "tsx" ];
       auto-format = true;
       formatter = prettierFormatter "typescript";
-      language-servers =
-        [ "typescript-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = [
+        "typescript-language-server"
+        "emmet-ls"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -327,7 +385,10 @@ in {
     {
       name = "yaml";
       scope = "source.yaml";
-      file-types = [ "yaml" "yml" ];
+      file-types = [
+        "yaml"
+        "yml"
+      ];
       auto-format = true;
       formatter = prettierFormatter "yaml";
       language-servers = [ "yaml-language-server" ];
@@ -336,7 +397,10 @@ in {
     {
       name = "markdown";
       scope = "source.md";
-      file-types = [ "md" "markdown" ];
+      file-types = [
+        "md"
+        "markdown"
+      ];
       auto-format = true;
       formatter = prettierFormatter "markdown";
     }
@@ -347,7 +411,10 @@ in {
       file-types = [ "html" ];
       auto-format = true;
       formatter = prettierFormatter "html";
-      language-servers = [ "emmet-ls" "tailwind-ls" ];
+      language-servers = [
+        "emmet-ls"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -356,18 +423,27 @@ in {
       file-types = [ "css" ];
       auto-format = true;
       formatter = prettierFormatter "css";
-      language-servers =
-        [ "vscode-css-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = [
+        "vscode-css-language-server"
+        "emmet-ls"
+        "tailwind-ls"
+      ];
     }
 
     {
       name = "scss";
       scope = "source.scss";
-      file-types = [ "scss" "rasi" ];
+      file-types = [
+        "scss"
+        "rasi"
+      ];
       auto-format = true;
       formatter = prettierFormatter "scss";
-      language-servers =
-        [ "vscode-css-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = [
+        "vscode-css-language-server"
+        "emmet-ls"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -376,7 +452,11 @@ in {
       file-types = [ "svelte" ];
       auto-format = true;
       formatter = prettierFormatter "svelte";
-      language-servers = [ "svelte-ls" "emmet-ls" "tailwind-ls" ];
+      language-servers = [
+        "svelte-ls"
+        "emmet-ls"
+        "tailwind-ls"
+      ];
     }
 
     {
@@ -386,7 +466,10 @@ in {
       auto-format = true;
       formatter = {
         command = "taplo";
-        args = [ "fmt" "-" ];
+        args = [
+          "fmt"
+          "-"
+        ];
       };
       language-servers = [ "taplo" ];
     }
@@ -406,9 +489,14 @@ in {
     {
       name = "typst";
       scope = "source.typst";
-      file-types = [ "typ" "typst" ];
+      file-types = [
+        "typ"
+        "typst"
+      ];
       language-servers = [ "tinymist-lsp" ];
-      formatter = { command = "typstyle"; };
+      formatter = {
+        command = "typstyle";
+      };
       auto-format = true;
     }
   ];

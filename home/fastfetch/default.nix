@@ -10,14 +10,16 @@
         # height = 16;
         width = 34;
         padding = {
-          top = 2;
-          bottom = 2;
+          top = 8;
+          bottom = 8;
           right = 5;
           left = 5;
         };
       };
 
-      display = { separator = " -> "; };
+      display = {
+        separator = " -> ";
+      };
 
       modules = [
         "break"

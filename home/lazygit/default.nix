@@ -2,11 +2,13 @@
   programs.lazygit = {
     enable = true;
     settings = {
-      git.pagers = [{
-        pager = "delta --dark --line-numbers --side-by-side --paging=never";
-        colorArg = "always";
-        useConfig = false;
-      }];
+      git.pagers = [
+        {
+          pager = "delta --dark --line-numbers --side-by-side --paging=never";
+          colorArg = "always";
+          useConfig = false;
+        }
+      ];
 
       gui = {
         # also removes the "Donate" and "Ask questions" button

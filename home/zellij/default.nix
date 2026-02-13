@@ -1,4 +1,10 @@
-{ lib, pkgs, inputs, ... }: {
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
+{
 
   programs.zellij = {
     enable = true;
@@ -43,7 +49,13 @@
                   size = 1;
                   borderless = true;
                 };
-                _children = [{ plugin = { location = "zjstatus"; }; }];
+                _children = [
+                  {
+                    plugin = {
+                      location = "zjstatus";
+                    };
+                  }
+                ];
               };
             }
           ];
@@ -54,7 +66,7 @@
     themes = import ./themes.nix;
   };
 
-  # zellij's auto tab renaming 
+  # zellij's auto tab renaming
 
   # lib.mkAfter means “append this Zsh configuration to the end of the specified
   # config file”, which in this case is .zshrc.
@@ -87,10 +99,9 @@
     autoload -Uz add-zsh-hook
     add-zsh-hook chpwd zellij_tab_name_update'';
 
-  home.packages = with pkgs;
-    [
-      (writeShellScriptBin "llm" ''
-        zellij action new-pane --name ""  --floating --width 35% --height 96% --x 70% --y 2% --close-on-exit -- gemini
-      '')
-    ];
+  home.packages = with pkgs; [
+    (writeShellScriptBin "llm" ''
+      zellij action new-pane --name ""  --floating --width 35% --height 96% --x 70% --y 2% --close-on-exit -- gemini
+    '')
+  ];
 }

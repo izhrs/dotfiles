@@ -65,7 +65,7 @@
     };
   };
 
-  # shell completion 
+  # shell completion
   programs.carapace = {
     enable = true;
     enableBashIntegration = true;

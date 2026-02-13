@@ -19,14 +19,23 @@
       flake = false;
     };
 
-    zjstatus = { url = "github:dj95/zjstatus"; };
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      catppuccin,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
+    in
+    {
       homeConfigurations."izhrs" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };

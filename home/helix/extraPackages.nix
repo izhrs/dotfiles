@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 # Binaries for all the Language Servers, Linters and Formatters
-with pkgs; [
+with pkgs;
+[
   lldb
   clang-tools
 

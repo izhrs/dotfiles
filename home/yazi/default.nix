@@ -1,5 +1,11 @@
-{ pkgs, inputs, ... }: {
-  home.packages = with pkgs; [ trash-cli ouch glow exiftool ];
+{ pkgs, inputs, ... }:
+{
+  home.packages = with pkgs; [
+    trash-cli
+    ouch
+    glow
+    exiftool
+  ];
 
   programs.yazi = {
     enable = true;
@@ -23,18 +29,25 @@
       };
     };
 
-    flavors = let flav = inputs.yazi-flavors;
-    in {
-      catppuccin-macchiato = "${flav}/catppuccin-macchiato.yazi";
-      catppuccin-frappe = "${flav}/catppuccin-frappe.yazi";
-      catppuccin-latte = "${flav}/catppuccin-latte.yazi";
-      catppuccin-mocha = "${flav}/catppuccin-mocha.yazi";
-    };
+    flavors =
+      let
+        flav = inputs.yazi-flavors;
+      in
+      {
+        catppuccin-macchiato = "${flav}/catppuccin-macchiato.yazi";
+        catppuccin-frappe = "${flav}/catppuccin-frappe.yazi";
+        catppuccin-latte = "${flav}/catppuccin-latte.yazi";
+        catppuccin-mocha = "${flav}/catppuccin-mocha.yazi";
+      };
 
     settings = {
       mgr = {
         # 2/9 width for parent, 3/9 for main, 4/9 for preview
-        ratio = [ 2 3 4 ];
+        ratio = [
+          2
+          3
+          4
+        ];
         show_hidden = false;
         title_format = "";
         show_symlink = true;
@@ -45,12 +58,14 @@
       };
 
       opener = {
-        play = [{
-          run = ''xdg-open "$@"'';
-          orphan = true;
-          desc = "open";
-          for = "linux";
-        }];
+        play = [
+          {
+            run = ''xdg-open "$@"'';
+            orphan = true;
+            desc = "open";
+            for = "linux";
+          }
+        ];
       };
 
       plugin = {
@@ -58,8 +73,7 @@
           # directory previewer
           {
             name = "*/";
-            run = ''
-              piper -- eza -TL=2 --color=always --icons=always --group-directories-first --no-quotes -a "$1"'';
+            run = ''piper -- eza -TL=2 --color=always --icons=always --group-directories-first --no-quotes -a "$1"'';
           }
 
           # archive previewers
@@ -125,22 +139,34 @@
 
           # compress.yazi
           {
-            on = [ "-" "c" ];
+            on = [
+              "-"
+              "c"
+            ];
             run = "plugin compress";
             desc = "Archive selected files";
           }
           {
-            on = [ "-" "p" ];
+            on = [
+              "-"
+              "p"
+            ];
             run = "plugin compress -p";
             desc = "Archive with password";
           }
           {
-            on = [ "-" "h" ];
+            on = [
+              "-"
+              "h"
+            ];
             run = "plugin compress -ph";
             desc = "Archive with password and header";
           }
           {
-            on = [ "-" "l" ];
+            on = [
+              "-"
+              "l"
+            ];
             run = "plugin compress -l";
             desc = "Archive with compression level";
           }
