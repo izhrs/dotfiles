@@ -13,7 +13,6 @@
     # game -> general -> launch options -> `gamemoderun %command%`
     gamemode.enable = true;
 
-    adb.enable = true;
     obs-studio.enable = true;
   };
 
@@ -67,6 +66,7 @@
     pciutils # lspci
     strace
     sysstat
+    ueberzugpp
     usbutils # lsusb
     wl-clipboard
 
@@ -77,6 +77,7 @@
     mpv
     protonvpn-gui
     qbittorrent
+    spotube
     winboat
 
     # Gaming

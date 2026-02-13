@@ -17,7 +17,7 @@ with pkgs; [
 
   # Nix
   nixd
-  nixfmt-classic
+  nixfmt
 
   # Lua
   stylua
