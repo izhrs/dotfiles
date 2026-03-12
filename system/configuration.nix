@@ -17,7 +17,7 @@
     ./virtualisation.nix
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 
   # Bootloader
   boot = {
@@ -26,7 +26,10 @@
     loader.timeout = 0;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
 
