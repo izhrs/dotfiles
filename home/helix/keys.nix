@@ -16,6 +16,8 @@
       U = "switch_to_uppercase";
 
       # yazi-picker script defined in ./scripts.nix
+      #
+      # DOES NOT WORK ANYMORE
       space = [
         # using %% to escape
         '':sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}''
