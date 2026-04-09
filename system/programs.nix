@@ -76,10 +76,10 @@
     godot
     libreoffice
     mpv
-    protonvpn-gui
+    proton-vpn
     qbittorrent
     spotube
-    winboat
+    # winboat
 
     # Gaming
     heroic
