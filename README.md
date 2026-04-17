@@ -67,6 +67,14 @@
 
 ![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
 
+### Firefox
+
+![firefox](./screenshots/firefox.png)
+
+### Firefox with vertical tabs
+
+![firefox_with_vertical_tabs](./screenshots/firefox_vert_tab.png)
+
 ### Nwg-drawer
 
 ![nwg-drawer](./screenshots/nwg_drawer.png)
