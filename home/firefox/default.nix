@@ -49,7 +49,7 @@
         "privacy.clearOnShutdown.sessions" = false;
         "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
         "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" = false;
-        "privacy.sanitize.sanitizeOnShutdown" = true;
+        "privacy.sanitize.sanitizeOnShutdown" = false;
         "privacy.trackingprotection.enabled" = true;
         "privacy.userContext.enabled" = true;
         "privacy.userContext.ui.enabled" = true;
