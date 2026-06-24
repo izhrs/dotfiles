@@ -39,7 +39,7 @@
               pane = {
                 _props = {
                   name = "";
-                  # borderless = true; let zjstatus handle it
+                  borderless = true;
                 };
               };
             }
