@@ -18,3 +18,6 @@ function Linemode:size_and_mtime()
 	local size = self._file:size()
 	return string.format("%s %s", size and ya.readable_size(size) or "dir", time)
 end
+
+-- Disable terminal title updates (replacement for the removed title_format = "")
+ps.sub("ind-app-title", function() end)

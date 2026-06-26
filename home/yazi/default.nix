@@ -49,7 +49,6 @@
           4
         ];
         show_hidden = false;
-        title_format = "";
         show_symlink = true;
         sort_by = "natural";
         sort_reverse = false;
