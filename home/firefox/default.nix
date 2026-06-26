@@ -55,6 +55,7 @@
         "privacy.userContext.ui.enabled" = true;
         "privacy.window.name.update.enabled" = true;
         "sidebar.animation.enabled" = false; # fwfox
+        "signon.rememberSignons" = false; # disables firefox password manager
         "svg.context-properties.content.enabled" = true; # gwfox
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # gwfox
         "widget.gtk.rounded-bottom-corners.enabled" = true; # gwfox
