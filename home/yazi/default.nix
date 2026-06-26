@@ -72,7 +72,7 @@
         prepend_previewers = [
           # directory previewer
           {
-            name = "*/";
+            url = "*/";
             run = ''piper -- eza -TL=2 --color=always --icons=always --group-directories-first --no-quotes -a "$1"'';
           }
 
@@ -108,14 +108,14 @@
 
           # markdown with glow
           {
-            name = "*.md";
+            url = "*.md";
             run = ''
               piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"
             '';
           }
 
           {
-            name = "*.csv";
+            url = "*.csv";
             run = ''piper -- bat -p --color=always "$1"'';
           }
         ];
