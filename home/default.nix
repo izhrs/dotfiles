@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
@@ -31,4 +31,32 @@
     "video/*" = [ "mpv.desktop" ];
     "text/markdown" = [ "inlyne.desktop" ];
   };
+
+  imports = [
+    ./btm
+    ./cosmic
+    ./fastfetch
+    ./firefox
+    ./gemini
+    ./git
+    ./gtk
+    ./helix
+    # ./inlyne
+    ./kitty
+    ./lazygit
+    ./nwg-drawer
+    ./rofi
+    ./serpl
+    ./shell
+    ./starship
+    ./swayimg
+    ./thunderbird
+    ./virtmanager
+    ./wezterm
+    ./yazi
+    ./zathura
+    ./zellij
+
+    inputs.catppuccin.homeModules.catppuccin
+  ];
 }

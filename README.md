@@ -95,14 +95,13 @@
 
 ## Installation
 
-### TLDR: I do not provide a magical script to transform your NixOS to mimic my config. Copy the individual program config from `home/` directory and configure/modify it according to your own liking. I do not recommend `switch.sh`, it's for my own convenience.
+### TLDR: I do not provide a magical script to transform your NixOS to mimic my config. Copy the individual program config from `home/` directory and configure/modify it according to your own liking.
 
 ## Project Structure
 
 ```.
-├── home/                  # Home Manager setup
-│   ├── flake.nix
-│   ├── home.nix
+├── home/
+│   ├── default.nix        # Home manager specific config
 │   ├── cosmic/            # Cosmic DE config (not nixified)
 │   ├── helix/             # Helix editor config
 │   ├── yazi/              # Yazi terminal file manager config
@@ -110,21 +109,14 @@
 │   └── ...                # Other Home Manager modules
 ├── system/                # System-level NixOS config
 │   ├── configuration.nix
-│   ├── flake.nix
 │   └── virtualisation.nix
+├── flake.nix
 └── README.md
 ```
 
 ## Home Manager
 
-This configuration includes Home Manager for declarative user environment management. Home Manager allows you to manage user-specific packages, dotfiles, and services in a reproducible way.
-
-To set up Home Manager:
-
-1. Install and set up `home-manager` with flakes.
-2. Configure user-specific settings and packages.
-3. Copy the individual `<program>` directory from `home/` directory. If you include or exclude any modules, make sure you edit `modules = [...]` in `flake.nix`.
-4. Apply with: `home-manager switch`.
+This configuration uses Home Manager as a Nix module (instead of running a standalone home-manager CLI setup). Home Manager declaratively manages the user environment: packages, dotfiles, and user services in a reproducible way.
 
 ## Helix as IDE
 

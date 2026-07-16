@@ -18,8 +18,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    home-manager
-
     # CLI tools
     android-tools
     bat

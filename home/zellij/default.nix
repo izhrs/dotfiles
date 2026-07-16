@@ -85,7 +85,7 @@
           "$HOME/Videos")     current_dir=" " ;;
           "$HOME/Documents")  current_dir=" " ;;
           "$HOME/Documents/code")  current_dir=" " ;;
-          "$HOME/Documents/code/dotfiles")   current_dir="󱄅 " ;; # you would want to change this
+          "/etc/nixos")   current_dir="󱄅 " ;; # you would want to change this
           *)
             current_dir=''${current_dir##*/}
             ;;
