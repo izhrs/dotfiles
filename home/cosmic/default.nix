@@ -197,7 +197,22 @@
       "Utility"
     ];
     startupNotify = true;
-    mimeType = [ "inode/directory" ];
+  };
+
+  xdg.desktopEntries."com.system76.CosmicMonitor" = {
+    name = "COSMIC System Monitor";
+    genericName = "System Monitor";
+    comment = "COSMIC System Monitor";
+    exec = "cosmic-monitor";
+    terminal = false;
+    type = "Application";
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/utilities-system-monitor.svg";
+    categories = [
+      "COSMIC"
+      "System"
+      "Monitor"
+    ];
+    startupNotify = true;
   };
 
   xdg.desktopEntries."com.system76.CosmicPlayer" = {
