@@ -31,6 +31,7 @@
     lazygit
     procs
     ripgrep
+    rnr
     sd
     tokei
     yt-dlp
@@ -73,11 +74,10 @@
     gimp
     godot
     libreoffice
-    mpv
     proton-vpn
     qbittorrent
     spotube
-    # winboat
+    winboat
 
     # Gaming
     heroic

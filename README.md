@@ -93,15 +93,16 @@
 
 </details>
 
-## Installation
-
-### TLDR: I do not provide a magical script to transform your NixOS to mimic my config. Copy the individual program config from `home/` directory and configure/modify it according to your own liking.
-
 ## Project Structure
+
+> [!note]
+> This configuration is built for my personal use. I don't intend for others to use it as-is, and making it portable or beginner-friendly is not a goal of this dotfiles. There is no setup script. Some may even call it incomplete as it does not even have proper system wide light theme configured (I only use dark mode).
+> That said, the code is structured so that individual program configurations are easy to lift out. Each program lives in its own directory and is self-contained, it only relies on flake inputs, not on shared variables or a centralized theme layer. If you want to borrow the Firefox config, for example, copying `home/firefox/` and adding the relevant flake input (e.g. NUR) to your own `flake.nix` is all you need.
+> This is intentional. Unlike dotfile setups where every program imports a shared base config full of theme variables and reused abstractions, each module here can be read and understood in isolation. The use of Home Manager as a NixOS module is purely for integration convenience, not as a framework that everything else is built on top of.
 
 ```.
 ├── home/
-│   ├── default.nix        # Home manager specific config
+│   ├── default.nix        # User environment vars, xdg default appliations and module inports
 │   ├── cosmic/            # Cosmic DE config (not nixified)
 │   ├── helix/             # Helix editor config
 │   ├── yazi/              # Yazi terminal file manager config
@@ -109,9 +110,12 @@
 │   └── ...                # Other Home Manager modules
 ├── system/                # System-level NixOS config
 │   ├── configuration.nix
-│   └── virtualisation.nix
-├── flake.nix
-└── README.md
+│   ├── desktop.nix
+│   ├── virtualisation.nix
+│   └── ...
+├── flake.nix              # all flake inputs and home-manager config
+├── README.md
+└── ...
 ```
 
 ## Home Manager

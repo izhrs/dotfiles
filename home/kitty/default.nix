@@ -1,9 +1,4 @@
 { pkgs, ... }: {
-
-  xdg.mimeApps.defaultApplications = {
-    "x-scheme-handler/terminal" = [ "kitty.desktop" ];
-  };
-
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.victor-mono

@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  xdg.mimeApps.defaultApplications = {
-    "image/*" = [ "swayimg.desktop" ];
-  };
-
   xdg.desktopEntries.swayimg = {
     name = "Swayimg";
     genericName = "Image Viewer";

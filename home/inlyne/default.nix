@@ -3,21 +3,19 @@
 {
   home.packages = [ pkgs.inlyne ];
 
-  xdg.mimeApps.defaultApplications = {
-    "text/markdown" = [ "inlyne.desktop" ];
-  };
-
   xdg.desktopEntries.inlyne = {
     name = "Inlyne";
     genericName = "Markdown Viewer";
     comment = "a GPU powered, browserless, markdown + html viewer";
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/mimetypes/text-markdown.svg";
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/mimetypes/text-markdown.svg";
     exec = "inlyne view %f";
     terminal = false;
     type = "Application";
     mimeType = [ "text/markdown" ];
-    categories = [ "Office" "Viewer" ];
+    categories = [
+      "Office"
+      "Viewer"
+    ];
   };
 
   home.file.".config/inlyne/inlyne.toml".text = ''
