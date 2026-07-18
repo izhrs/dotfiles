@@ -83,14 +83,6 @@
 
 ![rofi](./screenshots/rofi.png)
 
-### Swayimg
-
-![swayimg](./screenshots/swayimg.png)
-
-### Swayimg Gallery
-
-![swayimg_gallery](./screenshots/swayimg_gallery.png)
-
 </details>
 
 ## Project Structure

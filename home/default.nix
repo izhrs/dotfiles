@@ -25,7 +25,7 @@
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/terminal" = [ "kitty.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-    "image/*" = [ "swayimg.desktop" ];
+    "image/*" = [ "org.pwmt.zathura.desktop" ];
     "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
     "text/markdown" = [ "inlyne.desktop" ];
   };
@@ -47,7 +47,6 @@
     ./serpl
     ./shell
     ./starship
-    ./swayimg
     ./thunderbird
     ./virtmanager
     ./wezterm
