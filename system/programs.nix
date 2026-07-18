@@ -3,6 +3,13 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    # nix-helper cli tool
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 7d --keep 3";
+    };
+
     firefox.enable = true;
     thunderbird.enable = true;
 
@@ -29,6 +36,8 @@
     file
     fzf
     lazygit
+    nix-output-monitor # for nh
+    nvd # for nh
     procs
     ripgrep
     rnr
@@ -77,7 +86,7 @@
     proton-vpn
     qbittorrent
     spotube
-    winboat
+    # winboat
 
     # Gaming
     heroic
