@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [ ./scripts.nix ];
+
+  specialisation.light.configuration = {
+    programs.helix.settings.theme = lib.mkForce "catppuccin_latte_transparent";
+  };
 
   programs.helix = {
     enable = true;
@@ -22,7 +26,9 @@
         popup-border = "all";
         color-modes = true;
 
-        file-picker = { hidden = false; };
+        file-picker = {
+          hidden = false;
+        };
         bufferline = "multiple";
 
         cursor-shape = {

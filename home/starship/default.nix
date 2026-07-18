@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
@@ -6,33 +6,64 @@
     settings = {
       palette = "catppuccin_mocha";
 
-      palettes.catppuccin_mocha = {
-        rosewater = "#f5e0dc";
-        flamingo = "#f2cdcd";
-        pink = "#f5c2e7";
-        mauve = "#cba6f7";
-        red = "#f38ba8";
-        maroon = "#eba0ac";
-        peach = "#fab387";
-        yellow = "#f9e2af";
-        green = "#a6e3a1";
-        teal = "#94e2d5";
-        sky = "#89dceb";
-        sapphire = "#74c7ec";
-        blue = "#89b4fa";
-        lavender = "#b4befe";
-        text = "#cdd6f4";
-        subtext1 = "#bac2de";
-        subtext0 = "#a6adc8";
-        overlay2 = "#9399b2";
-        overlay1 = "#7f849c";
-        overlay0 = "#6c7086";
-        surface2 = "#585b70";
-        surface1 = "#45475a";
-        surface0 = "#313244";
-        base = "#1e1e2e";
-        mantle = "#181825";
-        crust = "#11111b";
+      palettes = {
+        catppuccin_mocha = {
+          rosewater = "#f5e0dc";
+          flamingo = "#f2cdcd";
+          pink = "#f5c2e7";
+          mauve = "#cba6f7";
+          red = "#f38ba8";
+          maroon = "#eba0ac";
+          peach = "#fab387";
+          yellow = "#f9e2af";
+          green = "#a6e3a1";
+          teal = "#94e2d5";
+          sky = "#89dceb";
+          sapphire = "#74c7ec";
+          blue = "#89b4fa";
+          lavender = "#b4befe";
+          text = "#cdd6f4";
+          subtext1 = "#bac2de";
+          subtext0 = "#a6adc8";
+          overlay2 = "#9399b2";
+          overlay1 = "#7f849c";
+          overlay0 = "#6c7086";
+          surface2 = "#585b70";
+          surface1 = "#45475a";
+          surface0 = "#313244";
+          base = "#1e1e2e";
+          mantle = "#181825";
+          crust = "#11111b";
+        };
+
+        catppuccin_latte = {
+          rosewater = "#dc8a78";
+          flamingo = "#dd7878";
+          pink = "#ea76cb";
+          mauve = "#8839ef";
+          red = "#d20f39";
+          maroon = "#e64553";
+          peach = "#fe640b";
+          yellow = "#df8e1d";
+          green = "#40a02b";
+          teal = "#179299";
+          sky = "#04a5e5";
+          sapphire = "#209fb5";
+          blue = "#1e66f5";
+          lavender = "#7287fd";
+          text = "#4c4f69";
+          subtext1 = "#5c5f77";
+          subtext0 = "#6c6f85";
+          overlay2 = "#7c7f93";
+          overlay1 = "#8c8fa1";
+          overlay0 = "#9ca0b0";
+          surface2 = "#acb0be";
+          surface1 = "#bcc0cc";
+          surface0 = "#ccd0da";
+          base = "#eff1f5";
+          mantle = "#e6e9ef";
+          crust = "#dce0e8";
+        };
       };
 
       format = ''
@@ -61,8 +92,7 @@
 
       directory = {
         read_only = " ";
-        format =
-          "[ $path](bg:blue fg:base)[$read_only](bg:blue fg:red)[](blue) ";
+        format = "[ $path](bg:blue fg:base)[$read_only](bg:blue fg:red)[](blue) ";
         truncation_length = 10;
         truncate_to_repo = true;
       };
@@ -72,8 +102,7 @@
         show_milliseconds = false;
         disabled = false;
         style = "bold italic sky";
-        format =
-          "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
+        format = "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
       };
 
       aws.symbol = "  ";
@@ -85,8 +114,11 @@
         format = "via [$symbol$context]($style) ";
         style = "blue bold";
         only_with_files = true;
-        detect_files =
-          [ "docker-compose.yml" "docker-compose.yaml" "Dockerfile" ];
+        detect_files = [
+          "docker-compose.yml"
+          "docker-compose.yaml"
+          "Dockerfile"
+        ];
         detect_folders = [ ];
         disabled = false;
       };
@@ -137,11 +169,15 @@
 
       python = {
         symbol = "🐍 ";
-        format =
-          "via [\${symbol}python (\${version} )(\\(\${virtualenv}\\) )]($style)";
+        format = "via [\${symbol}python (\${version} )(\\(\${virtualenv}\\) )]($style)";
         style = "bold yellow";
         pyenv_prefix = "venv ";
-        python_binary = [ "./venv/bin/python" "python" "python3" "python2" ];
+        python_binary = [
+          "./venv/bin/python"
+          "python"
+          "python3"
+          "python2"
+        ];
         detect_extensions = [ "py" ];
         version_format = "v\${raw}";
       };
@@ -154,9 +190,16 @@
 
       nodejs = {
         format = "via [󰎙 Node.js $version](bold green) ";
-        detect_files = [ "package.json" ".node-version" ];
+        detect_files = [
+          "package.json"
+          ".node-version"
+        ];
         detect_folders = [ "node_modules" ];
       };
     };
+  };
+
+  specialisation.light.configuration = {
+    programs.starship.settings.palette = lib.mkForce "catppuccin_latte";
   };
 }

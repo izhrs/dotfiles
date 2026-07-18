@@ -32,4 +32,7 @@
   ];
 
   security.rtkit.enable = true;
+
+  catppuccin.enable = true;
+  catppuccin.autoEnable = false;
 }

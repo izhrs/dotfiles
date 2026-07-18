@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.zathura = {
     enable = true;
     options = {
@@ -54,6 +54,41 @@
       ge = "scroll bottom";
       i = "zoom in";
       o = "zoom out";
+    };
+  };
+
+  specialisation.light.configuration = {
+    programs.zathura.options = lib.mkForce {
+      database = "sqlite";
+      font = "JetBrainsMono Nerd Font 10";
+      window-title-basename = true;
+      window-title-page = false;
+      selection-clipboard = "clipboard";
+      default-bg = "#dce0e8"; # latte crust
+      default-fg = "#11111b"; # latte text
+      highlight-color = "rgba(114, 135, 253, 0.5)"; # latte lavender
+      highlight-active-color = "rgba(136, 57, 239, 0.5)"; # latte mauve
+      highlight-fg = "#dce0e8"; # latte crust
+      page-padding = 2;
+      statusbar-bg = "#dce0e8"; # latte crust
+      statusbar-fg = "#11111b"; # latte text
+      statusbar-v-padding = 4;
+      statusbar-h-padding = 8;
+      inputbar-bg = "#eff1f5"; # latte base
+      inputbar-fg = "#7287fd"; # latte lavender
+      index-bg = "#eff1f5"; # latte base
+      index-active-fg = "#7287fd"; # latte lavender
+      index-fg = "#11111b"; # latte text
+      completion-bg = "#eff1f5"; # latte base
+      completion-fg = "#11111b"; # latte text
+      completion-highlight-fg = "#dce0e8"; # latte crust
+      completion-highlight-bg = "#7287fd"; # latte lavender
+      notification-fg = "#dce0e8"; # latte crust
+      notification-bg = "#40a02b"; # latte green
+      notification-error-fg = "#dce0e8"; # latte crust
+      notification-error-bg = "#d20f39"; # latte red
+      notification-warning-fg = "#dce0e8"; # latte crust
+      notification-warning-bg = "#df8e1d"; # latte yellow
     };
   };
 }

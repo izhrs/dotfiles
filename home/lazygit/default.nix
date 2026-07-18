@@ -1,4 +1,4 @@
-{
+{ lib, ... }: {
   programs.lazygit = {
     enable = true;
     settings = {
@@ -31,4 +31,13 @@
     accent = "lavender";
     flavor = "mocha";
   };
+
+  specialisation.light.configuration = {
+    catppuccin.lazygit = lib.mkForce {
+      enable = true;
+      accent = "lavender";
+      flavor = "latte";
+    };
+  };
+
 }

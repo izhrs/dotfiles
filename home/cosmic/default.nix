@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     tela-circle-icon-theme
@@ -11,6 +11,33 @@
       rofi -show drun -show-icons 
     '')
   ];
+
+  specialisation.light.configuration = {
+    home.file.".config/cosmic/com.system76.CosmicBackground/v1/all" = lib.mkForce {
+      text = ''
+        (
+            output: "all",
+            source: Path("/home/izhrs/Pictures/wallpapers/railroad-cat.png"),
+            filter_by_theme: true,
+            rotation_frequency: 300,
+            filter_method: Lanczos,
+            scaling_mode: Zoom,
+            sampling_method: Alphanumeric,
+        )
+      '';
+      force = true;
+    };
+
+    home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = lib.mkForce {
+      text = "false";
+      force = true;
+    };
+  };
+
+  home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = {
+    text = "true";
+    force = true;
+  };
 
   home.file = {
     # favourite apps in dock
@@ -34,7 +61,7 @@
       enable = true;
       source = ./com.system76.CosmicBackground;
       recursive = true;
-      # force = true;
+      force = true;
     };
 
     # list of imported images that can be set as wallpapaer

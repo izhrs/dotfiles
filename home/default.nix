@@ -30,6 +30,9 @@
     "text/markdown" = [ "inlyne.desktop" ];
   };
 
+  catppuccin.enable = true;
+  catppuccin.autoEnable = false;
+
   imports = [
     ./btm
     ./cosmic
@@ -48,6 +51,7 @@
     ./shell
     ./starship
     ./thunderbird
+    ./theme_switcher
     ./virtmanager
     ./wezterm
     ./yazi

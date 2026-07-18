@@ -45,6 +45,7 @@
 
         modules = [
           ./system/configuration.nix
+          inputs.catppuccin.nixosModules.catppuccin
 
           { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
 

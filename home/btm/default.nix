@@ -1,22 +1,34 @@
-{ pkgs, ... }: {
-  programs.bottom = { enable = true; };
+{ pkgs, lib, ... }: {
+  programs.bottom = {
+    enable = true;
+  };
 
   catppuccin.bottom = {
     enable = true;
     flavor = "mocha";
   };
 
+  specialisation.light.configuration = {
+    catppuccin.bottom = lib.mkForce {
+      enable = true;
+      flavor = "latte";
+    };
+  };
+
   xdg.desktopEntries.bottom = {
     name = "bottom";
     genericName = "System Monitor";
-    comment =
-      "A customizable cross-platform graphical process/system monitor for the terminal.";
+    comment = "A customizable cross-platform graphical process/system monitor for the terminal.";
     exec = "kitty -e btm";
     terminal = false;
     type = "Application";
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/bluefish.svg";
-    categories = [ "Utility" "System" "ConsoleOnly" "Monitor" ];
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/bluefish.svg";
+    categories = [
+      "Utility"
+      "System"
+      "ConsoleOnly"
+      "Monitor"
+    ];
     startupNotify = false;
   };
 }
