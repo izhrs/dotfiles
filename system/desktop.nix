@@ -14,13 +14,11 @@
 
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-store
-    cosmic-edit
     cosmic-term
   ];
 
   environment.systemPackages = with pkgs; [
     cosmic-ext-calculator
-    cosmic-ext-applet-external-monitor-brightness
     forecast
 
     ddcutil # this is required for that external-monitor-brightness

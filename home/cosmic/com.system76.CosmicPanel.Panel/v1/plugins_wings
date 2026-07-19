@@ -8,6 +8,5 @@ Some(([
     "com.system76.CosmicAppletNetwork",
     "com.system76.CosmicAppletBluetooth",
     "com.system76.CosmicAppletBattery",
-    "io.github.cosmic_utils.cosmic-ext-applet-external-monitor-brightness",
     "com.system76.CosmicAppletPower",
 ]))
