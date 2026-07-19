@@ -13,11 +13,39 @@
   ];
 
   specialisation.light.configuration = {
-    home.file.".config/cosmic/com.system76.CosmicBackground/v1/all" = lib.mkForce {
+    home.file.".config/cosmic/com.system76.CosmicBackground/v1/all" = lib.mkOverride 1 {
       text = ''
         (
             output: "all",
-            source: Path("/home/izhrs/Pictures/wallpapers/railroad-cat.png"),
+            source: Path("/home/izhrs/Pictures/wallpapers/op/ign-waifu.png"),
+            filter_by_theme: true,
+            rotation_frequency: 300,
+            filter_method: Lanczos,
+            scaling_mode: Zoom,
+            sampling_method: Alphanumeric,
+        )      '';
+      force = true;
+    };
+
+    home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = lib.mkForce {
+      text = "false";
+      force = true;
+    };
+  };
+
+  home.file = {
+    # default to dark mode
+    ".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = {
+      text = "true";
+      force = true;
+    };
+
+    # default dark mode wallpaper
+    ".config/cosmic/com.system76.CosmicBackground/v1/all" = {
+      text = ''
+        (
+            output: "all",
+            source: Path("/home/izhrs/Pictures/wallpapers/pixel-napping.png"),
             filter_by_theme: true,
             rotation_frequency: 300,
             filter_method: Lanczos,
@@ -28,18 +56,6 @@
       force = true;
     };
 
-    home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = lib.mkForce {
-      text = "false";
-      force = true;
-    };
-  };
-
-  home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = {
-    text = "true";
-    force = true;
-  };
-
-  home.file = {
     # favourite apps in dock
     ".config/cosmic/com.system76.CosmicAppList" = {
       enable = true;
@@ -52,14 +68,6 @@
     ".config/cosmic/com.system76.CosmicSettings.Shortcuts" = {
       enable = true;
       source = ./com.system76.CosmicSettings.Shortcuts;
-      recursive = true;
-      force = true;
-    };
-
-    #wallpaper
-    ".config/cosmic/com.system76.CosmicBackground" = {
-      enable = true;
-      source = ./com.system76.CosmicBackground;
       recursive = true;
       force = true;
     };
