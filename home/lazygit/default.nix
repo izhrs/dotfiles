@@ -4,7 +4,7 @@
     settings = {
       git.pagers = [
         {
-          pager = "delta --dark --line-numbers --side-by-side --paging=never";
+          pager = "delta --line-numbers --side-by-side --paging=never";
           colorArg = "always";
           useConfig = false;
         }
@@ -48,12 +48,6 @@
   };
 
   specialisation.light.configuration = {
-    programs.lazygit.settings.git.paging = lib.mkForce {
-      pager = "delta --light --line-numbers --side-by-side --paging=never";
-      colorArg = "always";
-      useConfig = false;
-    };
-
     # catppuccin latte
     programs.lazygit.settings.gui.theme = lib.mkForce {
       activeBorderColor = [
