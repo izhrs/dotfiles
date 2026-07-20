@@ -24,16 +24,16 @@
 
 ## Screenshots
 
-### Cosmic DE
-
-![cosmic_de](./screenshots/cosmic.png)
-
 ### Fastfetch
 
 ![fastfetch](./screenshots/fastfetch.png)
 
 <details>
   <summary>More Screenshots</summary>
+
+### Light and Dark
+
+![float_win](./screenshots/float_win.png)
 
 ### Zellij
 
@@ -113,6 +113,18 @@
 ## Home Manager
 
 This configuration uses Home Manager as a Nix module (instead of running a standalone home-manager CLI setup). Home Manager declaratively manages the user environment: packages, dotfiles, and user services in a reproducible way.
+
+## Light Mode
+
+Light theming is implemented using [NixOS specialisations](https://nix-community.github.io/home-manager/options.xhtml#opt-specialisation), which allow per-program theme overrides to be declared alongside their default (dark) configuration and activated at runtime without a rebuild.
+
+Most programs are themed using [Catppuccin Latte](https://github.com/catppuccin/catppuccin), with a desktop shortcut and shell script available to switch between dark and light modes on the fly. The switch updates GTK theme, terminal colors, wallpaper, editor theme, and other program-specific configurations atomically via the specialisation activation script.
+
+This is still a work in progress. A few known rough edges:
+
+- **Delta** in lazygit do not theme correctly in light mode yet
+- **Zellij** does not autoreaload zjstatus plugin
+- Catppuccin Latte's default palette has poor contrast in several contexts, which I'm trying to fix by selectively substituting darker values from the Mocha palette where readability suffers
 
 ## Helix as IDE
 
