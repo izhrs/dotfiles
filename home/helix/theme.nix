@@ -12,9 +12,10 @@
   catppuccin_latte_transparent = {
     inherits = "catppuccin_latte";
     "ui.background" = { };
+    "ui.text" = "#11111b";
     "ui.popup" = { };
     "ui.virtual.inlay-hint" = {
-      fg = "#9ca0b0";
+      fg = "#7c7f93";
     };
   };
 }

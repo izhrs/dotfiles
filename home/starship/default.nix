@@ -51,7 +51,7 @@
           sapphire = "#209fb5";
           blue = "#1e66f5";
           lavender = "#7287fd";
-          text = "#4c4f69";
+          text = "#11111b";
           subtext1 = "#5c5f77";
           subtext0 = "#6c6f85";
           overlay2 = "#7c7f93";

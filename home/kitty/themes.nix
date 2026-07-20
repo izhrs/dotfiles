@@ -50,7 +50,7 @@
     cursor_text_color #EFF1F5
     url_color #1E66F5
     active_border_color #7287FD
-    inactive_border_color #9CA0B0
+    inactive_border_color #7c7f93
     bell_border_color #DF8E1D
     wayland_titlebar_color system
     macos_titlebar_color system

@@ -54,17 +54,17 @@
         "#7287fd"
         "bold"
       ];
-      inactiveBorderColor = [ "#9ca0b0" ];
+      inactiveBorderColor = [ "#7c7f93" ];
       searchingActiveBorderColor = [ "#df8e1d" ];
       optionsTextColor = [ "#1e66f5" ];
       selectedLineBgColor = [ "#ccd0da" ];
-      inactiveViewSelectedLineBgColor = [ "#9ca0b0" ];
+      inactiveViewSelectedLineBgColor = [ "#7c7f93" ];
       cherryPickedCommitFgColor = [ "#7287fd" ];
       cherryPickedCommitBgColor = [ "#acb0be" ];
       markedBaseCommitFgColor = [ "#1e66f5" ];
       markedBaseCommitBgColor = [ "#df8e1d" ];
       unstagedChangesColor = [ "#d20f39" ];
-      defaultFgColor = [ "#4c4f69" ];
+      defaultFgColor = [ "#11111b" ];
     };
     programs.lazygit.settings.gui.authorColors = lib.mkForce {
       "*" = "#7287fd";
