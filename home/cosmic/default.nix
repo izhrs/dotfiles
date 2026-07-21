@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   home.packages = with pkgs; [
     tela-circle-icon-theme
@@ -13,39 +18,24 @@
   ];
 
   specialisation.light.configuration = {
-    home.file.".config/cosmic/com.system76.CosmicBackground/v1/all" = lib.mkOverride 1 {
-      text = ''
-        (
-            output: "all",
-            source: Path("/home/izhrs/Pictures/wallpapers/op/ign-waifu.png"),
-            filter_by_theme: true,
-            rotation_frequency: 300,
-            filter_method: Lanczos,
-            scaling_mode: Zoom,
-            sampling_method: Alphanumeric,
-        )      '';
-      force = true;
-    };
-
-    home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = lib.mkForce {
+    home.file.".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = lib.mkOverride 1 {
       text = "false";
       force = true;
     };
   };
 
   home.file = {
-    # default to dark mode
+    # hack to switch theme on system specialisation change
     ".config/cosmic/com.system76.CosmicTheme.Mode/v1/is_dark" = {
       text = "true";
       force = true;
     };
 
-    # default dark mode wallpaper
     ".config/cosmic/com.system76.CosmicBackground/v1/all" = {
       text = ''
         (
             output: "all",
-            source: Path("/home/izhrs/Pictures/wallpapers/pixel-napping.png"),
+            source: Path("${config.stylix.image}"),
             filter_by_theme: true,
             rotation_frequency: 300,
             filter_method: Lanczos,

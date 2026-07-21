@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-{
+{ lib, pkgs, ... }: {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "26.05";
@@ -30,8 +29,30 @@
     "text/markdown" = [ "inlyne.desktop" ];
   };
 
-  catppuccin.enable = true;
-  catppuccin.autoEnable = false;
+  # Stylix is configured at the system level, but image is overridden here
+  # which forces stylix to stop inheriting colors as well, so just copied base16Scheme
+  # so that Home Manager specialisations can switch to light Specialisation
+  # without requiring root. System specialisation activation needs sudo, HM does not.
+  # All other stylix settings (opacity, fonts, etc) are inherited from the system config.
+  stylix = {
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    override = {
+      base00 = "11111b"; # crust instead of base
+    };
+
+    image = ../wallpapers/pixel-napping.png;
+  };
+
+  specialisation.light.configuration = {
+    stylix = {
+      base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+      override = {
+        base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
+      };
+
+      image = lib.mkForce ../wallpapers/ign-waifu.png;
+    };
+  };
 
   imports = [
     ./btm
@@ -50,14 +71,11 @@
     ./serpl
     ./shell
     ./starship
-    ./thunderbird
     ./theme_switcher
     ./virtmanager
     ./wezterm
     ./yazi
     ./zathura
     ./zellij
-
-    inputs.catppuccin.homeModules.catppuccin
   ];
 }

@@ -1,7 +1,7 @@
 {
+  config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -12,8 +12,6 @@
     enableZshIntegration = true;
 
     settings = {
-      theme_dark = "catppuccin-mocha-lavender";
-      theme_light = "catppuccin-latte";
       copy_command = "wl-copy";
       mouse_mode = false;
 
@@ -27,7 +25,7 @@
       };
 
       plugins = {
-        zjstatus = import ./plugins/zjstatus.nix { inherit inputs pkgs; };
+        zjstatus = import ./plugins/zjstatus.nix { inherit config pkgs; };
       };
 
     };
@@ -63,15 +61,8 @@
         };
       };
     };
-
-    themes = import ./themes.nix;
   };
 
-  specialisation.light.configuration = {
-    programs.zellij.settings.plugins.zjstatus = lib.mkForce (
-      import ./plugins/zjstatus_light.nix { inherit inputs pkgs; }
-    );
-  };
   # zellij's auto tab renaming
 
   # lib.mkAfter means “append this Zsh configuration to the end of the specified

@@ -1,6 +1,10 @@
 { pkgs, lib, ... }: {
   imports = [ ./scripts.nix ];
 
+  # I ain't gaining much from stylix here
+  # and I dont like the theme it provides
+  stylix.targets.helix.enable = false;
+
   specialisation.light.configuration = {
     programs.helix.settings.theme = lib.mkForce "catppuccin_latte_transparent";
   };

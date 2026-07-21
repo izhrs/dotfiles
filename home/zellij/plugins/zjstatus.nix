@@ -1,9 +1,7 @@
-{ inputs, pkgs }:
+{ config, pkgs }:
 {
   _props = {
-    location = "file:${
-      inputs.zjstatus.packages.${pkgs.stdenv.hostPlatform.system}.default
-    }/bin/zjstatus.wasm";
+    location = "file:${pkgs.zellijPlugins.zjstatus}";
   };
   _children = [
     {
@@ -12,34 +10,34 @@
       # hide_frame_except_for_search = true;
       # hide_frame_except_for_fullscreen = true;
 
-      # THIS THEME IS BASED ON: https://github.com/merikan/.dotfiles/blob/main/config/zellij/themes/zjstatus/catppuccin.kdl
+      # using stylix colors here, just copy any other theme colors if you ain't on stylix
 
-      color_rosewater = "#f5e0dc";
-      color_flamingo = "#f2cdcd";
-      color_pink = "#f5c2e7";
-      color_mauve = "#cba6f7";
-      color_red = "#f38ba8";
-      color_maroon = "#eba0ac";
-      color_peach = "#fab387";
-      color_yellow = "#f9e2af";
-      color_green = "#a6e3a1";
-      color_teal = "#94e2d5";
-      color_sky = "#89dceb";
-      color_sapphire = "#74c7ec";
-      color_blue = "#89b4fa";
-      color_lavender = "#b4befe";
-      color_text = "#cdd6f4";
-      color_subtext1 = "#bac2de";
-      color_subtext0 = "#a6adc8";
-      color_overlay2 = "#9399b2";
-      color_overlay1 = "#7f849c";
-      color_overlay0 = "#6c7086";
-      color_surface2 = "#585b70";
-      color_surface1 = "#45475a";
-      color_surface0 = "#313244";
-      color_base = "#1e1e2e";
-      color_mantle = "#181825";
-      color_crust = "#11111b";
+      color_rosewater = "#${config.lib.stylix.colors.base06}";
+      color_flamingo = "#${config.lib.stylix.colors.base0F}";
+      color_pink = "#${config.lib.stylix.colors.base0E}";
+      color_mauve = "#${config.lib.stylix.colors.base0E}";
+      color_red = "#${config.lib.stylix.colors.base08}";
+      color_maroon = "#${config.lib.stylix.colors.base08}";
+      color_peach = "#${config.lib.stylix.colors.base09}";
+      color_yellow = "#${config.lib.stylix.colors.base0A}";
+      color_green = "#${config.lib.stylix.colors.base0B}";
+      color_teal = "#${config.lib.stylix.colors.base0C}";
+      color_sky = "#${config.lib.stylix.colors.base0C}";
+      color_sapphire = "#${config.lib.stylix.colors.base0D}";
+      color_blue = "#${config.lib.stylix.colors.base0D}";
+      color_lavender = "#${config.lib.stylix.colors.base07}";
+      color_text = "#${config.lib.stylix.colors.base05}";
+      color_subtext1 = "#${config.lib.stylix.colors.base04}";
+      color_subtext0 = "#${config.lib.stylix.colors.base04}";
+      color_overlay2 = "#${config.lib.stylix.colors.base03}";
+      color_overlay1 = "#${config.lib.stylix.colors.base03}";
+      color_overlay0 = "#${config.lib.stylix.colors.base03}";
+      color_surface2 = "#${config.lib.stylix.colors.base02}";
+      color_surface1 = "#${config.lib.stylix.colors.base02}";
+      color_surface0 = "#${config.lib.stylix.colors.base01}";
+      color_base = "#${config.lib.stylix.colors.base00}";
+      color_mantle = "#${config.lib.stylix.colors.base00}";
+      color_crust = "#${config.lib.stylix.colors.base00}";
 
       format_left = "{mode} {tabs}";
       format_center = "{notifications}";

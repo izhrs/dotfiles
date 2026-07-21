@@ -7,6 +7,8 @@
     exiftool
   ];
 
+  stylix.targets.yazi.enable = true;
+
   programs.yazi = {
     enable = true;
 
@@ -21,24 +23,6 @@
     };
 
     initLua = builtins.readFile ./init.lua;
-
-    theme = {
-      flavor = {
-        light = "catppuccin-latte";
-        dark = "catppuccin-mocha";
-      };
-    };
-
-    flavors =
-      let
-        flav = inputs.yazi-flavors;
-      in
-      {
-        catppuccin-macchiato = "${flav}/catppuccin-macchiato.yazi";
-        catppuccin-frappe = "${flav}/catppuccin-frappe.yazi";
-        catppuccin-latte = "${flav}/catppuccin-latte.yazi";
-        catppuccin-mocha = "${flav}/catppuccin-mocha.yazi";
-      };
 
     settings = {
       mgr = {

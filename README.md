@@ -88,9 +88,7 @@
 ## Project Structure
 
 > [!note]
-> This configuration is built for my personal use. I don't intend for others to use it as-is, and making it portable or beginner-friendly is not a goal of this dotfiles. There is no setup script. Some may even call it incomplete as it does not even have proper system wide light theme configured (I only use dark mode).
-> That said, the code is structured so that individual program configurations are easy to lift out. Each program lives in its own directory and is self-contained, it only relies on flake inputs, not on shared variables or a centralized theme layer. If you want to borrow the Firefox config, for example, copying `home/firefox/` and adding the relevant flake input (e.g. NUR) to your own `flake.nix` is all you need.
-> This is intentional. Unlike dotfile setups where every program imports a shared base config full of theme variables and reused abstractions, each module here can be read and understood in isolation. The use of Home Manager as a NixOS module is purely for integration convenience, not as a framework that everything else is built on top of.
+> This configuration is built for my personal use. I don't intend for others to use it as-is, and making it portable or beginner-friendly is not a goal of this dotfiles. There is no setup script. That said, the code is structured so that individual program configurations are easy to lift out. Each program lives in its own directory and is self-contained, it only relies on flake inputs and Stylix. The use of Home Manager as a NixOS module is purely for integration (with stylix) convenience. I highly recommend setting up [Stylix](https://github.com/nix-community/stylix).
 
 ```.
 ├── home/
@@ -116,15 +114,11 @@ This configuration uses Home Manager as a Nix module (instead of running a stand
 
 ## Light Mode
 
-Light theming is implemented using [NixOS specialisations](https://nix-community.github.io/home-manager/options.xhtml#opt-specialisation), which allow per-program theme overrides to be declared alongside their default (dark) configuration and activated at runtime without a rebuild.
+Light theming is implemented using NixOS specialisations, which allow per-program theme overrides to be declared alongside their default (dark) configuration and activated at runtime without rebuilding.
 
-Most programs are themed using [Catppuccin Latte](https://github.com/catppuccin/catppuccin), with a desktop shortcut and shell script available to switch between dark and light modes on the fly. The switch updates GTK theme, terminal colors, wallpaper, editor theme, and other program-specific configurations atomically via the specialisation activation script.
+Most programs are themed via [Stylix](https://github.com/nix-community/stylix). The “system-level” Stylix configuration is still used for the majority of styling (fonts, opacity, etc.), but in Home Manager we override only the theme image/color inputs so that Stylix stops inheriting colors from the system config. This enables Home Manager specialisations to switch between dark and light Stylix specialisations without requiring root (system specialisation activation would need sudo, whereas Home Manager does not).
 
-This is still a work in progress. A few known rough edges:
-
-- **Delta** in lazygit do not theme correctly in light mode yet
-- **Zellij** does not autoreaload zjstatus plugin
-- Catppuccin Latte's default palette has poor contrast in several contexts, which I'm trying to fix by selectively substituting darker values from the Mocha palette where readability suffers
+Theme switching is handled by the specialisation activation script, which applies the corresponding light/dark Stylix settings atomically across the configured programs (GTK theme, terminal colors, editor theme, wallpaper, and other program-specific configurations). There's also 2 desktop shortucts to activate themes from application launchers.
 
 ## Helix as IDE
 
@@ -136,17 +130,6 @@ This setup features deep integration of Helix with Zellij, Yazi, and Lazygit:
 - **Yazi**: Integrated as a file picker within Helix.
 - **Lazygit**: Integrated as the Git UI inside Helix.
 - **Zellij**: tHe InTEgRRattion: Used to open Yazi and Lazygit in floating panes, making them appear as native Helix popups for a unified workflow.
-- **LLM Integration**: Gemini is integrated for AI-assisted tasks, available through floating Zellij panes. Note that this can be configured to work with any cli tool. Just edit the scripts in `./home/helix/default.nix`.
-
-> [!note]
-> There's no LLM based autocompletion setup. I dislike those tools, and this Gemini is mostly for generatin commit messages and README files. If you want copilot like completion, look for `helix-gpt`.
-
-Keybindings for LLM features:
-
-- `space + l + a`: Analyze the code and suggest improvements.
-- `space + l + c`: Open a chat session with Gemini.
-- `space + l + e`: Explain the selected codebase.
-- `space + l + m`: Generate a commit message based on the current changes.
 
 Yazi and Lazygit are launched in context aware floating panes via Zellij, making them feel like native extensions of Helix. This tight integration allows seamless file navigation and Git operations without ever leaving the editor environment.
 
@@ -159,6 +142,8 @@ This configuration is built upon the excellent work of the following projects an
 **[Cosmic DE](https://system76.com/cosmic)** - Customizable, and performant desktop environment built from scratch using Rust and the Iced toolkit.
 
 **[Home Manager](https://github.com/nix-community/home-manager)** - Nix-based user environment configurator by the nix-community, enabling declarative management of user packages and dotfiles.
+
+**[Stylix](https://github.com/nix-community/stylix)** - Declarative theming for NixOS and Home Manager, generating consistent colors, fonts, and UI styling across entire OS.
 
 **[Helix](https://helix-editor.com/)** - The ~~post modern~~ _stable_ editor whose plugins don’t crash every other day because it doesn’t need 50 of them (or any) to be useful in the first place.
 

@@ -1,4 +1,6 @@
-{ lib, ... }: {
+{
+  stylix.targets.lazygit.enable = true;
+
   programs.lazygit = {
     enable = true;
     settings = {
@@ -22,52 +24,7 @@
         showRandomTip = false;
         statusPanelView = "allBranchesLog";
         sidePanelWidth = 0.2;
-
-        # catppuccin mocha
-        theme = {
-          activeBorderColor = [
-            "#b4befe"
-            "bold"
-          ];
-          inactiveBorderColor = [ "#a6adc8" ];
-          searchingActiveBorderColor = [ "#f9e2af" ];
-          optionsTextColor = [ "#89b4fa" ];
-          selectedLineBgColor = [ "#313244" ];
-          inactiveViewSelectedLineBgColor = [ "#6c7086" ];
-          cherryPickedCommitFgColor = [ "#b4befe" ];
-          cherryPickedCommitBgColor = [ "#45475a" ];
-          markedBaseCommitFgColor = [ "#89b4fa" ];
-          markedBaseCommitBgColor = [ "#f9e2af" ];
-          unstagedChangesColor = [ "#f38ba8" ];
-          defaultFgColor = [ "#cdd6f4" ];
-        };
-
-        authorColors."*" = "#b4befe";
       };
-    };
-  };
-
-  specialisation.light.configuration = {
-    # catppuccin latte
-    programs.lazygit.settings.gui.theme = lib.mkForce {
-      activeBorderColor = [
-        "#7287fd"
-        "bold"
-      ];
-      inactiveBorderColor = [ "#7c7f93" ];
-      searchingActiveBorderColor = [ "#df8e1d" ];
-      optionsTextColor = [ "#1e66f5" ];
-      selectedLineBgColor = [ "#ccd0da" ];
-      inactiveViewSelectedLineBgColor = [ "#7c7f93" ];
-      cherryPickedCommitFgColor = [ "#7287fd" ];
-      cherryPickedCommitBgColor = [ "#acb0be" ];
-      markedBaseCommitFgColor = [ "#1e66f5" ];
-      markedBaseCommitBgColor = [ "#df8e1d" ];
-      unstagedChangesColor = [ "#d20f39" ];
-      defaultFgColor = [ "#11111b" ];
-    };
-    programs.lazygit.settings.gui.authorColors = lib.mkForce {
-      "*" = "#7287fd";
     };
   };
 }

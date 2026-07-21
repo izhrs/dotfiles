@@ -1,4 +1,7 @@
 {
+  # theme handled by stylix
+  stylix.targets.wezterm.enable = true;
+
   programs.wezterm = {
     enable = true;
     enableBashIntegration = true;
@@ -7,8 +10,6 @@
     extraConfig = ''
       return {
       	font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Regular" }),
-      	font_size = 12.0,
-      	window_background_opacity = 0.8,
       	window_decorations = "NONE",
       	window_padding = {
       		bottom = 0,
@@ -36,12 +37,6 @@
       	adjust_window_size_when_changing_font_size = false,
       	audible_bell = "Disabled",
       	clean_exit_codes = { 130 },
-
-      	color_scheme = "Catppuccin Mocha",
-
-      	colors = {
-      		background = "#11111b", -- crust
-      	},
       }
     '';
   };

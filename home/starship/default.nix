@@ -1,69 +1,40 @@
-{ lib, ... }: {
+{ config, ... }: {
+  stylix.targets.starship.enable = false;
+
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
     settings = {
-      palette = "catppuccin_mocha";
 
-      palettes = {
-        catppuccin_mocha = {
-          rosewater = "#f5e0dc";
-          flamingo = "#f2cdcd";
-          pink = "#f5c2e7";
-          mauve = "#cba6f7";
-          red = "#f38ba8";
-          maroon = "#eba0ac";
-          peach = "#fab387";
-          yellow = "#f9e2af";
-          green = "#a6e3a1";
-          teal = "#94e2d5";
-          sky = "#89dceb";
-          sapphire = "#74c7ec";
-          blue = "#89b4fa";
-          lavender = "#b4befe";
-          text = "#cdd6f4";
-          subtext1 = "#bac2de";
-          subtext0 = "#a6adc8";
-          overlay2 = "#9399b2";
-          overlay1 = "#7f849c";
-          overlay0 = "#6c7086";
-          surface2 = "#585b70";
-          surface1 = "#45475a";
-          surface0 = "#313244";
-          base = "#1e1e2e";
-          mantle = "#181825";
-          crust = "#11111b";
-        };
-
-        catppuccin_latte = {
-          rosewater = "#dc8a78";
-          flamingo = "#dd7878";
-          pink = "#ea76cb";
-          mauve = "#8839ef";
-          red = "#d20f39";
-          maroon = "#e64553";
-          peach = "#fe640b";
-          yellow = "#df8e1d";
-          green = "#40a02b";
-          teal = "#179299";
-          sky = "#04a5e5";
-          sapphire = "#209fb5";
-          blue = "#1e66f5";
-          lavender = "#7287fd";
-          text = "#11111b";
-          subtext1 = "#5c5f77";
-          subtext0 = "#6c6f85";
-          overlay2 = "#7c7f93";
-          overlay1 = "#8c8fa1";
-          overlay0 = "#9ca0b0";
-          surface2 = "#acb0be";
-          surface1 = "#bcc0cc";
-          surface0 = "#ccd0da";
-          base = "#eff1f5";
-          mantle = "#e6e9ef";
-          crust = "#dce0e8";
-        };
+      palette = "stylix";
+      palettes.stylix = {
+        rosewater = "#${config.lib.stylix.colors.base06}";
+        flamingo = "#${config.lib.stylix.colors.base0F}";
+        pink = "#${config.lib.stylix.colors.base0E}";
+        mauve = "#${config.lib.stylix.colors.base0E}";
+        red = "#${config.lib.stylix.colors.base08}";
+        maroon = "#${config.lib.stylix.colors.base08}";
+        peach = "#${config.lib.stylix.colors.base09}";
+        yellow = "#${config.lib.stylix.colors.base0A}";
+        green = "#${config.lib.stylix.colors.base0B}";
+        teal = "#${config.lib.stylix.colors.base0C}";
+        sky = "#${config.lib.stylix.colors.base0C}";
+        sapphire = "#${config.lib.stylix.colors.base0D}";
+        blue = "#${config.lib.stylix.colors.base0D}";
+        lavender = "#${config.lib.stylix.colors.base07}";
+        text = "#${config.lib.stylix.colors.base05}";
+        subtext1 = "#${config.lib.stylix.colors.base04}";
+        subtext0 = "#${config.lib.stylix.colors.base04}";
+        overlay2 = "#${config.lib.stylix.colors.base03}";
+        overlay1 = "#${config.lib.stylix.colors.base03}";
+        overlay0 = "#${config.lib.stylix.colors.base03}";
+        surface2 = "#${config.lib.stylix.colors.base02}";
+        surface1 = "#${config.lib.stylix.colors.base02}";
+        surface0 = "#${config.lib.stylix.colors.base01}";
+        base = "#${config.lib.stylix.colors.base00}";
+        mantle = "#${config.lib.stylix.colors.base00}";
+        crust = "#${config.lib.stylix.colors.base00}";
       };
 
       format = ''
@@ -197,9 +168,5 @@
         detect_folders = [ "node_modules" ];
       };
     };
-  };
-
-  specialisation.light.configuration = {
-    programs.starship.settings.palette = lib.mkForce "catppuccin_latte";
   };
 }

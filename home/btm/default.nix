@@ -3,18 +3,6 @@
     enable = true;
   };
 
-  catppuccin.bottom = {
-    enable = true;
-    flavor = "mocha";
-  };
-
-  specialisation.light.configuration = {
-    catppuccin.bottom = lib.mkForce {
-      enable = true;
-      flavor = "latte";
-    };
-  };
-
   xdg.desktopEntries.bottom = {
     name = "bottom";
     genericName = "System Monitor";

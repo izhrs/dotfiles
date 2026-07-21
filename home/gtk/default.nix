@@ -1,6 +1,10 @@
-# source: https://wiki.hyprland.org/Nix/Hyprland-on-Home-Manager/
-
-{ pkgs, lib, ... }: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   home.packages = [
     (pkgs.catppuccin-gtk.override {
       accents = [ "lavender" ];
@@ -9,11 +13,8 @@
     })
   ];
 
-  catppuccin.gtk.icon = {
-    enable = true;
-    accent = "lavender";
-    flavor = "mocha";
-  };
+  # catppuccin-gtk is better
+  stylix.targets.gtk.enable = false;
 
   gtk = {
     enable = true;
@@ -28,18 +29,12 @@
     };
 
     font = {
-      name = "Open Sans";
-      size = 10;
+      name = config.stylix.fonts.serif.name;
+      size = config.stylix.fonts.sizes.applications;
     };
   };
 
   specialisation.light.configuration = {
-    catppuccin.gtk.icon = lib.mkForce {
-      enable = true;
-      accent = "lavender";
-      flavor = "latte";
-    };
-
     gtk.theme.name = lib.mkForce "catppuccin-latte-lavender-standard";
   };
 }

@@ -13,19 +13,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    catppuccin.url = "github:catppuccin/nix";
-
-    yazi-flavors = {
-      url = "github:yazi-rs/flavors";
-      flake = false;
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
     yazi-compress = {
       url = "github:KKV9/compress.yazi";
       flake = false;
-    };
-
-    zjstatus = {
-      url = "github:dj95/zjstatus";
     };
   };
 
@@ -33,6 +28,7 @@
     {
       nixpkgs,
       home-manager,
+      stylix,
       ...
     }@inputs:
 
@@ -44,8 +40,8 @@
         inherit system;
 
         modules = [
+          stylix.nixosModules.stylix
           ./system/configuration.nix
-          inputs.catppuccin.nixosModules.catppuccin
 
           { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
 

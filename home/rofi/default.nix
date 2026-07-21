@@ -1,4 +1,6 @@
 { pkgs, lib, ... }: {
+  stylix.targets.rofi.enable = false;
+
   programs.rofi = {
     enable = true;
     plugins = with pkgs; [
@@ -14,10 +16,5 @@
       cycle = false;
     };
     theme = ./index.rasi;
-
-  };
-
-  specialisation.light.configuration = {
-    programs.rofi.theme = lib.mkForce ./light.rasi;
   };
 }
