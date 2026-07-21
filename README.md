@@ -20,7 +20,7 @@
 <img src="https://img.shields.io/badge/Starship-f5c2e7?logo=starship&logoColor=1e1e2e" />
 </p>
 
-<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme, and essential development tools. </p>
+<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme via Stylix, and essential development tools. </p>
 
 ## Screenshots
 
