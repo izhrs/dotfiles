@@ -48,22 +48,26 @@
 
     icons = {
       enable = true;
-      package = pkgs.tela-circle-icon-theme;
-      dark = "Tela circle";
-      light = "Tela circle";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "lavender";
+      };
+
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
     };
   };
 
-  stylix.targets.gtk.enable = false;
-
   specialisation.light.configuration = {
-    stylix.base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    stylix.override = {
-      base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
-    };
+    stylix = {
+      base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
+      override = {
+        base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
+      };
 
-    # overridden in home-manager
-    stylix.image = lib.mkForce ../wallpapers/railroad-cat.png;
-    stylix.polarity = lib.mkOverride 1 "light";
+      # overridden in home-manager
+      image = lib.mkForce ../wallpapers/railroad-cat.png;
+      polarity = lib.mkForce "light";
+    };
   };
 }
