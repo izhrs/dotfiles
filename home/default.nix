@@ -73,7 +73,6 @@
     ./starship
     ./theme_switcher
     ./virtmanager
-    ./wezterm
     ./yazi
     ./zathura
     ./zellij
