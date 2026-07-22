@@ -124,5 +124,44 @@
     docker-compose
     powershell
     typst
+
+    (writeShellScriptBin "edit" ''
+      export FILE_TO_EDIT="$1";
+
+      exec kitty --override close_on_child_death=yes -e zellij --layout editor
+    '')
   ];
+
+  xdg.desktopEntries.Helix = {
+    name = "Helix";
+    genericName = "Text Editor";
+    comment = "Edit files in Helix running inside Zellij.";
+    exec = "edit %F";
+    terminal = false;
+    type = "Application";
+    icon = "helix";
+    categories = [
+      "Utility"
+      "TextEditor"
+    ];
+    startupNotify = true;
+    mimeType = [
+      "inode/directory" # open directories
+      "text/english"
+      "text/plain"
+      "text/x-makefile"
+      "text/x-c++hdr"
+      "text/x-c++src"
+      "text/x-chdr"
+      "text/x-csrc"
+      "text/x-java"
+      "text/x-moc"
+      "text/x-pascal"
+      "text/x-tcl"
+      "text/x-tex"
+      "application/x-shellscript"
+      "text/x-c"
+      "text/x-c++"
+    ];
+  };
 }

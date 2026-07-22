@@ -13,8 +13,10 @@
   };
 
   environment.cosmic.excludePackages = with pkgs; [
+    cosmic-edit
     cosmic-store
     cosmic-term
+    cosmic-reader
   ];
 
   environment.systemPackages = with pkgs; [
