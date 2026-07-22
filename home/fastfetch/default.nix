@@ -5,8 +5,7 @@
     settings = {
       logo = {
         type = "kitty-direct";
-        # logo source: https://camo.githubusercontent.com/955fca7bc4a99f4142047a976fff46c50616dd7d2a20aa1bf36ea04104bb025c/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67
-        source = "~/.logo.png";
+        source = ./logo.png;
         # height = 16;
         width = 34;
         padding = {
@@ -172,7 +171,7 @@
           type = "custom";
           key = "└ └ Theme";
           keyColor = "blue";
-          format = "Catppuccin Mocha";
+          format = "Stylix";
         }
 
         {
