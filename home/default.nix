@@ -26,6 +26,7 @@
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
     "image/*" = [ "org.pwmt.zathura.desktop" ];
     "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
+    "text/*" = [ "Helix.desktop" ];
     "text/markdown" = [ "inlyne.desktop" ];
   };
 
