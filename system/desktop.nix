@@ -1,9 +1,5 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
 
   programs.niri.enable = true;
   programs.noctalia = {
@@ -23,21 +19,9 @@
   services = {
     # login manager
     # displayManager.cosmic-greeter.enable = true;
-    desktopManager.cosmic.enable = true;
-    desktopManager.cosmic.xwayland.enable = true;
   };
 
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-edit
-    cosmic-store
-    cosmic-term
-    cosmic-reader
-  ];
-
   environment.systemPackages = with pkgs; [
-    cosmic-ext-calculator
-    forecast
-
     ddcutil # this is required for that external-monitor-brightness
   ];
 

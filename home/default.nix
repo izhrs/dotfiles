@@ -63,7 +63,6 @@
 
   imports = [
     ./btm
-    ./cosmic
     ./fastfetch
     ./firefox
     ./gemini
@@ -75,7 +74,6 @@
     ./lazygit
     ./niri
     ./noctalia
-    ./nwg-drawer
     ./rofi
     ./serpl
     ./shell
