@@ -77,43 +77,42 @@
       keys = import ./keys.nix;
     };
 
+    ignores = [
+      "*.avi"
+      "*.bmp"
+      "*.flac"
+      "*.flv"
+      "*.gif"
+      "*.ico"
+      "*.jpeg"
+      "*.jpg"
+      "*.m4a"
+      "*.mkv"
+      "*.mov"
+      "*.mp3"
+      "*.mp4"
+      "*.ogg"
+      "*.otf"
+      "*.pdf"
+      "*.png"
+      "*.psd"
+      "*.tiff"
+      "*.ttf"
+      "*.wav"
+      "*.webp"
+      "*.woff"
+      "*.woff2"
+      "*.xcf"
+
+      "node_modules"
+    ];
+
     languages = import ./language.nix { inherit pkgs; };
 
     themes = import ./theme.nix;
 
     extraPackages = import ./extraPackages.nix { inherit pkgs; };
   };
-
-  # let yazi handle these files
-  home.file.".config/helix/ignore".text = ''
-    *.avi
-    *.bmp
-    *.flac
-    *.flv
-    *.gif
-    *.ico
-    *.jpeg
-    *.jpg
-    *.m4a
-    *.mkv
-    *.mov
-    *.mp3
-    *.mp4
-    *.ogg
-    *.otf
-    *.pdf
-    *.png
-    *.psd
-    *.tiff
-    *.ttf
-    *.wav
-    *.webp
-    *.woff
-    *.woff2
-    *.xcf
-
-    node_modules
-  '';
 
   # too short for moving to individual module
   home.packages = with pkgs; [
