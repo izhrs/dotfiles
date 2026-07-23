@@ -1,4 +1,10 @@
-{ lib, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "26.05";
@@ -67,6 +73,8 @@
     ./inlyne
     ./kitty
     ./lazygit
+    ./niri
+    ./noctalia
     ./nwg-drawer
     ./rofi
     ./serpl
@@ -77,5 +85,7 @@
     ./yazi
     ./zathura
     ./zellij
+
+    inputs.noctalia.homeModules.default
   ];
 }

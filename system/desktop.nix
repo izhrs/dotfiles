@@ -1,13 +1,28 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   # programs.hyprland = {
   #   enable = true;
   #   xwayland.enable = true;
   # };
 
+  programs.niri.enable = true;
+  programs.noctalia = {
+    enable = true;
+    recommendedServices.enable = true;
+  };
+
+  programs.regreet.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = "*";
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   services = {
     # login manager
-    displayManager.cosmic-greeter.enable = true;
+    # displayManager.cosmic-greeter.enable = true;
     desktopManager.cosmic.enable = true;
     desktopManager.cosmic.xwayland.enable = true;
   };
