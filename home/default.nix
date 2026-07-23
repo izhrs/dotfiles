@@ -27,6 +27,7 @@
 
   programs.home-manager.enable = true;
 
+  home.pointerCursor.enable = true;
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/terminal" = [ "kitty.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
@@ -67,7 +68,6 @@
     ./firefox
     ./gemini
     ./git
-    ./gtk
     ./helix
     ./inlyne
     ./kitty

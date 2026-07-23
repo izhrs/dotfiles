@@ -61,21 +61,18 @@
         pinned = [
           "kitty"
           "yazi"
-          "com.system76.CosmicFiles"
           "firefox"
           "thunderbird"
           "org.godotengine.Godot4.7"
           "gimp"
           "com.obsproject.Studio"
-          "dev.edfloreshz.Calculator"
           "bottom"
           "virt-manager"
           "org.qbittorrent.qBittorrent"
-          "protonvpn-app"
+          "proton.vpn.app.gtk"
           "com.heroicgameslauncher.hgl"
           "net.lutris.Lutris"
           "steam"
-          "com.system76.CosmicSettings"
         ];
       };
     };
