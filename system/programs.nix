@@ -21,6 +21,11 @@
     gamemode.enable = true;
 
     obs-studio.enable = true;
+
+    localsend = {
+      enable = true;
+      openFirewall = true; # opens 53117 port
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -79,12 +84,16 @@
     wl-clipboard
 
     # GUI
+    blanket # soundscapes
+    fragments # torrent downloader
     gimp
     godot
     libreoffice
+    nautilus # files manager
     proton-vpn
-    qbittorrent
-    spotube
+    shortwave # radio around the world
+    spotube # spotify
+    tangram # webapps as desktop
     # winboat
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 

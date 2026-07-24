@@ -67,7 +67,7 @@
 
     blur {
         // Default values with custom tweaks.
-        passes 2
+        passes 1
         offset 2
         noise 0.02
         saturation 2
@@ -122,10 +122,10 @@
         Mod+Ctrl+K  { move-column-to-workspace-up; }
 
         // Resize
-        Mod+Alt+H { set-column-width "-10%"; }
-        Mod+Alt+J { set-window-height "+10%"; }
-        Mod+Alt+K { set-window-height "-10%"; }
-        Mod+Alt+L { set-column-width "+10%"; }
+        Mod+Alt+H { set-column-width "-5%"; }
+        Mod+Alt+J { set-window-height "+5%"; }
+        Mod+Alt+K { set-window-height "-5%"; }
+        Mod+Alt+L { set-column-width "+5%"; }
 
         // Workspaces
         Mod+1 { focus-workspace "1"; }
@@ -197,10 +197,10 @@
     }
 
     window-rule {
-      match app-id="dev.noctalia.Noctalia"
-      open-floating true
-      default-column-width { fixed 1080; }
-      default-window-height { fixed 920; }
+        match app-id="dev.noctalia.Noctalia"
+        open-floating true
+        default-column-width { fixed 1080; }
+        default-window-height { fixed 920; }
     }
 
     switch-events {
@@ -223,6 +223,17 @@
         match app-id="^net.lutris.Lutris$"
 
         open-on-workspace "gaming"
+    }
+
+    window-rule {
+        match app-id="^localsend_app$"
+        open-floating true
+        default-column-width { fixed 400; }
+        default-window-height { fixed 800; }
+
+        opacity ${toString config.stylix.opacity.applications}
+        background-effect { blur true; }
+        draw-border-with-background false
     }
   '';
 }
