@@ -90,7 +90,7 @@
     binds {
         // Applications
         Mod+Return { spawn "kitty"; }
-        Mod+B      { spawn "firefox"; }
+        Mod+B      { spawn "zen-beta"; }
         Mod+Slash      { spawn "rofi" "-show" "drun" "-show-icons"; }
         Mod+F      { spawn "kitty" "-e" "yazi"; }
 
@@ -186,12 +186,14 @@
 
     window-rule {
         match app-id="^firefox$"
+        match app-id="^zen-beta$"
 
         background-effect {
             blur true
         }
 
         max-width 1900
+        draw-border-with-background false
     }
 
     window-rule {

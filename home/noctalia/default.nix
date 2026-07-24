@@ -61,7 +61,7 @@
         pinned = [
           "kitty"
           "yazi"
-          "firefox"
+          "zen-beta"
           "thunderbird"
           "org.godotengine.Godot4.7"
           "gimp"
