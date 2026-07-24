@@ -6,7 +6,7 @@
       theme = {
         mode = lib.mkForce "auto";
         source = "custom";
-        custom_pallete = "stylix";
+        custom_palette = "stylix";
       };
 
       bar.main = {
