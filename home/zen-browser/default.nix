@@ -39,12 +39,13 @@
         "browser.gesture.swipe.right" = "";
         "browser.newtabpage.enabled" = false;
 
+        "browser.tabs.allow_transparent_browser" = true;
+        "widget.windows.mica" = true;
+        "zen.theme.gradient.show-custom-colors" = true;
         "zen.urlbar.behavior" = "float";
         "zen.welcome-screen.seen" = true;
-        "browser.tabs.allow_transparent_browser" = true;
         "zen.widget.linux.transparency" = true;
-        "zen.theme.gradient.show-custom-colors" = true;
-        "widget.windows.mica" = true;
+        "zen.window-sync.enabled" = false;
 
         "browser.startup.homepage" = "about:home";
         "browser.startup.homepage_override.mstone" = "ignore";
