@@ -22,6 +22,7 @@
 
   environment.systemPackages = with pkgs; [
     ddcutil # this is required for that external-monitor-brightness
+    xwayland-satellite # needed by niri
   ];
 
   # enables brightness controll for external monitor using ddcutil

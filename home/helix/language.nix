@@ -1,18 +1,14 @@
 { pkgs, ... }:
 let
-  # this is just a funtion with parser as argument
-  prettierFormatter = parser: {
-    command = "prettier";
+  # dprint global config is in ./dprintFormatter.nix
+  # this is just a funtion with file_type as argument
+  dprintFormatter = file_type: {
+    command = "dprint";
     args = [
-      "--parser"
-      parser
-      "--single-quote=false"
-      "--jsx-single-quote=false"
-      "--trailing-comma=all"
-      "--semi=true"
-      "--tab-width=4"
-      "--use-tabs=false"
-      "--print-width=80"
+      "fmt"
+      "--config-discovery=global"
+      "--stdin"
+      file_type
     ];
   };
 
@@ -305,10 +301,7 @@ in
         { glob = "Dockerfile"; }
       ];
       auto-format = true;
-      formatter = {
-        command = "dockfmt";
-        args = [ "fmt" ];
-      };
+      formatter = dprintFormatter "dockerfile";
       language-servers = [ "docker-langserver" ];
     }
 
@@ -320,7 +313,7 @@ in
         "docker-compose.yaml"
       ];
       auto-format = true;
-      formatter = prettierFormatter "yaml";
+      formatter = dprintFormatter "yaml";
       language-servers = [ "docker-compose-ls" ];
     }
 
@@ -329,7 +322,7 @@ in
       scope = "source.js";
       file-types = [ "js" ];
       auto-format = true;
-      formatter = prettierFormatter "babel";
+      formatter = dprintFormatter "js";
       language-servers = [
         "typescript-language-server"
         "tailwind-ls"
@@ -341,7 +334,7 @@ in
       scope = "source.ts";
       file-types = [ "ts" ];
       auto-format = true;
-      formatter = prettierFormatter "typescript";
+      formatter = dprintFormatter "ts";
       language-servers = [
         "typescript-language-server"
         "tailwind-ls"
@@ -353,7 +346,7 @@ in
       scope = "source.jsx";
       file-types = [ "jsx" ];
       auto-format = true;
-      formatter = prettierFormatter "babel";
+      formatter = dprintFormatter "jsx";
       language-servers = [
         "typescript-language-server"
         "emmet-ls"
@@ -366,7 +359,7 @@ in
       scope = "source.tsx";
       file-types = [ "tsx" ];
       auto-format = true;
-      formatter = prettierFormatter "typescript";
+      formatter = dprintFormatter "tsx";
       language-servers = [
         "typescript-language-server"
         "emmet-ls"
@@ -379,7 +372,7 @@ in
       scope = "source.json";
       file-types = [ "json" ];
       auto-format = true;
-      formatter = prettierFormatter "json";
+      formatter = dprintFormatter "json";
     }
 
     {
@@ -390,7 +383,7 @@ in
         "yml"
       ];
       auto-format = true;
-      formatter = prettierFormatter "yaml";
+      formatter = dprintFormatter "yaml";
       language-servers = [ "yaml-language-server" ];
     }
 
@@ -402,7 +395,7 @@ in
         "markdown"
       ];
       auto-format = true;
-      formatter = prettierFormatter "markdown";
+      formatter = dprintFormatter "md";
     }
 
     {
@@ -410,7 +403,7 @@ in
       scope = "text.html.basic";
       file-types = [ "html" ];
       auto-format = true;
-      formatter = prettierFormatter "html";
+      formatter = dprintFormatter "html";
       language-servers = [
         "emmet-ls"
         "tailwind-ls"
@@ -422,7 +415,7 @@ in
       scope = "source.css";
       file-types = [ "css" ];
       auto-format = true;
-      formatter = prettierFormatter "css";
+      formatter = dprintFormatter "css";
       language-servers = [
         "vscode-css-language-server"
         "emmet-ls"
@@ -438,7 +431,7 @@ in
         "rasi"
       ];
       auto-format = true;
-      formatter = prettierFormatter "scss";
+      formatter = dprintFormatter "scss";
       language-servers = [
         "vscode-css-language-server"
         "emmet-ls"
@@ -451,7 +444,7 @@ in
       scope = "source.svelte";
       file-types = [ "svelte" ];
       auto-format = true;
-      formatter = prettierFormatter "svelte";
+      formatter = dprintFormatter "svelte";
       language-servers = [
         "svelte-ls"
         "emmet-ls"

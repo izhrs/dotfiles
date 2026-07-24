@@ -34,7 +34,6 @@ with pkgs;
 
   # Docker
   dockerfile-language-server
-  dockfmt
   docker-compose-language-service
 
   # web
@@ -46,7 +45,7 @@ with pkgs;
   typescript-language-server
   tailwindcss-language-server
   svelte-language-server
-  prettier
+  dprint
 
   # PostgreSQL
   pgformatter

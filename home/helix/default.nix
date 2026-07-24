@@ -1,5 +1,8 @@
 { pkgs, lib, ... }: {
-  imports = [ ./scripts.nix ];
+  imports = [
+    ./dprintFormatter.nix
+    ./scripts.nix
+  ];
 
   # I ain't gaining much from stylix here
   # and I dont like the theme it provides
