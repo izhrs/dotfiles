@@ -56,6 +56,12 @@
       dark = "Papirus-Dark";
       light = "Papirus-Light";
     };
+
+    cursor = {
+      package = pkgs.capitaine-cursors;
+      name = "capitaine-cursors";
+      size = 12;
+    };
   };
 
   specialisation.light.configuration = {

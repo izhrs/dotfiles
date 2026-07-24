@@ -1,4 +1,10 @@
-{ lib, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
   home.stateVersion = "26.05";
@@ -21,6 +27,7 @@
 
   programs.home-manager.enable = true;
 
+  home.pointerCursor.enable = true;
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/terminal" = [ "kitty.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
@@ -57,17 +64,15 @@
 
   imports = [
     ./btm
-    ./cosmic
     ./fastfetch
-    ./firefox
     ./gemini
     ./git
-    ./gtk
     ./helix
     ./inlyne
     ./kitty
     ./lazygit
-    ./nwg-drawer
+    ./niri
+    ./noctalia
     ./rofi
     ./serpl
     ./shell
@@ -77,5 +82,9 @@
     ./yazi
     ./zathura
     ./zellij
+    ./zen-browser
+
+    inputs.noctalia.homeModules.default
+    inputs.zen-browser.homeModules.beta
   ];
 }

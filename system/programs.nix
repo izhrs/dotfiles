@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -10,7 +10,6 @@
       clean.extraArgs = "--keep-since 7d --keep 3";
     };
 
-    firefox.enable = true;
     thunderbird.enable = true;
 
     zsh.enable = true;
@@ -87,6 +86,7 @@
     qbittorrent
     spotube
     # winboat
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Gaming
     heroic

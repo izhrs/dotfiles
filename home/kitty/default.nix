@@ -19,7 +19,6 @@
     settings = {
       placement_strategy = "center";
       window_padding_width = "4 4";
-      background_blur = 40;
       hide_window_decorations = true;
       enable_audio_bell = false;
       window_alert_on_bell = false;
