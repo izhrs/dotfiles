@@ -7,8 +7,8 @@
 <!-- Home Manager (Sky) -->
 <img src="https://img.shields.io/badge/Home%20Manager-f5c2e7?logo=nixos&logoColor=1e1e2e" />
 
-<!-- Cosmic DE (Lavender) -->
-<img src="https://img.shields.io/badge/COSMIC-b4befe?logo=system76&logoColor=1e1e2e" />
+<!-- Niri DE (Maroon) -->
+<img src="https://img.shields.io/badge/NIRI-eba0ac?logo=niri&logoColor=1e1e2e" />
 
 <!-- Helix (Mauve) -->
 <img src="https://img.shields.io/badge/Helix-cba6f7?logo=helix&logoColor=1e1e2e" />
@@ -20,9 +20,11 @@
 <img src="https://img.shields.io/badge/Starship-f5c2e7?logo=starship&logoColor=1e1e2e" />
 </p>
 
-<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager, featuring the COSMIC desktop, Catppuccin theme via Stylix, and essential development tools. </p>
+<p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager as a nix module, featuring the Niri, Noctalia, Catppuccin theme via Stylix, and essential development tools. </p>
 
 ## Screenshots
+
+these are old COSMIC screenshots, will update soon
 
 ### Fastfetch
 
@@ -63,22 +65,6 @@
 
 ![bottom](./screenshots/bottom.png)
 
-### Cosmic Files and Nautilus
-
-![cosmic_files_and_nautilus](./screenshots/cosmic_files_and_nautilus.png)
-
-### Firefox
-
-![firefox](./screenshots/firefox.png)
-
-### Firefox with vertical tabs
-
-![firefox_with_vertical_tabs](./screenshots/firefox_vert_tab.png)
-
-### Nwg-drawer
-
-![nwg-drawer](./screenshots/nwg_drawer.png)
-
 ### Rofi
 
 ![rofi](./screenshots/rofi.png)
@@ -92,8 +78,9 @@
 
 ```.
 ├── home/
-│   ├── default.nix        # User environment vars, xdg default appliations and module inports
-│   ├── cosmic/            # Cosmic DE config (not nixified)
+│   ├── default.nix        # Stylix overrides, env vars, xdg defaults
+│   ├── niri/              # Niri compositor config
+│   ├── noctalia/          # Noctalia shell config
 │   ├── helix/             # Helix editor config
 │   ├── yazi/              # Yazi terminal file manager config
 │   ├── zellij/            # Zellij TUI multiplexer config
@@ -125,8 +112,8 @@ Theme switching is handled by the specialisation activation script, which applie
 This setup features deep integration of Helix with Zellij, Yazi, and Lazygit:
 
 - **Helix**: The ~~post modern~~ _stable_ editor whose plugins don’t crash every other day because it doesn’t need 50 of them (or any) to be useful in the first place. All language configurations are managed in `home/helix/language.nix` for:
-    - Rust, C, C++, Nix, Lua, Typst, Python, Bash, Dockerfile, Docker Compose, JavaScript, TypeScript, JSX, TSX, JSON, YAML, Markdown, HTML, CSS, SCSS, Svelte, TOML, PowerShell
-    - Most of the language is configured with formatters and language servers.
+  - Rust, C, C++, Nix, Lua, Typst, Python, Bash, Dockerfile, Docker Compose, JavaScript, TypeScript, JSX, TSX, JSON, YAML, Markdown, HTML, CSS, SCSS, Svelte, TOML, PowerShell
+  - Most of the language is configured with formatters and language servers.
 - **Yazi**: Integrated as a file picker within Helix.
 - **Lazygit**: Integrated as the Git UI inside Helix.
 - **Zellij**: tHe InTEgRRattion: Used to open Yazi and Lazygit in floating panes, making them appear as native Helix popups for a unified workflow.
@@ -139,7 +126,9 @@ This configuration is built upon the excellent work of the following projects an
 
 **[NixOS](https://nixos.org/)** - The Nix Operating System that enables reproducible and declarative system configurations.
 
-**[Cosmic DE](https://system76.com/cosmic)** - Customizable, and performant desktop environment built from scratch using Rust and the Iced toolkit.
+**[Niri](https://github.com/YaLTeR/niri)** - A scrollable-tiling Wayland compositor written in Rust, inspired by PaperWM's infinite horizontal strip of columns.
+
+**[Noctalia](https://github.com/noctalia-dev/noctalia-shell)** - A lightweight, customizable Wayland desktop shell built with Quickshell, providing the bar, wallpaper, and other DE-level pieces around a compositor like niri or Hyprland.
 
 **[Home Manager](https://github.com/nix-community/home-manager)** - Nix-based user environment configurator by the nix-community, enabling declarative management of user packages and dotfiles.
 
@@ -154,8 +143,6 @@ This configuration is built upon the excellent work of the following projects an
 **[Kitty](https://github.com/kovidgoyal/kitty)** - A fast, feature-rich, GPU-based terminal emulator.
 
 **[Rofi](https://github.com/davatorium/rofi)** - An application launcher and dmenu replacement.
-
-**[Nwg-drawer](https://github.com/nwg-piotr/nwg-drawer)** - A GTK3-based application drawer for wlroots-based Wayland compositors. However this works in my smithay based COSMIC de rather well.
 
 **[Catppuccin](https://github.com/catppuccin/catppuccin)** - Soothing pastel theme ecosystem maintained by the Catppuccin organization, providing consistent theming across multiple applications.
 
