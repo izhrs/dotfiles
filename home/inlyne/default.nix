@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = [ pkgs.inlyne ];
@@ -24,13 +24,13 @@
 
     # Dark Theme (Catppuccin Mocha)
     [dark-theme]
-    text-color        = 0xcdd6f4
-    background-color  = 0x11111b
-    code-color        = 0xf5c2e7
-    quote-block-color = 0x181825
-    link-color        = 0xb4befe
-    select-color      = 0x585b70
-    checkbox-color    = 0xb4befe
+    text-color        = 0x${config.lib.stylix.colors.base05}
+    background-color  = 0x${config.lib.stylix.colors.base00}
+    code-color        = 0x${config.lib.stylix.colors.base0E}
+    quote-block-color = 0x${config.lib.stylix.colors.base01}
+    link-color        = 0x${config.lib.stylix.colors.base07}
+    select-color      = 0x${config.lib.stylix.colors.base03}
+    checkbox-color    = 0x${config.lib.stylix.colors.base07}
     code-highlighter  = "visual-studio-dark-plus"
 
     # Light Theme (Catppuccin Latte)
@@ -45,8 +45,8 @@
     code-highlighter  = "github"
 
     [font-options]
-    monospace-font = "JetBrainsMono NFM"
-    regular-font   = "Open Sans"
+    monospace-font = "${config.stylix.fonts.monospace.name}"
+    regular-font   = "${config.stylix.fonts.serif.name}"
 
     [keybindings]
     base = [
