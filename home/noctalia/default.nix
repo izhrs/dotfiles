@@ -9,6 +9,17 @@
         custom_palette = "stylix";
       };
 
+      wallpaper = {
+        default.path = config.stylix.image;
+        directory = toString ../../wallpapers;
+        transition = [
+          "disk"
+          "honeycomb"
+          "zoom"
+        ];
+        automation.enabled = false;
+      };
+
       bar.main = {
         background_opacity = config.stylix.opacity.desktop;
         shadow = false;
@@ -77,6 +88,7 @@
           "com.heroicgameslauncher.hgl"
           "net.lutris.Lutris"
           "steam"
+          "re.sonny.Tangram"
         ];
       };
     };

@@ -34,6 +34,7 @@
     bat
     bottom
     delta
+    devenv
     dust
     fd
     ffmpeg-full
@@ -89,6 +90,7 @@
     gimp
     godot
     libreoffice
+    mpv
     nautilus # files manager
     proton-vpn
     shortwave # radio around the world

@@ -32,7 +32,7 @@
     "x-scheme-handler/terminal" = [ "kitty.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
     "image/*" = [ "org.pwmt.zathura.desktop" ];
-    "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
+    "video/*" = [ "mpv.desktop" ];
     "text/*" = [ "Helix.desktop" ];
     "text/markdown" = [ "inlyne.desktop" ];
   };
@@ -48,7 +48,7 @@
       base00 = "11111b"; # crust instead of base
     };
 
-    image = ../wallpapers/pixel-napping.png;
+    image = ../wallpapers/pixel_nap.png;
   };
 
   specialisation.light.configuration = {
@@ -58,7 +58,7 @@
         base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
       };
 
-      image = lib.mkForce ../wallpapers/ign-waifu.png;
+      image = lib.mkForce ../wallpapers/anime_waifu.png;
     };
   };
 

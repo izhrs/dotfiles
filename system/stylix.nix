@@ -11,7 +11,7 @@
     polarity = "dark";
 
     # overridden in home-manager
-    image = ../wallpapers/momo_ayase.jpg;
+    image = ../wallpapers/blue_siren.png;
 
     targets.fontconfig.enable = true;
     fonts = {
@@ -72,7 +72,7 @@
       };
 
       # overridden in home-manager
-      image = lib.mkForce ../wallpapers/railroad-cat.png;
+      image = lib.mkForce ../wallpapers/marin_kitagawa.jpg;
       polarity = lib.mkForce "light";
     };
   };
