@@ -6,12 +6,21 @@
   "Mod+B" = {
     spawn = "zen-beta";
   };
+  "Mod+Space" = {
+    spawn = [
+      "noctalia"
+      "msg"
+      "panel-toggle"
+      "launcher"
+    ];
+  };
   "Mod+Slash" = {
     spawn = [
-      "rofi"
-      "-show"
-      "drun"
-      "-show-icons"
+      "noctalia"
+      "msg"
+      "panel-toggle"
+      "launcher"
+      "/emo "
     ];
   };
   "Mod+F" = {
@@ -33,7 +42,12 @@
     _props = {
       allow-inhibiting = false;
     };
-    spawn = "lock";
+    spawn = [
+      "noctalia"
+      "msg"
+      "session"
+      "lock"
+    ];
   };
   "Mod+W" = {
     _props = {

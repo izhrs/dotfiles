@@ -10,8 +10,7 @@
 
     polarity = "dark";
 
-    # overridden in home-manager
-    image = ../wallpapers/blue_siren.png;
+    image = ../wallpapers/pixel_nap.png;
 
     targets.fontconfig.enable = true;
     fonts = {
@@ -71,8 +70,7 @@
         base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
       };
 
-      # overridden in home-manager
-      image = lib.mkForce ../wallpapers/marin_kitagawa.jpg;
+      image = lib.mkForce ../wallpapers/anime_waifu.png;
       polarity = lib.mkForce "light";
     };
   };

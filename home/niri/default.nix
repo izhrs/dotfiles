@@ -102,18 +102,6 @@ in
           ];
         };
       };
-
-      layer-rule = {
-        match = {
-          _props = {
-            namespace = "rofi";
-          };
-        };
-        background-effect = {
-          blur = true;
-          xray = false;
-        };
-      };
     })
 
     (renderRepeated [

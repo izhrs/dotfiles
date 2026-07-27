@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   stylix.targets.lazygit.enable = true;
 
   programs.lazygit = {
@@ -6,7 +6,7 @@
     settings = {
       git.pagers = [
         {
-          pager = "delta --line-numbers --side-by-side --paging=never";
+          pager = "delta --${config.stylix.polarity} --line-numbers --side-by-side --paging=never";
           colorArg = "always";
           useConfig = false;
         }

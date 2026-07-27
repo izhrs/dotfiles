@@ -4,18 +4,18 @@
 
     settings = {
       theme = {
-        mode = lib.mkForce "auto";
+        mode = lib.mkForce config.stylix.polarity;
         source = "custom";
         custom_palette = "stylix";
       };
 
       wallpaper = {
+        enabled = true;
         default.path = config.stylix.image;
-        directory = toString ../../wallpapers;
+        directory = ../../wallpapers;
         transition = [
-          "disk"
+          "disc"
           "honeycomb"
-          "zoom"
         ];
         automation.enabled = false;
       };
@@ -35,6 +35,8 @@
         ];
       };
 
+      widget.clock.format = "{:%-I:%M}";
+
       shell = {
         corner_radius_scale = 1.0;
         button_borders = false;
@@ -43,7 +45,7 @@
         popup_shadows = false;
         font_family = config.stylix.fonts.serif.name;
         lang = "en";
-        time_format = "{:%H:%M}";
+        time_format = "{:%-I:%M}";
         date_format = "%A, %x";
         offline_mode = false;
         external_ip_enabled = false;
@@ -90,6 +92,29 @@
           "steam"
           "re.sonny.Tangram"
         ];
+      };
+
+      keybinds = {
+        left = [
+          "left"
+          "alt+h"
+        ];
+        right = [
+          "right"
+          "alt+l"
+        ];
+        up = [
+          "alt+k"
+          "shift+tab"
+          "iso_left_tab"
+        ];
+        down = [
+          "alt+j"
+          "tab"
+        ];
+
+        tab_next = [ "down" ];
+        tab_previous = [ "up" ];
       };
     };
   };

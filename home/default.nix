@@ -1,9 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  ...
-}:
+{ inputs, ... }:
 {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
@@ -37,31 +32,6 @@
     "text/markdown" = [ "inlyne.desktop" ];
   };
 
-  # Stylix is configured at the system level, but image is overridden here
-  # which forces stylix to stop inheriting colors as well, so just copied base16Scheme
-  # so that Home Manager specialisations can switch to light Specialisation
-  # without requiring root. System specialisation activation needs sudo, HM does not.
-  # All other stylix settings (opacity, fonts, etc) are inherited from the system config.
-  stylix = {
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    override = {
-      base00 = "11111b"; # crust instead of base
-    };
-
-    image = ../wallpapers/pixel_nap.png;
-  };
-
-  specialisation.light.configuration = {
-    stylix = {
-      base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-      override = {
-        base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
-      };
-
-      image = lib.mkForce ../wallpapers/anime_waifu.png;
-    };
-  };
-
   imports = [
     ./btm
     ./fastfetch
@@ -73,7 +43,6 @@
     ./lazygit
     ./niri
     ./noctalia
-    ./rofi
     ./serpl
     ./shell
     ./starship

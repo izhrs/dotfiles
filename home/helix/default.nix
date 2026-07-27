@@ -1,23 +1,16 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./dprintFormatter.nix
     ./scripts.nix
   ];
 
-  # I ain't gaining much from stylix here
-  # and I dont like the theme it provides
-  stylix.targets.helix.enable = false;
-
-  specialisation.light.configuration = {
-    programs.helix.settings.theme = lib.mkForce "catppuccin_latte_transparent";
-  };
+  stylix.targets.helix.enable = true;
 
   programs.helix = {
     enable = true;
     defaultEditor = true;
 
     settings = {
-      theme = "catppuccin_mocha_transparent";
       editor = {
         # scrollPastEnd = true;
         text-width = 80;

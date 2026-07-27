@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/badge/Home%20Manager-f5c2e7?logo=nixos&logoColor=1e1e2e" />
 
 <!-- Niri DE (Maroon) -->
-<img src="https://img.shields.io/badge/NIRI-eba0ac?logo=niri&logoColor=1e1e2e" />
+<img src="https://img.shields.io/badge/Niri-eba0ac?logo=niri&logoColor=1e1e2e" />
 
 <!-- Helix (Mauve) -->
 <img src="https://img.shields.io/badge/Helix-cba6f7?logo=helix&logoColor=1e1e2e" />
@@ -78,7 +78,7 @@ these are old COSMIC screenshots, will update soon
 
 ```.
 ├── home/
-│   ├── default.nix        # Stylix overrides, env vars, xdg defaults
+│   ├── default.nix        # Env vars, xdg defaults
 │   ├── niri/              # Niri compositor config
 │   ├── noctalia/          # Noctalia shell config
 │   ├── helix/             # Helix editor config
@@ -101,11 +101,8 @@ This configuration uses Home Manager as a Nix module (instead of running a stand
 
 ## Light Mode
 
-Light theming is implemented using NixOS specialisations, which allow per-program theme overrides to be declared alongside their default (dark) configuration and activated at runtime without rebuilding.
-
-Most programs are themed via [Stylix](https://github.com/nix-community/stylix). The “system-level” Stylix configuration is still used for the majority of styling (fonts, opacity, etc.), but in Home Manager we override only the theme image/color inputs so that Stylix stops inheriting colors from the system config. This enables Home Manager specialisations to switch between dark and light Stylix specialisations without requiring root (system specialisation activation would need sudo, whereas Home Manager does not).
-
-Theme switching is handled by the specialisation activation script, which applies the corresponding light/dark Stylix settings atomically across the configured programs (GTK theme, terminal colors, editor theme, wallpaper, and other program-specific configurations). There's also 2 desktop shortucts to activate themes from application launchers.
+Light theming is implemented via NixOS specialisations combined with [Stylix](https://github.com/nix-community/stylix), which handles theming for all programs. Since this config uses Home Manager as a NixOS module, the system level Stylix configuration is inherited by Home Manager directly, so home modules don't need to define any specialisations of their own.
+Theme switching is handled by the specialisation activation script (requires root privilege), which applies the corresponding light/dark Stylix settings atomically across the configured programs (GTK theme, terminal colors, editor theme, wallpaper, and other program-specific configurations). There's also 2 desktop shortucts to activate themes from application launchers.
 
 ## Helix as IDE
 

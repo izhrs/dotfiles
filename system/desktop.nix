@@ -6,18 +6,23 @@
     recommendedServices.enable = true;
   };
 
-  programs.regreet.enable = true;
+  programs.regreet = {
+    enable = true;
+    # -m last shows output on last connected display instead of
+    # expanding one desktop on every connected monitor
+    cageArgs = [
+      "-s"
+      "-d"
+      "-m"
+      "last"
+    ];
+  };
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     config.common.default = "*";
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
-
-  services = {
-    # login manager
-    # displayManager.cosmic-greeter.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
