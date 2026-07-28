@@ -253,7 +253,7 @@ in
         value = {
           match = {
             _props = {
-              app-id = "^localsend_app$";
+              app-id = "^(localsend_app|proton\.vpn\.app\.gtk|de\.haeckerfelix\.Fragments|de\.haeckerfelix\.Shortwave|com\.rafaelmardojai\.Blanket)$";
             };
           };
           open-floating = true;
@@ -261,7 +261,7 @@ in
             fixed = 400;
           };
           default-window-height = {
-            fixed = 800;
+            fixed = 700;
           };
           opacity = config.stylix.opacity.applications;
           background-effect = {

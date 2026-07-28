@@ -24,7 +24,7 @@
 
 ## Screenshots
 
-these are old COSMIC screenshots, will update soon
+some of these are old COSMIC screenshots, will update soon
 
 ### Fastfetch
 
@@ -35,11 +35,11 @@ these are old COSMIC screenshots, will update soon
 
 ### Light and Dark
 
-![float_win](./screenshots/float_win.png)
+![stylix](./screenshots/stylix.png)
 
 ### Zellij
 
-![zellij](./screenshots/zellij.png)
+![zellij](./screenshots/zellij_light_dark.png)
 
 ### Helix with Yazi
 
@@ -60,14 +60,6 @@ these are old COSMIC screenshots, will update soon
 ### Tiles
 
 ![titles](./screenshots/tiles.png)
-
-### Bottom
-
-![bottom](./screenshots/bottom.png)
-
-### Rofi
-
-![rofi](./screenshots/rofi.png)
 
 </details>
 

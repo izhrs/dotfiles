@@ -127,15 +127,8 @@
         "break"
 
         {
-          type = "de";
-          key = " DE";
-          keyColor = "blue";
-          format = "{1}";
-        }
-
-        {
           type = "wm";
-          key = "│ ├ Compositor";
+          key = " Compositor";
           keyColor = "blue";
           format = "{1}";
         }
