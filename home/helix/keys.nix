@@ -16,24 +16,22 @@
       U = "switch_to_uppercase";
 
       # yazi-picker script defined in ./scripts.nix
-      #
-      # DOES NOT WORK ANYMORE
       space = [
         # using %% to escape
-        '':sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% --close-on-exit --block-until-exit -- yazi-picker open %{buffer_name}''
+        '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker open %{buffer_name}''
         ":redraw"
       ];
 
       # Override default change picker
       g = [
-        '':sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit --block-until-exit -- lazygit''
+        '':sh zellij action new-pane --name "" --floating --width 90%% --height 90%% --x 5%% --y 5%% --close-on-exit --block-until-exit -- lazygit''
         ":redraw"
       ];
 
       # serpl is an intutive TUI find and replace tool
       # I don't know which key would make more sense here. using ";" because it's available and ergonomic
       ";" = [
-        '':sh zellij action new-pane --name "" --floating --width 80%% --height 80%% --x 10%% --y 10%% --close-on-exit --block-until-exit -- serpl''
+        '':sh zellij action new-pane --name "" --floating --width 90%% --height 90%% --x 5%% --y 5%% --close-on-exit --block-until-exit -- serpl''
       ];
 
       # LLM integration
@@ -68,11 +66,11 @@
     };
 
     C-y = {
-      y = '':sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% --close-on-exit --block-until-exit -- yazi-picker open %{buffer_name}'';
+      y = '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker open %{buffer_name}'';
       # Open the file(s) in a vertical split
-      v = '':sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% --close-on-exit --block-until-exit -- yazi-picker vsplit %{buffer_name}'';
+      v = '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker vsplit %{buffer_name}'';
       # Open the file(s) in a horizontal split
-      h = '':sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% --close-on-exit --block-until-exit -- yazi-picker hsplit %{buffer_name}'';
+      h = '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker hsplit %{buffer_name}'';
     };
 
     m.w = "select_all";
