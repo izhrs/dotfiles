@@ -3,6 +3,9 @@
     enable = true;
 
     settings = {
+      # for external monitors
+      brightness.enable_ddcutil = true;
+
       theme = {
         mode = lib.mkForce config.stylix.polarity;
         source = "custom";

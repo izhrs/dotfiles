@@ -35,7 +35,7 @@ in
 
       output = {
         _args = [ "HDMI-A-2" ];
-        mode = "1920x1080@189.998000";
+        mode = "1920x1080@179.998";
         position = {
           _props = {
             x = 0;
@@ -68,8 +68,9 @@ in
         };
         border = {
           width = 2;
-          active-color = config.lib.stylix.colors.withHashtag.base07;
+          active-color = config.lib.stylix.colors.withHashtag.base07; # lavender
           inactive-color = config.lib.stylix.colors.withHashtag.base03;
+          urgent-color = config.lib.stylix.colors.withHashtag.base08; # red
         };
       };
 
@@ -287,6 +288,21 @@ in
             blur = true;
           };
           draw-border-with-background = false;
+        };
+      }
+      {
+        name = "window-rule";
+        value = {
+          _children = [
+            {
+              match = {
+                _props = {
+                  app-id = "^re\.sonny\.Tangram$";
+                };
+              };
+            }
+          ];
+          block-out-from = "screen-capture";
         };
       }
     ])

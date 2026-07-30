@@ -1,3 +1,4 @@
+# this is inspired by COSMIC keybinds.
 {
   # Applications
   "Mod+Return" = {
@@ -7,31 +8,17 @@
     spawn = "zen-beta";
   };
   "Mod+Space" = {
-    spawn = [
-      "noctalia"
-      "msg"
-      "panel-toggle"
-      "launcher"
-    ];
+    spawn-sh = "noctalia msg panel-toggle launcher";
   };
   "Mod+Slash" = {
-    spawn = [
-      "noctalia"
-      "msg"
-      "panel-toggle"
-      "launcher"
-      "/emo "
-    ];
+    spawn-sh = "noctalia msg panel-toggle launcher /emo";
   };
+  # Mod+F is Niri's default for maximize-column
   "Mod+F" = {
-    spawn = [
-      "kitty"
-      "-e"
-      "yazi"
-    ];
+    spawn-sh = "kitty -e yazi";
   };
 
-  # Exit niri
+  # Default: Mod+Shift+E; Exit niri
   "Mod+Shift+Q" = {
     quit = { };
   };
@@ -42,20 +29,23 @@
     _props = {
       allow-inhibiting = false;
     };
-    spawn = [
-      "noctalia"
-      "msg"
-      "session"
-      "lock"
-    ];
+    spawn-sh = "noctalia msg session lock";
   };
+
+  # default: Mod+Escape; here that is use for locking session
+  "Mod+Shift+Escape" = {
+    toggle-keyboard-shortcuts-inhibit = { };
+  };
+
+  # default: Mod+O; workspace overview on COSMIC,
   "Mod+W" = {
     _props = {
       repeat = false;
     };
     toggle-overview = { };
   };
-  "Mod+Shift+F" = {
+  # default: Mod+Shift+F; full screen on COSMIC
+  "Mod+F12" = {
     fullscreen-window = { };
   };
 
@@ -75,6 +65,8 @@
   "Mod+C" = {
     center-column = { };
   };
+
+  # default: Mod+V; this is derived from COSMIC
   "Mod+Y" = {
     toggle-window-floating = { };
   };
@@ -82,9 +74,17 @@
     switch-focus-between-floating-and-tiling = { };
   };
 
-  # Move
+  # default: Mod+W; COSMIC's stacking mode
+  "Mod+S" = {
+    toggle-column-tabbed-display = { };
+  };
+
+  # COSMIC move motions, sadly consume-or-expel-window does not work on floating windows
   "Mod+Shift+H" = {
-    move-column-left = { };
+    consume-or-expel-window-left = { };
+  };
+  "Mod+Shift+L" = {
+    consume-or-expel-window-right = { };
   };
   "Mod+Shift+J" = {
     move-window-down = { };
@@ -92,14 +92,18 @@
   "Mod+Shift+K" = {
     move-window-up = { };
   };
-  "Mod+Shift+L" = {
-    move-column-right = { };
-  };
   "Mod+Ctrl+J" = {
     move-column-to-workspace-down = { };
   };
   "Mod+Ctrl+K" = {
     move-column-to-workspace-up = { };
+  };
+
+  "Mod+BracketLeft" = {
+    move-column-left = { };
+  };
+  "Mod+BracketRight" = {
+    move-column-right = { };
   };
 
   # Resize
@@ -114,6 +118,14 @@
   };
   "Mod+Alt+L" = {
     set-column-width = "+5%";
+  };
+
+  "Mod+R" = {
+    switch-preset-column-width = { };
+  };
+  # Default: Mod+F; here Mod+F is used for launching file manager
+  "Mod+M" = {
+    maximize-column = { };
   };
 
   # Workspaces
@@ -194,21 +206,40 @@
       };
     };
   };
+  "Mod+Alt+Print" = {
+    screenshot-window = {
+      _props = {
+        show-pointer = false;
+      };
+    };
+  };
 
   # Audio & Brightness
   "XF86AudioRaiseVolume" = {
+    _props = {
+      allow-when-locked = true;
+    };
     spawn-sh = "noctalia msg volume-up";
   };
   "XF86AudioLowerVolume" = {
+    _props = {
+      allow-when-locked = true;
+    };
     spawn-sh = "noctalia msg volume-down";
   };
   "XF86AudioMute" = {
     spawn-sh = "noctalia msg volume-mute";
   };
   "XF86MonBrightnessUp" = {
+    _props = {
+      allow-when-locked = true;
+    };
     spawn-sh = "noctalia msg brightness-up";
   };
   "XF86MonBrightnessDown" = {
+    _props = {
+      allow-when-locked = true;
+    };
     spawn-sh = "noctalia msg brightness-down";
   };
 
