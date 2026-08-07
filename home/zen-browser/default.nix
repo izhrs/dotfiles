@@ -59,21 +59,6 @@
         "extensions.formautofill.available" = "detect";
         "extensions.formautofill.creditCards.enabled" = true;
       };
-
-      userChrome = ''
-        :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
-          & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
-            & browser[transparent="true"] {
-              background: none !important;
-            }
-          }
-        }
-
-        :root {
-          --zen-branding-dark: #00000000 !important;
-          --zen-themed-toolbar-bg-transparent: transparent !important;
-        } 
-      '';
     };
   };
 }
