@@ -12,8 +12,16 @@
     space = {
       w = ":w";
       q = ":q";
-      u = "switch_to_lowercase";
-      U = "switch_to_uppercase";
+
+      # it's easier than C-i and C-o for me
+      i = "jump_forward";
+      o = "jump_backward";
+
+      # toggles
+      t = {
+        s = ":toggle-option soft-wrap.enable";
+        u = "switch_case";
+      };
 
       # yazi-picker script defined in ./scripts.nix
       space = [
@@ -58,11 +66,6 @@
           '':sh zellij action new-pane --name ""  --floating --width 35%% --height 96%% --x 70%% --y 2%% --close-on-exit --block-until-exit -- llm-do-anal''
         ];
       };
-
-      t = {
-        s = ":toggle-option soft-wrap.enable";
-        u = "switch_case";
-      };
     };
 
     C-y = {
@@ -80,9 +83,11 @@
     "{" = "goto_prev_paragraph";
     "}" = "goto_next_paragraph";
     space = {
-      u = "switch_to_lowercase";
-      U = "switch_to_uppercase";
+      # it's easier than C-i and C-o for me
+      i = "jump_forward";
+      o = "jump_backward";
 
+      # toggles
       t = {
         s = ":toggle-option soft-wrap.enable";
         u = "switch_case";
