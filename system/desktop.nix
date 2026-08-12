@@ -6,7 +6,7 @@
     recommendedServices.enable = true;
   };
 
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
     # -m last shows output on last connected display instead of
     # expanding one desktop on every connected monitor

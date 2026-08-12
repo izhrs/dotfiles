@@ -112,8 +112,7 @@
 
   # too short for moving to individual module
   home.packages = with pkgs; [
-    nodejs_24
-    yarn
+    bun
     python314
     uv
     docker-compose

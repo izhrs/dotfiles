@@ -4,9 +4,9 @@
   programs.lazygit = {
     enable = true;
     settings = {
-      git.pagers = [
+      git.diffRenderers = [
         {
-          pager = "delta --${config.stylix.polarity} --line-numbers --side-by-side --paging=never";
+          command = "delta --${config.stylix.polarity} --line-numbers --side-by-side --paging=never";
           colorArg = "always";
           useConfig = false;
         }
