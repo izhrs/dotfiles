@@ -2,7 +2,15 @@
   programs.git = {
     enable = true;
 
+    signing = {
+      format = "ssh";
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
+
     settings = {
+      gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+
       user.name = "izhrs";
       user.email = "mohamed@izhar.xyz";
 
