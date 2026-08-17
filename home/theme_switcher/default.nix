@@ -4,13 +4,15 @@
   # I did that in niri config
   home.packages = with pkgs; [
     (writeShellScriptBin "light" ''
-      pkexec /nix/var/nix/profiles/system/specialisation/light/bin/switch-to-configuration switch
-      awww img ~/Pictures/wallpapers/gifs/aeolian.gif --transition-type center --transition-step 30 --transition-fps 120
+      pkexec sh -c "/nix/var/nix/profiles/system/specialisation/light/bin/switch-to-configuration switch &"
+      dconf write /org/gnome/desktop/interface/color-scheme '"prefer-light"'
+      awww img ~/Pictures/wallpapers/gifs/aeolian.gif --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5
     '')
 
     (writeShellScriptBin "dark" ''
-      pkexec /nix/var/nix/profiles/system/bin/switch-to-configuration switch
-      awww img ~/Pictures/wallpapers/gifs/lonely_cat.gif --transition-type center --transition-step 30 --transition-fps 120
+      pkexec sh -c "/nix/var/nix/profiles/system/bin/switch-to-configuration switch &"
+      dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
+      awww img ~/Pictures/wallpapers/gifs/lonely_cat.gif --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5
     '')
   ];
 

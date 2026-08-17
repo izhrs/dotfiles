@@ -10,6 +10,7 @@
       clean.extraArgs = "--keep-since 7d --keep 3";
     };
 
+    firefox.enable = true;
     thunderbird.enable = true;
 
     zsh.enable = true;
@@ -86,6 +87,7 @@
 
     # GUI
     blanket # soundscapes
+    brave # alternate-browser for testing
     fragments # torrent downloader
     gimp
     godot

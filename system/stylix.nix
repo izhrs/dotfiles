@@ -10,7 +10,7 @@
 
     polarity = "dark";
 
-    image = ../wallpapers/pixel_nap.png;
+    image = ../wallpapers/blue_siren.png;
 
     targets.fontconfig.enable = true;
     fonts = {
