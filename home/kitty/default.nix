@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -22,6 +22,11 @@
       hide_window_decorations = true;
       enable_audio_bell = false;
       window_alert_on_bell = false;
+
+      cursor = config.lib.stylix.colors.withHashtag.base07;
+      cursor_trail = 10;
+      cursor_trail_decay = "0.2 0.4";
+      cursor_trail_color = config.lib.stylix.colors.withHashtag.base07;
 
       # main font handled by stylix
       bold_font = "JetBrainsMono NF";

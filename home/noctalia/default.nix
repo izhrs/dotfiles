@@ -13,7 +13,8 @@
       };
 
       wallpaper = {
-        enabled = true;
+        # awww manages wallpaper
+        enabled = false;
         default.path = config.stylix.image;
         directory = ../../wallpapers;
         transition = [

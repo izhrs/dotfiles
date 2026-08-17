@@ -10,6 +10,8 @@ let
     lib.concatMapStringsSep "\n" (e: lib.hm.generators.toKDL { } { ${e.name} = e.value; }) entries;
 in
 {
+  services.awww.enable = true;
+
   home.file.".config/niri/config.kdl".text = lib.concatStringsSep "\n" [
 
     (lib.hm.generators.toKDL { } {
@@ -79,7 +81,7 @@ in
       };
 
       blur = {
-        passes = 1;
+        passes = 2;
         offset = 2;
         noise = 0.02;
         saturation = 2;

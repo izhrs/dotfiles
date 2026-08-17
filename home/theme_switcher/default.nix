@@ -1,12 +1,16 @@
 { pkgs, lib, ... }:
 {
+  # requires services.awww.enable = true;
+  # I did that in niri config
   home.packages = with pkgs; [
     (writeShellScriptBin "light" ''
-      /nix/var/nix/profiles/system/specialisation/light/bin/switch-to-configuration switch
+      pkexec /nix/var/nix/profiles/system/specialisation/light/bin/switch-to-configuration switch
+      awww img ~/Pictures/wallpapers/gifs/aeolian.gif --transition-type center --transition-step 30 --transition-fps 120
     '')
 
     (writeShellScriptBin "dark" ''
-      /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+      pkexec /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+      awww img ~/Pictures/wallpapers/gifs/lonely_cat.gif --transition-type center --transition-step 30 --transition-fps 120
     '')
   ];
 
@@ -14,7 +18,7 @@
     name = "Light Theme";
     genericName = "Light Theme";
     comment = "Switch to Light theme";
-    exec = "pkexec light";
+    exec = "light";
     terminal = false;
     type = "Application";
     icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/redshift.svg";
@@ -30,7 +34,7 @@
     name = "Dark Theme";
     genericName = "Dark Theme";
     comment = "Switch to Dark theme";
-    exec = "pkexec dark";
+    exec = "dark";
     terminal = false;
     type = "Application";
     icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/distributor-logo-budgie.svg";
