@@ -181,27 +181,6 @@
         "type": "github"
       }
     },
-    "home-manager_2": {
-      "inputs": {
-        "nixpkgs": [
-          "zen-browser",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1785531816,
-        "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1785967620,
@@ -291,8 +270,7 @@
         "noctalia": "noctalia",
         "nur": "nur",
         "stylix": "stylix",
-        "yazi-compress": "yazi-compress",
-        "zen-browser": "zen-browser"
+        "yazi-compress": "yazi-compress"
       }
     },
     "stylix": {
@@ -421,27 +399,6 @@
       "original": {
         "owner": "KKV9",
         "repo": "compress.yazi",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "home-manager": "home-manager_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786118193,
-        "narHash": "sha256-RhkiElXANPrHOXTncgUmKHVw8FHuRZjAXmtUPQfB91c=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "43272965c62be2c512630bc80deeb6792b2f285b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

@@ -1,11 +1,11 @@
 # this is inspired by COSMIC keybinds.
-{
+{ config, ... }: {
   # Applications
   "Mod+Return" = {
     spawn = "kitty";
   };
   "Mod+B" = {
-    spawn = "zen-beta";
+    spawn = "firefox";
   };
   "Mod+Space" = {
     spawn-sh = "noctalia msg panel-toggle launcher";
@@ -21,6 +21,10 @@
   # IDK why but I did it
   "Mod+T" = {
     spawn-sh = "awww img ~/Pictures/wallpapers/gifs/lucyna_kushinada.gif --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5";
+  };
+  # when I'll need to save power
+  "Mod+Shift+T" = {
+    spawn-sh = "awww img ${config.stylix.image} --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5";
   };
 
   # Default: Mod+Shift+E; Exit niri

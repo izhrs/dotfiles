@@ -35,6 +35,7 @@
   imports = [
     ./btm
     ./fastfetch
+    ./firefox
     ./gemini
     ./git
     ./helix
@@ -51,9 +52,7 @@
     ./yazi
     ./zathura
     ./zellij
-    ./zen-browser
 
     inputs.noctalia.homeModules.default
-    inputs.zen-browser.homeModules.beta
   ];
 }

@@ -79,7 +79,7 @@
           "kitty"
           "yazi"
           "org.gnome.Nautilus"
-          "zen-beta"
+          "firefox"
           "thunderbird"
           "org.godotengine.Godot4.7"
           "gimp"

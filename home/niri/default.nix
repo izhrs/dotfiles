@@ -93,7 +93,7 @@ in
         skip-at-startup = { };
       };
 
-      binds = import ./keybinds.nix;
+      binds = import ./keybinds.nix { inherit config; };
 
       switch-events = {
         lid-close = {

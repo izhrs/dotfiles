@@ -5,14 +5,14 @@
   home.packages = with pkgs; [
     (writeShellScriptBin "light" ''
       pkexec sh -c "/nix/var/nix/profiles/system/specialisation/light/bin/switch-to-configuration switch &"
-      dconf write /org/gnome/desktop/interface/color-scheme '"prefer-light"'
       awww img ~/Pictures/wallpapers/gifs/aeolian.gif --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5
+      dconf write /org/gnome/desktop/interface/color-scheme '"prefer-light"'
     '')
 
     (writeShellScriptBin "dark" ''
       pkexec sh -c "/nix/var/nix/profiles/system/bin/switch-to-configuration switch &"
-      dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
       awww img ~/Pictures/wallpapers/gifs/lonely_cat.gif --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5
+      dconf write /org/gnome/desktop/interface/color-scheme '"prefer-dark"'
     '')
   ];
 

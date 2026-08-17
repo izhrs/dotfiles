@@ -99,7 +99,6 @@
     spotube # spotify
     tangram # webapps as desktop
     # winboat
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Gaming
     heroic
