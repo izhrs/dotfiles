@@ -36,12 +36,12 @@
     ./btm
     ./fastfetch
     ./firefox
-    ./gemini
     ./git
     ./helix
     ./inlyne
     ./kitty
     ./lazygit
+    ./mpv
     ./niri
     ./noctalia
     ./serpl
