@@ -4,12 +4,12 @@
     ./audio.nix
     ./bluetooth.nix
     ./desktop.nix
-    ./fileSystems.nix
+    ./file-systems.nix
+    ./graphics.nix
     ./locale.nix
     ./network.nix
-    ./nvidia.nix
+    ./power-management.nix
     ./programs.nix
-    ./services.nix
     ./stylix.nix
     ./users.nix
     ./virtualisation.nix
@@ -43,5 +43,7 @@
     "flakes"
   ];
 
+  # misc; not large enough to put them into seperate file
   security.rtkit.enable = true;
+  services.printing.enable = true;
 }

@@ -1,21 +1,33 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  programs.niri.enable = true;
-  programs.noctalia = {
-    enable = true;
-    recommendedServices.enable = true;
+  programs = {
+    niri.enable = true;
+
+    noctalia.enable = true;
+    # it enables power-profiles-daemon which conflicts with tlp
+    noctalia.recommendedServices.enable = false;
   };
 
-  services.displayManager.regreet = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
-    # -m last shows output on last connected display instead of
-    # expanding one desktop on every connected monitor
-    cageArgs = [
-      "-s"
-      "-d"
-      "-m"
-      "last"
-    ];
+    cursorTheme.package = config.stylix.cursor.package;
+
+    settings = {
+      session.default = "niri";
+
+      appearance = {
+        font_family = config.stylix.fonts.serif.name;
+        hide_logo = true;
+        password_style = "random";
+        theme_mode = config.stylix.polarity;
+        wallpaper.path = config.stylix.image;
+      };
+
+      cursor = {
+        theme = config.stylix.cursor.name;
+        size = config.stylix.cursor.size;
+      };
+    };
   };
 
   xdg.portal = {

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -21,7 +21,8 @@
     # game -> general -> launch options -> `gamemoderun %command%`
     gamemode.enable = true;
 
-    obs-studio.enable = true;
+    # obs-studio.enable = true;
+    gpu-screen-recorder.enable = true;
 
     localsend = {
       enable = true;
@@ -91,6 +92,7 @@
     fragments # torrent downloader
     gimp
     godot
+    gpu-screen-recorder-gtk
     libreoffice
     mpv
     nautilus # files manager

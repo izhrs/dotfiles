@@ -6,6 +6,7 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     override = {
       base00 = "11111b"; # crust instead of base
+      base0D = "b4befe"; # lavendr everywhere (no blue)
     };
 
     polarity = "dark";
@@ -59,7 +60,7 @@
     cursor = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors";
-      size = 12;
+      size = 24;
     };
   };
 
@@ -68,6 +69,7 @@
       base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
       override = {
         base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
+        base0D = "7287fd";
       };
 
       image = lib.mkForce ../wallpapers/anime_waifu.png;
