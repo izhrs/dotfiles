@@ -96,14 +96,14 @@ in
       binds = import ./keybinds.nix { inherit config; };
 
       switch-events = {
-        lid-close = {
-          spawn = [
-            "noctalia"
-            "msg"
-            "session"
-            "lock-and-suspend"
-          ];
-        };
+        # lid-close = {
+        #   spawn = [
+        #     "noctalia"
+        #     "msg"
+        #     "session"
+        #     "lock"
+        #   ];
+        # };
       };
     })
 
@@ -141,6 +141,27 @@ in
         value = {
           _args = [ "5" ];
           open-on-output = "HDMI-A-2";
+        };
+      }
+    ])
+
+    (renderRepeated [
+      {
+        name = "layer-rule";
+        value = {
+          _children = [
+            {
+              match = {
+                _props = {
+                  namespace = "^noctalia-(bar-[^\"]+|notification|panel|attached-panel|osd)$";
+                };
+              };
+            }
+
+          ];
+          background-effect = {
+            xray = false;
+          };
         };
       }
     ])

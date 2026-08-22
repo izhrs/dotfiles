@@ -2,124 +2,78 @@
   programs.noctalia = {
     enable = true;
 
-    settings = {
-      # for external monitors
-      brightness.enable_ddcutil = true;
+    settings =
+      let
+        bar = import ./bar.nix { inherit config; };
+      in
+      {
 
-      theme = {
-        mode = lib.mkForce config.stylix.polarity;
-        source = "custom";
-        custom_palette = "stylix";
-      };
+        bar.main = bar.main_bar;
+        widget = bar.widget;
+        dock = import ./dock.nix { inherit config; };
+        shell = import ./shell.nix { inherit config; };
 
-      wallpaper = {
-        # awww manages wallpaper
-        enabled = false;
-        default.path = config.stylix.image;
-        directory = ../../wallpapers;
-        transition = [
-          "disc"
-          "honeycomb"
-        ];
-        automation.enabled = false;
-      };
+        theme = {
+          mode = lib.mkForce config.stylix.polarity;
+          source = "custom";
+          custom_palette = "stylix";
+        };
 
-      bar.main = {
-        background_opacity = config.stylix.opacity.desktop;
-        shadow = false;
-        radius = 12;
-        margin_edge = 8;
-        margin_ends = 8;
-        thickness = 38;
-        capsule_thickness = 0.76;
+        wallpaper = {
+          # awww manages wallpaper
+          enabled = false;
+          default.path = config.stylix.image;
+          last.path = config.stylix.image;
+          directory = ../../wallpapers;
+          transition = [
+            "disc"
+            "honeycomb"
+          ];
+          automation.enabled = false;
+        };
 
-        start = [
-          "launcher"
-          "workspaces"
-        ];
-      };
+        # for external monitors
+        brightness.enable_ddcutil = true;
 
-      widget.clock.format = "{:%-I:%M}";
+        keybinds = {
+          left = [
+            "left"
+            "alt+h"
+          ];
+          right = [
+            "right"
+            "alt+l"
+          ];
+          up = [
+            "alt+k"
+            "shift+tab"
+            "iso_left_tab"
+          ];
+          down = [
+            "alt+j"
+            "tab"
+          ];
 
-      shell = {
-        corner_radius_scale = 1.0;
-        button_borders = false;
-        input_borders = false;
-        popup_borders = false;
-        popup_shadows = false;
-        font_family = config.stylix.fonts.serif.name;
-        lang = "en";
-        time_format = "{:%-I:%M}";
-        date_format = "%A, %x";
-        offline_mode = false;
-        external_ip_enabled = false;
-        telemetry_enabled = false;
-        setup_wizard_enabled = true;
-        polkit_agent = true;
-        password_style = "random";
+          tab_next = [ "down" ];
+          tab_previous = [ "up" ];
+        };
 
-        panel = {
-          borders = false;
-          shadow = false;
+        lockscreen = {
+          enabled = true;
+          wallpaper = config.stylix.image;
+        };
+
+        plugins = {
+          enabled = [ "noctalia/screen_recorder" ];
+          auto_update = "none";
+
+          source = {
+            name = "noctalia/screen_recorder";
+            kind = "git";
+            location = "https://github.com/noctalia-dev/official-plugins";
+            enabled = true;
+          };
         };
       };
-
-      dock = {
-        enabled = true;
-        position = "bottom";
-        background_opacity = config.stylix.opacity.desktop;
-        shadow = false;
-        radius = 12;
-        margin_edge = 8;
-        smart_auto_hide = true;
-        reserve_space = false;
-        inactive_opacity = 1;
-
-        pinned = [
-          "kitty"
-          "yazi"
-          "org.gnome.Nautilus"
-          "firefox"
-          "thunderbird"
-          "org.godotengine.Godot4.7"
-          "gimp"
-          "com.obsproject.Studio"
-          "bottom"
-          "virt-manager"
-          "de.haeckerfelix.Fragments"
-          "de.haeckerfelix.Shortwave"
-          "com.rafaelmardojai.Blanket"
-          "proton.vpn.app.gtk"
-          "localsend_app"
-          "com.heroicgameslauncher.hgl"
-          "net.lutris.Lutris"
-          "steam"
-          "re.sonny.Tangram"
-        ];
-      };
-
-      keybinds = {
-        left = [
-          "left"
-          "alt+h"
-        ];
-        right = [
-          "right"
-          "alt+l"
-        ];
-        up = [
-          "alt+k"
-          "shift+tab"
-          "iso_left_tab"
-        ];
-        down = [
-          "alt+j"
-          "tab"
-        ];
-
-        tab_next = [ "down" ];
-        tab_previous = [ "up" ];
-      };
-    };
   };
 }

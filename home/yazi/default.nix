@@ -40,17 +40,6 @@
         linemode = "size_and_mtime";
       };
 
-      opener = {
-        play = [
-          {
-            run = ''xdg-open "$@"'';
-            orphan = true;
-            desc = "open";
-            for = "linux";
-          }
-        ];
-      };
-
       plugin = {
         prepend_previewers = [
           # directory previewer

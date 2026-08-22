@@ -115,9 +115,9 @@ This configuration is built upon the excellent work of the following projects an
 
 **[NixOS](https://nixos.org/)** - The Nix Operating System that enables reproducible and declarative system configurations.
 
-**[Niri](https://github.com/YaLTeR/niri)** - A scrollable-tiling Wayland compositor written in Rust, inspired by PaperWM's infinite horizontal strip of columns.
+**[Niri](https://github.com/niri-wm/niri)** - A scrollable-tiling Wayland compositor written in Rust.
 
-**[Noctalia](https://github.com/noctalia-dev/noctalia-shell)** - A lightweight, customizable Wayland desktop shell built with Quickshell, providing the bar, wallpaper, and other DE-level pieces around a compositor like niri or Hyprland.
+**[Noctalia](https://noctalia.dev/)** - A sleek, customizable desktop shell crafted for Wayland.
 
 **[Home Manager](https://github.com/nix-community/home-manager)** - Nix-based user environment configurator by the nix-community, enabling declarative management of user packages and dotfiles.
 
