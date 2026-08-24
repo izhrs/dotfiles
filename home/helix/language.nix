@@ -250,7 +250,6 @@ in
       };
       language-servers = [
         "ty-lsp"
-        "ruff-lsp"
       ];
     }
 

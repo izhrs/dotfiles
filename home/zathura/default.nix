@@ -1,5 +1,6 @@
 {
   stylix.targets.zathura.enable = true;
+  stylix.targets.zathura.colors.enable = false;
 
   programs.zathura = {
     enable = true;
@@ -19,6 +20,8 @@
 
     extraConfig = ''
       unmap o
+
+      include noctaliarc
     '';
 
     mappings = {

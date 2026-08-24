@@ -1,4 +1,4 @@
-{ config, ... }: {
+{
   stylix.targets.starship.enable = false;
 
   programs.starship = {
@@ -7,34 +7,35 @@
     enableZshIntegration = true;
     settings = {
 
-      palette = "stylix";
-      palettes.stylix = {
-        rosewater = "#${config.lib.stylix.colors.base06}";
-        flamingo = "#${config.lib.stylix.colors.base0F}";
-        pink = "#${config.lib.stylix.colors.base0E}";
-        mauve = "#${config.lib.stylix.colors.base0E}";
-        red = "#${config.lib.stylix.colors.base08}";
-        maroon = "#${config.lib.stylix.colors.base08}";
-        peach = "#${config.lib.stylix.colors.base09}";
-        yellow = "#${config.lib.stylix.colors.base0A}";
-        green = "#${config.lib.stylix.colors.base0B}";
-        teal = "#${config.lib.stylix.colors.base0C}";
-        sky = "#${config.lib.stylix.colors.base0C}";
-        sapphire = "#${config.lib.stylix.colors.base0D}";
-        blue = "#${config.lib.stylix.colors.base0D}";
-        lavender = "#${config.lib.stylix.colors.base07}";
-        text = "#${config.lib.stylix.colors.base05}";
-        subtext1 = "#${config.lib.stylix.colors.base04}";
-        subtext0 = "#${config.lib.stylix.colors.base04}";
-        overlay2 = "#${config.lib.stylix.colors.base03}";
-        overlay1 = "#${config.lib.stylix.colors.base03}";
-        overlay0 = "#${config.lib.stylix.colors.base03}";
-        surface2 = "#${config.lib.stylix.colors.base02}";
-        surface1 = "#${config.lib.stylix.colors.base02}";
-        surface0 = "#${config.lib.stylix.colors.base01}";
-        base = "#${config.lib.stylix.colors.base00}";
-        mantle = "#${config.lib.stylix.colors.base00}";
-        crust = "#${config.lib.stylix.colors.base00}";
+      palette = "term";
+      #optimised for m3-tonal-spot
+      palettes.term = {
+        rosewater = "7";
+        flamingo = "7";
+        pink = "4";
+        mauve = "4";
+        red = "1";
+        maroon = "1";
+        peach = "1";
+        yellow = "1";
+        green = "1";
+        teal = "4";
+        sky = "4";
+        sapphire = "4";
+        blue = "4";
+        lavender = "2";
+        text = "7";
+        subtext1 = "7";
+        subtext0 = "7";
+        overlay2 = "0";
+        overlay1 = "0";
+        overlay0 = "0";
+        surface2 = "0";
+        surface1 = "0";
+        surface0 = "0";
+        base = "0";
+        mantle = "0";
+        crust = "0";
       };
 
       format = ''

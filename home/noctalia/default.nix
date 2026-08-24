@@ -1,4 +1,8 @@
 { config, lib, ... }: {
+  stylix.targets.gtk.colors.enable = false;
+  stylix.targets.qt.colors.enable = false;
+  # stylix.icons.enable = false;
+
   programs.noctalia = {
     enable = true;
 
@@ -13,23 +17,41 @@
         dock = import ./dock.nix { inherit config; };
         shell = import ./shell.nix { inherit config; };
 
+        wallpaper = import ./wallpaper.nix { inherit config; };
+
         theme = {
           mode = lib.mkForce config.stylix.polarity;
-          source = "custom";
-          custom_palette = "stylix";
-        };
+          custom_pallete = "stylix";
+          source = lib.mkForce "wallpaper";
+          wallpaper_scheme = "m3-tonal-spot";
 
-        wallpaper = {
-          # awww manages wallpaper
-          enabled = false;
-          default.path = config.stylix.image;
-          last.path = config.stylix.image;
-          directory = ../../wallpapers;
-          transition = [
-            "disc"
-            "honeycomb"
-          ];
-          automation.enabled = false;
+          templates = {
+            builtin_ids = [
+              "gtk3"
+              "gtk4"
+              "helix"
+              "kitty"
+              "niri"
+              "qt"
+              "starship"
+              "wezterm"
+            ];
+
+            community_ids = [
+              "bat"
+              "gimp"
+              "heroiclauncher"
+              "lazygit"
+              "libreoffice"
+              "papirus-icons"
+              "pywalfox"
+              "steam"
+              "yazi"
+              "zathura"
+              "zed"
+              "zellij"
+            ];
+          };
         };
 
         # for external monitors
@@ -58,10 +80,7 @@
           tab_previous = [ "up" ];
         };
 
-        lockscreen = {
-          enabled = true;
-          wallpaper = config.stylix.image;
-        };
+        lockscreen.enabled = true;
 
         plugins = {
           enabled = [ "noctalia/screen_recorder" ];
@@ -73,6 +92,10 @@
             location = "https://github.com/noctalia-dev/official-plugins";
             enabled = true;
           };
+        };
+
+        hooks = {
+          colors_changed = [ "pkill -USR1 hx" ];
         };
       };
   };

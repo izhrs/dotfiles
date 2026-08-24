@@ -10,11 +10,13 @@ let
     lib.concatMapStringsSep "\n" (e: lib.hm.generators.toKDL { } { ${e.name} = e.value; }) entries;
 in
 {
-  services.awww.enable = true;
-
   home.file.".config/niri/config.kdl".text = lib.concatStringsSep "\n" [
 
+    ''include "~/.config/niri/noctalia.kdl"''
+
     (lib.hm.generators.toKDL { } {
+      "spawn-sh-at-startup" =
+        "cat ~/.config/noctalia/config.toml > ~/.local/state/noctalia/settings.toml";
       "spawn-at-startup" = "noctalia";
 
       input = {
@@ -49,8 +51,8 @@ in
       };
 
       cursor = {
-        xcursor-theme = "default";
-        xcursor-size = 24;
+        xcursor-theme = config.stylix.cursor.name;
+        xcursor-size = config.stylix.cursor.size;
       };
 
       "prefer-no-csd" = { };
@@ -63,16 +65,18 @@ in
           top = 0;
           bottom = 0;
         };
-        default-column-width = { }; # bare node, same as the original's value-less line
+        default-column-width = { };
         center-focused-column = "never";
         focus-ring = {
-          off = { };
+          width = 2;
+          # off = { };
         };
         border = {
-          width = 2;
-          active-color = config.lib.stylix.colors.withHashtag.base07; # lavender
-          inactive-color = config.lib.stylix.colors.withHashtag.base03;
-          urgent-color = config.lib.stylix.colors.withHashtag.base08; # red
+          off = { };
+          # width = 2;
+          # active-color = config.lib.stylix.colors.withHashtag.base07; # lavender
+          # inactive-color = config.lib.stylix.colors.withHashtag.base03;
+          # urgent-color = config.lib.stylix.colors.withHashtag.base08; # red
         };
       };
 
@@ -95,16 +99,7 @@ in
 
       binds = import ./keybinds.nix { inherit config; };
 
-      switch-events = {
-        # lid-close = {
-        #   spawn = [
-        #     "noctalia"
-        #     "msg"
-        #     "session"
-        #     "lock"
-        #   ];
-        # };
-      };
+      switch-events = { };
     })
 
     (renderRepeated [
@@ -222,7 +217,7 @@ in
           background-effect = {
             blur = true;
           };
-          max-width = 1900;
+          max-width = 1904;
           draw-border-with-background = false;
         };
       }

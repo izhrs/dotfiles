@@ -5,12 +5,23 @@
   ];
 
   stylix.targets.helix.enable = true;
+  stylix.targets.helix.colors.enable = false;
 
   programs.helix = {
     enable = true;
     defaultEditor = true;
 
+    themes = {
+      noctalia_transparent = {
+        # inherits = "some_default_or_user_defined_theme_name"
+        inherits = "noctalia";
+        "ui.background" = { };
+        "ui.popup" = { };
+      };
+    };
+
     settings = {
+      theme = "noctalia_transparent";
       editor = {
         # scrollPastEnd = true;
         text-width = 80;
@@ -101,11 +112,10 @@
       "*.xcf"
 
       "node_modules"
+      ".venv"
     ];
 
     languages = import ./language.nix { inherit pkgs; };
-
-    themes = import ./theme.nix;
 
     extraPackages = import ./extraPackages.nix { inherit pkgs; };
   };

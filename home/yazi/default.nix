@@ -8,9 +8,12 @@
   ];
 
   stylix.targets.yazi.enable = true;
+  stylix.targets.yazi.colors.enable = false;
 
   programs.yazi = {
     enable = true;
+
+    theme.flavor.use = "noctalia";
 
     plugins = with pkgs.yaziPlugins; {
       full-border = full-border;

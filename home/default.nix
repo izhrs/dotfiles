@@ -47,7 +47,6 @@
     ./serpl
     ./shell
     ./starship
-    ./theme-switcher
     ./virtmanager
     ./yazi
     ./zathura

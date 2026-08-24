@@ -11,7 +11,7 @@
 
     polarity = "dark";
 
-    image = ../wallpapers/blue_siren.png;
+    image = ../wallpapers/a_pixel_nap.png;
 
     targets.fontconfig.enable = true;
     fonts = {
@@ -60,7 +60,7 @@
     cursor = {
       package = pkgs.capitaine-cursors;
       name = "capitaine-cursors";
-      size = 24;
+      size = 32;
     };
   };
 

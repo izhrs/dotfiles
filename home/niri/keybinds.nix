@@ -14,17 +14,9 @@
     spawn-sh = "noctalia msg panel-toggle launcher /emo";
   };
   # Mod+F is Niri's default for maximize-column
+  # I'm using Mod+M for that
   "Mod+F" = {
     spawn-sh = "kitty -e yazi";
-  };
-
-  # IDK why but I did it
-  "Mod+T" = {
-    spawn-sh = "awww img ~/Pictures/wallpapers/gifs/lucyna_kushinada.gif --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5";
-  };
-  # when I'll need to save power
-  "Mod+Shift+T" = {
-    spawn-sh = "awww img ${config.stylix.image} --transition-type center --transition-step 120 --transition-fps 120 --transition-duration 1.5";
   };
 
   # Default: Mod+Shift+E; Exit niri
@@ -138,20 +130,21 @@
   };
 
   # Workspaces
+  # I hate syntax of nix loops/map
   "Mod+1" = {
-    focus-workspace = "1";
+    focus-workspace = 1;
   };
   "Mod+2" = {
-    focus-workspace = "2";
+    focus-workspace = 2;
   };
   "Mod+3" = {
-    focus-workspace = "3";
+    focus-workspace = 3;
   };
   "Mod+4" = {
-    focus-workspace = "gaming";
+    focus-workspace = 4;
   };
   "Mod+5" = {
-    focus-workspace = "5";
+    focus-workspace = 5;
   };
   "Mod+6" = {
     focus-workspace = 6;
@@ -163,26 +156,26 @@
     focus-workspace = 8;
   };
   "Mod+9" = {
-    focus-workspace = "gaming";
+    focus-workspace = 4;
   };
   "Mod+0" = {
-    focus-workspace = "5";
+    focus-workspace = 5;
   };
 
   "Mod+Shift+1" = {
-    move-window-to-workspace = "1";
+    move-window-to-workspace = 1;
   };
   "Mod+Shift+2" = {
-    move-window-to-workspace = "2";
+    move-window-to-workspace = 2;
   };
   "Mod+Shift+3" = {
-    move-window-to-workspace = "3";
+    move-window-to-workspace = 3;
   };
   "Mod+Shift+4" = {
-    move-window-to-workspace = "gaming";
+    move-window-to-workspace = 4;
   };
   "Mod+Shift+5" = {
-    move-window-to-workspace = "5";
+    move-window-to-workspace = 5;
   };
   "Mod+Shift+6" = {
     move-window-to-workspace = 6;
@@ -194,10 +187,10 @@
     move-window-to-workspace = 8;
   };
   "Mod+Shift+9" = {
-    move-window-to-workspace = "gaming";
+    move-window-to-workspace = 4;
   };
   "Mod+Shift+0" = {
-    move-window-to-workspace = "5";
+    move-window-to-workspace = 5;
   };
 
   # Screenshot

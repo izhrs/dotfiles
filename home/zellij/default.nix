@@ -6,12 +6,17 @@
 }:
 {
 
+  stylix.targets.zellij.enable = true;
+  stylix.targets.zellij.colors.enable = false;
+
   programs.zellij = {
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
 
     settings = {
+      theme = "term_colors";
+
       copy_command = "wl-copy";
       mouse_mode = false;
 
@@ -25,7 +30,7 @@
       };
 
       plugins = {
-        zjstatus = import ./plugins/zjstatus.nix { inherit config pkgs; };
+        zjstatus = import ./plugins/zjstatus.nix { inherit pkgs; };
       };
 
     };
@@ -33,6 +38,27 @@
     layouts = {
       default = import ./layouts/default.nix;
       editor = import ./layouts/editor.nix;
+    };
+
+    # I hate kdl
+    themes = {
+      term_colors = {
+        themes = {
+          term_colors = {
+            fg = 7;
+            bg = 0;
+            black = 0;
+            red = 1;
+            green = 2;
+            yellow = 3;
+            blue = 4;
+            magenta = 5;
+            cyan = 6;
+            white = 7;
+            orange = 1;
+          };
+        };
+      };
     };
   };
 

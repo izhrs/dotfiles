@@ -1,12 +1,15 @@
-{ config, ... }: {
-  stylix.targets.lazygit.enable = true;
+{
+  stylix.targets.lazygit.enable = false;
 
   programs.lazygit = {
     enable = true;
     settings = {
       git.diffRenderers = [
         {
-          command = "delta --${config.stylix.polarity} --line-numbers --side-by-side --paging=never";
+          command = ''
+            delta --''$( noctalia msg theme-mode-get ) --line-numbers --side-by-side --paging=never
+          '';
+
           colorArg = "always";
           useConfig = false;
         }

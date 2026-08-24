@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -6,6 +6,7 @@
   ];
 
   stylix.targets.kitty.enable = true;
+  stylix.targets.kitty.colors.enable = false;
 
   programs.kitty = {
     enable = true;
@@ -16,6 +17,8 @@
       mode = "no-title no-cwd";
     };
 
+    extraConfig = "include themes/noctalia.conf";
+
     settings = {
       placement_strategy = "center";
       window_padding_width = "4 4";
@@ -23,10 +26,8 @@
       enable_audio_bell = false;
       window_alert_on_bell = false;
 
-      cursor = config.lib.stylix.colors.withHashtag.base07;
       cursor_trail = 10;
       cursor_trail_decay = "0.2 0.4";
-      cursor_trail_color = config.lib.stylix.colors.withHashtag.base07;
 
       # main font handled by stylix
       bold_font = "JetBrainsMono NF";

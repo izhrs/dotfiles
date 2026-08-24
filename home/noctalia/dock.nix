@@ -17,7 +17,7 @@
     "thunderbird"
     "org.godotengine.Godot4.7"
     "gimp"
-    "gpu_screen_recorder_gtk"
+    "com.dec05eba.gpu_screen_recorder"
     "bottom"
     "virt-manager"
     "de.haeckerfelix.Fragments"

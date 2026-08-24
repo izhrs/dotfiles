@@ -75,6 +75,7 @@
 
     # system
     brightnessctl
+    gtk3
     lshw
     lsof
     ltrace
