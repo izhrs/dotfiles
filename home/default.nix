@@ -48,6 +48,7 @@
     ./shell
     ./starship
     ./virtmanager
+    ./wezterm
     ./yazi
     ./zathura
     ./zellij

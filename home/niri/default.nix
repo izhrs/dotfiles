@@ -1,23 +1,25 @@
-{ config, lib, ... }:
-
-let
-  # toKDL can't represent two sibling keys with the same node name
-  # (e.g. multiple top-level `workspace` or `window-rule` nodes), because
-  # its input is a plain Nix attrset. This works around that: render each
-  # {name; value;} pair as its own toKDL call, then concatenate the text.
-  renderRepeated =
-    entries:
-    lib.concatMapStringsSep "\n" (e: lib.hm.generators.toKDL { } { ${e.name} = e.value; }) entries;
-in
+{ config, ... }:
 {
-  home.file.".config/niri/config.kdl".text = lib.concatStringsSep "\n" [
+  wayland.windowManager.niri = {
+    enable = true;
+    checkConfig = false;
 
-    ''include "~/.config/niri/noctalia.kdl"''
+    extraConfigEarly = ''
+      include "${config.xdg.configHome}/niri/noctalia.kdl"
+    '';
 
-    (lib.hm.generators.toKDL { } {
-      "spawn-sh-at-startup" =
-        "cat ~/.config/noctalia/config.toml > ~/.local/state/noctalia/settings.toml";
-      "spawn-at-startup" = "noctalia";
+    settings = {
+      spawn-sh-at-startup = "cat ~/.config/noctalia/config.toml > ~/.local/state/noctalia/settings.toml";
+      spawn-at-startup = "noctalia";
+
+      prefer-no-csd = { };
+
+      binds = import ./keybinds.nix;
+      hotkey-overlay.skip-at-startup = { };
+
+      switch-events = { };
+
+      screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
       input = {
         keyboard = {
@@ -55,8 +57,6 @@ in
         xcursor-size = config.stylix.cursor.size;
       };
 
-      "prefer-no-csd" = { };
-
       layout = {
         gaps = 8;
         struts = {
@@ -67,21 +67,9 @@ in
         };
         default-column-width = { };
         center-focused-column = "never";
-        focus-ring = {
-          width = 2;
-          # off = { };
-        };
-        border = {
-          off = { };
-          # width = 2;
-          # active-color = config.lib.stylix.colors.withHashtag.base07; # lavender
-          # inactive-color = config.lib.stylix.colors.withHashtag.base03;
-          # urgent-color = config.lib.stylix.colors.withHashtag.base08; # red
-        };
-      };
 
-      overview = {
-        backdrop-color = config.lib.stylix.colors.withHashtag.base00;
+        focus-ring.width = 2;
+        border.off = { };
       };
 
       blur = {
@@ -91,238 +79,137 @@ in
         saturation = 2;
       };
 
-      screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+      # repeated/parameterized top-level nodes
+      _children = [
+        # workspaces
+        {
+          workspace = {
+            _args = [ "1" ];
+            open-on-output = "HDMI-A-2";
+          };
+        }
+        {
+          workspace = {
+            _args = [ "2" ];
+            open-on-output = "HDMI-A-2";
+          };
+        }
+        {
+          workspace = {
+            _args = [ "3" ];
+            open-on-output = "HDMI-A-2";
+          };
+        }
+        {
+          workspace = {
+            _args = [ "gaming" ];
+            open-on-output = "HDMI-A-2";
+          };
+        }
+        {
+          workspace = {
+            _args = [ "5" ];
+            open-on-output = "HDMI-A-2";
+          };
+        }
 
-      hotkey-overlay = {
-        skip-at-startup = { };
-      };
-
-      binds = import ./keybinds.nix { inherit config; };
-
-      switch-events = { };
-    })
-
-    (renderRepeated [
-      {
-        name = "workspace";
-        value = {
-          _args = [ "1" ];
-          open-on-output = "HDMI-A-2";
-        };
-      }
-      {
-        name = "workspace";
-        value = {
-          _args = [ "2" ];
-          open-on-output = "HDMI-A-2";
-        };
-      }
-      {
-        name = "workspace";
-        value = {
-          _args = [ "3" ];
-          open-on-output = "HDMI-A-2";
-        };
-      }
-      {
-        name = "workspace";
-        value = {
-          _args = [ "gaming" ];
-          open-on-output = "HDMI-A-2";
-        };
-      }
-      {
-        name = "workspace";
-        value = {
-          _args = [ "5" ];
-          open-on-output = "HDMI-A-2";
-        };
-      }
-    ])
-
-    (renderRepeated [
-      {
-        name = "layer-rule";
-        value = {
-          _children = [
+        # layer-rule
+        {
+          layer-rule._children = [
             {
-              match = {
-                _props = {
-                  namespace = "^noctalia-(bar-[^\"]+|notification|panel|attached-panel|osd)$";
-                };
-              };
+              match._props.namespace = "^noctalia-(bar-[^\"]+|notification|panel|attached-panel|osd)$";
             }
-
+            { background-effect.xray = false; }
           ];
-          background-effect = {
-            xray = false;
-          };
-        };
-      }
-    ])
+        }
 
-    # window-rules
-    (renderRepeated [
-      {
-        name = "window-rule";
-        value = {
-          geometry-corner-radius = 12;
-          clip-to-geometry = true;
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          _children = [
+        # window-rules
+        {
+          window-rule = {
+            geometry-corner-radius = 12;
+            clip-to-geometry = true;
+          };
+        }
+
+        {
+          window-rule._children = [
             {
-              match = {
-                _props = {
-                  app-id = "^kitty$";
-                };
-              };
+              match._props.app-id = "^(kitty|org\.pwmt\.zathura)$";
             }
-            {
-              match = {
-                _props = {
-                  app-id = "^org.pwmt.zathura$";
-                };
-              };
-            }
+            { background-effect.blur = true; }
+            { draw-border-with-background = false; }
           ];
-          background-effect = {
-            blur = true;
-          };
-          draw-border-with-background = false;
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          _children = [
+        }
+
+        {
+          window-rule._children = [
             {
-              match = {
-                _props = {
-                  app-id = "^firefox$";
-                };
-              };
+              match._props.app-id = "^(firefox|zen-beta)$";
             }
-            {
-              match = {
-                _props = {
-                  app-id = "^zen-beta$";
-                };
-              };
-            }
+            { background-effect.blur = true; }
+            { max-width = 1904; }
+            { draw-border-with-background = false; }
           ];
-          background-effect = {
-            blur = true;
-          };
-          max-width = 1904;
-          draw-border-with-background = false;
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          match = {
-            _props = {
-              app-id = "dev.noctalia.Noctalia";
-            };
-          };
-          open-floating = true;
-          default-column-width = {
-            fixed = 1080;
-          };
-          default-window-height = {
-            fixed = 920;
-          };
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          _children = [
+        }
+
+        {
+          window-rule._children = [
             {
-              match = {
-                _props = {
-                  app-id = "^steam$";
-                };
-              };
+              match._props.app-id = "dev.noctalia.Noctalia";
             }
-            {
-              match = {
-                _props = {
-                  app-id = "^heroic$";
-                };
-              };
-            }
-            {
-              match = {
-                _props = {
-                  app-id = "^net.lutris.Lutris$";
-                };
-              };
-            }
+            { open-floating = true; }
+            { default-column-width.fixed = 1080; }
+            { default-window-height.fixed = 920; }
           ];
-          open-on-workspace = "gaming";
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          match = {
-            _props = {
-              app-id = "^(localsend_app|proton\.vpn\.app\.gtk|de\.haeckerfelix\.Fragments|de\.haeckerfelix\.Shortwave|com\.rafaelmardojai\.Blanket)$";
-            };
-          };
-          open-floating = true;
-          default-column-width = {
-            fixed = 400;
-          };
-          default-window-height = {
-            fixed = 700;
-          };
-          opacity = config.stylix.opacity.applications;
-          background-effect = {
-            blur = true;
-          };
-          draw-border-with-background = false;
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          _children = [
+        }
+
+        {
+          window-rule._children = [
             {
-              match = {
-                _props = {
-                  app-id = "^inlyne$";
-                };
+              match._props.app-id = "^(steam|heroic|net\.lutris\.Lutris)$";
+            }
+            { open-on-workspace = "gaming"; }
+          ];
+        }
+
+        {
+          window-rule._children = [
+            {
+              match._props = {
+                app-id = "^(localsend_app|proton\.vpn\.app\.gtk|de\.haeckerfelix\.Fragments|de\.haeckerfelix\.Shortwave|com\.rafaelmardojai\.Blanket)$";
               };
             }
+            { open-floating = true; }
+            { default-column-width.fixed = 400; }
+            { default-window-height.fixed = 700; }
+            { opacity = config.stylix.opacity.applications; }
+            { background-effect.blur = true; }
+            { draw-border-with-background = false; }
           ];
-          opacity = config.stylix.opacity.applications;
-          background-effect = {
-            blur = true;
-          };
-          draw-border-with-background = false;
-        };
-      }
-      {
-        name = "window-rule";
-        value = {
-          _children = [
+        }
+
+        {
+          window-rule._children = [
             {
-              match = {
-                _props = {
-                  app-id = "^re\.sonny\.Tangram$";
-                };
+              match._props = {
+                app-id = "^inlyne$";
               };
             }
+            { opacity = config.stylix.opacity.applications; }
+            { background-effect.blur = true; }
+            { draw-border-with-background = false; }
           ];
-          block-out-from = "screen-capture";
-        };
-      }
-    ])
-  ];
+        }
+
+        {
+          window-rule._children = [
+            {
+              match._props.app-id = "re.sonny.Tangram";
+            }
+            { block-out-from = "screen-capture"; }
+          ];
+        }
+      ];
+    };
+  };
 }

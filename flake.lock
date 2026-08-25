@@ -168,11 +168,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787176219,
-        "narHash": "sha256-djoRr6jBpe35q/0JwAvXpFXg1Ktf+X54NU2RLR7wnHw=",
+        "lastModified": 1787540599,
+        "narHash": "sha256-MHwk52ty3NsLhq9a1IbIfBJZlCUJIdiUYFo52JLK9hY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c53d643b3737e2fcd04e6cb3b3580ef50b2087a0",
+        "rev": "03f4cd46bc1dd4f3a96da778d2ce9f7ce39dd450",
         "type": "github"
       },
       "original": {
@@ -183,11 +183,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1787135253,
-        "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
+        "lastModified": 1787498568,
+        "narHash": "sha256-9i/VTdusq/+NM/tz+J1Re+ojkMB8MBf0QshnYfzHz30=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
+        "rev": "56c02bc00adcf003215cc4bd996d6efaf4cff188",
         "type": "github"
       },
       "original": {
@@ -204,11 +204,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787234716,
-        "narHash": "sha256-O07tHqxugZ/XE/90kx/UCZ0YCbHSI88v2ct2ezuCKi4=",
+        "lastModified": 1787624990,
+        "narHash": "sha256-GYiCoMAaTD9TiprDbrNcuxeHNeiX5HVFyRf6iESl13A=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "a064c063f204518619b8c032c944138a0349966b",
+        "rev": "e6846db9ab4e6e4c107c4c5072cde9223d6a58c5",
         "type": "github"
       },
       "original": {
@@ -225,11 +225,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787241675,
-        "narHash": "sha256-uBmpPcPWAfMNUY8Q0wkzde4wC8LM+ZUUeAc5PmTHOI4=",
+        "lastModified": 1787653254,
+        "narHash": "sha256-xBo0bSNNUvieRHJ3FYbX0bnLl/vTI+NtXU5WH+gkzgI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "18f47e3a72a5f9e8b73254e27a6d9d262c269a3d",
+        "rev": "1b4587e134b480335d7a543e84a431032a596459",
         "type": "github"
       },
       "original": {
@@ -389,11 +389,11 @@
     "yazi-compress": {
       "flake": false,
       "locked": {
-        "lastModified": 1778861224,
-        "narHash": "sha256-yts/LCDpCH9cH1pY6Im/UpCQDCyzjhSGDZfGpQDdEZc=",
+        "lastModified": 1787430742,
+        "narHash": "sha256-9cdA8D/TtwHcLqrtoyIixA0YJmTs+c8FSNrjxp8CYI0=",
         "owner": "KKV9",
         "repo": "compress.yazi",
-        "rev": "e60e122e565e7c4798ef22767eb363428dc6704e",
+        "rev": "80e5268ec74c7ac17d4d739e13a9958cba4c70d3",
         "type": "github"
       },
       "original": {
