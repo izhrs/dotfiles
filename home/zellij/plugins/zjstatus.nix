@@ -24,7 +24,7 @@
       format_center = "{notifications}";
 
       # format_right = #[bg=$background,fg=$secondary]#[fg=$background,bg=$secondary] #[bg=$background,fg=$secondary,bold] {command_user}@{command_host}#[bg=$background,fg=$background]
-      format_right = "#[fg=$primary]#[bg=$primary,fg=$background]󰃭 #[bg=$background,fg=$primary,bold] {datetime}#[fg=$background]";
+      format_right = "#[fg=$primary]#[bg=$primary,fg=$background]󰃭 #[bg=$background,fg=$primary] {datetime}#[fg=$background]";
 
       # format_space = "#[bg=$background]";
       format_hide_on_overlength = true;
@@ -35,23 +35,23 @@
       border_format = "#[bg=$background]{char}";
       border_position = "top";
 
-      mode_normal = "#[fg=$primary]#[bg=$primary,fg=$background,bold]NORMAL#[fg=$primary]";
-      mode_tmux = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]TMUX#[fg=$secondary]";
-      mode_locked = "#[fg=$tertiary]#[bg=$tertiary,fg=$background,bold]LOCKED#[fg=$tertiary]";
-      mode_pane = "#[fg=$primary]#[bg=$primary,fg=$background,bold]PANE#[fg=$primary]";
-      mode_tab = "#[fg=$muted_forground]#[bg=$muted_forground,fg=$background,bold]TAB#[fg=$muted_forground]";
-      mode_scroll = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]SCROLL#[fg=$secondary]";
-      mode_enter_search = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]ENT-SEARCH#[bg=$surfaco,fg=$secondary]";
-      mode_search = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]SEARCHARCH#[bg=$surfac0,fg=$secondary]";
-      mode_session = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]SESSION#[fg=$secondary]";
-      mode_prompt = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]PROMPT#[fg=$secondary]";
+      mode_normal = "#[fg=$primary]#[bg=$primary,fg=$background]NORMAL#[fg=$primary]";
+      mode_tmux = "#[fg=$secondary]#[bg=$secondary,fg=$background]TMUX#[fg=$secondary]";
+      mode_locked = "#[fg=$tertiary]#[bg=$tertiary,fg=$background]LOCKED#[fg=$tertiary]";
+      mode_pane = "#[fg=$primary]#[bg=$primary,fg=$background]PANE#[fg=$primary]";
+      mode_tab = "#[fg=$muted_forground]#[bg=$muted_forground,fg=$background]TAB#[fg=$muted_forground]";
+      mode_scroll = "#[fg=$secondary]#[bg=$secondary,fg=$background]SCROLL#[fg=$secondary]";
+      mode_enter_search = "#[fg=$secondary]#[bg=$secondary,fg=$background]ENT-SEARCH#[bg=$surfaco,fg=$secondary]";
+      mode_search = "#[fg=$secondary]#[bg=$secondary,fg=$background]SEARCHARCH#[bg=$surfac0,fg=$secondary]";
+      mode_session = "#[fg=$secondary]#[bg=$secondary,fg=$background]SESSION#[fg=$secondary]";
+      mode_prompt = "#[fg=$secondary]#[bg=$secondary,fg=$background]PROMPT#[fg=$secondary]";
 
-      tab_normal = "#[fg=$primary]#[bg=$primary,fg=$background,bold]{index} #[bg=$background,fg=$primary,bold] {name}{floating_indicator}#[fg=$background]";
-      tab_normal_fullscreen = "#[fg=$primary]#[bg=$primary,fg=$background,bold]{index} #[bg=$background,fg=$primary,bold] {name}{fullscreen_indicator}#[fg=$background]";
-      tab_normal_sync = "#[fg=$primary]#[bg=$primary,fg=$background,bold]{index} #[bg=$background,fg=$primary,bold] {name}{sync_indicator}#[fg=$background]";
-      tab_active = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]{index} #[bg=$background,fg=$secondary,bold] {name}{floating_indicator}#[fg=$background]";
-      tab_active_fullscreen = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]{index} #[bg=$background,fg=$secondary,bold] {name}{fullscreen_indicator}#[fg=$background]";
-      tab_active_sync = "#[fg=$secondary]#[bg=$secondary,fg=$background,bold]{index} #[bg=$background,fg=$secondary,bold] {name}{sync_indicator}#[fg=$background]";
+      tab_normal = "#[fg=$primary]#[bg=$primary,fg=$background]{index} #[bg=$background,fg=$primary] {name}{floating_indicator}#[fg=$background]";
+      tab_normal_fullscreen = "#[fg=$primary]#[bg=$primary,fg=$background]{index} #[bg=$background,fg=$primary] {name}{fullscreen_indicator}#[fg=$background]";
+      tab_normal_sync = "#[fg=$primary]#[bg=$primary,fg=$background]{index} #[bg=$background,fg=$primary] {name}{sync_indicator}#[fg=$background]";
+      tab_active = "#[fg=$secondary]#[bg=$secondary,fg=$background]{index} #[bg=$background,fg=$secondary] {name}{floating_indicator}#[fg=$background]";
+      tab_active_fullscreen = "#[fg=$secondary]#[bg=$secondary,fg=$background]{index} #[bg=$background,fg=$secondary] {name}{fullscreen_indicator}#[fg=$background]";
+      tab_active_sync = "#[fg=$secondary]#[bg=$secondary,fg=$background]{index} #[bg=$background,fg=$secondary] {name}{sync_indicator}#[fg=$background]";
       tab_separator = " ";
 
       tab_sync_indicator = " ";

@@ -129,7 +129,7 @@ This configuration is built upon the excellent work of the following projects an
 
 **[Yazi](https://github.com/sxyazi/yazi)** - Blazing fast terminal file manager by sxyazi, written in Rust with async I/O.
 
-**[Kitty](https://github.com/kovidgoyal/kitty)** - A fast, feature-rich, GPU-based terminal emulator.
+**[Wezterm](https://wezterm.org/)** - A powerful cross-platform terminal emulator and multiplexer written by @wez and implemented in Rust.
 
 **[Rofi](https://github.com/davatorium/rofi)** - An application launcher and dmenu replacement.
 

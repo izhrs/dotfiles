@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -74,14 +73,14 @@
         current_dir=$PWD
 
         case "$current_dir" in
-          "$HOME")            current_dir=" " ;;
-          "$HOME/Downloads")  current_dir=" " ;;
-          "$HOME/Music")      current_dir=" " ;;
-          "$HOME/Pictures")   current_dir=" " ;;
-          "$HOME/Videos")     current_dir=" " ;;
-          "$HOME/Documents")  current_dir=" " ;;
-          "$HOME/Documents/code")  current_dir=" " ;;
-          "/etc/nixos")   current_dir="󱄅 " ;; # you would want to change this
+          "$HOME")            current_dir="" ;;
+          "$HOME/Downloads")  current_dir="" ;;
+          "$HOME/Music")      current_dir="" ;;
+          "$HOME/Pictures")   current_dir="" ;;
+          "$HOME/Videos")     current_dir="" ;;
+          "$HOME/Documents")  current_dir="" ;;
+          "$HOME/Documents/code")  current_dir="" ;;
+          "/etc/nixos")   current_dir="󱄅" ;;
           *)
             current_dir=''${current_dir##*/}
             ;;
@@ -97,7 +96,7 @@
 
   home.packages = with pkgs; [
     (writeShellScriptBin "llm" ''
-      zellij action new-pane --name ""  --floating --width 35% --height 96% --x 70% --y 2% --close-on-exit -- gemini
+      zellij action new-pane --name ""  --floating --width 35% --height 96% --x 70% --y 2% --close-on-exit -- agy
     '')
   ];
 }

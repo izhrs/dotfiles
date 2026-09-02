@@ -132,7 +132,7 @@
     (writeShellScriptBin "edit" ''
       export FILE_TO_EDIT="$1";
 
-      exec kitty --override close_on_child_death=yes -e zellij --layout editor
+      exec wezterm start zellij --layout editor
     '')
   ];
 

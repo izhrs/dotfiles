@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   home.username = "izhrs";
   home.homeDirectory = "/home/izhrs";
@@ -7,8 +6,8 @@
   home.file = { };
 
   home.sessionVariables = {
-    TERMINAL = "kitty";
-    XDG_TERMINAL_EMULATOR = "kitty";
+    TERMINAL = "wezterm";
+    XDG_TERMINAL_EMULATOR = "wezterm";
 
     NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
@@ -24,7 +23,7 @@
 
   home.pointerCursor.enable = true;
   xdg.mimeApps.defaultApplications = {
-    "x-scheme-handler/terminal" = [ "kitty.desktop" ];
+    "x-scheme-handler/terminal" = [ "org.wezfurlong.wezterm.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
     "image/*" = [ "org.pwmt.zathura.desktop" ];
     "video/*" = [ "mpv.desktop" ];
@@ -34,12 +33,12 @@
 
   imports = [
     ./btm
+    ./discord
     ./fastfetch
     ./firefox
     ./git
     ./helix
     ./inlyne
-    ./kitty
     ./lazygit
     ./mpv
     ./niri
@@ -52,7 +51,5 @@
     ./yazi
     ./zathura
     ./zellij
-
-    inputs.noctalia.homeModules.default
   ];
 }

@@ -25,6 +25,6 @@
 
   greeter_sync = {
     auto_sync = false;
-    privilege_command = "kitty -e pkexec";
+    privilege_command = "wezterm -e pkexec";
   };
 }

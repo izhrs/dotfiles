@@ -1,14 +1,14 @@
 # this is inspired by COSMIC keybinds.
 {
   # Applications
-  "Mod+Return".spawn = "kitty";
+  "Mod+Return".spawn = "wezterm";
   "Mod+B".spawn = "firefox";
   "Mod+Space".spawn-sh = "noctalia msg panel-toggle launcher";
   "Mod+Slash".spawn-sh = "noctalia msg panel-toggle launcher /emo";
 
   # Mod+F is Niri's default for maximize-column
   # I'm using Mod+M for that
-  "Mod+F".spawn-sh = "kitty -e yazi";
+  "Mod+F".spawn-sh = "wezterm start yazi";
 
   # Default: Mod+Shift+E; Exit niri
   "Mod+Shift+Q".quit = { };

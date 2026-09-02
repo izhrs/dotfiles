@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   programs.bottom = {
     enable = true;
   };
@@ -7,7 +7,7 @@
     name = "bottom";
     genericName = "System Monitor";
     comment = "A customizable cross-platform graphical process/system monitor for the terminal.";
-    exec = "kitty -e btm";
+    exec = "wezterm start btm";
     terminal = false;
     type = "Application";
     icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/bluefish.svg";
