@@ -10,7 +10,7 @@
 
     dead_zone.actions = {
       left = "panel-toggle control-center home";
-      right = "panel-toggle control-center system";
+      right = "panel-toggle wallpaper";
     };
 
     start = [ "workspaces" ];

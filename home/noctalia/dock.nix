@@ -10,7 +10,7 @@
   inactive_opacity = 1;
 
   pinned = [
-    "kitty"
+    "org.wezfurlong.wezterm"
     "yazi"
     "org.gnome.Nautilus"
     "firefox"
@@ -29,5 +29,7 @@
     "net.lutris.Lutris"
     "steam"
     "re.sonny.Tangram"
+    "vesktop"
+    "org.gnome.Software"
   ];
 }

@@ -50,7 +50,7 @@ in
       palette_source = "wallpaper";
       path = "${wallpaperDir}/dark_sky.png";
       theme_mode = "dark";
-      wallpaper_scheme = "m3-content";
+      wallpaper_scheme = "m3-tonal-spot";
     }
     {
       palette_source = "wallpaper";
@@ -98,13 +98,13 @@ in
       palette_source = "wallpaper";
       path = "${wallpaperDir}/stop.jpg";
       theme_mode = "light";
-      wallpaper_scheme = "m3-content";
+      wallpaper_scheme = "m3-tonal-spot";
     }
     {
       palette_source = "wallpaper";
       path = "${wallpaperDir}/street.png";
       theme_mode = "dark";
-      wallpaper_scheme = "m3-content";
+      wallpaper_scheme = "m3-tonal-spot";
     }
     {
       palette_source = "wallpaper";
