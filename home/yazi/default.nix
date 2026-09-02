@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     trash-cli
@@ -22,7 +22,7 @@
       restore = restore;
       ouch = ouch;
       piper = piper;
-      compress = inputs.yazi-compress;
+      compress = compress;
     };
 
     initLua = builtins.readFile ./init.lua;

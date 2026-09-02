@@ -48,13 +48,13 @@
 
     icons = {
       enable = true;
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "lavender";
+      package = pkgs.colloid-icon-theme.override {
+        schemeVariants = [ "all" ];
+        colorVariants = [ "all" ];
       };
 
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
+      dark = "Colloid-Purple-Catppuccin";
+      light = "Colloid-Purple-Catppuccin";
     };
 
     cursor = {

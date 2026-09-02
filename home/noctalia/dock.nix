@@ -8,28 +8,40 @@
   smart_auto_hide = true;
   reserve_space = false;
   inactive_opacity = 1;
+  cross_axis_padding = 0;
+  icon_size = 56;
+  main_axis_padding = 0;
 
   pinned = [
     "org.wezfurlong.wezterm"
-    "yazi"
     "org.gnome.Nautilus"
     "firefox"
-    "thunderbird"
-    "org.godotengine.Godot4.7"
-    "gimp"
-    "com.dec05eba.gpu_screen_recorder"
-    "bottom"
+
+    # Office
+    "org.gnome.Evolution"
+    "me.proton.Mail"
+    "onlyoffice-desktopeditors"
+    "com.github.xournalpp.xournalpp"
+    "com.github.johnfactotum.Foliate"
+
+    # Creative
+    "com.github.PintaProject.Pinta"
+
+    # Tools
     "virt-manager"
     "de.haeckerfelix.Fragments"
     "de.haeckerfelix.Shortwave"
-    "com.rafaelmardojai.Blanket"
     "proton.vpn.app.gtk"
     "LocalSend"
-    "com.heroicgameslauncher.hgl"
-    "net.lutris.Lutris"
-    "steam"
-    "re.sonny.Tangram"
+
+    # Communication
     "vesktop"
-    "org.gnome.Software"
+    "re.sonny.Tangram"
+
+    # Games
+    "steam"
+
+    # System
+    "io.github.kolunmi.Bazaar"
   ];
 }

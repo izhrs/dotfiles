@@ -41,39 +41,6 @@
       ";" = [
         '':sh zellij action new-pane --name "" --floating --width 90%% --height 90%% --x 5%% --y 5%% --close-on-exit --block-until-exit -- serpl''
       ];
-
-      # LLM integration
-      # These keybindings launch custom llm-* scripts (defined in ./scripts.nix)
-      # inside floating Zellij panes
-      l = {
-        # chat
-        c = [
-          '':sh zellij action new-pane --name ""  --floating --width 35%% --height 96%% --x 70%% --y 2%% --close-on-exit --block-until-exit -- gemini''
-        ];
-
-        # generate commit message
-        m = [
-          '':sh zellij action new-pane --name ""  --floating --width 35%% --height 96%% --x 70%% --y 2%% --close-on-exit --block-until-exit -- llm-gen-commit-msg''
-        ];
-
-        # explain the codebase
-        e = [
-          '':sh zellij action new-pane --name ""  --floating --width 35%% --height 96%% --x 70%% --y 2%% --close-on-exit --block-until-exit -- llm-explain''
-        ];
-
-        # analyze and suggest improvments
-        a = [
-          '':sh zellij action new-pane --name ""  --floating --width 35%% --height 96%% --x 70%% --y 2%% --close-on-exit --block-until-exit -- llm-do-anal''
-        ];
-      };
-    };
-
-    C-y = {
-      y = '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker open %{buffer_name}'';
-      # Open the file(s) in a vertical split
-      v = '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker vsplit %{buffer_name}'';
-      # Open the file(s) in a horizontal split
-      h = '':sh zellij run -n "" -c -f -x 5%% -y 5%% --width 90%% --height 90%% --close-on-exit --block-until-exit -- yazi-picker hsplit %{buffer_name}'';
     };
 
     m.w = "select_all";

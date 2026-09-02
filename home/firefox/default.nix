@@ -77,7 +77,7 @@
     exec = "firefox --private-window %U";
     terminal = false;
     type = "Application";
-    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/firefox-developer.svg";
+    icon = "${pkgs.colloid-icon-theme}/share/icons/Colloid/apps/scalable/firefox-developer.svg";
     categories = [
       "Network"
       "WebBrowser"

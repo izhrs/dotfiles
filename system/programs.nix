@@ -2,14 +2,8 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  services.flatpak.enable = true;
-
   # for virtual filesystems in nautilus like trash, sftp etc
   services.gvfs.enable = true;
-
-  # email services
-  services.gnome.evolution-data-server.enable = true;
-  services.protonmail-bridge.enable = true;
 
   programs = {
     # nix-helper cli tool
@@ -41,7 +35,6 @@
       enable = true;
       terminal = "wezterm";
     };
-    evolution.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -102,23 +95,23 @@
     wl-clipboard
 
     # GUI
-    # flatpak store for installing "sandboxed" GUI applications
-    # I use flatpak instead of `nix run` to try GUI apps
+    amberol # gtk4 music player
+    baobab # disk usage anal
     bazaar
-    blanket # soundscapes
+    foliate # ebook reader
     fragments # torrent downloader
-    gimp
-    godot
+    gnome-calculator
+    gnome-chess
     gpu-screen-recorder-gtk
+    loupe # secondary image viewer (just for gtk4)
     mpv
-    nautilus # files manager
+    nautilus # file manager
+    onlyoffice-desktopeditors
+    pinta # gtk4 based image editor
     proton-vpn
-    shortwave # radio around the world
-    tangram # webapps as desktop
-    winboat
-
-    # Gaming
-    heroic
-    lutris
+    shortwave
+    tangram
+    xournalpp
+    # other GUIs are in ./flatpak.nix
   ];
 }

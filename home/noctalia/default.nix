@@ -5,19 +5,7 @@
   ...
 }:
 {
-  stylix.targets.gtk.colors.enable = false;
-  stylix.targets.qt.colors.enable = false;
-  # stylix.icons.enable = false;
-
-  # this is required for noctalia to theme gtk3 applications
-  # stylix does it automatically
-  gtk = {
-    enable = true;
-    theme = {
-      name = "adw-gtk3";
-      package = pkgs.adw-gtk3;
-    };
-  };
+  imports = [ ./scripts.nix ];
 
   programs.noctalia = {
     enable = true;
@@ -38,7 +26,7 @@
         shell = import ./shell.nix { inherit config; };
 
         wallpaper = import ./wallpaper.nix { inherit config; };
-        theme = import ./theme.nix { inherit config lib; };
+        theme = import ./theme.nix { inherit config lib pkgs; };
 
         audio = {
           # volume over 100%

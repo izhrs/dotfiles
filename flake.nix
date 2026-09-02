@@ -18,15 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    yazi-compress = {
-      url = "github:KKV9/compress.yazi";
-      flake = false;
-    };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
   outputs =
@@ -34,6 +26,7 @@
       nixpkgs,
       home-manager,
       stylix,
+      nix-flatpak,
       ...
     }@inputs:
 
@@ -50,7 +43,7 @@
 
         modules = [
           stylix.nixosModules.stylix
-          inputs.noctalia.nixosModules.default
+          nix-flatpak.nixosModules.nix-flatpak
 
           ./system/configuration.nix
 

@@ -92,11 +92,6 @@
 
     zellij_tab_name_update
     autoload -Uz add-zsh-hook
-    add-zsh-hook chpwd zellij_tab_name_update'';
-
-  home.packages = with pkgs; [
-    (writeShellScriptBin "llm" ''
-      zellij action new-pane --name ""  --floating --width 35% --height 96% --x 70% --y 2% --close-on-exit -- agy
-    '')
-  ];
+    add-zsh-hook chpwd zellij_tab_name_update
+  '';
 }

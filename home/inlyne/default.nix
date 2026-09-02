@@ -7,7 +7,7 @@
     name = "Inlyne";
     genericName = "Markdown Viewer";
     comment = "a GPU powered, browserless, markdown + html viewer";
-    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/mimetypes/text-markdown.svg";
+    icon = "${pkgs.colloid-icon-theme}/share/icons/Colloid/mimetypes/scalable/text-markdown.svg";
     exec = "inlyne view %f";
     terminal = false;
     type = "Application";

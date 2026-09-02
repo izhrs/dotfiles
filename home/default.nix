@@ -24,6 +24,7 @@
   home.pointerCursor.enable = true;
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/terminal" = [ "org.wezfurlong.wezterm.desktop" ];
+    "x-scheme-handler/appstream" = [ "io.github.kolunmi.Bazaar.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
     "image/*" = [ "org.pwmt.zathura.desktop" ];
     "video/*" = [ "mpv.desktop" ];
@@ -32,11 +33,11 @@
   };
 
   imports = [
-    ./btm
     ./discord
     ./fastfetch
     ./firefox
     ./git
+    ./gtk
     ./helix
     ./inlyne
     ./lazygit

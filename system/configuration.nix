@@ -5,6 +5,7 @@
     ./bluetooth.nix
     ./desktop.nix
     ./file-systems.nix
+    ./flatpak.nix
     ./graphics.nix
     ./locale.nix
     ./network.nix
