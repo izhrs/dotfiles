@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./audio.nix
@@ -16,6 +16,9 @@
   ];
 
   system.stateVersion = "26.05";
+
+  # use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Bootloader
   boot = {

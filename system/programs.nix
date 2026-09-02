@@ -2,6 +2,15 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  services.flatpak.enable = true;
+
+  # for virtual filesystems in nautilus like trash, sftp etc
+  services.gvfs.enable = true;
+
+  # email services
+  services.gnome.evolution-data-server.enable = true;
+  services.protonmail-bridge.enable = true;
+
   programs = {
     # nix-helper cli tool
     nh = {
@@ -11,7 +20,6 @@
     };
 
     firefox.enable = true;
-    thunderbird.enable = true;
 
     zsh.enable = true;
     # Enable Nix-ld for dynamic linking (running elf binaries)
@@ -28,6 +36,12 @@
       enable = true;
       openFirewall = true; # opens 53117 port
     };
+
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "wezterm";
+    };
+    evolution.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -88,20 +102,20 @@
     wl-clipboard
 
     # GUI
+    # flatpak store for installing "sandboxed" GUI applications
+    # I use flatpak instead of `nix run` to try GUI apps
+    bazaar
     blanket # soundscapes
-    brave # alternate-browser for testing
     fragments # torrent downloader
     gimp
     godot
     gpu-screen-recorder-gtk
-    libreoffice
     mpv
     nautilus # files manager
     proton-vpn
     shortwave # radio around the world
-    spotube # spotify
     tangram # webapps as desktop
-    # winboat
+    winboat
 
     # Gaming
     heroic
