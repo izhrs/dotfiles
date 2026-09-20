@@ -23,8 +23,5 @@
     open_near_click_clipboard = true;
   };
 
-  greeter_sync = {
-    auto_sync = false;
-    privilege_command = "wezterm -e pkexec";
-  };
+  greeter_sync.auto_sync = false;
 }

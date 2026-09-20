@@ -13,7 +13,7 @@
       "gtk3"
       "gtk4"
       "helix"
-      "niri"
+      # "niri" # rolling my own for overview color
       "qt"
       "wezterm"
     ];
@@ -21,7 +21,7 @@
     community_ids = [
       "bat"
       "discord"
-      "pywalfox"
+      "pywalfox-beta4"
       "steam"
       "yazi"
       "zathura"
@@ -47,6 +47,52 @@
         input_path = "${iconThemeScript}";
         output_path = "/tmp/noctalia/apply-icon-theme.sh";
         post_hook = "bash '/tmp/noctalia/apply-icon-theme.sh'";
+      };
+
+    # this adds overview color
+    user.niri =
+      let
+        niriTheme = pkgs.writeText "noctalia.kdl" ''
+            layout {
+              focus-ring {
+                  active-color   "{{colors.primary.default.hex}}"
+                  inactive-color "{{colors.surface.default.hex}}"
+                  urgent-color   "{{colors.error.default.hex}}"
+              }
+
+              border {
+                  active-color   "{{colors.primary.default.hex}}"
+                  inactive-color "{{colors.surface.default.hex}}"
+                  urgent-color   "{{colors.error.default.hex}}"
+              }
+
+
+              tab-indicator {
+                  active-color   "{{colors.primary.default.hex}}"
+                  inactive-color "{{colors.primary_container.default.hex}}"
+                  urgent-color   "{{colors.error.default.hex}}"
+              }
+
+              insert-hint {
+                  color "{{colors.primary.default.hex}}80"
+              }
+          }
+
+          recent-windows {
+              highlight {
+                  active-color "{{colors.primary.default.hex}}"
+                  urgent-color "{{colors.error.default.hex}}"
+              }
+          }
+
+          overview {
+            backdrop-color "{{colors.surface_variant.default.hex}}"
+          }
+        '';
+      in
+      {
+        input_path = "${niriTheme}";
+        output_path = "${config.xdg.configHome}/niri/noctalia.kdl";
       };
   };
 }

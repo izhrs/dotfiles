@@ -17,26 +17,22 @@
     "org.gnome.Nautilus"
     "firefox"
 
-    # Office
-    "org.gnome.Evolution"
-    "me.proton.Mail"
+    # tools
     "onlyoffice-desktopeditors"
-    "com.github.xournalpp.xournalpp"
-    "com.github.johnfactotum.Foliate"
-
-    # Creative
+    "com.github.flxzt.rnote"
     "com.github.PintaProject.Pinta"
-
-    # Tools
     "virt-manager"
     "de.haeckerfelix.Fragments"
     "de.haeckerfelix.Shortwave"
     "proton.vpn.app.gtk"
     "LocalSend"
 
+    # reading
+    "com.github.johnfactotum.Foliate"
+    "info.febvre.Komikku"
+
     # Communication
     "vesktop"
-    "re.sonny.Tangram"
 
     # Games
     "steam"
