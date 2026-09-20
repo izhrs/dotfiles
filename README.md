@@ -4,27 +4,25 @@
 <!-- NixOS (Blue) -->
 <img src="https://img.shields.io/badge/NixOS-94e2d5?logo=nixos&logoColor=1e1e2e" />
 
-<!-- Home Manager (Sky) -->
-<img src="https://img.shields.io/badge/Home%20Manager-f5c2e7?logo=nixos&logoColor=1e1e2e" />
-
 <!-- Niri DE (Maroon) -->
 <img src="https://img.shields.io/badge/Niri-eba0ac?logo=niri&logoColor=1e1e2e" />
+
+<!-- Noctalia (Yellow) -->
+<img src="https://img.shields.io/badge/Noctalia-f9e2af?logo=phoenixframework&logoColor=1e1e2e" />
+
+<!-- Home Manager (Sky) -->
+<img src="https://img.shields.io/badge/Home%20Manager-f5c2e7?logo=nixos&logoColor=1e1e2e" />
 
 <!-- Helix (Mauve) -->
 <img src="https://img.shields.io/badge/Helix-cba6f7?logo=helix&logoColor=1e1e2e" />
 
 <!-- Yazi (Blue) -->
 <img src="https://img.shields.io/badge/Yazi-74c7ec?logo=fireship&logoColor=1e1e2e" />
-
-<!-- Yazi (Pink) -->
-<img src="https://img.shields.io/badge/Starship-f5c2e7?logo=starship&logoColor=1e1e2e" />
 </p>
 
 <p align="center"> Welcome to my Nix Dotfiles, a configuration using Home Manager as a nix module, featuring the Niri, Noctalia, Catppuccin theme via Stylix, and essential development tools. </p>
 
 ## Screenshots
-
-some of these are old COSMIC screenshots, will update soon
 
 ### Fastfetch
 
@@ -35,27 +33,23 @@ some of these are old COSMIC screenshots, will update soon
 
 ### Light and Dark
 
-![stylix](./screenshots/stylix.png)
+![GTK applications](./screenshots/gtk.png)
 
 ### Zellij
 
-![zellij](./screenshots/zellij_light_dark.png)
+![zellij](./screenshots/zellij.png)
 
 ### Helix with Yazi
 
 ![helix_with_yazi](./screenshots/helix_with_yazi.png)
 
-### Helix with Lazygit
+<!-- ### Helix with Lazygit -->
 
-![helix_with_lazygit](./screenshots/helix_with_lazygit.png)
+<!-- ![helix_with_lazygit](./screenshots/helix_with_lazygit.png) -->
 
 ### Helix
 
 ![helix](./screenshots/helix.png)
-
-### Helix with Gemini
-
-![helix_with_gemini](./screenshots/helix_with_gemini.png)
 
 ### Tiles
 
@@ -66,7 +60,7 @@ some of these are old COSMIC screenshots, will update soon
 ## Project Structure
 
 > [!note]
-> This configuration is built for my personal use. I don't intend for others to use it as-is, and making it portable or beginner-friendly is not a goal of this dotfiles. There is no setup script. That said, the code is structured so that individual program configurations are easy to lift out. Each program lives in its own directory and is self-contained, it only relies on flake inputs and Stylix. The use of Home Manager as a NixOS module is purely for integration (with stylix) convenience. I highly recommend setting up [Stylix](https://github.com/nix-community/stylix).
+> This configuration is built for my personal use. I don't intend for others to use it as-is, and making it portable or beginner-friendly is not a goal of this dotfiles. There is no setup script. This setup now uses Noctalia (not Stylix) to dynamically generate theme and restyle applications every time the wallpaper changes, live at runtime instead of at rebuild time.
 
 ```.
 ├── home/
