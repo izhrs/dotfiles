@@ -4,16 +4,19 @@
     uninstallUnmanaged = false;
 
     packages = [
+      "io.github.kolunmi.Bazaar" # flatpak app store
       "com.github.tchx84.Flatseal" # GUI flatpak permission manager
       "net.nokyan.Resources"
       "org.gnome.Snapshot"
 
-      # Communication
-      "org.gnome.Evolution" # email client
-      "me.proton.Mail"
-
       # slop
-      "com.jeffser.Alpaca"
+      "com.jeffser.Alpaca" # gpt-chan
+
+      # stuffs that I rarely use
+      "com.github.johnfactotum.Foliate" # ebook reader
+      "info.febvre.Komikku" # manga reader
+      "de.haeckerfelix.Shortwave" # radio around the world
+      "io.gitlab.theevilskeleton.Upscaler" # image upscaler
     ];
 
     update.auto = {

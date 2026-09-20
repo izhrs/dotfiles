@@ -3,9 +3,7 @@
   stylix.targets.firefox.enable = true;
   stylix.targets.firefox.profileNames = [ "default" ];
 
-  # use adative-tab-bar-color for dynamic theming
-  # this is because firefox does not reload stylix theme
-  # on specilisation switch.
+  # use pywalfox with noctalia's template for dynamic theming
   stylix.targets.firefox.colorTheme.enable = false;
 
   programs.firefox = {
@@ -15,19 +13,21 @@
         default = "ddg";
       };
 
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        adaptive-tab-bar-colour # this instead of stylix colors
-        bitwarden
-        geo-spoof
-        ghostery
-        privacy-badger
-        proton-vpn
-        refined-github
-        ublock-origin
-        vimium
-      ];
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          bitwarden
+          geo-spoof
+          ghostery
+          privacy-badger
+          proton-vpn
+          pywalfox
+          refined-github
+          ublock-origin
+          vimium
+        ];
 
-      extensions.force = true;
+        force = true;
+      };
 
       settings = {
         "accessibility.force_disabled" = 1;
@@ -35,7 +35,7 @@
         "browser.aboutConfig.showWarning" = false;
         "browser.gesture.swipe.left" = "";
         "browser.gesture.swipe.right" = "";
-        "browser.newtabpage.enabled" = false;
+        "browser.newtabpage.enabled" = true;
         "browser.startup.homepage" = "about:home";
         "browser.startup.homepage_override.mstone" = "ignore";
         "browser.startup.page" = 3;

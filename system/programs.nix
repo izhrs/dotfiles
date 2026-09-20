@@ -13,15 +13,10 @@
       clean.extraArgs = "--keep-since 7d --keep 3";
     };
 
-    firefox.enable = true;
-
     zsh.enable = true;
     # Enable Nix-ld for dynamic linking (running elf binaries)
     nix-ld.enable = true;
     steam.enable = true;
-    # to use gamemode with steam edit launch options inside
-    # game -> general -> launch options -> `gamemoderun %command%`
-    gamemode.enable = true;
 
     # obs-studio.enable = true;
     gpu-screen-recorder.enable = true;
@@ -95,23 +90,25 @@
     wl-clipboard
 
     # GUI
-    amberol # gtk4 music player
-    baobab # disk usage anal
-    bazaar
-    foliate # ebook reader
+    mpv
+    onlyoffice-desktopeditors
+    proton-vpn
+
+    # GUI (libadwaita/gtk4)
+    amberol # music player
+    baobab # disk usage analyzer
     fragments # torrent downloader
     gnome-calculator
     gnome-chess
     gpu-screen-recorder-gtk
-    loupe # secondary image viewer (just for gtk4)
-    mpv
+    loupe # image viewer
     nautilus # file manager
-    onlyoffice-desktopeditors
-    pinta # gtk4 based image editor
-    proton-vpn
-    shortwave
-    tangram
-    xournalpp
-    # other GUIs are in ./flatpak.nix
+    pinta # image editor
+    rnote
+    # gnome web browser; I use it for creating webapps coz it looks
+    # cleaner than firefox and I dont need extensions for the sites like web.whatsapp
+    epiphany
+
+    # some other GUIs are in ./flatpak.nix
   ];
 }

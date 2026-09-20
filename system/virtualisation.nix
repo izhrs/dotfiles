@@ -10,12 +10,14 @@
     };
     spiceUSBRedirection.enable = true;
 
-    docker = {
+    podman = {
       enable = true;
-      rootless = {
-        enable = false; # needed for winboat
-        setSocketVariable = true;
-      };
+
+      # Create a `docker` alias for podman
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
     };
 
     # following configuration is added only when building VM with build-vm

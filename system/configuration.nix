@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ./audio.nix
     ./bluetooth.nix
-    ./desktop.nix
+    ./noctalia.nix
     ./file-systems.nix
     ./flatpak.nix
     ./graphics.nix

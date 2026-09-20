@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   programs.fastfetch = {
     enable = true;
 
@@ -103,6 +103,7 @@
           type = "packages";
           key = "│ ├󰏖 Packages";
           keyColor = "yellow";
+          combined = true;
         }
 
         {
@@ -155,9 +156,10 @@
         }
 
         {
-          type = "icons";
+          type = "custom";
           key = "│ ├󰄛 Icons";
           keyColor = "blue";
+          format = config.stylix.icons.dark;
         }
 
         {

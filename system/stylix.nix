@@ -3,14 +3,7 @@
     enable = true;
     autoEnable = true;
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    override = {
-      base00 = "11111b"; # crust instead of base
-      base0D = "b4befe"; # lavendr everywhere (no blue)
-    };
-
     polarity = "dark";
-
     image = ../wallpapers/a_pixel_nap.png;
 
     targets.fontconfig.enable = true;
@@ -66,14 +59,22 @@
 
   specialisation.light.configuration = {
     stylix = {
-      base16Scheme = lib.mkForce "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-      override = {
-        base00 = "eff1f5"; # do it again otherwise it'll inherit parent's override value.
-        base0D = "7287fd";
-      };
-
       image = lib.mkForce ../wallpapers/anime_waifu.png;
       polarity = lib.mkForce "light";
     };
   };
+
+  # specialisation.game.configuration = {
+  #   stylix = {
+  #     image = lib.mkForce ../wallpapers/hiroki_ree.png;
+  #     polarity = lib.mkForce "dark";
+
+  #     opacity = lib.mkForce {
+  #       applications = 1.0;
+  #       desktop = 1.0;
+  #       popups = 1.0;
+  #       terminal = 1.0;
+  #     };
+  #   };
+  # };
 }

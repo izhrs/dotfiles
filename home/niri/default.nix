@@ -178,7 +178,7 @@
           {
             window-rule._children = [
               {
-                match._props.app-id = "^(re\.sonny\.Tangram|vesktop|org\.gnome\.Evolution|me\.proton\.Mail)$";
+                match._props.app-id = "^(vesktop|org\.gnome\.Epiphany\.WebApp[-_].*)$";
               }
               { block-out-from = "screen-capture"; }
               { open-on-workspace = "communication"; }

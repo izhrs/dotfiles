@@ -21,6 +21,8 @@
 
       show_startup_tips = false;
       show_release_notes = false;
+
+      pane_frame_style = "full";
       ui = {
         pane_frames = {
           rounded_corners = true;
