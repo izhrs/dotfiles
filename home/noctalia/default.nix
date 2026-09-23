@@ -71,7 +71,11 @@
         lockscreen_widgets = {
           enabled = true;
           schema_version = 2;
-          widget_order = map (o: "lockscreen-login-box@${o}") outputs;
+          widget_order = lib.concatMap (o: [
+            "lockscreen-login-box@${o}"
+            "audio-visualizer@${o}"
+            "clock@${o}"
+          ]) outputs;
 
           grid = {
             cell_size = 16;
@@ -81,13 +85,29 @@
 
           # I hate this syntax
           widget = lib.listToAttrs (
-            map (o: {
-              name = "lockscreen-login-box@${o}";
-              value = import ./lockscreen-login-box.nix {
-                inherit config;
-                output = o;
-              };
-            }) outputs
+            lib.concatMap (o: [
+              {
+                name = "lockscreen-login-box@${o}";
+                value = import ./widgets/login-box.nix {
+                  inherit config;
+                  output = o;
+                };
+              }
+              {
+                name = "audio-visualizer@${o}";
+                value = import ./widgets/audio-visualizer.nix {
+                  inherit config;
+                  output = o;
+                };
+              }
+              {
+                name = "clock@${o}";
+                value = import ./widgets/clock.nix {
+                  inherit config;
+                  output = o;
+                };
+              }
+            ]) outputs
           );
         };
 

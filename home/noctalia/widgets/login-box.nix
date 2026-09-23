@@ -3,7 +3,7 @@
   box_height = 70.0;
   box_width = 240.0;
   cx = 960.0;
-  cy = 879.0;
+  cy = 969.0;
   enabled = true;
   inherit output;
   placement_height = 1080.0;
