@@ -6,8 +6,6 @@
     packages = [
       "io.github.kolunmi.Bazaar" # flatpak app store
       "com.github.tchx84.Flatseal" # GUI flatpak permission manager
-      "net.nokyan.Resources"
-      "org.gnome.Snapshot"
 
       # slop
       "com.jeffser.Alpaca" # gpt-chan
@@ -15,8 +13,6 @@
       # stuffs that I rarely use
       "com.github.johnfactotum.Foliate" # ebook reader
       "info.febvre.Komikku" # manga reader
-      "de.haeckerfelix.Shortwave" # radio around the world
-      "io.gitlab.theevilskeleton.Upscaler" # image upscaler
     ];
 
     update.auto = {

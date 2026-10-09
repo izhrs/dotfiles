@@ -39,7 +39,6 @@
     bottom
     delta
     devenv
-    dust
     fd
     ffmpeg-full
     file
@@ -49,7 +48,6 @@
     nvd # for nh
     procs
     ripgrep
-    rnr
     sd
     tokei
     yt-dlp
@@ -92,19 +90,25 @@
     # GUI
     mpv
     onlyoffice-desktopeditors
-    proton-vpn
 
     # GUI (libadwaita/gtk4)
     amberol # music player
     baobab # disk usage analyzer
+    bobby
     fragments # torrent downloader
     gnome-calculator
     gnome-chess
     gpu-screen-recorder-gtk
     loupe # image viewer
+    mission-center # resource/task manager
+    mousam # weather
     nautilus # file manager
     pinta # image editor
+    proton-vpn
     rnote
+    snapshot # camera
+    upscaler
+    video-downloader
     # gnome web browser; I use it for creating webapps coz it looks
     # cleaner than firefox and I dont need extensions for the sites like web.whatsapp
     epiphany

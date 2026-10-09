@@ -24,26 +24,26 @@ in
   favorite = [
     {
       palette_source = "wallpaper";
-      path = "${wallpaperDir}/a_pixel_nap.png";
+      path = "${wallpaperDir}/pixel_nap_dark.png";
       theme_mode = "dark";
       wallpaper_scheme = "m3-tonal-spot";
     }
     {
       palette_source = "wallpaper";
-      path = "${wallpaperDir}/a_pixel_nap_colored.png";
+      path = "${wallpaperDir}/pixel_nap_light.png";
       theme_mode = "light";
       wallpaper_scheme = "m3-tonal-spot";
     }
     {
       palette_source = "wallpaper";
-      path = "${wallpaperDir}/anime_waifu.png";
-      theme_mode = "light";
-      wallpaper_scheme = "m3-tonal-spot";
-    }
-    {
-      palette_source = "wallpaper";
-      path = "${wallpaperDir}/torii_arch.jpg";
+      path = "${wallpaperDir}/tsukatsuki_rio_dark.jpeg";
       theme_mode = "dark";
+      wallpaper_scheme = "m3-tonal-spot";
+    }
+    {
+      palette_source = "wallpaper";
+      path = "${wallpaperDir}/tsukatsuki_rio_light.jpeg";
+      theme_mode = "light";
       wallpaper_scheme = "m3-tonal-spot";
     }
   ];

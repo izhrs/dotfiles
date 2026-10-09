@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   imports = [ ./scripts.nix ];
 
@@ -12,7 +12,7 @@
       enable = true;
       checkConfig = false;
 
-      extraConfigEarly = ''
+      extraConfig = lib.mkBefore ''
         include "${config.xdg.configHome}/niri/noctalia.kdl"
       '';
 

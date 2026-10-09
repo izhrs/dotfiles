@@ -16,6 +16,8 @@
     "org.wezfurlong.wezterm"
     "org.gnome.Nautilus"
     "firefox"
+    "org.gnome.Epiphany"
+    "net.donnybeelo.Convey"
 
     # tools
     "onlyoffice-desktopeditors"
@@ -23,7 +25,7 @@
     "com.github.PintaProject.Pinta"
     "virt-manager"
     "de.haeckerfelix.Fragments"
-    "de.haeckerfelix.Shortwave"
+    "com.github.unrud.VideoDownloader"
     "proton.vpn.app.gtk"
     "LocalSend"
 
@@ -39,5 +41,6 @@
 
     # System
     "io.github.kolunmi.Bazaar"
+    "io.missioncenter.MissionCenter"
   ];
 }

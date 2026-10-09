@@ -26,7 +26,7 @@
     "x-scheme-handler/terminal" = [ "org.wezfurlong.wezterm.desktop" ];
     "x-scheme-handler/appstream" = [ "io.github.kolunmi.Bazaar.desktop" ];
     "application/pdf" = [ "org.pwmt.zathura.desktop" ];
-    "image/*" = [ "org.pwmt.zathura.desktop" ];
+    "image/*" = [ "org.gnome.Loupe.desktop" ];
     "video/*" = [ "mpv.desktop" ];
     "text/*" = [ "Helix.desktop" ];
     "text/markdown" = [ "inlyne.desktop" ];

@@ -4,7 +4,7 @@
     autoEnable = true;
 
     polarity = "dark";
-    image = ../wallpapers/a_pixel_nap.png;
+    image = ../wallpapers/tsukatsuki_rio_dark.jpeg;
 
     targets.fontconfig.enable = true;
     fonts = {
@@ -59,22 +59,8 @@
 
   specialisation.light.configuration = {
     stylix = {
-      image = lib.mkForce ../wallpapers/anime_waifu.png;
+      image = lib.mkForce ../wallpapers/misato_katsuragi.jpeg;
       polarity = lib.mkForce "light";
     };
   };
-
-  # specialisation.game.configuration = {
-  #   stylix = {
-  #     image = lib.mkForce ../wallpapers/hiroki_ree.png;
-  #     polarity = lib.mkForce "dark";
-
-  #     opacity = lib.mkForce {
-  #       applications = 1.0;
-  #       desktop = 1.0;
-  #       popups = 1.0;
-  #       terminal = 1.0;
-  #     };
-  #   };
-  # };
 }

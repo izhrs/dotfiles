@@ -125,7 +125,6 @@
     bun
     python314
     uv
-    docker-compose
     powershell
     typst
 

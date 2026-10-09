@@ -4,7 +4,7 @@
     ./audio.nix
     ./bluetooth.nix
     ./noctalia.nix
-    ./file-systems.nix
+    # ./file-systems.nix
     ./flatpak.nix
     ./graphics.nix
     ./locale.nix
