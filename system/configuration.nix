@@ -4,8 +4,6 @@
     ./audio.nix
     ./bluetooth.nix
     ./noctalia.nix
-    # ./file-systems.nix
-    ./flatpak.nix
     ./graphics.nix
     ./locale.nix
     ./network.nix
@@ -14,6 +12,8 @@
     ./stylix.nix
     ./users.nix
     ./virtualisation.nix
+
+    ./sandboxed
   ];
 
   system.stateVersion = "26.05";

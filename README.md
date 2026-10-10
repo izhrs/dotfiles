@@ -85,6 +85,12 @@
 
 This configuration uses Home Manager as a Nix module (instead of running a standalone home-manager CLI setup). Home Manager declaratively manages the user environment: packages, dotfiles, and user services in a reproducible way.
 
+## Why three ways to install programs?
+
+- **Nix packages:** CLI tools, dev tooling and software I trust. Declarative, one shared store.
+- **nixpak:** GUI and network apps I don't trust or want hardened (Alpaca, Convey, Komikku). Same nixpkgs build as the rest of the system, but sandboxed, with data redirected to `~/.var/nixpak/<app-id>`. No duplicate runtimes like Flatpak, but all the benefits of Nix packages.
+- **Flatpak:** a test and discovery bench. I find apps in an app store like Bazaar, try them, read their permissions in Flatseal, then either port them to nixpak or uninstall them. App data stays in Flatpak's own dirs, so removal is cleaner than `nix run nixpkgs#something`.
+
 ## Light Mode
 
 Light theming is implemented via NixOS specialisations combined with [Stylix](https://github.com/nix-community/stylix), which handles theming for all programs. Since this config uses Home Manager as a NixOS module, the system level Stylix configuration is inherited by Home Manager directly, so home modules don't need to define any specialisations of their own.

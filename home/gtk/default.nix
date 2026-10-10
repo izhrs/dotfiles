@@ -12,6 +12,9 @@
       package = pkgs.adw-gtk3;
     };
 
+    gtk3.extraConfig.gtk-decoration-layout = ":close";
+    gtk4.extraConfig.gtk-decoration-layout = ":close";
+
     # gtk4.extraCss = ''
     #   @import url("noctalia.css");
 
@@ -27,18 +30,18 @@
     # '';
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/wm/preferences" = {
-      # Hides maximize and minimize buttons and
-      # places the close button at the top right
-      button-layout = ":close";
+  # dconf.settings = {
+  #   "org/gnome/desktop/wm/preferences" = {
+  #     # Hides maximize and minimize buttons and
+  #     # places the close button at the top right
+  #     button-layout = ":close";
 
-      # Hides maximize and minimize buttons and
-      # places the close button at the top left
-      # button-layout = "close:";
+  #     # Hides maximize and minimize buttons and
+  #     # places the close button at the top left
+  #     # button-layout = "close:";
 
-      # Hides all window action buttons
-      # button-layout = "";
-    };
-  };
+  #     # Hides all window action buttons
+  #     # button-layout = "";
+  #   };
+  # };
 }

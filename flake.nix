@@ -18,7 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -26,7 +29,6 @@
       nixpkgs,
       home-manager,
       stylix,
-      nix-flatpak,
       ...
     }@inputs:
 
@@ -43,7 +45,6 @@
 
         modules = [
           stylix.nixosModules.stylix
-          nix-flatpak.nixosModules.nix-flatpak
 
           ./system/configuration.nix
 

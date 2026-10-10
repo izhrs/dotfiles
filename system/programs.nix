@@ -5,6 +5,12 @@
   # for virtual filesystems in nautilus like trash, sftp etc
   services.gvfs.enable = true;
 
+  # Flatpak is only a test bench. Try an app here first, then use Flatseal to
+  # read its permissions and port it to nixpak if I keep it, or uninstall it.
+  # Everything stays in Flatpak's own dirs, so uninstalling flatpak apps leaves
+  # no pollution like nix run nixpkgs#something does
+  services.flatpak.enable = true;
+
   programs = {
     # nix-helper cli tool
     nh = {
