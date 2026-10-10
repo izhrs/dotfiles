@@ -31,12 +31,10 @@ let
           "org.freedesktop.DBus" = "talk";
           "org.freedesktop.Notifications" = "talk";
           "org.freedesktop.portal.Desktop" = "talk";
-          "org.gnome.SettingsDaemon.Color" = "talk";
         };
 
         bubblewrap = {
           network = true;
-          shareIpc = true;
 
           env = {
             XDG_CONFIG_HOME = sub "/config";

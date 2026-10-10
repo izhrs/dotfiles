@@ -17,6 +17,12 @@ let
         appId = "net.donnybeelo.Convey";
         appDir = sloth.concat' sloth.homeDir "/.var/nixpak/${appId}";
         sub = p: sloth.concat' appDir p;
+
+        caDir = pkgs.runCommand "ca-certs" { } ''
+          mkdir -p $out
+          cp ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt $out/ca-certificates.crt
+          cp ${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt $out/ca-bundle.crt
+        '';
       in
       {
         app.package = pkgs.convey;
@@ -29,15 +35,11 @@ let
           "${appId}.*" = "own";
 
           "org.freedesktop.DBus" = "talk";
-          "ca.desrt.dconf" = "talk";
           "org.freedesktop.Notifications" = "talk";
           "org.freedesktop.portal.Desktop" = "talk";
-          "org.freedesktop.portal.FileChooser" = "talk";
-          "org.freedesktop.portal.OpenURI" = "talk";
           "org.gnome.Contacts" = "talk";
           "org.gnome.evolution.dataserver.*" = "talk";
-          "org.gnome.Settings" = "talk";
-          "org.freedesktop.secrets" = "talk";
+          "org.gnome.OnlineAccounts" = "talk";
         };
 
         bubblewrap = {
@@ -57,13 +59,20 @@ let
             (sloth.mkdir (sub "/data"))
             (sloth.mkdir (sub "/cache"))
             (sloth.mkdir (sub "/.local/state"))
+
+            # for attachements
+            [
+              (sloth.concat' (sloth.env "XDG_RUNTIME_DIR") "/doc/by-app/${appId}")
+              (sloth.concat' (sloth.env "XDG_RUNTIME_DIR") "/doc")
+            ]
           ];
 
           bind.ro = [
             [
-              "${pkgs.cacert}/etc/ssl/certs"
+              "${caDir}"
               "/etc/ssl/certs"
             ]
+
             [
               (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
               (sub "/config/gtk-4.0")

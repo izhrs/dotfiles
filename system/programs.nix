@@ -11,6 +11,8 @@
   # no pollution like nix run nixpkgs#something does
   services.flatpak.enable = true;
 
+  services.protonmail-bridge.enable = true;
+
   programs = {
     # nix-helper cli tool
     nh = {
@@ -119,6 +121,6 @@
     # cleaner than firefox and I dont need extensions for the sites like web.whatsapp
     epiphany
 
-    # some other GUIs are in ./flatpak.nix
+    # some other GUIs are in ./sandboxed
   ];
 }

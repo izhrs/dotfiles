@@ -40,7 +40,6 @@ let
           "org.freedesktop.DBus" = "talk";
           "org.freedesktop.Notifications" = "talk";
           "org.freedesktop.portal.Desktop" = "talk";
-          "org.freedesktop.portal.FileChooser" = "talk";
           "org.freedesktop.portal.OpenURI" = "talk";
         };
 
@@ -68,6 +67,12 @@ let
             (sloth.mkdir (sub "/data"))
             (sloth.mkdir (sub "/cache"))
             (sloth.mkdir (sub "/.local/state"))
+
+            # for attachements
+            [
+              (sloth.concat' (sloth.env "XDG_RUNTIME_DIR") "/doc/by-app/${appId}")
+              (sloth.concat' (sloth.env "XDG_RUNTIME_DIR") "/doc")
+            ]
           ];
 
           bind.ro = [
