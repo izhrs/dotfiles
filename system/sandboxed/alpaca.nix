@@ -60,6 +60,14 @@ let
 
             # to use system icons
             XDG_DATA_DIRS = "${config.stylix.icons.package}/share:/usr/share";
+
+            FONTCONFIG_FILE = "${pkgs.makeFontsConf {
+              fontDirectories = [
+                config.stylix.fonts.sansSerif.package
+                config.stylix.fonts.monospace.package
+                config.stylix.fonts.emoji.package
+              ];
+            }}";
           };
 
           bind.rw = [
@@ -84,10 +92,20 @@ let
               (sloth.concat' sloth.homeDir "/.config/gtk-4.0")
               (sub "/config/gtk-4.0")
             ]
+
+            "/run/opengl-driver"
+            "${config.hardware.nvidia.package}"
           ];
 
           bind.dev = [
             "/dev/dri"
+
+            # nvidia only
+            "/dev/nvidia0"
+            "/dev/nvidiactl"
+            "/dev/nvidia-uvm"
+            "/dev/nvidia-uvm-tools"
+            "/dev/nvidia-modeset"
           ];
         };
       };

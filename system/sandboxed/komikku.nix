@@ -43,6 +43,15 @@ let
             XDG_STATE_HOME = sub "/.local/state";
 
             XDG_DATA_DIRS = "${config.stylix.icons.package}/share:/usr/share";
+
+            FONTCONFIG_FILE = "${pkgs.makeFontsConf {
+              fontDirectories = [
+                config.stylix.fonts.sansSerif.package
+                config.stylix.fonts.monospace.package
+                config.stylix.fonts.emoji.package
+              ];
+            }}";
+
           };
 
           bind.rw = [
