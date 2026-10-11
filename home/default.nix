@@ -48,6 +48,7 @@
     ./shell
     ./starship
     ./virtmanager
+    ./windows
     ./wezterm
     ./yazi
     ./zathura
