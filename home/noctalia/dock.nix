@@ -30,7 +30,7 @@
     "LocalSend"
 
     # reading
-    "com.github.johnfactotum.Foliate"
+    "io.gitlab.news_flash.NewsFlash"
     "info.febvre.Komikku"
 
     # Communication
