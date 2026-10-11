@@ -2,8 +2,6 @@
 
 ## Previews
 
-![misato_katsuragi](misato_katsuragi.jpeg)
-
 ![pixel_nap_dark](pixel_nap_dark.png)
 
 ![pixel_nap_light](pixel_nap_light.png)

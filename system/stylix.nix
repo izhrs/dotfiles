@@ -59,7 +59,7 @@
 
   specialisation.light.configuration = {
     stylix = {
-      image = lib.mkForce ../wallpapers/misato_katsuragi.jpeg;
+      image = lib.mkForce ../wallpapers/tsukatsuki_rio_light.jpeg;
       polarity = lib.mkForce "light";
     };
   };

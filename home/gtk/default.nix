@@ -44,4 +44,31 @@
   #     # button-layout = "";
   #   };
   # };
+
+  home.packages = [
+    (pkgs.writeShellScriptBin "gnome-control-center" ''
+      export XDG_CURRENT_DESKTOP=GNOME
+      exec ${pkgs.gnome-control-center}/bin/gnome-control-center "$@"
+    '')
+
+    (pkgs.writeShellScriptBin "gnome-settings" ''
+      export XDG_CURRENT_DESKTOP=GNOME
+      exec ${pkgs.gnome-control-center}/bin/gnome-control-center "$@"
+    '')
+  ];
+  xdg.desktopEntries.gnome-control-center = {
+    name = "Settings";
+    genericName = "Settings";
+    comment = "GNOME Control Center, including Online Accounts";
+    exec = "gnome-settings";
+    terminal = false;
+    type = "Application";
+    icon = "org.gnome.Settings";
+    categories = [
+      "Settings"
+      "GNOME"
+      "GTK"
+    ];
+    startupNotify = true;
+  };
 }

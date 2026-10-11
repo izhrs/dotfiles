@@ -3,7 +3,10 @@
   nixpkgs.config.allowUnfree = true;
 
   # for virtual filesystems in nautilus like trash, sftp etc
+  # and gnome-fication
   services.gvfs.enable = true;
+  services.gnome.gnome-online-accounts.enable = true;
+  services.gnome.evolution-data-server.enable = true;
 
   # Flatpak is only a test bench. Try an app here first, then use Flatseal to
   # read its permissions and port it to nixpak if I keep it, or uninstall it.
@@ -99,27 +102,32 @@
     mpv
     onlyoffice-desktopeditors
 
+    # GNOME; -- trigger warning
+    baobab # disk usage analyzer
+    gnome-calculator
+    gnome-calendar
+    gnome-connections
+    gnome-contacts
+    gnome-chess
+    gnome-control-center
+    loupe # image viewer
+    nautilus # file manager
+    epiphany
+
     # GUI (libadwaita/gtk4)
     amberol # music player
-    baobab # disk usage analyzer
     bobby
     fragments # torrent downloader
-    gnome-calculator
-    gnome-chess
+
     gpu-screen-recorder-gtk
-    loupe # image viewer
     mission-center # resource/task manager
     mousam # weather
-    nautilus # file manager
     pinta # image editor
     proton-vpn
     rnote
     snapshot # camera
     upscaler
     video-downloader
-    # gnome web browser; I use it for creating webapps coz it looks
-    # cleaner than firefox and I dont need extensions for the sites like web.whatsapp
-    epiphany
 
     # some other GUIs are in ./sandboxed
   ];
